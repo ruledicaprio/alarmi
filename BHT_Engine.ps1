@@ -1,6 +1,6 @@
 # BHT Alarm Engine v31 - FINAL WORKING
 $mutex = New-Object System.Threading.Mutex($false, "Global\BHTEngineMutex")
-if (-not $mutex.WaitOne(0)) { Write-Host "Skripta veÄ‡ radi." -ForegroundColor Red; exit }
+if (-not $mutex.WaitOne(0)) { Write-Host "Skripta već radi." -ForegroundColor Red; exit }
 
 $repoPath = "E:\BHT-Dashboard-Git"
 Set-Location $repoPath
@@ -37,22 +37,26 @@ function ConvertTo-DateTime($dateStr) {
 function Get-RegionFromSite {
     param([string]$Site)
     $s = $Site.Trim().ToUpper()
-
-    # 1. EKSPlicitna pravila (najviši prioritet)
+    
+    # 1. Čišćenje prefiksa (BTS_, RRST_)
+    $s = $s -replace '^(BTS_|BS_|RRST_)', ''
+    
+    # 2. Eksplicitna Mapa (Najviši prioritet)
     $explicitMap = @{
         'GRABOVICA'       = 'Mostar'
         'GRABOVICA_TUZLA' = 'Tuzla'
         'TUZLA_KISELJAK'  = 'Tuzla'
-        'KISELJAK_CENTAR' = 'Sarajevo'
+        'KISELJAK_CENTAR' = 'Travnik'
         'POSUSJE_OSREDAK' = 'Mostar'
         'POSUSJE_CENTAR'  = 'Mostar'
-        'MANJACA'         = 'Banja Luka'
+        'MANJACA'         = 'Travnik'
         'KMUR'            = 'Goražde'
-		'TRAVNIK_SUMECE'  = 'Travnik'
+        'CELINAC_BOJICI'  = 'Zenica'
+        'CELINAC_JOSAVKA' = 'Zenica'
     }
     if ($explicitMap.ContainsKey($s)) { return $explicitMap[$s] }
 
-    # 2. Sufiks/Prefiks pravila
+    # 3. Suffix/Prefix Pravila
     if ($s -match '_TUZLA$|^TUZLA_') { return 'Tuzla' }
     if ($s -match '_SARAJEVO$|^SARAJEVO_') { return 'Sarajevo' }
     if ($s -match '_ZENICA$|^ZENICA_') { return 'Zenica' }
@@ -61,15 +65,15 @@ function Get-RegionFromSite {
     if ($s -match '_TRAVNIK$|^TRAVNIK_') { return 'Travnik' }
     if ($s -match '_GORAZDE$|^GORAZDE_') { return 'Goražde' }
 
-    # 3. Fuzzy match (samo ako 1 i 2 ne odgovaraju)
-    if ($s -match 'SARAJEVO|ILIDZA|VOGOSCA|ALIPASINO|HRASNICA|KOBILJACA|MISEVICI|GLADNO|DRAKSENIC|STUP|HALILOVICI') { return 'Sarajevo' }
-    if ($s -match 'TUZLA|GRAČANICA|LUKAVAC|KALESIJA|KLJESTANI|TISCA') { return 'Tuzla' }
-    if ($s -match 'ZENICA|KAKANJ|VISOKO|ZAVIDOVI|PUHOVI') { return 'Zenica' }
-    if ($s -match 'MOSTAR|ČAPLJINA|ŠIROKI|GRUDE|LJUBUŠKI|KONJIC|JABLANICA') { return 'Mostar' }
-    if ($s -match 'BIHAC|CAZIN|VELIKAKLADUSA|SANSKI|KLJUC|BOSANSKI') { return 'Bihać' }
-    if ($s -match 'TRAVNIK|NOVITRAVNIK|JAJCE|VITEZ|BUGOJNO|KAKRINJE') { return 'Travnik' }
-    if ($s -match 'GORAZDE|FOCA|CAJNICE|RUDO|ROGATICA') { return 'Goražde' }
-    if ($s -match 'BANJALUKA|GRADISKA|PRNJAVOR|CELINAC|STRICICI|BUNAREVI') { return 'Banja Luka' }
+    # 4. Fuzzy Match
+    if ($s -match 'SARAJEVO|ILIDZA|VOGOSCA|ALIPASINO|HRASNICA|KOBILJACA|GLADNO|STUP|MISEVICI|HALILOVICI') { return 'Sarajevo' }
+    if ($s -match 'TUZLA|GRAČANICA|LUKAVAC|KALESIJA|TISCA|KLJESTANI|BIJELJINA|ZVORNIK|SREBRENIK') { return 'Tuzla' }
+    if ($s -match 'ZENICA|KAKANJ|VISOKO|ZAVIDOVICI|TEŠANJ|VAREŠ|BREZA|OLOVO|ŽEPČE|ZEPCE|STUPARI') { return 'Zenica' }
+    if ($s -match 'MOSTAR|ČAPLJINA|ŠIROKI|GRUDE|LJUBUŠKI|KONJIC|JABLANICA|POSUSJE|PROZOR') { return 'Mostar' }
+    if ($s -match 'BIHAC|CAZIN|VELIKA_KLADUSA|SANSKI_MOST|KLJUC|BOSANSKI_NOVI|DRAKSENIC|BUNAREVI') { return 'Bihać' }
+    if ($s -match 'TRAVNIK|DVAKUF|JAJCE|VITEZ|BUGOJNO|GORNJI_VAKUF|NOVI_TRAVNIK') { return 'Travnik' }
+    if ($s -match 'GORAZDE|FOCA|CAJNICE|RUDO|ROGATICA|USTIKOLINA') { return 'Goražde' }
+    if ($s -match 'BANJA_LUKA|GRADISKA|PRNJAVOR|CELINAC|STRICICI|MANJACA|NOVI_SEHER') { return 'Zenica' }
 
     return 'Ostalo'
 }
@@ -82,122 +86,139 @@ while ($true) {
         $allEvents = @()
         Write-Host "[$($now.ToString('HH:mm:ss'))] Dohvatanje podataka..."
 
-        # --- CSV ---
-        $csvCount = 0
-        try {
-            $csvResponse = Invoke-WebRequest -Uri "https://pokrivenost.bhtelecom.ba/alarmi/ispadnap" -UseBasicParsing -TimeoutSec 30
-            $csvContent = [System.Text.Encoding]::UTF8.GetString($csvResponse.Content)
-            $csvLines = $csvContent -split "`r?`n"
-            foreach ($line in $csvLines) {
-                if ([string]::IsNullOrWhiteSpace($line)) { continue }
-                if ($line -notlike "*,*") { continue }
-                $p = $line.Split(',').ForEach({ $_.Trim().Trim('"') })
-                if ($p.Count -lt 3) { continue }
-                $tsIdx = -1
-                for ($i=0; $i -lt $p.Count; $i++) { if ($p[$i] -match '\d{4}-\d{2}-\d{2}[ _]\d{2}:\d{2}:\d{2}') { $tsIdx=$i; break } }
-                if ($tsIdx -eq -1) { continue }
-                $site = $p[1].Trim().ToUpper().Replace(" ", "_")
-                $system = $p[0].Trim()
-                $alarm = $p[2].Trim()
-                $time = ConvertTo-DateTime ($p[$tsIdx] -replace '_', ' ')
-                if ($time -eq $null) { continue }
-                if ($system -eq "IgnitionSCADA") { $status = "UNKNOWN" }
-                else { $status = if ($line -match 'clear|normal|ok|Stops|UsageNormal') { "CLEARED" } else { "ACTIVE" } }
-                # Filtriraj Å¡um alarme
-				$exclude = @('Node Info','Info','Modbus','PLC','8000','3000','1000','OPC_STATUS','UsageNormal')
-				if ($exclude -notcontains $alarm) {
-					$allEvents += [PSCustomObject]@{ System=$system; Site=$site; Alarm=$alarm; Time=$time; Status=$status }
-					$csvCount++
+       # === UNIVERZALNI PARSER ZA SVE SISTEME ===
+		function Parse-AlarmLine {
+			param([string]$Line)
+			
+			if ([string]::IsNullOrWhiteSpace($Line) -or $Line -notlike "*,*") { return $null }
+			
+			$parts = $Line.Split(',').ForEach({ $_.Trim().Trim('"') }) | Where-Object { $_ }
+			if ($parts.Count -lt 4) { return $null }
+			
+			$alarm = [PSCustomObject]@{
+				System = ''; Site = ''; Alarm = ''; Status = ''; Time = $null; Region = 'N/A'; IP = ''
+			}
+			
+			# === IGNITION SCADA ===
+			if ($parts[0] -eq 'IgnitionSCADA') {
+				$alarm.System = 'IgnitionSCADA'
+				# Site je u formatu "Sarajevo - Alipasino Polje" → izvući Region i Site
+				$fullSite = $parts[1]
+				if ($fullSite -match '^([A-Za-z]+)\s*-\s*(.+)$') {
+					$alarm.Region = $Matches[1].Trim()
+					$alarm.Site = $Matches[2].Trim().ToUpper().Replace(' ', '_')
+				} else {
+					$alarm.Site = $fullSite.ToUpper().Replace(' ', '_')
+					$alarm.Region = Get-RegionFromSite $alarm.Site
 				}
-            }
-            Write-Host "  CSV: $csvCount dogaÄ‘aja"
-        } catch { Write-Host "  CSV greÅ¡ka: $($_.Exception.Message)" -ForegroundColor Red }
+				$alarm.Alarm = $parts[2]
+				$alarm.Status = $parts[4].Trim().ToUpper()  # cleared, critical, UNKNOWN
+				$ts = $parts[5].Trim() -replace '_', ' '
+				$alarm.Time = ConvertTo-DateTime $ts
+			}
+			
+			# === NETECO ===
+			elseif ($parts[0] -eq 'NetEco') {
+				$alarm.System = 'NetEco'
+				$alarm.Site = $parts[1].Trim().ToUpper()
+				$alarm.Alarm = $parts[2].Trim()
+				$ts = $parts[3].Trim()
+				$alarm.Time = ConvertTo-DateTime $ts
+				$alarm.Status = $parts[4].Trim().ToUpper()  # cleared, major, critical
+				$alarm.Region = Get-RegionFromSite $alarm.Site
+			}
+			
+			# === RPS-SC200/300, DSE-74xx, BARAN, EATON ===
+			elseif ($parts[0] -match 'RpsSc300Mib|RPS-SC200-MIB|DSE-74xx|BARAN|EATON|RITTAL') {
+				$alarm.System = $parts[0].Trim()
+				$alarm.Site = $parts[1].Trim().ToUpper()
+				# === KLJUČNO: Kolona 3 je Direkcija/Region! ===
+				$alarm.Region = $parts[2].Trim()
+				$alarm.Alarm = $parts[3].Trim() -replace '_', ' '
+				$alarm.Status = $parts[-1].Trim().ToUpper()  # Zadnji element = status
+				$ts = $parts[5].Trim() -replace '_', ' '
+				$alarm.Time = ConvertTo-DateTime $ts
+				if ($parts.Count -gt 7) { $alarm.IP = $parts[6].Trim() }
+			}
+			
+			# === U2020 ===
+			elseif ($parts[0] -eq 'U2020') {
+				$alarm.System = 'U2020'
+				$alarm.Site = $parts[1].Trim().ToUpper()
+				$alarm.Alarm = $parts[2].Trim()
+				$ts = $parts[3].Trim()
+				$alarm.Time = ConvertTo-DateTime $ts
+				$alarm.Status = $parts[4].Trim().ToUpper()  # cleared, major, minor
+				$alarm.Region = Get-RegionFromSite $alarm.Site
+				if ($parts.Count -gt 6) { $alarm.Hub = $parts[6].Trim() }
+			}
+			
+			# Preskoči ako nema validan timestamp
+			if ($null -eq $alarm.Time) { return $null }
+			
+			return $alarm
+		}
 
-        # --- HTML ---
-        $htmlCount = 0
-        try {
-            $htmlResponse = Invoke-WebRequest -Uri "https://pokrivenost.bhtelecom.ba/alarmi/" -UseBasicParsing -TimeoutSec 30
-            $htmlContent = $response  # $response je veÄ‡ string, ne konvertuj u bytes
-            $alarmRows = $htmlContent -split '</tr>' | Where-Object { $_ -match '<td>BTS_|<td>C\d+_|<td>NOKIA|<td>ATN_|<td>ASR_|<td>DWDM_|<td>BS_|<td>RRST_|<td>NCS_|' }
-            $currentSection = "NETWORK"
-            foreach ($line in $lines) {
-                if ($line -match '---+\s*([A-Z]+)\s*---+') { $currentSection = $Matches[1].Trim(); continue }
-                if ($line -match '\b(\d{1,2})\s+(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+(\d{4})\s+(\d{2}:\d{2}:\d{2})') {
-                    $dateStr = "$($Matches[1]) $($Matches[2]) $($Matches[3]) $($Matches[4])"
-                    $time = ConvertTo-DateTime $dateStr
-                    if ($time -eq $null) { continue }
-                    $idx = $line.IndexOf($dateStr)
-                    if ($idx -eq -1) { continue }
-                    $beforeDate = $line.Substring(0, $idx).Trim()
-                    $siteRaw = $beforeDate -replace '<[^>]+>', '' -replace '&nbsp;', ' ' -replace '\s+', ' ' -replace '^\s+|\s+$', ''
-                    if (-not [string]::IsNullOrWhiteSpace($siteRaw) -and $siteRaw -notmatch '^-+$') {
-                        $siteNorm = $siteRaw.ToUpper().Replace(" ", "_")
-                        # Filtriraj Å¡um alarme (isti princip) DODATI TREBA
-						$exclude = @('Node Info','Info','Modbus','PLC','OPC_STATUS')
-						if ($exclude -notcontains "NE is Disconnected") {  # ovaj specifiÄno zadrÅ¾i
-							$allEvents += [PSCustomObject]@{ System=$currentSection; Site=$siteNorm; Alarm="NE is Disconnected"; Time=$time; Status="ACTIVE" }
-							$htmlCount++
-						}
-                    }
-                } elseif ($line -match '\b(\d{4}-\d{2}-\d{2}\s+\d{2}:\d{2}:\d{2})\b') {
-                    $dateStr = $Matches[1]
-                    $time = ConvertTo-DateTime $dateStr
-                    if ($time -eq $null) { continue }
-                    $idx = $line.IndexOf($dateStr)
-                    if ($idx -eq -1) { continue }
-                    $beforeDate = $line.Substring(0, $idx).Trim()
-                    $siteRaw = $beforeDate -replace '<[^>]+>', '' -replace '&nbsp;', ' ' -replace '\s+', ' ' -replace '^\s+|\s+$', ''
-                    if (-not [string]::IsNullOrWhiteSpace($siteRaw) -and $siteRaw -notmatch '^-+$') {
-                        $siteNorm = $siteRaw.ToUpper().Replace(" ", "_")
-                        $allEvents += [PSCustomObject]@{ System=$currentSection; Site=$siteNorm; Alarm="NE is Disconnected"; Time=$time; Status="ACTIVE" }
-                        $htmlCount++
-                    }
-                }
-            }
-            Write-Host "  HTML: $htmlCount dogaÄ‘aja"
-        } catch { Write-Host "  HTML greÅ¡ka: $($_.Exception.Message)" -ForegroundColor Red }
-
-        Write-Host "  UKUPNO: $($allEvents.Count) dogaÄ‘aja"
+        Write-Host "  UKUPNO: $($allEvents.Count) dogadjaja"
 		
         # --- Agregacija ---
-		function Get-DurationInInterval($events, $startDate, $endDate) {
-			$grouped = $events | Where-Object { $_.System -ne "IgnitionSCADA" } | Group-Object Site, Alarm
+		function Get-DurationInInterval {
+			param([System.Collections.ArrayList]$events, [DateTime]$startDate, [DateTime]$endDate)
+			
+			# Grupiši po System+Site+Alarm (ključ za korelaciju)
+			$grouped = $events | Group-Object { "$($_.System)|$($_.Site)|$($_.Alarm)" }
 			$result = @()
+			
 			foreach ($grp in $grouped) {
 				$sorted = $grp.Group | Sort-Object Time
-				$totalDur = 0
-				$activeStart = $null
-				$lastStatus = "CLEARED"
-				for ($i=0; $i -lt $sorted.Count; $i++) {
-					$e = $sorted[$i]
-					if ($e.Status -eq "ACTIVE") {
-						$activeStart = $e.Time
-						$lastStatus = "ACTIVE"
-					} elseif ($e.Status -eq "CLEARED" -and $activeStart -ne $null) {
-						$clearTime = $e.Time
-						$overlapStart = if ($activeStart -gt $startDate) { $activeStart } else { $startDate }
-						$overlapEnd   = if ($clearTime -lt $endDate) { $clearTime } else { $endDate }
-						if ($overlapEnd -gt $overlapStart) { $totalDur += ($overlapEnd - $overlapStart).TotalMinutes }
-						$activeStart = $null
-						$lastStatus = "CLEARED"
+				$totalDur = 0; $activeStart = $null; $lastStatus = "CLEARED"; $count = 0
+				
+				foreach ($e in $sorted) {
+					if ($e.Time -lt $startDate -or $e.Time -gt $endDate) { continue }
+					
+					# Aktivni statusi: ACTIVE, MAJOR, CRITICAL
+					if ($e.Status -match 'ACTIVE|MAJOR|CRITICAL') {
+						if ($null -eq $activeStart) { 
+							$activeStart = $e.Time
+							$count++  # Broji samo prvo pojavljivanje u paru
+						}
+					}
+					# Cleared statusi: CLEARED, MINOR, NORMAL
+					elseif ($e.Status -match 'CLEARED|MINOR|NORMAL') {
+						if ($activeStart) {
+							# Izračunaj preklapanje sa intervalom
+							$overlapStart = if ($activeStart -gt $startDate) { $activeStart } else { $startDate }
+							$overlapEnd = if ($e.Time -lt $endDate) { $e.Time } else { $endDate }
+							
+							if ($overlapEnd -gt $overlapStart) {
+								$totalDur += ($overlapEnd - $overlapStart).TotalMinutes
+							}
+							$activeStart = $null
+							$lastStatus = "CLEARED"
+						}
 					}
 				}
-				if ($activeStart -ne $null) {
+				
+				# Ako je alarm još uvijek ACTIVE na kraju intervala
+				if ($activeStart) {
 					$overlapStart = if ($activeStart -gt $startDate) { $activeStart } else { $startDate }
-					$overlapEnd = $endDate
-					if ($overlapEnd -gt $overlapStart) { $totalDur += ($overlapEnd - $overlapStart).TotalMinutes }
+					$totalDur += ($endDate - $overlapStart).TotalMinutes
+					$lastStatus = "ACTIVE"
 				}
-				$cnt = ($sorted | Where-Object { $_.Status -eq "ACTIVE" -and $_.Time -ge $startDate -and $_.Time -le $endDate }).Count
-				$result += [PSCustomObject]@{
-					Site = $grp.Values[0]; Alarm = $grp.Values[1]; System = $sorted[0].System
-					Count = $cnt; Duration = [Math]::Round($totalDur, 1); LastStatus = $lastStatus
+				
+				if ($totalDur -gt 0 -or $count -gt 0) {
+					$result += [PSCustomObject]@{
+						System = $grp.Name.Split('|')[0]
+						Site = $grp.Name.Split('|')[1]
+						Alarm = $grp.Name.Split('|')[2]
+						Region = $sorted[0].Region
+						DayCnt = $count
+						DayDur = [Math]::Round($totalDur, 1)
+						LastStatus = $lastStatus
+					}
 				}
 			}
-			$ignEvents = $events | Where-Object { $_.System -eq "IgnitionSCADA" -and $_.Time -ge $startDate -and $_.Time -le $endDate }
-			$ignGrouped = $ignEvents | Group-Object Site, Alarm | ForEach-Object {
-				[PSCustomObject]@{ Site = $_.Values[0]; Alarm = $_.Values[1]; System = "IgnitionSCADA"; Count = $_.Count; Duration = 0; LastStatus = "UNKNOWN" }
-			}
-			return ($result + $ignGrouped)
+			return $result
 		}
 
 		# === Site Correlation (Priprema za buduÄ‡e mapiranje) ===
