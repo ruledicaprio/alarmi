@@ -343,18 +343,25 @@ const renderTable = () => {
   document.getElementById('pagCtrl').innerHTML=p;
 };
 
-const load = async () => {
-  document.getElementById('refreshBtn').classList.add('animate-spin');
+const loadData = async () => {
   try {
-    const res = await fetch('stats_data.json');
-    if(!res.ok) throw new Error(res.statusText);
-    const j = await res.json();
-    const arr = j.Stats || j.stats || j;
-    if(!Array.isArray(arr)) throw new Error('Invalid format');
-    state.data = clean(arr);
+    const res = await fetch('stats_data.json?' + Date.now()); // bypass cache
+    if(!res.ok) throw new Error('HTTP ' + res.status);
+    
+    const text = await res.text();
+    // Ukloni BOM ako postoji
+    const cleanText = text.startsWith('\uFEFF') ? text.slice(1) : text;
+    const json = JSON.parse(cleanText);
+    
+    // Podrži različite ključeve: Stats, stats, Recent, recent, data
+    const arr = json.Stats || json.stats || json.Recent || json.recent || json.data || json;
+    if(!Array.isArray(arr)) throw new Error('Invalid data format');
+    
+    state.data = clean(arr).map(d => ({...d, Region: mapRegion(d.Site, d.Region)}));
   } catch(e) {
-    console.error('Greška:', e);
-    document.getElementById('tbody').innerHTML=`<tr><td colspan="9" class="p-4 text-center text-gray-500">⚠️ Nije moguće učitati stats_data.json.</td></tr>`;
+    console.error('Load error:', e);
+    document.getElementById('tbody').innerHTML = `<tr><td colspan="9" class="p-4 text-center text-red-500">⚠️ Greška: ${e.message}</td></tr>`;
+    return;
   }
   document.getElementById('lastUpdate').textContent = new Date().toLocaleTimeString('bs-BA');
   

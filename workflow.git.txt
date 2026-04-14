@@ -1,0 +1,14 @@
+# PWorkflow:
+cd E:\BHT-Dashboard-Git
+
+# 1. Uvijek prvo povuci remote promjene
+git pull origin main
+
+# 2. Ako ima konflikta, Git će ti reći - riješi ih u editoru
+
+# 3. Dodaj i commit-uj
+git add .
+git commit -m "Tvoj opis"
+
+# 4. Push-uj
+git push
