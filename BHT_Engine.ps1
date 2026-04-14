@@ -8,7 +8,7 @@ $statsFile = "$repoPath\stats_data.json"
 $counterFile = "$repoPath\last_count.txt"
 
 git config user.name "ruledicaprio"
-git config user.email "tvoja-email@adresa.com"
+git config user.email "rusmirskopljak@gmail.com"
 
 # Učitaj prethodni broj događaja (ako postoji)
 $previousCount = 0
