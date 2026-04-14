@@ -54,7 +54,7 @@ function ConvertTo-DateTime($dateStr) {
 		if ($explicit[$Site]) { return $explicit[$Site] }
 		
 		# Fuzzy match
-		if ($s -match 'SARAJEVO|ILIDZA|VOGOSCA|ALIPASINO|DMALTA|HRASNICA|ILIDŽA|OBALA|ALIPAŠINO') { return 'Sarajevo' }
+		if ($s -match 'SARAJEVO|ILIDZA|VOGOSCA|ALIPASINO|DMALTA|HRASNICA|ILIDŽA|OBALA|ALIPAŠINO|MOSTARSKO_RASKRSCE') { return 'Sarajevo' }
 		if ($s -match 'TUZLA|GRAČANICA|LUKAVAC|KALESIJA|SIMIN_HAN|BIJELJINA|BRATUNAC|ODZAK|BANOVICI|ZIVINICE|KLOKOTNICA|DUJSKA_VODA') { return 'Tuzla' }
 		if ($s -match 'ZENICA|KAKANJ|VISOKO|ZAVIDOVI') { return 'Zenica' }
 		if ($s -match 'MOSTAR|ČAPLJINA|ŠIROKI_BRIJEG|GRUDE|LJUBUŠKI|KONJIC|JABLANICA|BUTUROVIC_POLJE|CELEBICI|PROZOR|GACKO|TREBINJE|CAPLJINA|GRUDE') { return 'Mostar' }
@@ -109,8 +109,8 @@ while ($true) {
         $htmlCount = 0
         try {
             $htmlResponse = Invoke-WebRequest -Uri "https://pokrivenost.bhtelecom.ba/alarmi/" -UseBasicParsing -TimeoutSec 30
-            $htmlContent = [System.Text.Encoding]::UTF8.GetString($htmlResponse.Content)
-            $lines = $htmlContent -split "`r?`n"
+            $htmlContent = $response  # $response je već string, ne konvertuj u bytes
+            $alarmRows = $htmlContent -split '</tr>' | Where-Object { $_ -match '<td>BTS_|<td>C\d+_|<td>NOKIA|<td>ATN_|<td>ASR_|<td>DWDM_|<td>BS_|<td>RRST_|<td>NCS_|' }
             $currentSection = "NETWORK"
             foreach ($line in $lines) {
                 if ($line -match '---+\s*([A-Z]+)\s*---+') { $currentSection = $Matches[1].Trim(); continue }
@@ -215,8 +215,60 @@ while ($true) {
         foreach ($d in $dailyAgg) { $key = "$($d.Site)|$($d.Alarm)|$($d.System)"; $allStats[$key] = @{ Site=$d.Site; Alarm=$d.Alarm; System=$d.System; DayCnt=$d.Count; DayDur=$d.Duration; WeekCnt=0; WeekDur=0; LastStatus=$d.LastStatus } }
         foreach ($w in $weeklyAgg) { $key = "$($w.Site)|$($w.Alarm)|$($w.System)"; if ($allStats.ContainsKey($key)) { $allStats[$key].WeekCnt = $w.Count; $allStats[$key].WeekDur = $w.Duration } else { $allStats[$key] = @{ Site=$w.Site; Alarm=$w.Alarm; System=$w.System; DayCnt=0; DayDur=0; WeekCnt=$w.Count; WeekDur=$w.Duration; LastStatus=$w.LastStatus } } }
 
-        $finalStats = $allStats.Values | ForEach-Object { [PSCustomObject]@{ Site=$_.Site; Alarm=$_.Alarm; System=$_.System; DayCnt=$_.DayCnt; DayDur=$_.DayDur; WeekCnt=$_.WeekCnt; WeekDur=$_.WeekDur; LastStatus=$_.LastStatus; Region="N/A" } }
-
+        $# Zamijeni cijeli blok kreiranja $finalStats sa ovim:
+		$finalStats = $allStats.Values | ForEach-Object {
+			$region = Get-RegionFromSite $_.Site
+			[PSCustomObject]@{
+				System        = $_.System
+				Site          = $_.Site
+				Alarm         = $_.Alarm
+				Region        = $region
+				LastStatus    = $_.LastStatus
+				FirstOccurred = $_.FirstOccurred
+				LastCleared   = $_.LastCleared
+				DayCnt        = [int]($_.DayCnt -as [int] ?: 0)
+				DayDur        = [double]($_.DayDur -as [double] ?: 0)
+				WeekCnt       = [int]($_.WeekCnt -as [int] ?: 0)
+				WeekDur       = [double]($_.WeekDur -as [double] ?: 0)
+				MonthCnt      = [int]($_.MonthCnt -as [int] ?: 0)
+				MonthDur      = [double]($_.MonthDur -as [double] ?: 0)
+				YearCnt       = [int]($_.YearCnt -as [int] ?: 0)
+				YearDur       = [double]($_.YearDur -as [double] ?: 0)
+			}
+		}
+		function Get-SiteCoreName {
+			param([string]$RawSite)
+			$s = $RawSite.Trim().ToUpper()
+			
+			# Ukloni prefikse za kros-validaciju
+			$s = $s -replace '^BTS_', '' -replace '^C\d+?_', '' -replace '^NOKIA\d+?_', ''
+			$s = $s -replace '^RRST_', '' -replace '^BS ', '' -replace ' - NEW$', ''
+			
+			# Za RR linkove "BS A-BS B" → vrati oba sajta
+			if ($s -match 'BS\s+([A-Z0-9_]+)\s*-\s*BS\s+([A-Z0-9_]+)') {
+				return @($matches[1].Trim(), $matches[2].Trim())
+			}
+			
+			return $s.Trim()
+		}
+		
+		# Za HTML alarme (BTS, MPLS, RR):
+		$alarmRows | ForEach-Object {
+			$rawSite = ($_ -split '</td>')[0] -replace '<[^>]+>', '' -replace '^\s*<td>\s*', ''
+			$coreSites = Get-SiteCoreName $rawSite
+			
+			# Ako je array (RR link), procesiraj oba sajta
+			if ($coreSites -is [array]) {
+				foreach ($core in $coreSites) {
+					$region = Get-RegionFromSite $core
+					# ... dodaj u $allEvents
+				}
+			} else {
+				$region = Get-RegionFromSite $coreSites
+				# ... dodaj u $allEvents
+			}
+		}
+		
         $newAlarms = $allEvents.Count - $previousCount
         if ($newAlarms -lt 0) { $newAlarms = 0 }
         $previousCount = $allEvents.Count
