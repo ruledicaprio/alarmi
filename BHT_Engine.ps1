@@ -1,6 +1,6 @@
 # BHT Alarm Engine v31 - FINAL WORKING
 $mutex = New-Object System.Threading.Mutex($false, "Global\BHTEngineMutex")
-if (-not $mutex.WaitOne(0)) { Write-Host "Skripta već radi." -ForegroundColor Red; exit }
+if (-not $mutex.WaitOne(0)) { Write-Host "Skripta veÄ‡ radi." -ForegroundColor Red; exit }
 
 $repoPath = "E:\BHT-Dashboard-Git"
 Set-Location $repoPath
@@ -38,15 +38,15 @@ function ConvertTo-DateTime($dateStr) {
 		param([string]$Site)
 		$s = $Site.ToUpper()
 		
-		# Eksplicitna mapa za teške slučajeve
+		# Eksplicitna mapa za teÅ¡ke sluÄajeve
 		$explicit = @{
 			'POSUSJE_OSREDAK'='Mostar'; 'POSUSJE_CENTAR'='Mostar'; 'POSUSJE_TRIBISTOVO'='Mostar'
 			'ZELECA'='Zenica'; 'MAJEVICA'='Tuzla'
 			'MITROVICI'='Sarajevo'; 'BANOVICI_BREZOVACA'='Tuzla'; 'GLAMOC_KOVACEVCI'='Travnik'
 			'TUZLA_KISELJAK'='Tuzla'; 'PTI33_TETIMA'='Tuzla'; 'RAKITNO'='Mostar'
-			'LUKAVAC_DEVETAK'='Tuzla'; 'VELIKA_KLADUSA_KOSA'='Bihać'; 'SANSKI_MOST_TOMINA'='Bihać'
-			'CELINAC_JOSAVKA'='Zenica'; 'CELINAC_BOJICI'='Zenica'; 'KMUR'='Goražde'
-			'KOBILJACA'='Sarajevo'; 'DRAKSENIC'='Bihać'; 'MISEVICI'='Sarajevo'
+			'LUKAVAC_DEVETAK'='Tuzla'; 'VELIKA_KLADUSA_KOSA'='BihaÄ‡'; 'SANSKI_MOST_TOMINA'='BihaÄ‡'
+			'CELINAC_JOSAVKA'='Zenica'; 'CELINAC_BOJICI'='Zenica'; 'KMUR'='GoraÅ¾de'
+			'KOBILJACA'='Sarajevo'; 'DRAKSENIC'='BihaÄ‡'; 'MISEVICI'='Sarajevo'
 			'GLADNO_POLJE_POSLOVNA_ZONA'='Sarajevo'; 'KISELJAK_CENTAR'='Travnik'
 			'MANJACA'='Travnik'; 'ZLIJEBAC'='Tuzla'; 'GRABOVICA'='Mostar'
 			'VUCJA_LUKA'='Sarajevo'; 'BRESTOVO_PODGAJCI'='Zenica'
@@ -54,13 +54,13 @@ function ConvertTo-DateTime($dateStr) {
 		if ($explicit[$Site]) { return $explicit[$Site] }
 		
 		# Fuzzy match
-		if ($s -match 'SARAJEVO|ILIDZA|VOGOSCA|ALIPASINO|DMALTA|HRASNICA|ILIDŽA|OBALA|ALIPAŠINO|MOSTARSKO_RASKRSCE') { return 'Sarajevo' }
-		if ($s -match 'TUZLA|GRAČANICA|LUKAVAC|KALESIJA|SIMIN_HAN|BIJELJINA|BRATUNAC|ODZAK|BANOVICI|ZIVINICE|KLOKOTNICA|DUJSKA_VODA') { return 'Tuzla' }
+		if ($s -match 'SARAJEVO|ILIDZA|VOGOSCA|ALIPASINO|DMALTA|HRASNICA|ILIDÅ½A|OBALA|ALIPAÅ INO|MOSTARSKO_RASKRSCE') { return 'Sarajevo' }
+		if ($s -match 'TUZLA|GRAÄŒANICA|LUKAVAC|KALESIJA|SIMIN_HAN|BIJELJINA|BRATUNAC|ODZAK|BANOVICI|ZIVINICE|KLOKOTNICA|DUJSKA_VODA') { return 'Tuzla' }
 		if ($s -match 'ZENICA|KAKANJ|VISOKO|ZAVIDOVICI|TESANJ|TESLIC') { return 'Zenica' }
-		if ($s -match 'MOSTAR|ČAPLJINA|ŠIROKI_BRIJEG|GRUDE|LJUBUŠKI|KONJIC|JABLANICA|BUTUROVIC_POLJE|CELEBICI|PROZOR|GACKO|TREBINJE|CAPLJINA|GRUDE') { return 'Mostar' }
-		if ($s -match 'BIHAC|CAZIN|VELIKA_KLADUSA|SANSKI_MOST|KLJUČ|KLJUC|BOSANSKI_PETROVAC|OTOKA|KRUPA|DUBICA|BOSANSKI_NOVI') { return 'Bihać' }
+		if ($s -match 'MOSTAR|ÄŒAPLJINA|Å IROKI_BRIJEG|GRUDE|LJUBUÅ KI|KONJIC|JABLANICA|BUTUROVIC_POLJE|CELEBICI|PROZOR|GACKO|TREBINJE|CAPLJINA|GRUDE') { return 'Mostar' }
+		if ($s -match 'BIHAC|CAZIN|VELIKA_KLADUSA|SANSKI_MOST|KLJUÄŒ|KLJUC|BOSANSKI_PETROVAC|OTOKA|KRUPA|DUBICA|BOSANSKI_NOVI') { return 'BihaÄ‡' }
 		if ($s -match 'TRAVNIK|NOVI_TRAVNIK|JAJCE|VITEZ|BUSOVACA|STARI_VITEZ|LENDICI|CUBREN|MLINISTE_MIKRO|VRILA|PREOCICA|AZAPOVICI|KACUNI|TRAVNIK') { return 'Travnik' }
-		if ($s -match 'GORAZDE|FOCA|CAJNICE|RUDO|KOPACI|PETIBOR|HADZICA_BRDO|GORAŽDE|USTIKOLINA|GRAB|VIJARAC') { return 'Goražde' }
+		if ($s -match 'GORAZDE|FOCA|CAJNICE|RUDO|KOPACI|PETIBOR|HADZICA_BRDO|GORAÅ½DE|USTIKOLINA|GRAB|VIJARAC') { return 'GoraÅ¾de' }
 		if ($s -match 'BANJALUKA|GRADISKA|PRNJAVOR|CELINAC|LAKTASI|SRBAC|DERVENTA|BANJA_LUKA|ZAVIDOVICI|MAGLAJ|NEMILA|LAKTASI|ZEPCE') { return 'Zenica' }
 		
 		return 'Ostalo'
@@ -95,21 +95,21 @@ while ($true) {
                 if ($time -eq $null) { continue }
                 if ($system -eq "IgnitionSCADA") { $status = "UNKNOWN" }
                 else { $status = if ($line -match 'clear|normal|ok|Stops|UsageNormal') { "CLEARED" } else { "ACTIVE" } }
-                # Filtriraj šum alarme
+                # Filtriraj Å¡um alarme
 				$exclude = @('Node Info','Info','Modbus','PLC','8000','3000','1000','OPC_STATUS','UsageNormal')
 				if ($exclude -notcontains $alarm) {
 					$allEvents += [PSCustomObject]@{ System=$system; Site=$site; Alarm=$alarm; Time=$time; Status=$status }
 					$csvCount++
 				}
             }
-            Write-Host "  CSV: $csvCount događaja"
-        } catch { Write-Host "  CSV greška: $($_.Exception.Message)" -ForegroundColor Red }
+            Write-Host "  CSV: $csvCount dogaÄ‘aja"
+        } catch { Write-Host "  CSV greÅ¡ka: $($_.Exception.Message)" -ForegroundColor Red }
 
         # --- HTML ---
         $htmlCount = 0
         try {
             $htmlResponse = Invoke-WebRequest -Uri "https://pokrivenost.bhtelecom.ba/alarmi/" -UseBasicParsing -TimeoutSec 30
-            $htmlContent = $response  # $response je već string, ne konvertuj u bytes
+            $htmlContent = $response  # $response je veÄ‡ string, ne konvertuj u bytes
             $alarmRows = $htmlContent -split '</tr>' | Where-Object { $_ -match '<td>BTS_|<td>C\d+_|<td>NOKIA|<td>ATN_|<td>ASR_|<td>DWDM_|<td>BS_|<td>RRST_|<td>NCS_|' }
             $currentSection = "NETWORK"
             foreach ($line in $lines) {
@@ -124,9 +124,9 @@ while ($true) {
                     $siteRaw = $beforeDate -replace '<[^>]+>', '' -replace '&nbsp;', ' ' -replace '\s+', ' ' -replace '^\s+|\s+$', ''
                     if (-not [string]::IsNullOrWhiteSpace($siteRaw) -and $siteRaw -notmatch '^-+$') {
                         $siteNorm = $siteRaw.ToUpper().Replace(" ", "_")
-                        # Filtriraj šum alarme (isti princip) DODATI TREBA
+                        # Filtriraj Å¡um alarme (isti princip) DODATI TREBA
 						$exclude = @('Node Info','Info','Modbus','PLC','OPC_STATUS')
-						if ($exclude -notcontains "NE is Disconnected") {  # ovaj specifično zadrži
+						if ($exclude -notcontains "NE is Disconnected") {  # ovaj specifiÄno zadrÅ¾i
 							$allEvents += [PSCustomObject]@{ System=$currentSection; Site=$siteNorm; Alarm="NE is Disconnected"; Time=$time; Status="ACTIVE" }
 							$htmlCount++
 						}
@@ -146,10 +146,10 @@ while ($true) {
                     }
                 }
             }
-            Write-Host "  HTML: $htmlCount događaja"
-        } catch { Write-Host "  HTML greška: $($_.Exception.Message)" -ForegroundColor Red }
+            Write-Host "  HTML: $htmlCount dogaÄ‘aja"
+        } catch { Write-Host "  HTML greÅ¡ka: $($_.Exception.Message)" -ForegroundColor Red }
 
-        Write-Host "  UKUPNO: $($allEvents.Count) događaja"
+        Write-Host "  UKUPNO: $($allEvents.Count) dogaÄ‘aja"
 		
         # --- Agregacija ---
 		function Get-DurationInInterval($events, $startDate, $endDate) {
@@ -192,7 +192,7 @@ while ($true) {
 			return ($result + $ignGrouped)
 		}
 
-		# === Site Correlation (Priprema za buduće mapiranje) ===
+		# === Site Correlation (Priprema za buduÄ‡e mapiranje) ===
 		$siteGroups = $allEvents.Site | Select-Object -Unique | ForEach-Object {
 			$core = $_ -replace '_.*$', '' -replace '[-\s].*$', ''
 			[PSCustomObject]@{ Original = $_; Core = $core }
@@ -255,7 +255,7 @@ while ($true) {
 			$s = $s -replace '^BTS_', '' -replace '^C\d+?_', '' -replace '^NOKIA\d+?_', ''
 			$s = $s -replace '^RRST_', '' -replace '^BS ', '' -replace ' - NEW$', ''
 			
-			# Za RR linkove "BS A-BS B" → vrati oba sajta
+			# Za RR linkove "BS A-BS B" â†’ vrati oba sajta
 			if ($s -match 'BS\s+([A-Z0-9_]+)\s*-\s*BS\s+([A-Z0-9_]+)') {
 				return @($matches[1].Trim(), $matches[2].Trim())
 			}
@@ -289,7 +289,7 @@ while ($true) {
         Write-Host "============================================================" -ForegroundColor Gray
         Write-Host " BHT ENGINE v31 - $($now.ToString('HH:mm:ss'))"
         Write-Host "============================================================" -ForegroundColor Gray
-        Write-Host "Novih događaja: $newAlarms"
+        Write-Host "Novih dogaÄ‘aja: $newAlarms"
         Write-Host "------------------------------------------------------------" -ForegroundColor Gray
         Write-Host "TOP 20 DNEVNIH ISPADA NAPAJANJA:"
         $dailyAgg | Where-Object { $_.Duration -gt 0 } | Sort-Object Duration -Descending | Select-Object -First 20 | ForEach-Object { Write-Host "  $($_.Site) - $($_.Duration) min" }
@@ -302,9 +302,9 @@ while ($true) {
         git commit -m "Auto-update $($now.ToString('yyyy-MM-dd HH:mm:ss'))" 2>&1 | Out-Null
         git pull --rebase --autostash 2>&1 | Out-Null
         $pushResult = git push 2>&1
-        if ($LASTEXITCODE -ne 0) { Write-Host "Git push greška: $pushResult" -ForegroundColor Red }
-        else { Write-Host "Push završen." -ForegroundColor Green }
+        if ($LASTEXITCODE -ne 0) { Write-Host "Git push greÅ¡ka: $pushResult" -ForegroundColor Red }
+        else { Write-Host "Push zavrÅ¡en." -ForegroundColor Green }
     }
-    catch { Write-Host "GLAVNA GREŠKA: $($_.Exception.Message)" -ForegroundColor Red }
+    catch { Write-Host "GLAVNA GREÅ KA: $($_.Exception.Message)" -ForegroundColor Red }
     Start-Sleep -Seconds 60
 }
