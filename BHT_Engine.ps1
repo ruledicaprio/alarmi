@@ -34,37 +34,45 @@ function ConvertTo-DateTime($dateStr) {
     try { return [DateTime]::Parse($dateStr) } catch { return $null }
 }
 # === DODAJ OVO NAKON ConvertTo-DateTime FUNKCIJE ===
-	function Get-RegionFromSite {
-		param([string]$Site)
-		$s = $Site.ToUpper()
-		
-		# Eksplicitna mapa za teÅ¡ke sluÄajeve
-		$explicit = @{
-			'POSUSJE_OSREDAK'='Mostar'; 'POSUSJE_CENTAR'='Mostar'; 'POSUSJE_TRIBISTOVO'='Mostar'
-			'ZELECA'='Zenica'; 'MAJEVICA'='Tuzla'
-			'MITROVICI'='Sarajevo'; 'BANOVICI_BREZOVACA'='Tuzla'; 'GLAMOC_KOVACEVCI'='Travnik'
-			'TUZLA_KISELJAK'='Tuzla'; 'PTI33_TETIMA'='Tuzla'; 'RAKITNO'='Mostar'
-			'LUKAVAC_DEVETAK'='Tuzla'; 'VELIKA_KLADUSA_KOSA'='BihaÄ‡'; 'SANSKI_MOST_TOMINA'='BihaÄ‡'
-			'CELINAC_JOSAVKA'='Zenica'; 'CELINAC_BOJICI'='Zenica'; 'KMUR'='GoraÅ¾de'
-			'KOBILJACA'='Sarajevo'; 'DRAKSENIC'='BihaÄ‡'; 'MISEVICI'='Sarajevo'
-			'GLADNO_POLJE_POSLOVNA_ZONA'='Sarajevo'; 'KISELJAK_CENTAR'='Travnik'
-			'MANJACA'='Travnik'; 'ZLIJEBAC'='Tuzla'; 'GRABOVICA'='Mostar'
-			'VUCJA_LUKA'='Sarajevo'; 'BRESTOVO_PODGAJCI'='Zenica'
-		}
-		if ($explicit[$Site]) { return $explicit[$Site] }
-		
-		# Fuzzy match
-		if ($s -match 'SARAJEVO|ILIDZA|VOGOSCA|ALIPASINO|DMALTA|HRASNICA|ILIDÅ½A|OBALA|ALIPAÅ INO|MOSTARSKO_RASKRSCE') { return 'Sarajevo' }
-		if ($s -match 'TUZLA|GRAÄŒANICA|LUKAVAC|KALESIJA|SIMIN_HAN|BIJELJINA|BRATUNAC|ODZAK|BANOVICI|ZIVINICE|KLOKOTNICA|DUJSKA_VODA') { return 'Tuzla' }
-		if ($s -match 'ZENICA|KAKANJ|VISOKO|ZAVIDOVICI|TESANJ|TESLIC') { return 'Zenica' }
-		if ($s -match 'MOSTAR|ÄŒAPLJINA|Å IROKI_BRIJEG|GRUDE|LJUBUÅ KI|KONJIC|JABLANICA|BUTUROVIC_POLJE|CELEBICI|PROZOR|GACKO|TREBINJE|CAPLJINA|GRUDE') { return 'Mostar' }
-		if ($s -match 'BIHAC|CAZIN|VELIKA_KLADUSA|SANSKI_MOST|KLJUÄŒ|KLJUC|BOSANSKI_PETROVAC|OTOKA|KRUPA|DUBICA|BOSANSKI_NOVI') { return 'BihaÄ‡' }
-		if ($s -match 'TRAVNIK|NOVI_TRAVNIK|JAJCE|VITEZ|BUSOVACA|STARI_VITEZ|LENDICI|CUBREN|MLINISTE_MIKRO|VRILA|PREOCICA|AZAPOVICI|KACUNI|TRAVNIK') { return 'Travnik' }
-		if ($s -match 'GORAZDE|FOCA|CAJNICE|RUDO|KOPACI|PETIBOR|HADZICA_BRDO|GORAÅ½DE|USTIKOLINA|GRAB|VIJARAC') { return 'GoraÅ¾de' }
-		if ($s -match 'BANJALUKA|GRADISKA|PRNJAVOR|CELINAC|LAKTASI|SRBAC|DERVENTA|BANJA_LUKA|ZAVIDOVICI|MAGLAJ|NEMILA|LAKTASI|ZEPCE') { return 'Zenica' }
-		
-		return 'Ostalo'
-	}
+function Get-RegionFromSite {
+    param([string]$Site)
+    $s = $Site.Trim().ToUpper()
+
+    # 1. EKSPlicitna pravila (najviši prioritet)
+    $explicitMap = @{
+        'GRABOVICA'       = 'Mostar'
+        'GRABOVICA_TUZLA' = 'Tuzla'
+        'TUZLA_KISELJAK'  = 'Tuzla'
+        'KISELJAK_CENTAR' = 'Sarajevo'
+        'POSUSJE_OSREDAK' = 'Mostar'
+        'POSUSJE_CENTAR'  = 'Mostar'
+        'MANJACA'         = 'Banja Luka'
+        'KMUR'            = 'Goražde'
+		'TRAVNIK_SUMECE'  = 'Travnik'
+    }
+    if ($explicitMap.ContainsKey($s)) { return $explicitMap[$s] }
+
+    # 2. Sufiks/Prefiks pravila
+    if ($s -match '_TUZLA$|^TUZLA_') { return 'Tuzla' }
+    if ($s -match '_SARAJEVO$|^SARAJEVO_') { return 'Sarajevo' }
+    if ($s -match '_ZENICA$|^ZENICA_') { return 'Zenica' }
+    if ($s -match '_MOSTAR$|^MOSTAR_') { return 'Mostar' }
+    if ($s -match '_BIHAC$|^BIHAC_') { return 'Bihać' }
+    if ($s -match '_TRAVNIK$|^TRAVNIK_') { return 'Travnik' }
+    if ($s -match '_GORAZDE$|^GORAZDE_') { return 'Goražde' }
+
+    # 3. Fuzzy match (samo ako 1 i 2 ne odgovaraju)
+    if ($s -match 'SARAJEVO|ILIDZA|VOGOSCA|ALIPASINO|HRASNICA|KOBILJACA|MISEVICI|GLADNO|DRAKSENIC|STUP|HALILOVICI') { return 'Sarajevo' }
+    if ($s -match 'TUZLA|GRAČANICA|LUKAVAC|KALESIJA|KLJESTANI|TISCA') { return 'Tuzla' }
+    if ($s -match 'ZENICA|KAKANJ|VISOKO|ZAVIDOVI|PUHOVI') { return 'Zenica' }
+    if ($s -match 'MOSTAR|ČAPLJINA|ŠIROKI|GRUDE|LJUBUŠKI|KONJIC|JABLANICA') { return 'Mostar' }
+    if ($s -match 'BIHAC|CAZIN|VELIKAKLADUSA|SANSKI|KLJUC|BOSANSKI') { return 'Bihać' }
+    if ($s -match 'TRAVNIK|NOVITRAVNIK|JAJCE|VITEZ|BUGOJNO|KAKRINJE') { return 'Travnik' }
+    if ($s -match 'GORAZDE|FOCA|CAJNICE|RUDO|ROGATICA') { return 'Goražde' }
+    if ($s -match 'BANJALUKA|GRADISKA|PRNJAVOR|CELINAC|STRICICI|BUNAREVI') { return 'Banja Luka' }
+
+    return 'Ostalo'
+}
 	# === KRAJ FUNKCIJE ===
 while ($true) {
     try {
