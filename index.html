@@ -195,17 +195,39 @@ const clean = (raw) => raw.map(r => {
   return o;
 });
 
-const mapRegion = s => {
-  if(!s) return 'Ostalo';
-  const u = s.toUpperCase();
-  if(u.includes('SARAJEVO')||u.includes('ILIDZA')||u.includes('ILIDŽA')) return 'Sarajevo';
-  if(u.includes('TUZLA')||u.includes('GRAČANICA')) return 'Tuzla';
-  if(u.includes('ZENICA')||u.includes('KAKANJ')) return 'Zenica';
-  if(u.includes('MOSTAR')||u.includes('ČAPLJINA')) return 'Mostar';
-  if(u.includes('BIHAC')||u.includes('BIHAĆ')||u.includes('CAZIN')) return 'Bihać';
-  if(u.includes('TRAVNIK')) return 'Travnik';
-  if(u.includes('GORAZDE')||u.includes('FOČA')) return 'Goražde';
-  return 'Ostalo';
+const mapRegion = (site, explicitRegion) => {
+    if (explicitRegion && explicitRegion !== 'N/A') return explicitRegion;
+    const s = (site || '').trim().toUpperCase();
+
+    // 1. Eksplicitna pravila
+    const explicit = {
+        'GRABOVICA': 'Mostar', 'GRABOVICA_TUZLA': 'Tuzla',
+        'TUZLA_KISELJAK': 'Tuzla', 'KISELJAK_CENTAR': 'Travnik',
+        'POSUSJE_OSREDAK': 'Mostar', 'POSUSJE_CENTAR': 'Mostar',
+        'MANJACA': 'Travnik', 'KMUR': 'Zenica'
+    };
+    if (explicit[s]) return explicit[s];
+
+    // 2. Sufiks/Prefiks
+    if (/_TUZLA$|^TUZLA_/.test(s)) return 'Tuzla';
+    if (/_SARAJEVO$|^SARAJEVO_/.test(s)) return 'Sarajevo';
+    if (/_ZENICA$|^ZENICA_/.test(s)) return 'Zenica';
+    if (/_MOSTAR$|^MOSTAR_/.test(s)) return 'Mostar';
+    if (/_BIHAC$|^BIHAC_/.test(s)) return 'Bihać';
+    if (/_TRAVNIK$|^TRAVNIK_/.test(s)) return 'Travnik';
+    if (/_GORAZDE$|^GORAZDE_/.test(s)) return 'Goražde';
+
+    // 3. Fuzzy match
+    if (/SARAJEVO|ILIDZA|VOGOSCA|ALIPASINO|HRASNICA|KOBILJACA|MISEVICI|GLADNO_POLJE|PENNY|STUP|HALILOVICI/.test(s)) return 'Sarajevo';
+    if (/TUZLA|GRAČANICA|LUKAVAC|KALESIJA|KLJESTANI|TISCA/.test(s)) return 'Tuzla';
+    if (/ZENICA|KAKANJ|VISOKO|ZAVIDOVICI|MAGLAJ|TESANJ|BANJALUKA|BANJA_LUKA|GRADISKA/.test(s)) return 'Zenica';
+    if (/MOSTAR|ČAPLJINA|ŠIROKI|GRUDE|LJUBUŠKI|KONJIC|JABLANICA|NEUM|STOLAC|TREBINJE|GACKO|BILECA|IVANICA/.test(s)) return 'Mostar';
+    if (/BIHAC|CAZIN|VELIKA_KLADUSA|COJLUK|MAGLAJ|SANSKI_MOST|KLJUC|BOSANSKI_NOVI|BUNAREVI/.test(s)) return 'Bihać';
+    if (/TRAVNIK|NOVI_TRAVNIK|JAJCE|VITEZ|BUGOJNO|TURBE|/.test(s)) return 'Travnik';
+    if (/GORAZDE|FOCA|CAJNICE|RUDO|ROGATICA/.test(s)) return 'Goražde';
+    if (/BANJALUKA|PRNJAVOR|CELINAC|STRICICI.test(s)) return 'Banja Luka';
+
+    return 'Ostalo';
 };
 
 const fmtTime = v => {
