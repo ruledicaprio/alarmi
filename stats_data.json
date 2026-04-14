@@ -1,6 +1,230 @@
 ﻿{
     "Recent":  [
                    {
+                       "System":  "IgnitionSCADA",
+                       "Site":  "SARAJEVO_-_HRASNICA",
+                       "Alarm":  "PLC1",
+                       "Time":  "\/Date(1776173449000)\/",
+                       "Status":  "UNKNOWN"
+                   },
+                   {
+                       "System":  "IgnitionSCADA",
+                       "Site":  "SARAJEVO_-_HRASNICA",
+                       "Alarm":  "ModbusSC200",
+                       "Time":  "\/Date(1776173438000)\/",
+                       "Status":  "UNKNOWN"
+                   },
+                   {
+                       "System":  "IgnitionSCADA",
+                       "Site":  "SARAJEVO_-_HRASNICA",
+                       "Alarm":  "ModbusSC200Hrasnica",
+                       "Time":  "\/Date(1776173435000)\/",
+                       "Status":  "UNKNOWN"
+                   },
+                   {
+                       "System":  "IgnitionSCADA",
+                       "Site":  "SARAJEVO_-_HRASNICA",
+                       "Alarm":  "Modbus1",
+                       "Time":  "\/Date(1776173433000)\/",
+                       "Status":  "UNKNOWN"
+                   },
+                   {
+                       "System":  "IgnitionSCADA",
+                       "Site":  "SARAJEVO_-_HRASNICA",
+                       "Alarm":  "8000200",
+                       "Time":  "\/Date(1776173431000)\/",
+                       "Status":  "UNKNOWN"
+                   },
+                   {
+                       "System":  "IgnitionSCADA",
+                       "Site":  "SARAJEVO_-_HRASNICA",
+                       "Alarm":  "Info",
+                       "Time":  "\/Date(1776173428000)\/",
+                       "Status":  "UNKNOWN"
+                   },
+                   {
+                       "System":  "IgnitionSCADA",
+                       "Site":  "SARAJEVO_-_HRASNICA",
+                       "Alarm":  "Node Info",
+                       "Time":  "\/Date(1776173425000)\/",
+                       "Status":  "UNKNOWN"
+                   },
+                   {
+                       "System":  "IgnitionSCADA",
+                       "Site":  "SARAJEVO_-_HRASNICA",
+                       "Alarm":  "Node Info",
+                       "Time":  "\/Date(1776173354000)\/",
+                       "Status":  "UNKNOWN"
+                   },
+                   {
+                       "System":  "IgnitionSCADA",
+                       "Site":  "SARAJEVO_-_HRASNICA",
+                       "Alarm":  "Info",
+                       "Time":  "\/Date(1776173352000)\/",
+                       "Status":  "UNKNOWN"
+                   },
+                   {
+                       "System":  "IgnitionSCADA",
+                       "Site":  "SARAJEVO_-_HRASNICA",
+                       "Alarm":  "ModbusSC200Hrasnica",
+                       "Time":  "\/Date(1776173349000)\/",
+                       "Status":  "UNKNOWN"
+                   },
+                   {
+                       "System":  "IgnitionSCADA",
+                       "Site":  "SARAJEVO_-_HRASNICA",
+                       "Alarm":  "8000200",
+                       "Time":  "\/Date(1776173347000)\/",
+                       "Status":  "UNKNOWN"
+                   },
+                   {
+                       "System":  "IgnitionSCADA",
+                       "Site":  "SARAJEVO_-_HRASNICA",
+                       "Alarm":  "Modbus1",
+                       "Time":  "\/Date(1776173344000)\/",
+                       "Status":  "UNKNOWN"
+                   },
+                   {
+                       "System":  "IgnitionSCADA",
+                       "Site":  "SARAJEVO_-_HRASNICA",
+                       "Alarm":  "ModbusSC200",
+                       "Time":  "\/Date(1776173342000)\/",
+                       "Status":  "UNKNOWN"
+                   },
+                   {
+                       "System":  "IgnitionSCADA",
+                       "Site":  "SARAJEVO_-_HRASNICA",
+                       "Alarm":  "PLC1",
+                       "Time":  "\/Date(1776173287000)\/",
+                       "Status":  "UNKNOWN"
+                   },
+                   {
+                       "System":  "IgnitionSCADA",
+                       "Site":  "SARAJEVO_-_ALIPASINO_POLJE",
+                       "Alarm":  "8000166",
+                       "Time":  "\/Date(1776173159000)\/",
+                       "Status":  "UNKNOWN"
+                   },
+                   {
+                       "System":  "IgnitionSCADA",
+                       "Site":  "SARAJEVO_-_ALIPASINO_POLJE",
+                       "Alarm":  "8000166",
+                       "Time":  "\/Date(1776173139000)\/",
+                       "Status":  "UNKNOWN"
+                   },
+                   {
+                       "System":  "IgnitionSCADA",
+                       "Site":  "SARAJEVO_-_US_SREDNJE",
+                       "Alarm":  "1000013",
+                       "Time":  "\/Date(1776172996000)\/",
+                       "Status":  "UNKNOWN"
+                   },
+                   {
+                       "System":  "IgnitionSCADA",
+                       "Site":  "SARAJEVO_-_US_SREDNJE",
+                       "Alarm":  "1000012",
+                       "Time":  "\/Date(1776172994000)\/",
+                       "Status":  "UNKNOWN"
+                   },
+                   {
+                       "System":  "IgnitionSCADA",
+                       "Site":  "SARAJEVO_-_US_SREDNJE",
+                       "Alarm":  "1000002",
+                       "Time":  "\/Date(1776172991000)\/",
+                       "Status":  "UNKNOWN"
+                   },
+                   {
+                       "System":  "IgnitionSCADA",
+                       "Site":  "SARAJEVO_-_US_SREDNJE",
+                       "Alarm":  "1000001",
+                       "Time":  "\/Date(1776172989000)\/",
+                       "Status":  "UNKNOWN"
+                   },
+                   {
+                       "System":  "IgnitionSCADA",
+                       "Site":  "SARAJEVO_-_US_SREDNJE",
+                       "Alarm":  "1000003",
+                       "Time":  "\/Date(1776172986000)\/",
+                       "Status":  "UNKNOWN"
+                   },
+                   {
+                       "System":  "IgnitionSCADA",
+                       "Site":  "SARAJEVO_-_US_SREDNJE",
+                       "Alarm":  "Node Info",
+                       "Time":  "\/Date(1776172983000)\/",
+                       "Status":  "UNKNOWN"
+                   },
+                   {
+                       "System":  "U2020",
+                       "Site":  "TOPOVINA_STOLAC",
+                       "Alarm":  "Otvorena vrata (Door Open Alarm)",
+                       "Time":  "\/Date(1776172965000)\/",
+                       "Status":  "CLEARED"
+                   },
+                   {
+                       "System":  "IgnitionSCADA",
+                       "Site":  "SARAJEVO_-_OBALA",
+                       "Alarm":  "8000142",
+                       "Time":  "\/Date(1776172955000)\/",
+                       "Status":  "UNKNOWN"
+                   },
+                   {
+                       "System":  "IgnitionSCADA",
+                       "Site":  "SARAJEVO_-_US_SREDNJE",
+                       "Alarm":  "Node Info",
+                       "Time":  "\/Date(1776172911000)\/",
+                       "Status":  "UNKNOWN"
+                   },
+                   {
+                       "System":  "IgnitionSCADA",
+                       "Site":  "SARAJEVO_-_US_SREDNJE",
+                       "Alarm":  "Info",
+                       "Time":  "\/Date(1776172909000)\/",
+                       "Status":  "UNKNOWN"
+                   },
+                   {
+                       "System":  "IgnitionSCADA",
+                       "Site":  "SARAJEVO_-_US_SREDNJE",
+                       "Alarm":  "1000013",
+                       "Time":  "\/Date(1776172906000)\/",
+                       "Status":  "UNKNOWN"
+                   },
+                   {
+                       "System":  "IgnitionSCADA",
+                       "Site":  "SARAJEVO_-_US_SREDNJE",
+                       "Alarm":  "1000002",
+                       "Time":  "\/Date(1776172904000)\/",
+                       "Status":  "UNKNOWN"
+                   },
+                   {
+                       "System":  "IgnitionSCADA",
+                       "Site":  "SARAJEVO_-_US_SREDNJE",
+                       "Alarm":  "1000012",
+                       "Time":  "\/Date(1776172901000)\/",
+                       "Status":  "UNKNOWN"
+                   },
+                   {
+                       "System":  "IgnitionSCADA",
+                       "Site":  "SARAJEVO_-_US_SREDNJE",
+                       "Alarm":  "1000001",
+                       "Time":  "\/Date(1776172899000)\/",
+                       "Status":  "UNKNOWN"
+                   },
+                   {
+                       "System":  "IgnitionSCADA",
+                       "Site":  "SARAJEVO_-_US_SREDNJE",
+                       "Alarm":  "1000003",
+                       "Time":  "\/Date(1776172896000)\/",
+                       "Status":  "UNKNOWN"
+                   },
+                   {
+                       "System":  "IgnitionSCADA",
+                       "Site":  "SARAJEVO_-_OBALA",
+                       "Alarm":  "8000142",
+                       "Time":  "\/Date(1776172894000)\/",
+                       "Status":  "UNKNOWN"
+                   },
+                   {
                        "System":  "U2020",
                        "Site":  "CVIJETANJ",
                        "Alarm":  "NE Is Disconnected",
@@ -3275,230 +3499,6 @@
                        "Alarm":  "3000053",
                        "Time":  "\/Date(1776163063000)\/",
                        "Status":  "UNKNOWN"
-                   },
-                   {
-                       "System":  "IgnitionSCADA",
-                       "Site":  "ZENICA_-_ATC_CRKVICE",
-                       "Alarm":  "3000054",
-                       "Time":  "\/Date(1776163061000)\/",
-                       "Status":  "UNKNOWN"
-                   },
-                   {
-                       "System":  "IgnitionSCADA",
-                       "Site":  "ZENICA_-_ATC_CRKVICE",
-                       "Alarm":  "3000054",
-                       "Time":  "\/Date(1776163058000)\/",
-                       "Status":  "UNKNOWN"
-                   },
-                   {
-                       "System":  "IgnitionSCADA",
-                       "Site":  "ZENICA_-_ATC_CRKVICE",
-                       "Alarm":  "3000053",
-                       "Time":  "\/Date(1776163056000)\/",
-                       "Status":  "UNKNOWN"
-                   },
-                   {
-                       "System":  "IgnitionSCADA",
-                       "Site":  "ZENICA_-_ATC_CRKVICE",
-                       "Alarm":  "3000054",
-                       "Time":  "\/Date(1776163053000)\/",
-                       "Status":  "UNKNOWN"
-                   },
-                   {
-                       "System":  "IgnitionSCADA",
-                       "Site":  "ZENICA_-_ATC_CRKVICE",
-                       "Alarm":  "3000053",
-                       "Time":  "\/Date(1776163051000)\/",
-                       "Status":  "UNKNOWN"
-                   },
-                   {
-                       "System":  "IgnitionSCADA",
-                       "Site":  "SARAJEVO_-_DMALTA",
-                       "Alarm":  "8000249",
-                       "Time":  "\/Date(1776163048000)\/",
-                       "Status":  "UNKNOWN"
-                   },
-                   {
-                       "System":  "IgnitionSCADA",
-                       "Site":  "SARAJEVO_-_BASCARSIJA",
-                       "Alarm":  "Info",
-                       "Time":  "\/Date(1776163046000)\/",
-                       "Status":  "UNKNOWN"
-                   },
-                   {
-                       "System":  "IgnitionSCADA",
-                       "Site":  "SARAJEVO_-_DMALTA",
-                       "Alarm":  "8000029",
-                       "Time":  "\/Date(1776163043000)\/",
-                       "Status":  "UNKNOWN"
-                   },
-                   {
-                       "System":  "IgnitionSCADA",
-                       "Site":  "SARAJEVO_-_DMALTA",
-                       "Alarm":  "8000249",
-                       "Time":  "\/Date(1776163041000)\/",
-                       "Status":  "UNKNOWN"
-                   },
-                   {
-                       "System":  "IgnitionSCADA",
-                       "Site":  "SARAJEVO_-_DMALTA",
-                       "Alarm":  "8000269",
-                       "Time":  "\/Date(1776163038000)\/",
-                       "Status":  "UNKNOWN"
-                   },
-                   {
-                       "System":  "IgnitionSCADA",
-                       "Site":  "SARAJEVO_-_DMALTA",
-                       "Alarm":  "8000042",
-                       "Time":  "\/Date(1776163036000)\/",
-                       "Status":  "UNKNOWN"
-                   },
-                   {
-                       "System":  "IgnitionSCADA",
-                       "Site":  "SARAJEVO_-_DMALTA",
-                       "Alarm":  "8000039",
-                       "Time":  "\/Date(1776163033000)\/",
-                       "Status":  "UNKNOWN"
-                   },
-                   {
-                       "System":  "IgnitionSCADA",
-                       "Site":  "SARAJEVO_-_DMALTA",
-                       "Alarm":  "8000036",
-                       "Time":  "\/Date(1776163031000)\/",
-                       "Status":  "UNKNOWN"
-                   },
-                   {
-                       "System":  "IgnitionSCADA",
-                       "Site":  "SARAJEVO_-_DMALTA",
-                       "Alarm":  "8000272",
-                       "Time":  "\/Date(1776163028000)\/",
-                       "Status":  "UNKNOWN"
-                   },
-                   {
-                       "System":  "IgnitionSCADA",
-                       "Site":  "SARAJEVO_-_DMALTA",
-                       "Alarm":  "8000271",
-                       "Time":  "\/Date(1776163026000)\/",
-                       "Status":  "UNKNOWN"
-                   },
-                   {
-                       "System":  "IgnitionSCADA",
-                       "Site":  "SARAJEVO_-_DMALTA",
-                       "Alarm":  "8000270",
-                       "Time":  "\/Date(1776163023000)\/",
-                       "Status":  "UNKNOWN"
-                   },
-                   {
-                       "System":  "IgnitionSCADA",
-                       "Site":  "SARAJEVO_-_DMALTA",
-                       "Alarm":  "Modbus2",
-                       "Time":  "\/Date(1776163021000)\/",
-                       "Status":  "UNKNOWN"
-                   },
-                   {
-                       "System":  "IgnitionSCADA",
-                       "Site":  "SARAJEVO_-_VOGOSCA",
-                       "Alarm":  "Node Info",
-                       "Time":  "\/Date(1776163019000)\/",
-                       "Status":  "UNKNOWN"
-                   },
-                   {
-                       "System":  "IgnitionSCADA",
-                       "Site":  "SARAJEVO_-_VOGOSCA",
-                       "Alarm":  "8000303",
-                       "Time":  "\/Date(1776163016000)\/",
-                       "Status":  "UNKNOWN"
-                   },
-                   {
-                       "System":  "IgnitionSCADA",
-                       "Site":  "SARAJEVO_-_VOGOSCA",
-                       "Alarm":  "Info",
-                       "Time":  "\/Date(1776163014000)\/",
-                       "Status":  "UNKNOWN"
-                   },
-                   {
-                       "System":  "IgnitionSCADA",
-                       "Site":  "SARAJEVO_-_ALIPASINO_POLJE",
-                       "Alarm":  "Node Info",
-                       "Time":  "\/Date(1776163011000)\/",
-                       "Status":  "UNKNOWN"
-                   },
-                   {
-                       "System":  "IgnitionSCADA",
-                       "Site":  "SARAJEVO_-_ALIPASINO_POLJE",
-                       "Alarm":  "8000246",
-                       "Time":  "\/Date(1776163009000)\/",
-                       "Status":  "UNKNOWN"
-                   },
-                   {
-                       "System":  "IgnitionSCADA",
-                       "Site":  "SARAJEVO_-_ALIPASINO_POLJE",
-                       "Alarm":  "8000267",
-                       "Time":  "\/Date(1776163006000)\/",
-                       "Status":  "UNKNOWN"
-                   },
-                   {
-                       "System":  "IgnitionSCADA",
-                       "Site":  "SARAJEVO_-_ALIPASINO_POLJE",
-                       "Alarm":  "8000245",
-                       "Time":  "\/Date(1776163004000)\/",
-                       "Status":  "UNKNOWN"
-                   },
-                   {
-                       "System":  "IgnitionSCADA",
-                       "Site":  "SARAJEVO_-_ALIPASINO_POLJE",
-                       "Alarm":  "8000266",
-                       "Time":  "\/Date(1776163001000)\/",
-                       "Status":  "UNKNOWN"
-                   },
-                   {
-                       "System":  "IgnitionSCADA",
-                       "Site":  "SARAJEVO_-_ALIPASINO_POLJE",
-                       "Alarm":  "8000265",
-                       "Time":  "\/Date(1776162999000)\/",
-                       "Status":  "UNKNOWN"
-                   },
-                   {
-                       "System":  "IgnitionSCADA",
-                       "Site":  "SARAJEVO_-_ALIPASINO_POLJE",
-                       "Alarm":  "8000166",
-                       "Time":  "\/Date(1776162996000)\/",
-                       "Status":  "UNKNOWN"
-                   },
-                   {
-                       "System":  "IgnitionSCADA",
-                       "Site":  "SARAJEVO_-_ALIPASINO_POLJE",
-                       "Alarm":  "8000264",
-                       "Time":  "\/Date(1776162994000)\/",
-                       "Status":  "UNKNOWN"
-                   },
-                   {
-                       "System":  "IgnitionSCADA",
-                       "Site":  "SARAJEVO_-_ALIPASINO_POLJE",
-                       "Alarm":  "8000165",
-                       "Time":  "\/Date(1776162992000)\/",
-                       "Status":  "UNKNOWN"
-                   },
-                   {
-                       "System":  "IgnitionSCADA",
-                       "Site":  "SARAJEVO_-_ALIPASINO_POLJE",
-                       "Alarm":  "8000263",
-                       "Time":  "\/Date(1776162989000)\/",
-                       "Status":  "UNKNOWN"
-                   },
-                   {
-                       "System":  "IgnitionSCADA",
-                       "Site":  "SARAJEVO_-_ALIPASINO_POLJE",
-                       "Alarm":  "8000262",
-                       "Time":  "\/Date(1776162987000)\/",
-                       "Status":  "UNKNOWN"
-                   },
-                   {
-                       "System":  "IgnitionSCADA",
-                       "Site":  "SARAJEVO_-_ALIPASINO_POLJE",
-                       "Alarm":  "8000261",
-                       "Time":  "\/Date(1776162984000)\/",
-                       "Status":  "UNKNOWN"
                    }
                ],
     "Stats":  [
@@ -3518,9 +3518,9 @@
                       "Alarm":  "AC Failure",
                       "System":  "NetEco",
                       "DayCnt":  2,
-                      "DayDur":  479.4,
+                      "DayDur":  480.5,
                       "WeekCnt":  2,
-                      "WeekDur":  479.4,
+                      "WeekDur":  480.5,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -3541,8 +3541,8 @@
                       "System":  "U2020",
                       "DayCnt":  0,
                       "DayDur":  0,
-                      "WeekCnt":  null,
-                      "WeekDur":  260.5,
+                      "WeekCnt":  0,
+                      "WeekDur":  0,
                       "LastStatus":  "CLEARED",
                       "Region":  "N/A"
                   },
@@ -3562,9 +3562,9 @@
                       "Alarm":  "AC Failure",
                       "System":  "NetEco",
                       "DayCnt":  5,
-                      "DayDur":  169.7,
+                      "DayDur":  170.8,
                       "WeekCnt":  5,
-                      "WeekDur":  169.7,
+                      "WeekDur":  170.8,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -3573,9 +3573,9 @@
                       "Alarm":  "AC Failure",
                       "System":  "NetEco",
                       "DayCnt":  2,
-                      "DayDur":  247,
+                      "DayDur":  248.1,
                       "WeekCnt":  2,
-                      "WeekDur":  247,
+                      "WeekDur":  248.1,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -3584,9 +3584,9 @@
                       "Alarm":  "Door Open Alarm",
                       "System":  "NetEco",
                       "DayCnt":  2,
-                      "DayDur":  208.3,
+                      "DayDur":  209.5,
                       "WeekCnt":  2,
-                      "WeekDur":  208.3,
+                      "WeekDur":  209.5,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -3617,9 +3617,9 @@
                       "Alarm":  "Mains Failure",
                       "System":  "NetEco",
                       "DayCnt":  2,
-                      "DayDur":  154.4,
+                      "DayDur":  155.6,
                       "WeekCnt":  2,
-                      "WeekDur":  154.4,
+                      "WeekDur":  155.6,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -3629,8 +3629,8 @@
                       "System":  "U2020",
                       "DayCnt":  0,
                       "DayDur":  0,
-                      "WeekCnt":  11,
-                      "WeekDur":  295.4,
+                      "WeekCnt":  7,
+                      "WeekDur":  187,
                       "LastStatus":  "CLEARED",
                       "Region":  "N/A"
                   },
@@ -3672,9 +3672,9 @@
                       "Alarm":  "AC Failure",
                       "System":  "NetEco",
                       "DayCnt":  2,
-                      "DayDur":  153.6,
+                      "DayDur":  154.8,
                       "WeekCnt":  3,
-                      "WeekDur":  153.6,
+                      "WeekDur":  154.8,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -3705,9 +3705,9 @@
                       "Alarm":  "Mains Failure",
                       "System":  "NetEco",
                       "DayCnt":  2,
-                      "DayDur":  153.8,
+                      "DayDur":  155,
                       "WeekCnt":  5,
-                      "WeekDur":  153.8,
+                      "WeekDur":  155,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -3738,9 +3738,9 @@
                       "Alarm":  "Mains Failure",
                       "System":  "NetEco",
                       "DayCnt":  2,
-                      "DayDur":  241.5,
+                      "DayDur":  242.7,
                       "WeekCnt":  2,
-                      "WeekDur":  241.5,
+                      "WeekDur":  242.7,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -3756,23 +3756,12 @@
                       "Region":  "N/A"
                   },
                   {
-                      "Site":  "SARAJEVO_-_BASCARSIJA",
-                      "Alarm":  "Node Info",
-                      "System":  "IgnitionSCADA",
-                      "DayCnt":  2,
-                      "DayDur":  0,
-                      "WeekCnt":  2,
-                      "WeekDur":  0,
-                      "LastStatus":  "UNKNOWN",
-                      "Region":  "N/A"
-                  },
-                  {
                       "Site":  "SARAJEVO_-_HRASNICA",
                       "Alarm":  "ModbusSC200Hrasnica",
                       "System":  "IgnitionSCADA",
-                      "DayCnt":  3,
+                      "DayCnt":  5,
                       "DayDur":  0,
-                      "WeekCnt":  3,
+                      "WeekCnt":  5,
                       "WeekDur":  0,
                       "LastStatus":  "UNKNOWN",
                       "Region":  "N/A"
@@ -3782,10 +3771,10 @@
                       "Alarm":  "Mains Failure",
                       "System":  "NetEco",
                       "DayCnt":  0,
-                      "DayDur":  935,
-                      "WeekCnt":  2,
-                      "WeekDur":  1531,
-                      "LastStatus":  "ACTIVE",
+                      "DayDur":  0,
+                      "WeekCnt":  null,
+                      "WeekDur":  0,
+                      "LastStatus":  "CLEARED",
                       "Region":  "N/A"
                   },
                   {
@@ -3815,9 +3804,9 @@
                       "Alarm":  "Battery Discharging",
                       "System":  "NetEco",
                       "DayCnt":  0,
-                      "DayDur":  935,
+                      "DayDur":  936.1,
                       "WeekCnt":  2,
-                      "WeekDur":  1615,
+                      "WeekDur":  1616.2,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -3837,9 +3826,9 @@
                       "Alarm":  "Door Open Alarm",
                       "System":  "NetEco",
                       "DayCnt":  4,
-                      "DayDur":  226.1,
+                      "DayDur":  227.3,
                       "WeekCnt":  4,
-                      "WeekDur":  226.1,
+                      "WeekDur":  227.3,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -3848,9 +3837,9 @@
                       "Alarm":  "Mains Failure",
                       "System":  "NetEco",
                       "DayCnt":  0,
-                      "DayDur":  935,
+                      "DayDur":  936.1,
                       "WeekCnt":  2,
-                      "WeekDur":  1616.7,
+                      "WeekDur":  1617.8,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -3881,9 +3870,9 @@
                       "Alarm":  "AC Phase L3 Undervoltage",
                       "System":  "NetEco",
                       "DayCnt":  2,
-                      "DayDur":  857.3,
+                      "DayDur":  858.4,
                       "WeekCnt":  2,
-                      "WeekDur":  857.3,
+                      "WeekDur":  858.4,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -3899,13 +3888,24 @@
                       "Region":  "N/A"
                   },
                   {
+                      "Site":  "SARAJEVO_-_US_SREDNJE",
+                      "Alarm":  "1000012",
+                      "System":  "IgnitionSCADA",
+                      "DayCnt":  2,
+                      "DayDur":  0,
+                      "WeekCnt":  2,
+                      "WeekDur":  0,
+                      "LastStatus":  "UNKNOWN",
+                      "Region":  "N/A"
+                  },
+                  {
                       "Site":  "HOTEL_KONCEPT_RESIDENCE",
                       "Alarm":  "Overdischarge Protection",
                       "System":  "NetEco",
                       "DayCnt":  0,
-                      "DayDur":  935,
+                      "DayDur":  936.1,
                       "WeekCnt":  2,
-                      "WeekDur":  1464.1,
+                      "WeekDur":  1465.3,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -3925,10 +3925,10 @@
                       "Alarm":  "DC Output Undervoltage",
                       "System":  "NetEco",
                       "DayCnt":  0,
-                      "DayDur":  935,
-                      "WeekCnt":  2,
-                      "WeekDur":  1689.8,
-                      "LastStatus":  "ACTIVE",
+                      "DayDur":  0,
+                      "WeekCnt":  null,
+                      "WeekDur":  0,
+                      "LastStatus":  "CLEARED",
                       "Region":  "N/A"
                   },
                   {
@@ -3947,9 +3947,9 @@
                       "Alarm":  "Otvorena vrata (Door Open Alarm)",
                       "System":  "U2020",
                       "DayCnt":  null,
-                      "DayDur":  0,
+                      "DayDur":  16.3,
                       "WeekCnt":  null,
-                      "WeekDur":  0,
+                      "WeekDur":  16.3,
                       "LastStatus":  "CLEARED",
                       "Region":  "N/A"
                   },
@@ -3969,9 +3969,9 @@
                       "Alarm":  "AC Failure",
                       "System":  "NetEco",
                       "DayCnt":  6,
-                      "DayDur":  338.7,
+                      "DayDur":  339.8,
                       "WeekCnt":  6,
-                      "WeekDur":  338.7,
+                      "WeekDur":  339.8,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -3987,24 +3987,13 @@
                       "Region":  "N/A"
                   },
                   {
-                      "Site":  "TUZLA_-_HOST_PASA_BUNAR",
-                      "Alarm":  "2000025",
-                      "System":  "IgnitionSCADA",
-                      "DayCnt":  0,
-                      "DayDur":  0,
-                      "WeekCnt":  2,
-                      "WeekDur":  0,
-                      "LastStatus":  "UNKNOWN",
-                      "Region":  "N/A"
-                  },
-                  {
                       "Site":  "VLAKNICA",
                       "Alarm":  "Bus Bar Undervoltage",
                       "System":  "NetEco",
                       "DayCnt":  4,
-                      "DayDur":  169.6,
+                      "DayDur":  170.8,
                       "WeekCnt":  4,
-                      "WeekDur":  169.6,
+                      "WeekDur":  170.8,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -4013,10 +4002,10 @@
                       "Alarm":  "AC Failure",
                       "System":  "NetEco",
                       "DayCnt":  0,
-                      "DayDur":  935,
-                      "WeekCnt":  2,
-                      "WeekDur":  1531.4,
-                      "LastStatus":  "ACTIVE",
+                      "DayDur":  0,
+                      "WeekCnt":  null,
+                      "WeekDur":  0,
+                      "LastStatus":  "CLEARED",
                       "Region":  "N/A"
                   },
                   {
@@ -4024,9 +4013,9 @@
                       "Alarm":  "Bus Bar Undervoltage",
                       "System":  "NetEco",
                       "DayCnt":  4,
-                      "DayDur":  24,
+                      "DayDur":  25.2,
                       "WeekCnt":  6,
-                      "WeekDur":  24,
+                      "WeekDur":  25.2,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -4068,9 +4057,9 @@
                       "Alarm":  "AC Failure",
                       "System":  "NetEco",
                       "DayCnt":  0,
-                      "DayDur":  935,
+                      "DayDur":  936.1,
                       "WeekCnt":  4,
-                      "WeekDur":  1552.2,
+                      "WeekDur":  1553.4,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -4101,9 +4090,9 @@
                       "Alarm":  "Door Status Sensor Alarm",
                       "System":  "NetEco",
                       "DayCnt":  2,
-                      "DayDur":  281.7,
+                      "DayDur":  282.9,
                       "WeekCnt":  2,
-                      "WeekDur":  281.7,
+                      "WeekDur":  282.9,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -4112,9 +4101,9 @@
                       "Alarm":  "AC Phase L1 Undervoltage",
                       "System":  "NetEco",
                       "DayCnt":  0,
-                      "DayDur":  935,
-                      "WeekCnt":  12,
-                      "WeekDur":  1574.2,
+                      "DayDur":  936.1,
+                      "WeekCnt":  10,
+                      "WeekDur":  1575.4,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -4156,9 +4145,9 @@
                       "Alarm":  "AC Failure",
                       "System":  "NetEco",
                       "DayCnt":  2,
-                      "DayDur":  259.3,
+                      "DayDur":  260.5,
                       "WeekCnt":  2,
-                      "WeekDur":  259.3,
+                      "WeekDur":  260.5,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -4189,9 +4178,9 @@
                       "Alarm":  "AC Failure",
                       "System":  "NetEco",
                       "DayCnt":  0,
-                      "DayDur":  935,
+                      "DayDur":  936.1,
                       "WeekCnt":  2,
-                      "WeekDur":  1551.8,
+                      "WeekDur":  1553,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -4222,9 +4211,9 @@
                       "Alarm":  "Nestanak 220 V",
                       "System":  "U2020",
                       "DayCnt":  6,
-                      "DayDur":  835,
+                      "DayDur":  836.2,
                       "WeekCnt":  6,
-                      "WeekDur":  835,
+                      "WeekDur":  836.2,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -4244,9 +4233,9 @@
                       "Alarm":  "AC Failure",
                       "System":  "NetEco",
                       "DayCnt":  0,
-                      "DayDur":  935,
+                      "DayDur":  936.1,
                       "WeekCnt":  4,
-                      "WeekDur":  1552.4,
+                      "WeekDur":  1553.5,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -4266,9 +4255,9 @@
                       "Alarm":  "AC Failure",
                       "System":  "NetEco",
                       "DayCnt":  2,
-                      "DayDur":  114.8,
+                      "DayDur":  115.9,
                       "WeekCnt":  2,
-                      "WeekDur":  114.8,
+                      "WeekDur":  115.9,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -4299,9 +4288,9 @@
                       "Alarm":  "Mains Failure",
                       "System":  "NetEco",
                       "DayCnt":  0,
-                      "DayDur":  935,
+                      "DayDur":  936.1,
                       "WeekCnt":  2,
-                      "WeekDur":  1574.8,
+                      "WeekDur":  1575.9,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -4310,9 +4299,9 @@
                       "Alarm":  "AC Failure",
                       "System":  "NetEco",
                       "DayCnt":  0,
-                      "DayDur":  935,
+                      "DayDur":  936.1,
                       "WeekCnt":  2,
-                      "WeekDur":  1723.9,
+                      "WeekDur":  1725.1,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -4343,9 +4332,9 @@
                       "Alarm":  "AC Failure",
                       "System":  "NetEco",
                       "DayCnt":  4,
-                      "DayDur":  24.1,
+                      "DayDur":  25.3,
                       "WeekCnt":  6,
-                      "WeekDur":  24.1,
+                      "WeekDur":  25.3,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -4376,9 +4365,9 @@
                       "Alarm":  "Mains Failure",
                       "System":  "NetEco",
                       "DayCnt":  2,
-                      "DayDur":  303.5,
+                      "DayDur":  304.7,
                       "WeekCnt":  2,
-                      "WeekDur":  303.5,
+                      "WeekDur":  304.7,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -4409,9 +4398,9 @@
                       "Alarm":  "AC Failure",
                       "System":  "NetEco",
                       "DayCnt":  2,
-                      "DayDur":  259.4,
+                      "DayDur":  260.6,
                       "WeekCnt":  2,
-                      "WeekDur":  259.4,
+                      "WeekDur":  260.6,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -4431,21 +4420,10 @@
                       "Alarm":  "AC Phase L2 Undervoltage",
                       "System":  "NetEco",
                       "DayCnt":  0,
-                      "DayDur":  935,
-                      "WeekCnt":  12,
-                      "WeekDur":  1574.1,
+                      "DayDur":  936.1,
+                      "WeekCnt":  10,
+                      "WeekDur":  1575.2,
                       "LastStatus":  "ACTIVE",
-                      "Region":  "N/A"
-                  },
-                  {
-                      "Site":  "IRAC_MEDRESA",
-                      "Alarm":  "Mains Failure",
-                      "System":  "NetEco",
-                      "DayCnt":  0,
-                      "DayDur":  0,
-                      "WeekCnt":  null,
-                      "WeekDur":  0,
-                      "LastStatus":  "CLEARED",
                       "Region":  "N/A"
                   },
                   {
@@ -4497,10 +4475,10 @@
                       "Alarm":  "Bus Bar Undervoltage",
                       "System":  "NetEco",
                       "DayCnt":  0,
-                      "DayDur":  935,
-                      "WeekCnt":  3,
-                      "WeekDur":  1423.9,
-                      "LastStatus":  "ACTIVE",
+                      "DayDur":  0,
+                      "WeekCnt":  null,
+                      "WeekDur":  0,
+                      "LastStatus":  "CLEARED",
                       "Region":  "N/A"
                   },
                   {
@@ -4552,9 +4530,9 @@
                       "Alarm":  "Rectifier Power Failure",
                       "System":  "NetEco",
                       "DayCnt":  28,
-                      "DayDur":  67.2,
+                      "DayDur":  68.4,
                       "WeekCnt":  28,
-                      "WeekDur":  67.2,
+                      "WeekDur":  68.4,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -4570,25 +4548,14 @@
                       "Region":  "N/A"
                   },
                   {
-                      "Site":  "SARAJEVO_-_DMALTA",
-                      "Alarm":  "8000248",
-                      "System":  "IgnitionSCADA",
-                      "DayCnt":  2,
-                      "DayDur":  0,
-                      "WeekCnt":  4,
-                      "WeekDur":  0,
-                      "LastStatus":  "UNKNOWN",
-                      "Region":  "N/A"
-                  },
-                  {
                       "Site":  "PTI33_TETIMA",
                       "Alarm":  "AC Failure",
                       "System":  "NetEco",
                       "DayCnt":  0,
-                      "DayDur":  935,
-                      "WeekCnt":  2,
-                      "WeekDur":  1423.9,
-                      "LastStatus":  "ACTIVE",
+                      "DayDur":  0,
+                      "WeekCnt":  null,
+                      "WeekDur":  0,
+                      "LastStatus":  "CLEARED",
                       "Region":  "N/A"
                   },
                   {
@@ -4630,7 +4597,7 @@
                       "System":  "IgnitionSCADA",
                       "DayCnt":  4,
                       "DayDur":  0,
-                      "WeekCnt":  1678,
+                      "WeekCnt":  110,
                       "WeekDur":  0,
                       "LastStatus":  "UNKNOWN",
                       "Region":  "N/A"
@@ -4640,9 +4607,9 @@
                       "Alarm":  "AC Failure",
                       "System":  "NetEco",
                       "DayCnt":  0,
-                      "DayDur":  935,
-                      "WeekCnt":  4,
-                      "WeekDur":  1531.5,
+                      "DayDur":  936.1,
+                      "WeekCnt":  3,
+                      "WeekDur":  1532.7,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -4651,9 +4618,9 @@
                       "Alarm":  "Bus Bar Undervoltage",
                       "System":  "NetEco",
                       "DayCnt":  8,
-                      "DayDur":  33.7,
-                      "WeekCnt":  24,
-                      "WeekDur":  33.7,
+                      "DayDur":  34.8,
+                      "WeekCnt":  20,
+                      "WeekDur":  34.8,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -4662,20 +4629,9 @@
                       "Alarm":  "AC Failure",
                       "System":  "NetEco",
                       "DayCnt":  2,
-                      "DayDur":  303.4,
+                      "DayDur":  304.5,
                       "WeekCnt":  2,
-                      "WeekDur":  303.4,
-                      "LastStatus":  "ACTIVE",
-                      "Region":  "N/A"
-                  },
-                  {
-                      "Site":  "VRILA",
-                      "Alarm":  "POSUSJE",
-                      "System":  "RPS-SC200-MIB",
-                      "DayCnt":  0,
-                      "DayDur":  935,
-                      "WeekCnt":  2,
-                      "WeekDur":  1776.6,
+                      "WeekDur":  304.5,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -4694,9 +4650,9 @@
                       "Site":  "SARAJEVO_-_HRASNICA",
                       "Alarm":  "8000200",
                       "System":  "IgnitionSCADA",
-                      "DayCnt":  3,
+                      "DayCnt":  5,
                       "DayDur":  0,
-                      "WeekCnt":  3,
+                      "WeekCnt":  5,
                       "WeekDur":  0,
                       "LastStatus":  "UNKNOWN",
                       "Region":  "N/A"
@@ -4728,9 +4684,9 @@
                       "Alarm":  "Mains Failure",
                       "System":  "NetEco",
                       "DayCnt":  2,
-                      "DayDur":  344.2,
+                      "DayDur":  345.4,
                       "WeekCnt":  2,
-                      "WeekDur":  344.2,
+                      "WeekDur":  345.4,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -4761,9 +4717,9 @@
                       "Alarm":  "Door Status Sensor Alarm",
                       "System":  "NetEco",
                       "DayCnt":  6,
-                      "DayDur":  298.9,
+                      "DayDur":  300.1,
                       "WeekCnt":  6,
-                      "WeekDur":  298.9,
+                      "WeekDur":  300.1,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -4772,9 +4728,9 @@
                       "Alarm":  "AC Failure",
                       "System":  "NetEco",
                       "DayCnt":  4,
-                      "DayDur":  73,
+                      "DayDur":  74.2,
                       "WeekCnt":  4,
-                      "WeekDur":  73,
+                      "WeekDur":  74.2,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -4816,9 +4772,9 @@
                       "Alarm":  "AC Undervoltage",
                       "System":  "NetEco",
                       "DayCnt":  0,
-                      "DayDur":  935,
+                      "DayDur":  936.1,
                       "WeekCnt":  4,
-                      "WeekDur":  1626.3,
+                      "WeekDur":  1627.4,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -4834,14 +4790,14 @@
                       "Region":  "N/A"
                   },
                   {
-                      "Site":  "PASA_BUNAR_II",
-                      "Alarm":  "DCMCUMIB::dcTrapAlarmEntryAdded",
-                      "System":  "Benning_napajanje",
-                      "DayCnt":  0,
-                      "DayDur":  935,
-                      "WeekCnt":  5,
-                      "WeekDur":  1854.8,
-                      "LastStatus":  "ACTIVE",
+                      "Site":  "SARAJEVO_-_DMALTA",
+                      "Alarm":  "8000248",
+                      "System":  "IgnitionSCADA",
+                      "DayCnt":  2,
+                      "DayDur":  0,
+                      "WeekCnt":  4,
+                      "WeekDur":  0,
+                      "LastStatus":  "UNKNOWN",
                       "Region":  "N/A"
                   },
                   {
@@ -4850,8 +4806,8 @@
                       "System":  "U2020",
                       "DayCnt":  0,
                       "DayDur":  0,
-                      "WeekCnt":  null,
-                      "WeekDur":  34,
+                      "WeekCnt":  0,
+                      "WeekDur":  0,
                       "LastStatus":  "CLEARED",
                       "Region":  "N/A"
                   },
@@ -4860,9 +4816,9 @@
                       "Alarm":  "Mains Failure",
                       "System":  "NetEco",
                       "DayCnt":  2,
-                      "DayDur":  368.9,
+                      "DayDur":  370.1,
                       "WeekCnt":  2,
-                      "WeekDur":  368.9,
+                      "WeekDur":  370.1,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -4871,9 +4827,9 @@
                       "Alarm":  "Mains Phase L2 Failure",
                       "System":  "NetEco",
                       "DayCnt":  42,
-                      "DayDur":  65.8,
+                      "DayDur":  66.9,
                       "WeekCnt":  62,
-                      "WeekDur":  65.8,
+                      "WeekDur":  66.9,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -4926,9 +4882,9 @@
                       "Alarm":  "AC Phase L1 Failure",
                       "System":  "NetEco",
                       "DayCnt":  0,
-                      "DayDur":  935,
+                      "DayDur":  936.1,
                       "WeekCnt":  4,
-                      "WeekDur":  1552.1,
+                      "WeekDur":  1553.3,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -4970,9 +4926,9 @@
                       "Alarm":  "Battery Discharging",
                       "System":  "NetEco",
                       "DayCnt":  6,
-                      "DayDur":  214.5,
+                      "DayDur":  215.7,
                       "WeekCnt":  6,
-                      "WeekDur":  214.5,
+                      "WeekDur":  215.7,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -5003,9 +4959,9 @@
                       "Alarm":  "Mains Failure",
                       "System":  "NetEco",
                       "DayCnt":  2,
-                      "DayDur":  479.5,
+                      "DayDur":  480.7,
                       "WeekCnt":  2,
-                      "WeekDur":  479.5,
+                      "WeekDur":  480.7,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -5032,14 +4988,14 @@
                       "Region":  "N/A"
                   },
                   {
-                      "Site":  "TURBE",
-                      "Alarm":  "Otvorena vrata (Door Open Alarm)",
-                      "System":  "U2020",
-                      "DayCnt":  0,
+                      "Site":  "SARAJEVO_-_BASCARSIJA",
+                      "Alarm":  "Node Info",
+                      "System":  "IgnitionSCADA",
+                      "DayCnt":  2,
                       "DayDur":  0,
-                      "WeekCnt":  null,
-                      "WeekDur":  4.2,
-                      "LastStatus":  "CLEARED",
+                      "WeekCnt":  2,
+                      "WeekDur":  0,
+                      "LastStatus":  "UNKNOWN",
                       "Region":  "N/A"
                   },
                   {
@@ -5058,21 +5014,21 @@
                       "Alarm":  "AC Failure",
                       "System":  "NetEco",
                       "DayCnt":  0,
-                      "DayDur":  935,
+                      "DayDur":  936.1,
                       "WeekCnt":  2,
-                      "WeekDur":  1616.5,
+                      "WeekDur":  1617.6,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
                   {
-                      "Site":  "LUKAVAC_DEVETAK",
-                      "Alarm":  "AC Failure",
-                      "System":  "NetEco",
-                      "DayCnt":  0,
-                      "DayDur":  935,
-                      "WeekCnt":  2,
-                      "WeekDur":  1794.2,
-                      "LastStatus":  "ACTIVE",
+                      "Site":  "SARAJEVO_-_RSU_KASINDOLSKA_1",
+                      "Alarm":  "Info",
+                      "System":  "IgnitionSCADA",
+                      "DayCnt":  4,
+                      "DayDur":  0,
+                      "WeekCnt":  139,
+                      "WeekDur":  0,
+                      "LastStatus":  "UNKNOWN",
                       "Region":  "N/A"
                   },
                   {
@@ -5080,43 +5036,10 @@
                       "Alarm":  "Air Conditioner Frequent High Pressure",
                       "System":  "NetEco",
                       "DayCnt":  0,
-                      "DayDur":  935,
+                      "DayDur":  936.1,
                       "WeekCnt":  2,
-                      "WeekDur":  1620.5,
+                      "WeekDur":  1621.6,
                       "LastStatus":  "ACTIVE",
-                      "Region":  "N/A"
-                  },
-                  {
-                      "Site":  "SANSKI_MOST_TOMINA",
-                      "Alarm":  "Mains Failure",
-                      "System":  "NetEco",
-                      "DayCnt":  0,
-                      "DayDur":  935,
-                      "WeekCnt":  2,
-                      "WeekDur":  1798.7,
-                      "LastStatus":  "ACTIVE",
-                      "Region":  "N/A"
-                  },
-                  {
-                      "Site":  "VELIKA_VIDOVA",
-                      "Alarm":  "NE Is Disconnected",
-                      "System":  "U2020",
-                      "DayCnt":  0,
-                      "DayDur":  0,
-                      "WeekCnt":  2,
-                      "WeekDur":  2.1,
-                      "LastStatus":  "CLEARED",
-                      "Region":  "N/A"
-                  },
-                  {
-                      "Site":  "STADION_TUSANJ",
-                      "Alarm":  "Mains Failure",
-                      "System":  "NetEco",
-                      "DayCnt":  0,
-                      "DayDur":  0,
-                      "WeekCnt":  null,
-                      "WeekDur":  0,
-                      "LastStatus":  "CLEARED",
                       "Region":  "N/A"
                   },
                   {
@@ -5135,9 +5058,9 @@
                       "Alarm":  "AC Failure",
                       "System":  "NetEco",
                       "DayCnt":  2,
-                      "DayDur":  329.4,
+                      "DayDur":  330.5,
                       "WeekCnt":  3,
-                      "WeekDur":  329.4,
+                      "WeekDur":  330.5,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -5146,9 +5069,9 @@
                       "Alarm":  "Overdischarge",
                       "System":  "NetEco",
                       "DayCnt":  0,
-                      "DayDur":  935,
-                      "WeekCnt":  4,
-                      "WeekDur":  1638.6,
+                      "DayDur":  936.1,
+                      "WeekCnt":  3,
+                      "WeekDur":  1639.8,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -5169,7 +5092,7 @@
                       "System":  "IgnitionSCADA",
                       "DayCnt":  50,
                       "DayDur":  0,
-                      "WeekCnt":  164,
+                      "WeekCnt":  106,
                       "WeekDur":  0,
                       "LastStatus":  "UNKNOWN",
                       "Region":  "N/A"
@@ -5179,9 +5102,9 @@
                       "Alarm":  "AC Failure",
                       "System":  "NetEco",
                       "DayCnt":  6,
-                      "DayDur":  214.8,
+                      "DayDur":  215.9,
                       "WeekCnt":  6,
-                      "WeekDur":  214.8,
+                      "WeekDur":  215.9,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -5200,9 +5123,20 @@
                       "Site":  "SARAJEVO_-_ALIPASINO_POLJE",
                       "Alarm":  "8000166",
                       "System":  "IgnitionSCADA",
-                      "DayCnt":  34,
+                      "DayCnt":  36,
                       "DayDur":  0,
-                      "WeekCnt":  106,
+                      "WeekCnt":  99,
+                      "WeekDur":  0,
+                      "LastStatus":  "UNKNOWN",
+                      "Region":  "N/A"
+                  },
+                  {
+                      "Site":  "SARAJEVO_-_US_SREDNJE",
+                      "Alarm":  "1000002",
+                      "System":  "IgnitionSCADA",
+                      "DayCnt":  2,
+                      "DayDur":  0,
+                      "WeekCnt":  2,
                       "WeekDur":  0,
                       "LastStatus":  "UNKNOWN",
                       "Region":  "N/A"
@@ -5223,9 +5157,9 @@
                       "Alarm":  "AC Failure",
                       "System":  "NetEco",
                       "DayCnt":  2,
-                      "DayDur":  153.7,
+                      "DayDur":  154.8,
                       "WeekCnt":  9,
-                      "WeekDur":  153.7,
+                      "WeekDur":  154.8,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -5234,9 +5168,9 @@
                       "Alarm":  "AC Failure",
                       "System":  "NetEco",
                       "DayCnt":  2,
-                      "DayDur":  309.1,
+                      "DayDur":  310.2,
                       "WeekCnt":  2,
-                      "WeekDur":  309.1,
+                      "WeekDur":  310.2,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -5256,10 +5190,10 @@
                       "Alarm":  "ACTIVE",
                       "System":  "BARAN_klima",
                       "DayCnt":  null,
-                      "DayDur":  387.1,
-                      "WeekCnt":  2,
-                      "WeekDur":  387.1,
-                      "LastStatus":  "ACTIVE",
+                      "DayDur":  0,
+                      "WeekCnt":  null,
+                      "WeekDur":  0,
+                      "LastStatus":  "CLEARED",
                       "Region":  "N/A"
                   },
                   {
@@ -5267,9 +5201,9 @@
                       "Alarm":  "AC Failure",
                       "System":  "NetEco",
                       "DayCnt":  0,
-                      "DayDur":  935,
-                      "WeekCnt":  4,
-                      "WeekDur":  1531.6,
+                      "DayDur":  936.1,
+                      "WeekCnt":  3,
+                      "WeekDur":  1532.7,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -5278,9 +5212,9 @@
                       "Alarm":  "Mains Phase L2 Undervoltage",
                       "System":  "NetEco",
                       "DayCnt":  0,
-                      "DayDur":  935,
-                      "WeekCnt":  12,
-                      "WeekDur":  1574,
+                      "DayDur":  936.1,
+                      "WeekCnt":  10,
+                      "WeekDur":  1575.2,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -5311,9 +5245,9 @@
                       "Alarm":  "Mains Failure",
                       "System":  "NetEco",
                       "DayCnt":  0,
-                      "DayDur":  935,
-                      "WeekCnt":  4,
-                      "WeekDur":  1531.8,
+                      "DayDur":  936.1,
+                      "WeekCnt":  3,
+                      "WeekDur":  1532.9,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -5366,9 +5300,9 @@
                       "Alarm":  "Otvorena vrata (Door Open Alarm)",
                       "System":  "U2020",
                       "DayCnt":  6,
-                      "DayDur":  267,
+                      "DayDur":  268.2,
                       "WeekCnt":  6,
-                      "WeekDur":  267,
+                      "WeekDur":  268.2,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -5399,9 +5333,9 @@
                       "Alarm":  "Phase L2 Under Voltage",
                       "System":  "NetEco",
                       "DayCnt":  0,
-                      "DayDur":  935,
+                      "DayDur":  936.1,
                       "WeekCnt":  2,
-                      "WeekDur":  1512.8,
+                      "WeekDur":  1513.9,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -5410,9 +5344,9 @@
                       "Alarm":  "Mains Failure",
                       "System":  "NetEco",
                       "DayCnt":  4,
-                      "DayDur":  196.9,
+                      "DayDur":  198,
                       "WeekCnt":  4,
-                      "WeekDur":  196.9,
+                      "WeekDur":  198,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -5421,21 +5355,10 @@
                       "Alarm":  "AC Failure",
                       "System":  "NetEco",
                       "DayCnt":  2,
-                      "DayDur":  176.2,
+                      "DayDur":  177.4,
                       "WeekCnt":  2,
-                      "WeekDur":  176.2,
+                      "WeekDur":  177.4,
                       "LastStatus":  "ACTIVE",
-                      "Region":  "N/A"
-                  },
-                  {
-                      "Site":  "SARAJEVO_-_RSU_KASINDOLSKA_1",
-                      "Alarm":  "Info",
-                      "System":  "IgnitionSCADA",
-                      "DayCnt":  4,
-                      "DayDur":  0,
-                      "WeekCnt":  2207,
-                      "WeekDur":  0,
-                      "LastStatus":  "UNKNOWN",
                       "Region":  "N/A"
                   },
                   {
@@ -5443,9 +5366,9 @@
                       "Alarm":  "Mains Failure",
                       "System":  "NetEco",
                       "DayCnt":  0,
-                      "DayDur":  935,
+                      "DayDur":  936.1,
                       "WeekCnt":  2,
-                      "WeekDur":  1564.9,
+                      "WeekDur":  1566.1,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -5465,9 +5388,9 @@
                       "Alarm":  "AC Failure",
                       "System":  "NetEco",
                       "DayCnt":  8,
-                      "DayDur":  369,
+                      "DayDur":  370.1,
                       "WeekCnt":  8,
-                      "WeekDur":  369,
+                      "WeekDur":  370.1,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -5480,17 +5403,6 @@
                       "WeekCnt":  0,
                       "WeekDur":  0,
                       "LastStatus":  "CLEARED",
-                      "Region":  "N/A"
-                  },
-                  {
-                      "Site":  "LUKAVAC_DEVETAK",
-                      "Alarm":  "Mains Failure",
-                      "System":  "NetEco",
-                      "DayCnt":  0,
-                      "DayDur":  935,
-                      "WeekCnt":  2,
-                      "WeekDur":  1794.5,
-                      "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
                   {
@@ -5520,9 +5432,9 @@
                       "Alarm":  "AC Failure",
                       "System":  "NetEco",
                       "DayCnt":  2,
-                      "DayDur":  54.6,
+                      "DayDur":  55.7,
                       "WeekCnt":  4,
-                      "WeekDur":  54.6,
+                      "WeekDur":  55.7,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -5542,9 +5454,9 @@
                       "Alarm":  "Bus Bar Undervoltage",
                       "System":  "NetEco",
                       "DayCnt":  2,
-                      "DayDur":  176.2,
+                      "DayDur":  177.3,
                       "WeekCnt":  2,
-                      "WeekDur":  176.2,
+                      "WeekDur":  177.3,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -5575,9 +5487,9 @@
                       "Alarm":  "Battery Discharging",
                       "System":  "NetEco",
                       "DayCnt":  6,
-                      "DayDur":  169.5,
+                      "DayDur":  170.6,
                       "WeekCnt":  6,
-                      "WeekDur":  169.5,
+                      "WeekDur":  170.6,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -5620,7 +5532,7 @@
                       "System":  "IgnitionSCADA",
                       "DayCnt":  10,
                       "DayDur":  0,
-                      "WeekCnt":  1781,
+                      "WeekCnt":  124,
                       "WeekDur":  0,
                       "LastStatus":  "UNKNOWN",
                       "Region":  "N/A"
@@ -5630,9 +5542,9 @@
                       "Alarm":  "Kvar ispravljaca (Rectifier Failure)",
                       "System":  "U2020",
                       "DayCnt":  null,
-                      "DayDur":  904.6,
+                      "DayDur":  905.7,
                       "WeekCnt":  2,
-                      "WeekDur":  948.7,
+                      "WeekDur":  949.8,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -5652,21 +5564,21 @@
                       "Alarm":  "Mains Failure",
                       "System":  "NetEco",
                       "DayCnt":  6,
-                      "DayDur":  214.6,
+                      "DayDur":  215.7,
                       "WeekCnt":  6,
-                      "WeekDur":  214.6,
+                      "WeekDur":  215.7,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
                   {
-                      "Site":  "STADION_TUSANJ",
-                      "Alarm":  "Battery Discharging",
-                      "System":  "NetEco",
-                      "DayCnt":  0,
+                      "Site":  "SARAJEVO_-_ALIPASINO_POLJE",
+                      "Alarm":  "8000252",
+                      "System":  "IgnitionSCADA",
+                      "DayCnt":  2,
                       "DayDur":  0,
-                      "WeekCnt":  null,
+                      "WeekCnt":  2,
                       "WeekDur":  0,
-                      "LastStatus":  "CLEARED",
+                      "LastStatus":  "UNKNOWN",
                       "Region":  "N/A"
                   },
                   {
@@ -5707,9 +5619,9 @@
                       "Alarm":  "Door Open Alarm",
                       "System":  "NetEco",
                       "DayCnt":  2,
-                      "DayDur":  321.3,
+                      "DayDur":  322.4,
                       "WeekCnt":  2,
-                      "WeekDur":  321.3,
+                      "WeekDur":  322.4,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -5740,9 +5652,9 @@
                       "Alarm":  "Mains Failure",
                       "System":  "NetEco",
                       "DayCnt":  4,
-                      "DayDur":  169.9,
+                      "DayDur":  171,
                       "WeekCnt":  4,
-                      "WeekDur":  169.9,
+                      "WeekDur":  171,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -5751,9 +5663,9 @@
                       "Alarm":  "AC Failure",
                       "System":  "NetEco",
                       "DayCnt":  0,
-                      "DayDur":  935,
+                      "DayDur":  936.1,
                       "WeekCnt":  2,
-                      "WeekDur":  1574.6,
+                      "WeekDur":  1575.8,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -5795,20 +5707,9 @@
                       "Alarm":  "Lithium Battery Protection",
                       "System":  "NetEco",
                       "DayCnt":  0,
-                      "DayDur":  935,
+                      "DayDur":  936.1,
                       "WeekCnt":  4,
-                      "WeekDur":  1625.8,
-                      "LastStatus":  "ACTIVE",
-                      "Region":  "N/A"
-                  },
-                  {
-                      "Site":  "KRUPA_NA_VRBASU",
-                      "Alarm":  "AC Failure",
-                      "System":  "NetEco",
-                      "DayCnt":  0,
-                      "DayDur":  935,
-                      "WeekCnt":  6,
-                      "WeekDur":  1765.2,
+                      "WeekDur":  1627,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -5816,9 +5717,9 @@
                       "Site":  "SARAJEVO_-_HRASNICA",
                       "Alarm":  "Info",
                       "System":  "IgnitionSCADA",
-                      "DayCnt":  3,
+                      "DayCnt":  5,
                       "DayDur":  0,
-                      "WeekCnt":  3,
+                      "WeekCnt":  5,
                       "WeekDur":  0,
                       "LastStatus":  "UNKNOWN",
                       "Region":  "N/A"
@@ -5839,9 +5740,9 @@
                       "Alarm":  "Mains Failure",
                       "System":  "NetEco",
                       "DayCnt":  0,
-                      "DayDur":  935,
+                      "DayDur":  936.1,
                       "WeekCnt":  2,
-                      "WeekDur":  1724.1,
+                      "WeekDur":  1725.2,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -5854,17 +5755,6 @@
                       "WeekCnt":  2,
                       "WeekDur":  0,
                       "LastStatus":  "UNKNOWN",
-                      "Region":  "N/A"
-                  },
-                  {
-                      "Site":  "PASA_BUNAR_I",
-                      "Alarm":  "DCMCUMIB::dcTrapAlarmEntryAdded",
-                      "System":  "Benning_napajanje",
-                      "DayCnt":  0,
-                      "DayDur":  935,
-                      "WeekCnt":  5,
-                      "WeekDur":  1855,
-                      "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
                   {
@@ -5916,9 +5806,9 @@
                       "Alarm":  "Mains Failure",
                       "System":  "NetEco",
                       "DayCnt":  2,
-                      "DayDur":  23.3,
+                      "DayDur":  24.5,
                       "WeekCnt":  2,
-                      "WeekDur":  23.3,
+                      "WeekDur":  24.5,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -6048,9 +5938,9 @@
                       "Alarm":  "AC Failure",
                       "System":  "NetEco",
                       "DayCnt":  2,
-                      "DayDur":  344.1,
+                      "DayDur":  345.2,
                       "WeekCnt":  2,
-                      "WeekDur":  344.1,
+                      "WeekDur":  345.2,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -6059,9 +5949,9 @@
                       "Alarm":  "Phase L2 Under Voltage",
                       "System":  "NetEco",
                       "DayCnt":  0,
-                      "DayDur":  935,
+                      "DayDur":  936.1,
                       "WeekCnt":  2,
-                      "WeekDur":  1028.7,
+                      "WeekDur":  1029.8,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -6092,9 +5982,9 @@
                       "Alarm":  "Door Open Alarm",
                       "System":  "NetEco",
                       "DayCnt":  2,
-                      "DayDur":  293,
+                      "DayDur":  294.1,
                       "WeekCnt":  2,
-                      "WeekDur":  293,
+                      "WeekDur":  294.1,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -6103,9 +5993,9 @@
                       "Alarm":  "Battery Discharging",
                       "System":  "NetEco",
                       "DayCnt":  8,
-                      "DayDur":  32.6,
-                      "WeekCnt":  23,
-                      "WeekDur":  32.6,
+                      "DayDur":  33.7,
+                      "WeekCnt":  20,
+                      "WeekDur":  33.7,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -6125,9 +6015,9 @@
                       "Alarm":  "PRNJAVOR",
                       "System":  "RpsSc300Mib",
                       "DayCnt":  3,
-                      "DayDur":  313.5,
+                      "DayDur":  314.7,
                       "WeekCnt":  3,
-                      "WeekDur":  313.5,
+                      "WeekDur":  314.7,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -6147,9 +6037,9 @@
                       "Alarm":  "AC Failure",
                       "System":  "NetEco",
                       "DayCnt":  4,
-                      "DayDur":  411.2,
+                      "DayDur":  412.4,
                       "WeekCnt":  14,
-                      "WeekDur":  411.2,
+                      "WeekDur":  412.4,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -6158,9 +6048,9 @@
                       "Alarm":  "AC Failure",
                       "System":  "NetEco",
                       "DayCnt":  0,
-                      "DayDur":  935,
+                      "DayDur":  936.1,
                       "WeekCnt":  4,
-                      "WeekDur":  1727.9,
+                      "WeekDur":  1729,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -6169,9 +6059,9 @@
                       "Alarm":  "Mains Failure",
                       "System":  "NetEco",
                       "DayCnt":  2,
-                      "DayDur":  176.1,
+                      "DayDur":  177.2,
                       "WeekCnt":  2,
-                      "WeekDur":  176.1,
+                      "WeekDur":  177.2,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -6191,10 +6081,10 @@
                       "Alarm":  "Battery Discharging",
                       "System":  "NetEco",
                       "DayCnt":  0,
-                      "DayDur":  935,
-                      "WeekCnt":  2,
-                      "WeekDur":  1537.2,
-                      "LastStatus":  "ACTIVE",
+                      "DayDur":  0,
+                      "WeekCnt":  null,
+                      "WeekDur":  0,
+                      "LastStatus":  "CLEARED",
                       "Region":  "N/A"
                   },
                   {
@@ -6224,9 +6114,9 @@
                       "Alarm":  "AC Failure",
                       "System":  "NetEco",
                       "DayCnt":  2,
-                      "DayDur":  308.9,
+                      "DayDur":  310,
                       "WeekCnt":  2,
-                      "WeekDur":  308.9,
+                      "WeekDur":  310,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -6235,9 +6125,9 @@
                       "Alarm":  "AC Failure",
                       "System":  "NetEco",
                       "DayCnt":  0,
-                      "DayDur":  935,
+                      "DayDur":  936.1,
                       "WeekCnt":  2,
-                      "WeekDur":  1564.7,
+                      "WeekDur":  1565.9,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -6268,9 +6158,9 @@
                       "Alarm":  "BLVD Low Voltage Disconnected",
                       "System":  "NetEco",
                       "DayCnt":  6,
-                      "DayDur":  214.6,
+                      "DayDur":  215.8,
                       "WeekCnt":  6,
-                      "WeekDur":  214.6,
+                      "WeekDur":  215.8,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -6290,9 +6180,9 @@
                       "Alarm":  "Certificate Is About to Expire",
                       "System":  "NetEco",
                       "DayCnt":  0,
-                      "DayDur":  935,
+                      "DayDur":  936.1,
                       "WeekCnt":  2,
-                      "WeekDur":  1287.4,
+                      "WeekDur":  1288.5,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -6323,10 +6213,21 @@
                       "Alarm":  "Phase L3 Failure",
                       "System":  "NetEco",
                       "DayCnt":  4,
-                      "DayDur":  302.9,
+                      "DayDur":  304.1,
                       "WeekCnt":  4,
-                      "WeekDur":  302.9,
+                      "WeekDur":  304.1,
                       "LastStatus":  "ACTIVE",
+                      "Region":  "N/A"
+                  },
+                  {
+                      "Site":  "SARAJEVO_-_US_SREDNJE",
+                      "Alarm":  "1000013",
+                      "System":  "IgnitionSCADA",
+                      "DayCnt":  2,
+                      "DayDur":  0,
+                      "WeekCnt":  2,
+                      "WeekDur":  0,
+                      "LastStatus":  "UNKNOWN",
                       "Region":  "N/A"
                   },
                   {
@@ -6334,21 +6235,10 @@
                       "Alarm":  "Battery Discharging",
                       "System":  "NetEco",
                       "DayCnt":  2,
-                      "DayDur":  257.9,
+                      "DayDur":  259.1,
                       "WeekCnt":  2,
-                      "WeekDur":  257.9,
+                      "WeekDur":  259.1,
                       "LastStatus":  "ACTIVE",
-                      "Region":  "N/A"
-                  },
-                  {
-                      "Site":  "JEZERSKO",
-                      "Alarm":  "BUZIM_MAHMIC_SELO",
-                      "System":  "RPS-SC200-MIB",
-                      "DayCnt":  0,
-                      "DayDur":  0,
-                      "WeekCnt":  null,
-                      "WeekDur":  10,
-                      "LastStatus":  "CLEARED",
                       "Region":  "N/A"
                   },
                   {
@@ -6356,9 +6246,9 @@
                       "Alarm":  "NE Is Disconnected",
                       "System":  "U2020",
                       "DayCnt":  2,
-                      "DayDur":  74.5,
+                      "DayDur":  75.7,
                       "WeekCnt":  2,
-                      "WeekDur":  74.5,
+                      "WeekDur":  75.7,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -6393,17 +6283,6 @@
                       "WeekCnt":  25,
                       "WeekDur":  0,
                       "LastStatus":  "UNKNOWN",
-                      "Region":  "N/A"
-                  },
-                  {
-                      "Site":  "STADION_TUSANJ",
-                      "Alarm":  "AC Failure",
-                      "System":  "NetEco",
-                      "DayCnt":  0,
-                      "DayDur":  0,
-                      "WeekCnt":  null,
-                      "WeekDur":  0,
-                      "LastStatus":  "CLEARED",
                       "Region":  "N/A"
                   },
                   {
@@ -6484,17 +6363,6 @@
                       "Region":  "N/A"
                   },
                   {
-                      "Site":  "SARAJEVO_-_DMALTA",
-                      "Alarm":  "8000039",
-                      "System":  "IgnitionSCADA",
-                      "DayCnt":  3,
-                      "DayDur":  0,
-                      "WeekCnt":  5,
-                      "WeekDur":  0,
-                      "LastStatus":  "UNKNOWN",
-                      "Region":  "N/A"
-                  },
-                  {
                       "Site":  "POSUSJE_CENTAR",
                       "Alarm":  "Mains Failure",
                       "System":  "NetEco",
@@ -6510,9 +6378,9 @@
                       "Alarm":  "AC Failure",
                       "System":  "NetEco",
                       "DayCnt":  8,
-                      "DayDur":  33.7,
-                      "WeekCnt":  22,
-                      "WeekDur":  33.7,
+                      "DayDur":  34.9,
+                      "WeekCnt":  20,
+                      "WeekDur":  34.9,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -6521,9 +6389,9 @@
                       "Alarm":  "Mains Failure",
                       "System":  "NetEco",
                       "DayCnt":  3,
-                      "DayDur":  188.3,
+                      "DayDur":  189.4,
                       "WeekCnt":  3,
-                      "WeekDur":  188.3,
+                      "WeekDur":  189.4,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -6532,9 +6400,9 @@
                       "Alarm":  "Mains Failure",
                       "System":  "NetEco",
                       "DayCnt":  2,
-                      "DayDur":  114.9,
+                      "DayDur":  116,
                       "WeekCnt":  2,
-                      "WeekDur":  114.9,
+                      "WeekDur":  116,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -6543,21 +6411,10 @@
                       "Alarm":  "Mains Failure",
                       "System":  "NetEco",
                       "DayCnt":  0,
-                      "DayDur":  935,
+                      "DayDur":  936.1,
                       "WeekCnt":  2,
-                      "WeekDur":  1551.9,
+                      "WeekDur":  1553,
                       "LastStatus":  "ACTIVE",
-                      "Region":  "N/A"
-                  },
-                  {
-                      "Site":  "DVORANA_MEJDAN",
-                      "Alarm":  "NE Is Disconnected",
-                      "System":  "U2020",
-                      "DayCnt":  0,
-                      "DayDur":  0,
-                      "WeekCnt":  null,
-                      "WeekDur":  0,
-                      "LastStatus":  "CLEARED",
                       "Region":  "N/A"
                   },
                   {
@@ -6565,10 +6422,21 @@
                       "Alarm":  "Mains Failure",
                       "System":  "NetEco",
                       "DayCnt":  0,
-                      "DayDur":  935,
+                      "DayDur":  936.1,
                       "WeekCnt":  2,
-                      "WeekDur":  1732.4,
+                      "WeekDur":  1733.5,
                       "LastStatus":  "ACTIVE",
+                      "Region":  "N/A"
+                  },
+                  {
+                      "Site":  "SARAJEVO_-_US_SREDNJE",
+                      "Alarm":  "1000003",
+                      "System":  "IgnitionSCADA",
+                      "DayCnt":  2,
+                      "DayDur":  0,
+                      "WeekCnt":  2,
+                      "WeekDur":  0,
+                      "LastStatus":  "UNKNOWN",
                       "Region":  "N/A"
                   },
                   {
@@ -6599,8 +6467,8 @@
                       "System":  "U2020",
                       "DayCnt":  0,
                       "DayDur":  0,
-                      "WeekCnt":  15,
-                      "WeekDur":  317.9,
+                      "WeekCnt":  3,
+                      "WeekDur":  9.3,
                       "LastStatus":  "CLEARED",
                       "Region":  "N/A"
                   },
@@ -6632,7 +6500,7 @@
                       "System":  "U2020",
                       "DayCnt":  0,
                       "DayDur":  0,
-                      "WeekCnt":  5,
+                      "WeekCnt":  2,
                       "WeekDur":  0.1,
                       "LastStatus":  "CLEARED",
                       "Region":  "N/A"
@@ -6642,9 +6510,9 @@
                       "Alarm":  "Battery Fuse Break",
                       "System":  "NetEco",
                       "DayCnt":  0,
-                      "DayDur":  935,
+                      "DayDur":  936.1,
                       "WeekCnt":  14,
-                      "WeekDur":  1293.5,
+                      "WeekDur":  1294.7,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -6664,9 +6532,9 @@
                       "Alarm":  "Battery Discharging",
                       "System":  "NetEco",
                       "DayCnt":  4,
-                      "DayDur":  71.6,
+                      "DayDur":  72.8,
                       "WeekCnt":  4,
-                      "WeekDur":  71.6,
+                      "WeekDur":  72.8,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -6675,10 +6543,10 @@
                       "Alarm":  "Mains Failure",
                       "System":  "NetEco",
                       "DayCnt":  0,
-                      "DayDur":  935,
-                      "WeekCnt":  2,
-                      "WeekDur":  1423.7,
-                      "LastStatus":  "ACTIVE",
+                      "DayDur":  0,
+                      "WeekCnt":  null,
+                      "WeekDur":  0,
+                      "LastStatus":  "CLEARED",
                       "Region":  "N/A"
                   },
                   {
@@ -6693,17 +6561,6 @@
                       "Region":  "N/A"
                   },
                   {
-                      "Site":  "DOBOSNICA_DZAMIJA",
-                      "Alarm":  "AC Phase L1 Undervoltage",
-                      "System":  "NetEco",
-                      "DayCnt":  0,
-                      "DayDur":  935,
-                      "WeekCnt":  2,
-                      "WeekDur":  1905,
-                      "LastStatus":  "ACTIVE",
-                      "Region":  "N/A"
-                  },
-                  {
                       "Site":  "TESLIC_RUZEVIC",
                       "Alarm":  "Mains Failure",
                       "System":  "NetEco",
@@ -6712,17 +6569,6 @@
                       "WeekCnt":  null,
                       "WeekDur":  0,
                       "LastStatus":  "CLEARED",
-                      "Region":  "N/A"
-                  },
-                  {
-                      "Site":  "SARAJEVO_-_ALIPASINO_POLJE",
-                      "Alarm":  "8000252",
-                      "System":  "IgnitionSCADA",
-                      "DayCnt":  2,
-                      "DayDur":  0,
-                      "WeekCnt":  2,
-                      "WeekDur":  0,
-                      "LastStatus":  "UNKNOWN",
                       "Region":  "N/A"
                   },
                   {
@@ -6775,20 +6621,20 @@
                       "System":  "U2020",
                       "DayCnt":  0,
                       "DayDur":  0,
-                      "WeekCnt":  3,
-                      "WeekDur":  213.1,
+                      "WeekCnt":  null,
+                      "WeekDur":  5,
                       "LastStatus":  "CLEARED",
                       "Region":  "N/A"
                   },
                   {
-                      "Site":  "PASA_BUNAR_I",
-                      "Alarm":  "DCMCUMIB::dcTrapAlarmEntryRemoved",
-                      "System":  "Benning_napajanje",
-                      "DayCnt":  0,
-                      "DayDur":  935,
-                      "WeekCnt":  5,
-                      "WeekDur":  1853.6,
-                      "LastStatus":  "ACTIVE",
+                      "Site":  "SARAJEVO_-_ILIDZA",
+                      "Alarm":  "PLC2",
+                      "System":  "IgnitionSCADA",
+                      "DayCnt":  2,
+                      "DayDur":  0,
+                      "WeekCnt":  2,
+                      "WeekDur":  0,
+                      "LastStatus":  "UNKNOWN",
                       "Region":  "N/A"
                   },
                   {
@@ -6796,9 +6642,9 @@
                       "Alarm":  "Mains Failure",
                       "System":  "NetEco",
                       "DayCnt":  4,
-                      "DayDur":  835.8,
+                      "DayDur":  836.9,
                       "WeekCnt":  4,
-                      "WeekDur":  835.8,
+                      "WeekDur":  836.9,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -6807,9 +6653,9 @@
                       "Alarm":  "Multi-Rectifier Fault",
                       "System":  "NetEco",
                       "DayCnt":  2,
-                      "DayDur":  257.4,
+                      "DayDur":  258.5,
                       "WeekCnt":  2,
-                      "WeekDur":  257.4,
+                      "WeekDur":  258.5,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -6818,9 +6664,9 @@
                       "Alarm":  "Bus Bar Undervoltage",
                       "System":  "NetEco",
                       "DayCnt":  6,
-                      "DayDur":  214.7,
+                      "DayDur":  215.9,
                       "WeekCnt":  6,
-                      "WeekDur":  214.7,
+                      "WeekDur":  215.9,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -6873,9 +6719,9 @@
                       "Alarm":  "Battery Discharging",
                       "System":  "NetEco",
                       "DayCnt":  4,
-                      "DayDur":  169.5,
+                      "DayDur":  170.7,
                       "WeekCnt":  4,
-                      "WeekDur":  169.5,
+                      "WeekDur":  170.7,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -6884,9 +6730,9 @@
                       "Alarm":  "Low SOC",
                       "System":  "NetEco",
                       "DayCnt":  2,
-                      "DayDur":  553.6,
+                      "DayDur":  554.8,
                       "WeekCnt":  2,
-                      "WeekDur":  553.6,
+                      "WeekDur":  554.8,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -6895,9 +6741,9 @@
                       "Alarm":  "Mains Failure",
                       "System":  "NetEco",
                       "DayCnt":  6,
-                      "DayDur":  169.9,
+                      "DayDur":  171.1,
                       "WeekCnt":  6,
-                      "WeekDur":  169.9,
+                      "WeekDur":  171.1,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -6906,9 +6752,9 @@
                       "Alarm":  "Mains Failure",
                       "System":  "NetEco",
                       "DayCnt":  2,
-                      "DayDur":  309.1,
+                      "DayDur":  310.3,
                       "WeekCnt":  2,
-                      "WeekDur":  309.1,
+                      "WeekDur":  310.3,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -6928,9 +6774,9 @@
                       "Alarm":  "Mains Failure",
                       "System":  "NetEco",
                       "DayCnt":  2,
-                      "DayDur":  309.2,
+                      "DayDur":  310.3,
                       "WeekCnt":  2,
-                      "WeekDur":  309.2,
+                      "WeekDur":  310.3,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -6939,9 +6785,9 @@
                       "Alarm":  "Mains Failure",
                       "System":  "NetEco",
                       "DayCnt":  2,
-                      "DayDur":  153.7,
+                      "DayDur":  154.9,
                       "WeekCnt":  3,
-                      "WeekDur":  153.7,
+                      "WeekDur":  154.9,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -6972,9 +6818,9 @@
                       "Alarm":  "Bus Bar Undervoltage",
                       "System":  "NetEco",
                       "DayCnt":  2,
-                      "DayDur":  43.7,
+                      "DayDur":  44.9,
                       "WeekCnt":  4,
-                      "WeekDur":  43.7,
+                      "WeekDur":  44.9,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -6994,9 +6840,9 @@
                       "Alarm":  "ACTIVE",
                       "System":  "BARAN_klima",
                       "DayCnt":  2,
-                      "DayDur":  404.2,
+                      "DayDur":  405.4,
                       "WeekCnt":  6,
-                      "WeekDur":  404.2,
+                      "WeekDur":  405.4,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -7027,9 +6873,9 @@
                       "Alarm":  "Mains Failure",
                       "System":  "NetEco",
                       "DayCnt":  2,
-                      "DayDur":  43.6,
+                      "DayDur":  44.7,
                       "WeekCnt":  4,
-                      "WeekDur":  43.6,
+                      "WeekDur":  44.7,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -7060,9 +6906,9 @@
                       "Alarm":  "Mains Phase L3 Failure",
                       "System":  "NetEco",
                       "DayCnt":  34,
-                      "DayDur":  66.2,
+                      "DayDur":  67.4,
                       "WeekCnt":  52,
-                      "WeekDur":  66.2,
+                      "WeekDur":  67.4,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -7071,9 +6917,9 @@
                       "Alarm":  "Mains Failure",
                       "System":  "NetEco",
                       "DayCnt":  2,
-                      "DayDur":  54.8,
+                      "DayDur":  55.9,
                       "WeekCnt":  4,
-                      "WeekDur":  54.8,
+                      "WeekDur":  55.9,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -7082,21 +6928,10 @@
                       "Alarm":  "Battery Discharging",
                       "System":  "NetEco",
                       "DayCnt":  2,
-                      "DayDur":  245.6,
+                      "DayDur":  246.7,
                       "WeekCnt":  2,
-                      "WeekDur":  245.6,
+                      "WeekDur":  246.7,
                       "LastStatus":  "ACTIVE",
-                      "Region":  "N/A"
-                  },
-                  {
-                      "Site":  "SARAJEVO_-_DMALTA",
-                      "Alarm":  "8000046",
-                      "System":  "IgnitionSCADA",
-                      "DayCnt":  0,
-                      "DayDur":  0,
-                      "WeekCnt":  2,
-                      "WeekDur":  0,
-                      "LastStatus":  "UNKNOWN",
                       "Region":  "N/A"
                   },
                   {
@@ -7105,8 +6940,8 @@
                       "System":  "RPS-SC200-MIB",
                       "DayCnt":  6,
                       "DayDur":  359.6,
-                      "WeekCnt":  13,
-                      "WeekDur":  600.7,
+                      "WeekCnt":  11,
+                      "WeekDur":  598.1,
                       "LastStatus":  "CLEARED",
                       "Region":  "N/A"
                   },
@@ -7170,9 +7005,9 @@
                       "Alarm":  "Bus Bar Undervoltage",
                       "System":  "NetEco",
                       "DayCnt":  0,
-                      "DayDur":  935,
+                      "DayDur":  936.1,
                       "WeekCnt":  2,
-                      "WeekDur":  1537.4,
+                      "WeekDur":  1538.5,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -7224,9 +7059,9 @@
                       "Site":  "SARAJEVO_-_HRASNICA",
                       "Alarm":  "ModbusSC200",
                       "System":  "IgnitionSCADA",
-                      "DayCnt":  3,
+                      "DayCnt":  5,
                       "DayDur":  0,
-                      "WeekCnt":  3,
+                      "WeekCnt":  5,
                       "WeekDur":  0,
                       "LastStatus":  "UNKNOWN",
                       "Region":  "N/A"
@@ -7254,13 +7089,24 @@
                       "Region":  "N/A"
                   },
                   {
+                      "Site":  "SARAJEVO_-_US_SREDNJE",
+                      "Alarm":  "Node Info",
+                      "System":  "IgnitionSCADA",
+                      "DayCnt":  2,
+                      "DayDur":  0,
+                      "WeekCnt":  2,
+                      "WeekDur":  0,
+                      "LastStatus":  "UNKNOWN",
+                      "Region":  "N/A"
+                  },
+                  {
                       "Site":  "KOBILJACA",
                       "Alarm":  "Mains Failure",
                       "System":  "NetEco",
                       "DayCnt":  4,
-                      "DayDur":  23.9,
+                      "DayDur":  25.1,
                       "WeekCnt":  6,
-                      "WeekDur":  23.9,
+                      "WeekDur":  25.1,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -7280,9 +7126,9 @@
                       "Alarm":  "Mains Failure",
                       "System":  "NetEco",
                       "DayCnt":  2,
-                      "DayDur":  847.2,
+                      "DayDur":  848.4,
                       "WeekCnt":  2,
-                      "WeekDur":  847.2,
+                      "WeekDur":  848.4,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -7291,9 +7137,9 @@
                       "Alarm":  "Phase L2 Failure",
                       "System":  "NetEco",
                       "DayCnt":  0,
-                      "DayDur":  935,
-                      "WeekCnt":  4,
-                      "WeekDur":  1530.4,
+                      "DayDur":  936.1,
+                      "WeekCnt":  2,
+                      "WeekDur":  1531.5,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -7302,9 +7148,9 @@
                       "Alarm":  "Mains Failure",
                       "System":  "NetEco",
                       "DayCnt":  8,
-                      "DayDur":  34,
-                      "WeekCnt":  24,
-                      "WeekDur":  34,
+                      "DayDur":  35.1,
+                      "WeekCnt":  20,
+                      "WeekDur":  35.1,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -7390,9 +7236,9 @@
                       "Alarm":  "Door Open Alarm",
                       "System":  "NetEco",
                       "DayCnt":  2,
-                      "DayDur":  396.4,
+                      "DayDur":  397.6,
                       "WeekCnt":  2,
-                      "WeekDur":  396.4,
+                      "WeekDur":  397.6,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -7412,9 +7258,9 @@
                       "Alarm":  "Mains Failure",
                       "System":  "NetEco",
                       "DayCnt":  2,
-                      "DayDur":  562.5,
+                      "DayDur":  563.6,
                       "WeekCnt":  10,
-                      "WeekDur":  562.5,
+                      "WeekDur":  563.6,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -7423,9 +7269,9 @@
                       "Alarm":  "AC Failure",
                       "System":  "NetEco",
                       "DayCnt":  3,
-                      "DayDur":  169.7,
+                      "DayDur":  170.9,
                       "WeekCnt":  3,
-                      "WeekDur":  169.7,
+                      "WeekDur":  170.9,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -7445,9 +7291,9 @@
                       "Alarm":  "Bus Bar Undervoltage",
                       "System":  "NetEco",
                       "DayCnt":  4,
-                      "DayDur":  370.7,
+                      "DayDur":  371.9,
                       "WeekCnt":  4,
-                      "WeekDur":  370.7,
+                      "WeekDur":  371.9,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -7456,9 +7302,9 @@
                       "Alarm":  "Mains Failure",
                       "System":  "NetEco",
                       "DayCnt":  2,
-                      "DayDur":  259.5,
+                      "DayDur":  260.7,
                       "WeekCnt":  2,
-                      "WeekDur":  259.5,
+                      "WeekDur":  260.7,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -7522,9 +7368,9 @@
                       "Alarm":  "Mains Failure",
                       "System":  "NetEco",
                       "DayCnt":  4,
-                      "DayDur":  73.2,
+                      "DayDur":  74.4,
                       "WeekCnt":  4,
-                      "WeekDur":  73.2,
+                      "WeekDur":  74.4,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -7567,8 +7413,8 @@
                       "System":  "U2020",
                       "DayCnt":  0,
                       "DayDur":  0,
-                      "WeekCnt":  null,
-                      "WeekDur":  346.8,
+                      "WeekCnt":  0,
+                      "WeekDur":  0,
                       "LastStatus":  "CLEARED",
                       "Region":  "N/A"
                   },
@@ -7576,22 +7422,11 @@
                       "Site":  "SARAJEVO_-_HRASNICA",
                       "Alarm":  "Node Info",
                       "System":  "IgnitionSCADA",
-                      "DayCnt":  3,
+                      "DayCnt":  5,
                       "DayDur":  0,
-                      "WeekCnt":  3,
+                      "WeekCnt":  5,
                       "WeekDur":  0,
                       "LastStatus":  "UNKNOWN",
-                      "Region":  "N/A"
-                  },
-                  {
-                      "Site":  "IRAC_MEDRESA",
-                      "Alarm":  "AC Failure",
-                      "System":  "NetEco",
-                      "DayCnt":  0,
-                      "DayDur":  0,
-                      "WeekCnt":  null,
-                      "WeekDur":  0,
-                      "LastStatus":  "CLEARED",
                       "Region":  "N/A"
                   },
                   {
@@ -7654,10 +7489,10 @@
                       "Alarm":  "Low Battery Capacity",
                       "System":  "NetEco",
                       "DayCnt":  0,
-                      "DayDur":  935,
-                      "WeekCnt":  2,
-                      "WeekDur":  1359.7,
-                      "LastStatus":  "ACTIVE",
+                      "DayDur":  0,
+                      "WeekCnt":  null,
+                      "WeekDur":  0,
+                      "LastStatus":  "CLEARED",
                       "Region":  "N/A"
                   },
                   {
@@ -7676,9 +7511,9 @@
                       "Alarm":  "Lithium Battery Protection",
                       "System":  "NetEco",
                       "DayCnt":  0,
-                      "DayDur":  935,
+                      "DayDur":  936.1,
                       "WeekCnt":  2,
-                      "WeekDur":  1689.7,
+                      "WeekDur":  1690.8,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -7698,9 +7533,9 @@
                       "Alarm":  "Mains Phase L1 Failure",
                       "System":  "NetEco",
                       "DayCnt":  0,
-                      "DayDur":  935,
+                      "DayDur":  936.1,
                       "WeekCnt":  4,
-                      "WeekDur":  1552.2,
+                      "WeekDur":  1553.3,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -7709,9 +7544,9 @@
                       "Alarm":  "Phase L1 Undervoltage",
                       "System":  "NetEco",
                       "DayCnt":  0,
-                      "DayDur":  935,
+                      "DayDur":  936.1,
                       "WeekCnt":  4,
-                      "WeekDur":  1615,
+                      "WeekDur":  1616.1,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -7720,9 +7555,9 @@
                       "Alarm":  "AC Failure",
                       "System":  "NetEco",
                       "DayCnt":  2,
-                      "DayDur":  282.1,
+                      "DayDur":  283.2,
                       "WeekCnt":  2,
-                      "WeekDur":  282.1,
+                      "WeekDur":  283.2,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -7752,9 +7587,9 @@
                       "Site":  "SARAJEVO_-_HRASNICA",
                       "Alarm":  "PLC1",
                       "System":  "IgnitionSCADA",
-                      "DayCnt":  2,
+                      "DayCnt":  4,
                       "DayDur":  0,
-                      "WeekCnt":  2,
+                      "WeekCnt":  4,
                       "WeekDur":  0,
                       "LastStatus":  "UNKNOWN",
                       "Region":  "N/A"
@@ -7764,9 +7599,9 @@
                       "Alarm":  "BLVD Low Voltage Disconnected",
                       "System":  "NetEco",
                       "DayCnt":  2,
-                      "DayDur":  370.6,
+                      "DayDur":  371.8,
                       "WeekCnt":  2,
-                      "WeekDur":  370.6,
+                      "WeekDur":  371.8,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -7786,9 +7621,9 @@
                       "Alarm":  "Battery Discharging",
                       "System":  "NetEco",
                       "DayCnt":  2,
-                      "DayDur":  176,
+                      "DayDur":  177.1,
                       "WeekCnt":  2,
-                      "WeekDur":  176,
+                      "WeekDur":  177.1,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -7797,9 +7632,9 @@
                       "Alarm":  "BLVD Low Voltage Disconnected",
                       "System":  "NetEco",
                       "DayCnt":  4,
-                      "DayDur":  24,
+                      "DayDur":  25.1,
                       "WeekCnt":  6,
-                      "WeekDur":  24,
+                      "WeekDur":  25.1,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -7859,17 +7694,6 @@
                       "Region":  "N/A"
                   },
                   {
-                      "Site":  "FTTC_SELJUBLJE",
-                      "Alarm":  "KALESIJA",
-                      "System":  "RPS-SC200-MIB",
-                      "DayCnt":  0,
-                      "DayDur":  0,
-                      "WeekCnt":  null,
-                      "WeekDur":  0.1,
-                      "LastStatus":  "CLEARED",
-                      "Region":  "N/A"
-                  },
-                  {
                       "Site":  "BOS_GRAHOVO",
                       "Alarm":  "BOSANSKO_GRAHOVO",
                       "System":  "RpsSc300Mib",
@@ -7886,20 +7710,9 @@
                       "System":  "IgnitionSCADA",
                       "DayCnt":  18,
                       "DayDur":  0,
-                      "WeekCnt":  1066,
+                      "WeekCnt":  108,
                       "WeekDur":  0,
                       "LastStatus":  "UNKNOWN",
-                      "Region":  "N/A"
-                  },
-                  {
-                      "Site":  "ROSCEVINA",
-                      "Alarm":  "Otvorena vrata (Door Open Alarm)",
-                      "System":  "U2020",
-                      "DayCnt":  0,
-                      "DayDur":  0,
-                      "WeekCnt":  null,
-                      "WeekDur":  10.1,
-                      "LastStatus":  "CLEARED",
                       "Region":  "N/A"
                   },
                   {
@@ -7929,9 +7742,9 @@
                       "Alarm":  "DC Under Voltage",
                       "System":  "NetEco",
                       "DayCnt":  2,
-                      "DayDur":  162.7,
+                      "DayDur":  163.8,
                       "WeekCnt":  2,
-                      "WeekDur":  162.7,
+                      "WeekDur":  163.8,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -7947,14 +7760,14 @@
                       "Region":  "N/A"
                   },
                   {
-                      "Site":  "NOVI_SEHER",
-                      "Alarm":  "AC Failure",
-                      "System":  "NetEco",
-                      "DayCnt":  0,
-                      "DayDur":  935,
-                      "WeekCnt":  2,
-                      "WeekDur":  1772.8,
-                      "LastStatus":  "ACTIVE",
+                      "Site":  "SARAJEVO_-_DMALTA",
+                      "Alarm":  "8000039",
+                      "System":  "IgnitionSCADA",
+                      "DayCnt":  3,
+                      "DayDur":  0,
+                      "WeekCnt":  5,
+                      "WeekDur":  0,
+                      "LastStatus":  "UNKNOWN",
                       "Region":  "N/A"
                   },
                   {
@@ -8017,9 +7830,9 @@
                       "Alarm":  "AC Failure",
                       "System":  "NetEco",
                       "DayCnt":  2,
-                      "DayDur":  154.5,
+                      "DayDur":  155.6,
                       "WeekCnt":  2,
-                      "WeekDur":  154.5,
+                      "WeekDur":  155.6,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -8050,9 +7863,9 @@
                       "Alarm":  "Battery Discharging",
                       "System":  "NetEco",
                       "DayCnt":  4,
-                      "DayDur":  23.9,
+                      "DayDur":  25,
                       "WeekCnt":  6,
-                      "WeekDur":  23.9,
+                      "WeekDur":  25,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -8062,20 +7875,20 @@
                       "System":  "IgnitionSCADA",
                       "DayCnt":  0,
                       "DayDur":  0,
-                      "WeekCnt":  22,
+                      "WeekCnt":  18,
                       "WeekDur":  0,
                       "LastStatus":  "UNKNOWN",
                       "Region":  "N/A"
                   },
                   {
-                      "Site":  "NOVI_SEHER",
-                      "Alarm":  "Mains Failure",
-                      "System":  "NetEco",
+                      "Site":  "SARAJEVO_-_DMALTA",
+                      "Alarm":  "8000046",
+                      "System":  "IgnitionSCADA",
                       "DayCnt":  0,
-                      "DayDur":  935,
+                      "DayDur":  0,
                       "WeekCnt":  2,
-                      "WeekDur":  1772.9,
-                      "LastStatus":  "ACTIVE",
+                      "WeekDur":  0,
+                      "LastStatus":  "UNKNOWN",
                       "Region":  "N/A"
                   },
                   {
@@ -8117,8 +7930,8 @@
                       "System":  "U2020",
                       "DayCnt":  0,
                       "DayDur":  0,
-                      "WeekCnt":  3,
-                      "WeekDur":  158.6,
+                      "WeekCnt":  2,
+                      "WeekDur":  56.3,
                       "LastStatus":  "CLEARED",
                       "Region":  "N/A"
                   },
@@ -8127,9 +7940,9 @@
                       "Alarm":  "BLVD Low Voltage Disconnected",
                       "System":  "NetEco",
                       "DayCnt":  2,
-                      "DayDur":  43.6,
+                      "DayDur":  44.8,
                       "WeekCnt":  4,
-                      "WeekDur":  43.6,
+                      "WeekDur":  44.8,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -8138,9 +7951,9 @@
                       "Alarm":  "Battery Discharging",
                       "System":  "NetEco",
                       "DayCnt":  2,
-                      "DayDur":  43.5,
+                      "DayDur":  44.7,
                       "WeekCnt":  4,
-                      "WeekDur":  43.5,
+                      "WeekDur":  44.7,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -8149,10 +7962,10 @@
                       "Alarm":  "Battery Discharging",
                       "System":  "NetEco",
                       "DayCnt":  0,
-                      "DayDur":  935,
-                      "WeekCnt":  2,
-                      "WeekDur":  1423.7,
-                      "LastStatus":  "ACTIVE",
+                      "DayDur":  0,
+                      "WeekCnt":  null,
+                      "WeekDur":  0,
+                      "LastStatus":  "CLEARED",
                       "Region":  "N/A"
                   },
                   {
@@ -8160,9 +7973,9 @@
                       "Alarm":  "BLVD Low Voltage Disconnected",
                       "System":  "NetEco",
                       "DayCnt":  6,
-                      "DayDur":  60.3,
+                      "DayDur":  61.4,
                       "WeekCnt":  16,
-                      "WeekDur":  60.3,
+                      "WeekDur":  61.4,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -8182,10 +7995,10 @@
                       "Alarm":  "Overdischarge",
                       "System":  "NetEco",
                       "DayCnt":  0,
-                      "DayDur":  935,
-                      "WeekCnt":  2,
-                      "WeekDur":  1689.9,
-                      "LastStatus":  "ACTIVE",
+                      "DayDur":  0,
+                      "WeekCnt":  null,
+                      "WeekDur":  0,
+                      "LastStatus":  "CLEARED",
                       "Region":  "N/A"
                   },
                   {
@@ -8193,9 +8006,9 @@
                       "Alarm":  "BLVD Low Voltage Disconnected",
                       "System":  "NetEco",
                       "DayCnt":  0,
-                      "DayDur":  935,
+                      "DayDur":  936.1,
                       "WeekCnt":  2,
-                      "WeekDur":  1423.8,
+                      "WeekDur":  1424.9,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -8204,9 +8017,9 @@
                       "Alarm":  "Mains Failure",
                       "System":  "NetEco",
                       "DayCnt":  0,
-                      "DayDur":  935,
-                      "WeekCnt":  4,
-                      "WeekDur":  1531.7,
+                      "DayDur":  936.1,
+                      "WeekCnt":  3,
+                      "WeekDur":  1532.9,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -8226,9 +8039,9 @@
                       "Alarm":  "AC Failure",
                       "System":  "NetEco",
                       "DayCnt":  0,
-                      "DayDur":  935,
+                      "DayDur":  936.1,
                       "WeekCnt":  4,
-                      "WeekDur":  1552.3,
+                      "WeekDur":  1553.5,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -8238,8 +8051,8 @@
                       "System":  "U2020",
                       "DayCnt":  null,
                       "DayDur":  6.1,
-                      "WeekCnt":  5,
-                      "WeekDur":  40,
+                      "WeekCnt":  3,
+                      "WeekDur":  17.7,
                       "LastStatus":  "CLEARED",
                       "Region":  "N/A"
                   },
@@ -8248,9 +8061,9 @@
                       "Alarm":  "Door Open Alarm",
                       "System":  "NetEco",
                       "DayCnt":  2,
-                      "DayDur":  375.6,
+                      "DayDur":  376.7,
                       "WeekCnt":  2,
-                      "WeekDur":  375.6,
+                      "WeekDur":  376.7,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -8259,21 +8072,10 @@
                       "Alarm":  "NE Is Disconnected",
                       "System":  "U2020",
                       "DayCnt":  4,
-                      "DayDur":  208.7,
+                      "DayDur":  209.9,
                       "WeekCnt":  4,
-                      "WeekDur":  208.7,
+                      "WeekDur":  209.9,
                       "LastStatus":  "ACTIVE",
-                      "Region":  "N/A"
-                  },
-                  {
-                      "Site":  "KOLIMER",
-                      "Alarm":  "TUZLA",
-                      "System":  "RpsSc300Mib",
-                      "DayCnt":  0,
-                      "DayDur":  0,
-                      "WeekCnt":  null,
-                      "WeekDur":  0,
-                      "LastStatus":  "CLEARED",
                       "Region":  "N/A"
                   },
                   {
@@ -8281,9 +8083,9 @@
                       "Alarm":  "LLVD Disconnected",
                       "System":  "NetEco",
                       "DayCnt":  2,
-                      "DayDur":  154.5,
+                      "DayDur":  155.7,
                       "WeekCnt":  2,
-                      "WeekDur":  154.5,
+                      "WeekDur":  155.7,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -8292,9 +8094,9 @@
                       "Alarm":  "BLVD Low Voltage Disconnected",
                       "System":  "NetEco",
                       "DayCnt":  2,
-                      "DayDur":  364.5,
+                      "DayDur":  365.6,
                       "WeekCnt":  2,
-                      "WeekDur":  364.5,
+                      "WeekDur":  365.6,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -8304,8 +8106,8 @@
                       "System":  "U2020",
                       "DayCnt":  0,
                       "DayDur":  0,
-                      "WeekCnt":  4,
-                      "WeekDur":  33.5,
+                      "WeekCnt":  2,
+                      "WeekDur":  32.2,
                       "LastStatus":  "CLEARED",
                       "Region":  "N/A"
                   },
@@ -8347,9 +8149,9 @@
                       "Alarm":  "AC Failure",
                       "System":  "NetEco",
                       "DayCnt":  2,
-                      "DayDur":  241.4,
+                      "DayDur":  242.5,
                       "WeekCnt":  2,
-                      "WeekDur":  241.4,
+                      "WeekDur":  242.5,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -8391,9 +8193,9 @@
                       "Alarm":  "Mains Phase L1 Undervoltage",
                       "System":  "NetEco",
                       "DayCnt":  0,
-                      "DayDur":  935,
-                      "WeekCnt":  14,
-                      "WeekDur":  1574.2,
+                      "DayDur":  936.1,
+                      "WeekCnt":  10,
+                      "WeekDur":  1575.3,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -8413,9 +8215,9 @@
                       "Alarm":  "Battery Discharging",
                       "System":  "NetEco",
                       "DayCnt":  0,
-                      "DayDur":  935,
+                      "DayDur":  936.1,
                       "WeekCnt":  2,
-                      "WeekDur":  1563.4,
+                      "WeekDur":  1564.5,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -8423,9 +8225,9 @@
                       "Site":  "SARAJEVO_-_HRASNICA",
                       "Alarm":  "Modbus1",
                       "System":  "IgnitionSCADA",
-                      "DayCnt":  3,
+                      "DayCnt":  5,
                       "DayDur":  0,
-                      "WeekCnt":  3,
+                      "WeekCnt":  5,
                       "WeekDur":  0,
                       "LastStatus":  "UNKNOWN",
                       "Region":  "N/A"
@@ -8446,9 +8248,9 @@
                       "Alarm":  "Door Status Sensor Alarm",
                       "System":  "NetEco",
                       "DayCnt":  4,
-                      "DayDur":  381.3,
+                      "DayDur":  382.4,
                       "WeekCnt":  4,
-                      "WeekDur":  381.3,
+                      "WeekDur":  382.4,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -8461,17 +8263,6 @@
                       "WeekCnt":  6,
                       "WeekDur":  34.2,
                       "LastStatus":  "CLEARED",
-                      "Region":  "N/A"
-                  },
-                  {
-                      "Site":  "KALESIJA_HRASNO_DONJE",
-                      "Alarm":  "AC Failure",
-                      "System":  "NetEco",
-                      "DayCnt":  0,
-                      "DayDur":  935,
-                      "WeekCnt":  2,
-                      "WeekDur":  1856.2,
-                      "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
                   {
@@ -8523,9 +8314,9 @@
                       "Alarm":  "Compressor Fault",
                       "System":  "NetEco",
                       "DayCnt":  0,
-                      "DayDur":  935,
+                      "DayDur":  936.1,
                       "WeekCnt":  26,
-                      "WeekDur":  1208.8,
+                      "WeekDur":  1210,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -8534,9 +8325,9 @@
                       "Alarm":  "DC Undervoltage",
                       "System":  "NetEco",
                       "DayCnt":  2,
-                      "DayDur":  450.9,
-                      "WeekCnt":  4,
-                      "WeekDur":  450.9,
+                      "DayDur":  452,
+                      "WeekCnt":  2,
+                      "WeekDur":  452,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -8552,24 +8343,13 @@
                       "Region":  "N/A"
                   },
                   {
-                      "Site":  "SARAJEVO_-_ILIDZA",
-                      "Alarm":  "PLC2",
-                      "System":  "IgnitionSCADA",
-                      "DayCnt":  2,
-                      "DayDur":  0,
-                      "WeekCnt":  2,
-                      "WeekDur":  0,
-                      "LastStatus":  "UNKNOWN",
-                      "Region":  "N/A"
-                  },
-                  {
                       "Site":  "SREBRENICA_CENTAR",
                       "Alarm":  "Phase L3 Over Voltage",
                       "System":  "NetEco",
                       "DayCnt":  0,
-                      "DayDur":  935,
+                      "DayDur":  936.1,
                       "WeekCnt":  2,
-                      "WeekDur":  1228,
+                      "WeekDur":  1229.2,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -8577,9 +8357,9 @@
                       "Site":  "SARAJEVO_-_OBALA",
                       "Alarm":  "8000142",
                       "System":  "IgnitionSCADA",
-                      "DayCnt":  2,
+                      "DayCnt":  4,
                       "DayDur":  0,
-                      "WeekCnt":  2,
+                      "WeekCnt":  4,
                       "WeekDur":  0,
                       "LastStatus":  "UNKNOWN",
                       "Region":  "N/A"
@@ -8589,9 +8369,9 @@
                       "Alarm":  "Nestanak 220 V",
                       "System":  "U2020",
                       "DayCnt":  3,
-                      "DayDur":  411.2,
+                      "DayDur":  412.3,
                       "WeekCnt":  3,
-                      "WeekDur":  411.2,
+                      "WeekDur":  412.3,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -8600,9 +8380,9 @@
                       "Alarm":  "Door Open Alarm",
                       "System":  "NetEco",
                       "DayCnt":  2,
-                      "DayDur":  259.5,
+                      "DayDur":  260.6,
                       "WeekCnt":  2,
-                      "WeekDur":  259.5,
+                      "WeekDur":  260.6,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -8622,9 +8402,9 @@
                       "Alarm":  "Mains Failure",
                       "System":  "NetEco",
                       "DayCnt":  2,
-                      "DayDur":  247.1,
+                      "DayDur":  248.3,
                       "WeekCnt":  2,
-                      "WeekDur":  247.1,
+                      "WeekDur":  248.3,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -8655,9 +8435,9 @@
                       "Alarm":  "AC Failure",
                       "System":  "NetEco",
                       "DayCnt":  2,
-                      "DayDur":  381.3,
+                      "DayDur":  382.5,
                       "WeekCnt":  2,
-                      "WeekDur":  381.3,
+                      "WeekDur":  382.5,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -8666,9 +8446,9 @@
                       "Alarm":  "BLVD Low Voltage Disconnected",
                       "System":  "NetEco",
                       "DayCnt":  0,
-                      "DayDur":  935,
+                      "DayDur":  936.1,
                       "WeekCnt":  2,
-                      "WeekDur":  1537.3,
+                      "WeekDur":  1538.5,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -8689,8 +8469,8 @@
                       "System":  "U2020",
                       "DayCnt":  null,
                       "DayDur":  30.6,
-                      "WeekCnt":  11,
-                      "WeekDur":  314.5,
+                      "WeekCnt":  10,
+                      "WeekDur":  145.6,
                       "LastStatus":  "CLEARED",
                       "Region":  "N/A"
                   },
@@ -8721,9 +8501,9 @@
                       "Alarm":  "Low Battery Capacity",
                       "System":  "NetEco",
                       "DayCnt":  2,
-                      "DayDur":  322.7,
+                      "DayDur":  323.9,
                       "WeekCnt":  2,
-                      "WeekDur":  322.7,
+                      "WeekDur":  323.9,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -8732,9 +8512,9 @@
                       "Alarm":  "Door Open Alarm",
                       "System":  "NetEco",
                       "DayCnt":  2,
-                      "DayDur":  200.5,
+                      "DayDur":  201.7,
                       "WeekCnt":  2,
-                      "WeekDur":  200.5,
+                      "WeekDur":  201.7,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -8783,6 +8563,17 @@
                       "Region":  "N/A"
                   },
                   {
+                      "Site":  "SARAJEVO_-_US_SREDNJE",
+                      "Alarm":  "1000001",
+                      "System":  "IgnitionSCADA",
+                      "DayCnt":  2,
+                      "DayDur":  0,
+                      "WeekCnt":  2,
+                      "WeekDur":  0,
+                      "LastStatus":  "UNKNOWN",
+                      "Region":  "N/A"
+                  },
+                  {
                       "Site":  "PTI39_SAMAC_POSLOVNA_ZONA",
                       "Alarm":  "NE Is Disconnected",
                       "System":  "U2020",
@@ -8798,20 +8589,9 @@
                       "Alarm":  "Door Open Alarm",
                       "System":  "NetEco",
                       "DayCnt":  0,
-                      "DayDur":  935,
+                      "DayDur":  936.1,
                       "WeekCnt":  4,
-                      "WeekDur":  1282.7,
-                      "LastStatus":  "ACTIVE",
-                      "Region":  "N/A"
-                  },
-                  {
-                      "Site":  "KRUPA_NA_VRBASU",
-                      "Alarm":  "Mains Failure",
-                      "System":  "NetEco",
-                      "DayCnt":  0,
-                      "DayDur":  935,
-                      "WeekCnt":  5,
-                      "WeekDur":  1812.2,
+                      "WeekDur":  1283.9,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -8831,9 +8611,9 @@
                       "Alarm":  "NE Is Disconnected",
                       "System":  "U2020",
                       "DayCnt":  3,
-                      "DayDur":  217.1,
+                      "DayDur":  218.2,
                       "WeekCnt":  3,
-                      "WeekDur":  217.1,
+                      "WeekDur":  218.2,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -8853,20 +8633,9 @@
                       "Alarm":  "AC Phase L1 Undervoltage",
                       "System":  "NetEco",
                       "DayCnt":  4,
-                      "DayDur":  835.9,
+                      "DayDur":  837,
                       "WeekCnt":  4,
-                      "WeekDur":  835.9,
-                      "LastStatus":  "ACTIVE",
-                      "Region":  "N/A"
-                  },
-                  {
-                      "Site":  "PASA_BUNAR_II",
-                      "Alarm":  "DCMCUMIB::dcTrapAlarmEntryRemoved",
-                      "System":  "Benning_napajanje",
-                      "DayCnt":  0,
-                      "DayDur":  935,
-                      "WeekCnt":  4,
-                      "WeekDur":  1854,
+                      "WeekDur":  837,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -8887,7 +8656,7 @@
                       "System":  "RPS-SC200-MIB",
                       "DayCnt":  2,
                       "DayDur":  5.2,
-                      "WeekCnt":  7,
+                      "WeekCnt":  3,
                       "WeekDur":  5.2,
                       "LastStatus":  "CLEARED",
                       "Region":  "N/A"
@@ -8897,21 +8666,10 @@
                       "Alarm":  "AC Failure",
                       "System":  "NetEco",
                       "DayCnt":  2,
-                      "DayDur":  23.2,
+                      "DayDur":  24.4,
                       "WeekCnt":  2,
-                      "WeekDur":  23.2,
+                      "WeekDur":  24.4,
                       "LastStatus":  "ACTIVE",
-                      "Region":  "N/A"
-                  },
-                  {
-                      "Site":  "SANSKI_MOST_TOMINA",
-                      "Alarm":  "AC Failure",
-                      "System":  "NetEco",
-                      "DayCnt":  0,
-                      "DayDur":  0,
-                      "WeekCnt":  null,
-                      "WeekDur":  0,
-                      "LastStatus":  "CLEARED",
                       "Region":  "N/A"
                   },
                   {
@@ -8919,9 +8677,9 @@
                       "Alarm":  "AC Failure",
                       "System":  "NetEco",
                       "DayCnt":  2,
-                      "DayDur":  43.8,
+                      "DayDur":  44.9,
                       "WeekCnt":  4,
-                      "WeekDur":  43.8,
+                      "WeekDur":  44.9,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -8952,9 +8710,9 @@
                       "Alarm":  "BLVD Low Voltage Disconnected",
                       "System":  "NetEco",
                       "DayCnt":  2,
-                      "DayDur":  176.1,
+                      "DayDur":  177.3,
                       "WeekCnt":  2,
-                      "WeekDur":  176.1,
+                      "WeekDur":  177.3,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -8981,13 +8739,24 @@
                       "Region":  "N/A"
                   },
                   {
+                      "Site":  "SARAJEVO_-_US_SREDNJE",
+                      "Alarm":  "Info",
+                      "System":  "IgnitionSCADA",
+                      "DayCnt":  1,
+                      "DayDur":  0,
+                      "WeekCnt":  1,
+                      "WeekDur":  0,
+                      "LastStatus":  "UNKNOWN",
+                      "Region":  "N/A"
+                  },
+                  {
                       "Site":  "BREKA",
                       "Alarm":  "Door Open Alarm",
                       "System":  "NetEco",
                       "DayCnt":  2,
-                      "DayDur":  380.8,
+                      "DayDur":  382,
                       "WeekCnt":  2,
-                      "WeekDur":  380.8,
+                      "WeekDur":  382,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -9062,9 +8831,9 @@
                       "Alarm":  "Lithium Battery Protection",
                       "System":  "NetEco",
                       "DayCnt":  2,
-                      "DayDur":  381.2,
+                      "DayDur":  382.3,
                       "WeekCnt":  2,
-                      "WeekDur":  381.2,
+                      "WeekDur":  382.3,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -9084,9 +8853,9 @@
                       "Alarm":  "Mains Failure",
                       "System":  "NetEco",
                       "DayCnt":  2,
-                      "DayDur":  259.6,
+                      "DayDur":  260.8,
                       "WeekCnt":  2,
-                      "WeekDur":  259.6,
+                      "WeekDur":  260.8,
                       "LastStatus":  "ACTIVE",
                       "Region":  "N/A"
                   },
@@ -9102,5 +8871,5 @@
                       "Region":  "N/A"
                   }
               ],
-    "LastUpdate":  "2026-04-14 15:34:59"
+    "LastUpdate":  "2026-04-14 15:36:08"
 }
