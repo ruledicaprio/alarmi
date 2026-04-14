@@ -33,7 +33,39 @@ function ConvertTo-DateTime($dateStr) {
     try { return [DateTime]::ParseExact($dateStr, "yyyy-MM-dd HH:mm:ss", $null) } catch {}
     try { return [DateTime]::Parse($dateStr) } catch { return $null }
 }
-
+# === DODAJ OVO NAKON ConvertTo-DateTime FUNKCIJE ===
+	function Get-RegionFromSite {
+		param([string]$Site)
+		$s = $Site.ToUpper()
+		
+		# Eksplicitna mapa za teške slučajeve
+		$explicit = @{
+			'POSUSJE_OSREDAK'='Mostar'; 'POSUSJE_CENTAR'='Mostar'; 'POSUSJE_TRIBISTOVO'='Mostar'
+			'ZELECA'='Zenica'; 'MAJEVICA'='Tuzla'
+			'MITROVICI'='Sarajevo'; 'BANOVICI_BREZOVACA'='Tuzla'; 'GLAMOC_KOVACEVCI'='Travnik'
+			'TUZLA_KISELJAK'='Tuzla'; 'PTI33_TETIMA'='Tuzla'; 'RAKITNO'='Mostar'
+			'LUKAVAC_DEVETAK'='Tuzla'; 'VELIKA_KLADUSA_KOSA'='Bihać'; 'SANSKI_MOST_TOMINA'='Bihać'
+			'CELINAC_JOSAVKA'='Zenica'; 'CELINAC_BOJICI'='Zenica'; 'KMUR'='Goražde'
+			'KOBILJACA'='Sarajevo'; 'DRAKSENIC'='Bihać'; 'MISEVICI'='Sarajevo'
+			'GLADNO_POLJE_POSLOVNA_ZONA'='Sarajevo'; 'KISELJAK_CENTAR'='Travnik'
+			'MANJACA'='Travnik'; 'ZLIJEBAC'='Tuzla'; 'GRABOVICA'='Mostar'
+			'VUCJA_LUKA'='Sarajevo'; 'BRESTOVO_PODGAJCI'='Zenica'
+		}
+		if ($explicit[$Site]) { return $explicit[$Site] }
+		
+		# Fuzzy match
+		if ($s -match 'SARAJEVO|ILIDZA|VOGOSCA|ALIPASINO|DMALTA|HRASNICA|ILIDŽA|OBALA|ALIPAŠINO') { return 'Sarajevo' }
+		if ($s -match 'TUZLA|GRAČANICA|LUKAVAC|KALESIJA|SIMIN_HAN|BIJELJINA|BRATUNAC|ODZAK|BANOVICI|ZIVINICE|KLOKOTNICA|DUJSKA_VODA') { return 'Tuzla' }
+		if ($s -match 'ZENICA|KAKANJ|VISOKO|ZAVIDOVI') { return 'Zenica' }
+		if ($s -match 'MOSTAR|ČAPLJINA|ŠIROKI_BRIJEG|GRUDE|LJUBUŠKI|KONJIC|JABLANICA|BUTUROVIC_POLJE|CELEBICI|PROZOR|GACKO|TREBINJE|CAPLJINA|GRUDE') { return 'Mostar' }
+		if ($s -match 'BIHAC|CAZIN|VELIKA_KLADUSA|SANSKI_MOST|KLJUČ|KLJUC|BOSANSKI_PETROVAC|OTOKA|KRUPA|DUBICA|BOSANSKI_NOVI') { return 'Bihać' }
+		if ($s -match 'TRAVNIK|NOVI_TRAVNIK|JAJCE|VITEZ|BUSOVACA|STARI_VITEZ|LENDICI|CUBREN|MLINISTE_MIKRO|VRILA|PREOCICA|AZAPOVICI|KACUNI|TRAVNIK') { return 'Travnik' }
+		if ($s -match 'GORAZDE|FOCA|CAJNICE|RUDO|KOPACI|PETIBOR|HADZICA_BRDO|GORAŽDE|USTIKOLINA|GRAB|VIJARAC') { return 'Goražde' }
+		if ($s -match 'BANJALUKA|GRADISKA|PRNJAVOR|CELINAC|LAKTASI|SRBAC|DERVENTA|BANJA_LUKA|ZAVIDOVICI|MAGLAJ|NEMILA|LAKTASI|ZEPCE') { return 'Zenica' }
+		
+		return 'Ostalo'
+	}
+	# === KRAJ FUNKCIJE ===
 while ($true) {
     try {
         $now = Get-Date
@@ -63,8 +95,12 @@ while ($true) {
                 if ($time -eq $null) { continue }
                 if ($system -eq "IgnitionSCADA") { $status = "UNKNOWN" }
                 else { $status = if ($line -match 'clear|normal|ok|Stops|UsageNormal') { "CLEARED" } else { "ACTIVE" } }
-                $allEvents += [PSCustomObject]@{ System=$system; Site=$site; Alarm=$alarm; Time=$time; Status=$status }
-                $csvCount++
+                # Filtriraj šum alarme
+				$exclude = @('Node Info','Info','Modbus','PLC','8000','3000','1000','OPC_STATUS','UsageNormal')
+				if ($exclude -notcontains $alarm) {
+					$allEvents += [PSCustomObject]@{ System=$system; Site=$site; Alarm=$alarm; Time=$time; Status=$status }
+					$csvCount++
+				}
             }
             Write-Host "  CSV: $csvCount događaja"
         } catch { Write-Host "  CSV greška: $($_.Exception.Message)" -ForegroundColor Red }
@@ -88,8 +124,12 @@ while ($true) {
                     $siteRaw = $beforeDate -replace '<[^>]+>', '' -replace '&nbsp;', ' ' -replace '\s+', ' ' -replace '^\s+|\s+$', ''
                     if (-not [string]::IsNullOrWhiteSpace($siteRaw) -and $siteRaw -notmatch '^-+$') {
                         $siteNorm = $siteRaw.ToUpper().Replace(" ", "_")
-                        $allEvents += [PSCustomObject]@{ System=$currentSection; Site=$siteNorm; Alarm="NE is Disconnected"; Time=$time; Status="ACTIVE" }
-                        $htmlCount++
+                        # Filtriraj šum alarme (isti princip) DODATI TREBA
+						$exclude = @('Node Info','Info','Modbus','PLC','OPC_STATUS')
+						if ($exclude -notcontains "NE is Disconnected") {  # ovaj specifično zadrži
+							$allEvents += [PSCustomObject]@{ System=$currentSection; Site=$siteNorm; Alarm="NE is Disconnected"; Time=$time; Status="ACTIVE" }
+							$htmlCount++
+						}
                     }
                 } elseif ($line -match '\b(\d{4}-\d{2}-\d{2}\s+\d{2}:\d{2}:\d{2})\b') {
                     $dateStr = $Matches[1]
@@ -110,7 +150,13 @@ while ($true) {
         } catch { Write-Host "  HTML greška: $($_.Exception.Message)" -ForegroundColor Red }
 
         Write-Host "  UKUPNO: $($allEvents.Count) događaja"
-
+		
+		$statsData | ForEach-Object {
+			$_.DayCnt = 0
+			$_.DayDur = 0
+			# Ne diraj Week/Month/Year - oni se akumuliraju
+		}
+		
         # --- Agregacija ---
         function Get-DurationInInterval($events, $startDate, $endDate) {
             $grouped = $events | Where-Object { $_.System -ne "IgnitionSCADA" } | Group-Object Site, Alarm
@@ -151,7 +197,17 @@ while ($true) {
             }
             return ($result + $ignGrouped)
         }
+		# === BONUS: Site Correlation ===
+		# Grupiši lokacije po "core" imenu za lakše mapiranje
+		$siteGroups = $allEvents.Site | Select-Object -Unique | ForEach-Object {
+			$core = $_ -replace '_.*$', '' -replace '[-\s].*$', ''
+			[PSCustomObject]@{ Original = $_; Core = $core }
+		} | Group-Object Core
 
+		# Za grupe s više varijanti, ponudi korisniku da potvrdi region (opciono, za prvi run)
+		# Ovdje možeš dodati Read-Host logiku ako želiš interaktivno mapiranje
+		# Ili sačuvaj u $siteRegionMap fajl za buduća pokretanja
+		# === KRAJ BONUSA ===
         $dailyAgg = Get-DurationInInterval $allEvents $today $now
         $weeklyAgg = Get-DurationInInterval $allEvents $weekAgo $now
 
