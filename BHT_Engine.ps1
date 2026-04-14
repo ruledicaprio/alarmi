@@ -1,110 +1,105 @@
-# BHT Alarm Engine v12 - Jednostavna i robusna verzija
-$baseDir = "E:\BHT-Dashboard"
+# BHT Alarm Engine v13.2 - Final Production Grade
+$baseDir = "C:\Users\Rusmir\alarmi"
 Set-Location $baseDir
 $statsFile = "$baseDir\stats_data.json"
+$historyFile = "$baseDir\history_data.json"
 
-$previousCount = 0
+# Inicijalizacija baze za sedmicni report
+if (-not (Test-Path $historyFile)) { "{}" | Set-Content $historyFile -Encoding UTF8 }
+
+Write-Host ">>> BHT ENGINE v13.2 START <<<" -ForegroundColor Cyan
 
 while ($true) {
     try {
         $now = Get-Date
-        $today = $now.Date
+        $todayKey = $now.ToString("yyyy-MM-dd")
         $allEvents = @()
 
-        # Izvor 1: CSV
-        $raw1 = (Invoke-WebRequest -Uri "https://pokrivenost.bhtelecom.ba/alarmi/ispadnap" -UseBasicParsing).Content
-        $csvLines = [System.Text.Encoding]::UTF8.GetString($raw1).Split("`n")
-        foreach ($line in $csvLines) {
-            if ($line -notlike "*,*") { continue }
-            $p = $line.Split(',').ForEach({ $_.Trim().Trim('"') })
-            $tsIdx = 0..($p.Count-1) | Where-Object { $p[$_] -match '\d{4}-\d{2}-\d{2}' } | Select-Object -First 1
-            if ($null -eq $tsIdx) { continue }
-            
-            $site = $p[1].ToUpper().Replace(" ", "_")
-            $system = $p[0]
-            if ($system -eq "IgnitionSCADA") {
-                $status = "UNKNOWN"
-            } else {
-                $status = if ($line -match 'clear|normal|ok|Stops|UsageNormal') { "CLEARED" } else { "ACTIVE" }
-            }
-            $allEvents += [PSCustomObject]@{
-                System = $system; Site = $site; Alarm = $p[2]; 
-                Time = [DateTime]::Parse($p[$tsIdx].Replace('_',' '));
-                Status = $status
-            }
-        }
+        # FETCH: CSV (Ignition/NetEco) & TEXT (Network)
+        $sources = @(
+            @{ Uri = "https://pokrivenost.bhtelecom.ba/alarmi/ispadnap"; Type = "CSV" },
+            @{ Uri = "https://pokrivenost.bhtelecom.ba/alarmi/"; Type = "TEXT" }
+        )
 
-        # Izvor 2: Text table
-        $raw2 = (Invoke-WebRequest -Uri "https://pokrivenost.bhtelecom.ba/alarmi/" -UseBasicParsing).Content
-        $textLines = [System.Text.Encoding]::UTF8.GetString($raw2).Split("`n")
-        $currentSection = "NETWORK"
-        foreach ($line in $textLines) {
-            if ($line -match '^---+\s*(.*?)\s*---+$') { $currentSection = $Matches[1].Trim(); continue }
-            if ($line -match '^(.*?)(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})(.*)$') {
-                $siteRaw = $Matches[1].Trim()
-                $time = [DateTime]$Matches[2]
-                $siteNorm = $siteRaw.Replace(" ", "_").ToUpper()
-                $allEvents += [PSCustomObject]@{
-                    System = $currentSection; Site = $siteNorm; Alarm = "NE Is Disconnected";
-                    Time = $time; Status = "ACTIVE"
+        foreach ($src in $sources) {
+            try {
+                $resp = Invoke-WebRequest -Uri $src.Uri -UseBasicParsing -TimeoutSec 15
+                $lines = [System.Text.Encoding]::UTF8.GetString($resp.Content).Split("`n")
+                
+                if ($src.Type -eq "CSV") {
+                    foreach ($line in $lines) {
+                        if ($line -notlike "*,*") { continue }
+                        $p = $line.Split(',').ForEach({ $_.Trim().Trim('"') })
+                        $tsIdx = 0..($p.Count-1) | Where-Object { $p[$_] -match '\d{4}-\d{2}-\d{2}' } | Select-Object -First 1
+                        if ($null -eq $tsIdx) { continue }
+
+                        $sys = $p[0]; $rawSite = $p[1]; $alarm = $p[2]
+                        $time = [DateTime]::Parse($p[$tsIdx].Replace('_',' '))
+                        
+                        # --- ROBUSNO PARSIRANJE (The Core Logic) ---
+                        $region = "N/A"; $siteId = $rawSite.ToUpper()
+                        
+                        if ($sys -eq "IgnitionSCADA" -and $rawSite -match '^(.*?) - (.*)$') {
+                            $region = $Matches[1].Trim()
+                            $remainder = $Matches[2].Trim()
+                            # Filtriranje tipova lokacija (RSU, ATC, etc.)
+                            if ($remainder -match '(?:US/BS|US|BS|TKC|RSU|ATC|FTTB|HOST|MSAN)\s+(.*)$') {
+                                $siteId = $Matches[1].Trim().ToUpper()
+                            } else { $siteId = $remainder.ToUpper() }
+                        }
+                        
+                        $status = if ($line -match 'clear|normal|ok|Stops|UsageNormal') { "CLEARED" } else { "ACTIVE" }
+                        if ($sys -eq "IgnitionSCADA") { $status = "UNKNOWN" } 
+
+                        $allEvents += [PSCustomObject]@{ System=$sys; Region=$region; Site=$siteId; Alarm=$alarm; Time=$time; Status=$status }
+                    }
+                } else {
+                    foreach ($line in $lines) {
+                        if ($line -match '^(.*?)(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})(.*)$') {
+                            $allEvents += [PSCustomObject]@{ System="NETWORK"; Region="N/A"; Site=$Matches[1].Trim().ToUpper(); Alarm="NE Disconnected"; Time=[DateTime]$Matches[2]; Status="ACTIVE" }
+                        }
+                    }
                 }
-            }
+            } catch { Write-Host "Izvor nedostupan: $($src.Uri)" -ForegroundColor Yellow }
         }
 
-        # Kalkulacija za sve osim Ignition
-        $grouped = $allEvents | Where-Object { $_.System -ne "IgnitionSCADA" } | Group-Object Site, Alarm | ForEach-Object {
+        # DNEVNA AGREGACIJA
+        $daily = $allEvents | Group-Object Site, Alarm | ForEach-Object {
             $g = $_.Group | Sort-Object Time
-            $durDay = 0; $cntDay = 0
+            $dur = 0; $cnt = 0
             for($i=0; $i -lt ($g.Count-1); $i++) {
-                if ($g[$i].Status -eq "ACTIVE" -and $g[$i+1].Status -eq "CLEARED" -and $g[$i].Time.Date -eq $today) {
-                    $durDay += ($g[$i+1].Time - $g[$i].Time).TotalMinutes; $cntDay++
+                if ($g[$i].Status -eq "ACTIVE" -and $g[$i+1].Status -eq "CLEARED" -and $g[$i].Time.Date -eq $now.Date) {
+                    $dur += ($g[$i+1].Time - $g[$i].Time).TotalMinutes; $cnt++
                 }
             }
+            [PSCustomObject]@{ Site=$_.Values[0]; Alarm=$_.Values[1]; System=$g[0].System; Region=$g[0].Region; DayCnt=$cnt; DayDur=[Math]::Round($dur,1); LastStatus=$g[-1].Status }
+        }
+
+        # SEDMICNA PERSISTENCIJA (FIX ZA PROPERTY ERROR)
+        $history = Get-Content $historyFile -Raw | ConvertFrom-Json
+        if ($null -eq $history) { $history = New-Object PSObject }
+        $history | Add-Member -NotePropertyName $todayKey -NotePropertyValue $daily -Force
+
+        # Ciscenje (zadrzi 7 dana)
+        $limit = (Get-Date).AddDays(-7).ToString("yyyy-MM-dd")
+        $history.PSObject.Properties | Where-Object { $_.Name -lt $limit } | ForEach-Object { $history.PSObject.Properties.Remove($_.Name) }
+        $history | ConvertTo-Json -Depth 10 | Set-Content $historyFile -Encoding UTF8
+
+        # Agregacija za Weekly Tab
+        $weekly = $history.PSObject.Properties.Value | Update-List -Add @() | Group-Object Site, Alarm | ForEach-Object {
             [PSCustomObject]@{
-                Site=$_.Values[0]; Alarm=$_.Values[1]; System=$g[0].System;
-                DayCnt=$cntDay; DayDur=[Math]::Round($durDay, 1);
-                Region="N/A"; LastStatus=$g[-1].Status
+                Site=$_.Values[0]; Alarm=$_.Values[1]; System=$_.Group[0].System; Region=$_.Group[0].Region;
+                WeekCnt=($_.Group | Measure-Object DayCnt -Sum).Sum;
+                WeekDur=[Math]::Round(($_.Group | Measure-Object DayDur -Sum).Sum, 1)
             }
         }
 
-        # Ignition posebno
-        $ignitionEvents = $allEvents | Where-Object { $_.System -eq "IgnitionSCADA" }
-        $ignitionGrouped = $ignitionEvents | Group-Object Site, Alarm | ForEach-Object {
-            $g = $_.Group
-            $cntDay = ($g | Where-Object { $_.Time.Date -eq $today }).Count
-            [PSCustomObject]@{
-                Site=$_.Values[0]; Alarm=$_.Values[1]; System="IgnitionSCADA";
-                DayCnt=$cntDay; DayDur=0;
-                Region="N/A"; LastStatus="UNKNOWN"
-            }
-        }
+        # FINAL EXPORT
+        $out = @{ LastUpdate=$now.ToString("yyyy-MM-dd HH:mm:ss"); Daily=$daily; Weekly=$weekly; Recent=$allEvents | Select-Object System, Site, Alarm, Time, Status -First 200 }
+        $out | ConvertTo-Json -Depth 10 | Set-Content $statsFile -Encoding UTF8
+        
+        Write-Host "Sync OK @ $($now.ToString('HH:mm:ss'))" -ForegroundColor Green
 
-        $finalStats = $grouped + $ignitionGrouped
-
-        # Ispis u konzolu
-        $newAlarms = $allEvents.Count - $previousCount
-        if ($newAlarms -lt 0) { $newAlarms = 0 }
-        $previousCount = $allEvents.Count
-
-        Clear-Host
-        Write-Host "============================================================" -ForegroundColor Gray
-        Write-Host " BHT ENGINE v12 - " $now.ToString("HH:mm:ss")
-        Write-Host "============================================================" -ForegroundColor Gray
-        Write-Host "Novih dogadjaja: $newAlarms"
-        Write-Host "------------------------------------------------------------" -ForegroundColor Gray
-        Write-Host "TOP 5 DNEVNIH ISPADADA:"
-        $grouped | Where-Object { $_.DayDur -gt 0 } | Sort-Object DayDur -Descending | Select-Object -First 5 | ForEach-Object {
-            Write-Host "  " $_.Site "-" $_.DayDur "min"
-        }
-
-        # JSON output
-        $output = @{ 
-            LastUpdate = $now.ToString("yyyy-MM-dd HH:mm:ss")
-            Stats = $finalStats
-            Recent = $allEvents | Select-Object System, Site, Alarm, Time, Status -First 500
-        }
-        $output | ConvertTo-Json -Depth 5 | Set-Content $statsFile -Encoding UTF8
-    }
-    catch { Write-Host "GRESKA: $($_.Exception.Message)" -ForegroundColor Red }
+    } catch { Write-Host "Fatal Error: $($_.Exception.Message)" -ForegroundColor Red }
     Start-Sleep -Seconds 60
 }
