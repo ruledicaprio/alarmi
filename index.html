@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+    <meta charset="UTF-8">
+    <title>BHT Core Monitor – 11 kolona (bez horizontalnog skrola)</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css">
+    <script src="https://cdn.datatables.net/2.0.8/js/dataTables.min.js"></script>
+    <style>
+        body { background: #020617; color: #e2e8f0; }
+        .active-outage { border-left: 4px solid #ef4444 !important; background: rgba(239, 68, 68, 0.1) !important; }
+        .card { background: #0f172a; border: 1px solid #1e293b; border-radius: 1rem; }
+        .loading-spinner { display: inline-block; width: 1rem; height: 1rem; border: 2px solid #f97316; border-top-color: transparent; border-radius: 50%; animation: spin 0.6s linear infinite; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .btn-refresh { background: #1e293b; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; cursor: pointer; transition: 0.2s; }
+        .btn-refresh:hover { background: #334155; }
+        /* Omogućavamo prijelom teksta u ćelijama – horizontalni scroll nestaje */
+        .dataTable td, .dataTable th { white-space: normal; word-break: break-word; vertical-align: top; }
+        /* DataTables kontejner neće imati horizontalni scroll */
+        .dataTables_wrapper { overflow-x: auto; } /* lagani overflow samo za wrapper, ali ne za tabelu */
+        table.dataTable { width: 100% !important; }
+        /* Smanjujemo padding na manjim ekranima */
+        @media (max-width: 1200px) {
+            .dataTable td, .dataTable th { padding: 0.5rem 0.25rem !important; font-size: 0.7rem; }
+        }
+    </style>
+</head>
+<body class="p-4">
+    <div class="max-w-[1600px] mx-auto">
+        <div class="flex justify-between items-center mb-6 card p-6">
+            <div class="flex items-center gap-4">
+                <div class="bg-orange-600 px-4 py-1 rounded font-black text-2xl italic">bh</div>
+                <div>
+                    <h1 class="text-xl font-black uppercase tracking-tight">Network <span class="text-orange-500 italic">Core Monitor</span></h1>
+                    <p id="updateTag" class="text-[10px] text-slate-500 font-mono">Povezivanje...</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-4">
+                <div id="activeCount" class="text-3xl font-black text-red-500">0</div>
+                <button id="manualRefreshBtn" class="btn-refresh flex items-center gap-1">🔄 Ručno</button>
+            </div>
+        </div>
+
+        <div class="card p-6">
+            <table id="alarmTable" class="w-full text-sm">
+                <thead>
+                    <tr class="text-left text-[10px] text-slate-500 uppercase border-b border-slate-800">
+                        <th class="pb-3">System ID</th><th class="pb-3">Region ID</th><th class="pb-3">Site ID</th>
+                        <th class="pb-3">Node ID</th><th class="pb-3">Event ID</th><th class="pb-3">Severity</th>
+                        <th class="pb-3">First Occurence</th><th class="pb-3">Last Cleared</th>
+                        <th class="pb-3 text-center">Count</th><th class="pb-3 text-center">Total Duration (min)</th>
+                        <th class="pb-3 text-center">Status</th>
+                    </tr>
+                </thead>
+                <tbody><tr><td colspan="11" class="text-center py-10 text-slate-500">Učitavanje podataka...</td></tr></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            let dataTable = null;
+            let abortController = null;
+            let refreshTimer = null;
+            let isRefreshing = false;
+            let netecoMap = null;
+
+            // Helper: formatiranje datuma za prikaz (lokalno vrijeme)
+            function formatTimestamp(isoString) {
+                if (!isoString) return '-';
+                try {
+                    const d = new Date(isoString);
+                    if (isNaN(d.getTime())) return isoString;
+                    return d.toLocaleString('bs-BA', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' });
+                } catch(e) { return isoString; }
+            }
+
+            // Helper: Izdvajanje regiona iz naziva sitea (za sisteme bez CSV mape)
+            function extractRegion(siteName) {
+                if (!siteName) return 'N/A';
+                if (siteName.includes(' - ')) return siteName.split(' - ')[0].trim();
+                const gradovi = ['Sarajevo','Tuzla','Zenica','Mostar','Bihać','Travnik','Banja Luka','Bijeljina','Doboj','Livno','Goražde'];
+                for (let g of gradovi) if (siteName.includes(g)) return g;
+                return 'N/A';
+            }
+
+            // Učitavanje NetEco CSV mape
+            async function loadNetEcoMap() {
+                if (netecoMap) return netecoMap;
+                try {
+                    const response = await fetch('neteco_sites.csv?cache=' + Date.now());
+                    if (!response.ok) throw new Error('Ne mogu učitati neteco_sites.csv');
+                    const text = await response.text();
+                    const lines = text.split(/\r?\n/);
+                    const map = new Map();
+                    for (let i = 1; i < lines.length; i++) {
+                        const line = lines[i].trim();
+                        if (!line) continue;
+                        const [site_id, region_id, node_id] = line.split(';');
+                        if (site_id) map.set(site_id.trim(), { region_id: region_id?.trim() || 'N/A', node_id: node_id?.trim() || '-' });
+                    }
+                    console.log(`Učitano ${map.size} NetEco lokacija`);
+                    netecoMap = map;
+                    return map;
+                } catch (err) {
+                    console.error('Greška pri učitavanju NetEco CSV:', err);
+                    return new Map();
+                }
+            }
+
+            // Helper: Izračun first_occurence i last_cleared iz Recent niza
+            function computeFirstAndLast(recentList, system, site, alarm) {
+                let first = null, lastCleared = null;
+                if (!recentList || !Array.isArray(recentList)) return { first: '-', last: '-' };
+                for (const ev of recentList) {
+                    if (ev.System === system && ev.Site === site && ev.Alarm === alarm) {
+                        const ts = new Date(ev.Time);
+                        if (!first || ts < first) first = ts;
+                        if (ev.Status === 'CLEARED') {
+                            if (!lastCleared || ts > lastCleared) lastCleared = ts;
+                        }
+                    }
+                }
+                return { first: formatTimestamp(first), last: formatTimestamp(lastCleared) };
+            }
+
+            // Helper: Određivanje severity
+            function getSeverity(status, alarm) {
+                if (status === 'ACTIVE') return 'CRITICAL';
+                if (alarm && (alarm.includes('Failure') || alarm.includes('Disconnected'))) return 'MAJOR';
+                return 'INFO';
+            }
+
+            function setLoading(loading) {
+                const btn = document.getElementById('manualRefreshBtn');
+                if (loading) { btn.innerHTML = '<span class="loading-spinner"></span> Osvježavam...'; btn.disabled = true; }
+                else { btn.innerHTML = '🔄 Ručno'; btn.disabled = false; }
+            }
+
+            async function refreshData(showLoadingIndicator = false) {
+                if (isRefreshing) return;
+                isRefreshing = true;
+                if (showLoadingIndicator) setLoading(true);
+                if (abortController) abortController.abort();
+                abortController = new AbortController();
+
+                try {
+                    const netecoMapData = await loadNetEcoMap();
+                    const response = await fetch('stats_data.json?cache=' + Date.now(), { signal: abortController.signal });
+                    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                    const data = await response.json();
+                    if (!data || !data.Stats || !Array.isArray(data.Stats)) throw new Error('Neispravan JSON: nedostaje .Stats');
+
+                    document.getElementById('updateTag').innerHTML = `📡 Zadnji sync: ${data.LastUpdate || 'nepoznat'}`;
+                    const activeCount = data.Stats.filter(s => s.LastStatus === 'ACTIVE').length;
+                    document.getElementById('activeCount').innerHTML = activeCount + ' Aktivno';
+
+                    const rows = [];
+                    for (const s of data.Stats) {
+                        const system = s.System || '';
+                        const rawSite = s.Site || '';
+                        let region = 'N/A', siteId = rawSite, nodeId = '-';
+
+                        if (system === 'NetEco' && netecoMapData.has(rawSite)) {
+                            const entry = netecoMapData.get(rawSite);
+                            region = entry.region_id;
+                            siteId = rawSite;
+                            nodeId = entry.node_id;
+                        } else if (system === 'IgnitionSCADA' && rawSite.includes(' - ')) {
+                            const parts = rawSite.split(' - ');
+                            region = parts[0].trim();
+                            siteId = parts[1].trim();
+                            nodeId = siteId;
+                        } else {
+                            region = extractRegion(rawSite);
+                            siteId = rawSite;
+                            nodeId = siteId;
+                        }
+
+                        const eventId = s.Alarm || '';
+                        const severity = getSeverity(s.LastStatus, eventId);
+                        const { first, last } = computeFirstAndLast(data.Recent, system, rawSite, eventId);
+                        const count = s.DayCnt ?? 0;
+                        const duration = s.DayDur ?? 0;
+                        const status = s.LastStatus || '';
+
+                        rows.push([
+                            system,
+                            region,
+                            siteId,
+                            nodeId,
+                            eventId,
+                            severity,
+                            first,      // first occurence timestamp
+                            last,       // last cleared timestamp
+                            count,
+                            duration,
+                            `<span class="${status === 'ACTIVE' ? 'text-red-500 animate-pulse font-black' : 'text-slate-600 text-[10px]'} uppercase">${status}</span>`
+                        ]);
+                    }
+
+                    if (dataTable) {
+                        dataTable.clear();
+                        dataTable.rows.add(rows);
+                        dataTable.draw();
+                    } else {
+                        dataTable = $('#alarmTable').DataTable({
+                            data: rows,
+                            columns: [
+                                { title: "System ID", className: "font-mono text-xs" },
+                                { title: "Region ID", className: "text-slate-400" },
+                                { title: "Site ID", className: "font-bold text-slate-200" },
+                                { title: "Node ID", className: "text-slate-400" },
+                                { title: "Event ID", className: "text-orange-400" },
+                                { title: "Severity", className: "uppercase text-xs" },
+                                { title: "First Occurence", className: "text-slate-500 text-xs" },
+                                { title: "Last Cleared", className: "text-slate-500 text-xs" },
+                                { title: "Count", className: "text-center font-black" },
+                                { title: "Total Duration (min)", className: "text-center font-mono text-emerald-400" },
+                                { title: "Status", className: "text-center" }
+                            ],
+                            order: [[9, 'desc']],
+                            pageLength: 25,
+                            scrollX: false,   // nema horizontalnog scrolla
+                            responsive: true, // pokušaj prilagođavanja
+                            autoWidth: true,
+                            language: { search: "Pretraga:", info: "Prikazano _START_ do _END_ od _TOTAL_ zapisa" }
+                        });
+                    }
+
+                    // Dodaj klasu za aktivne redove (status kolona indeks 10)
+                    $('#alarmTable tbody tr').each(function(idx) {
+                        const rowData = dataTable.row(idx).data();
+                        if (rowData && rowData[10] && rowData[10].includes('ACTIVE')) $(this).addClass('active-outage');
+                        else $(this).removeClass('active-outage');
+                    });
+
+                } catch (err) {
+                    if (err.name === 'AbortError') return;
+                    console.error(err);
+                    document.getElementById('updateTag').innerHTML = `⚠️ Greška: ${err.message} (pokušaj ponovo)`;
+                } finally {
+                    isRefreshing = false;
+                    if (showLoadingIndicator) setLoading(false);
+                }
+            }
+
+            document.getElementById('manualRefreshBtn').addEventListener('click', () => refreshData(true));
+            refreshTimer = setInterval(() => refreshData(false), 30000);
+            refreshData(true);
+
+            window.addEventListener('beforeunload', () => {
+                if (refreshTimer) clearInterval(refreshTimer);
+                if (abortController) abortController.abort();
+                if (dataTable) dataTable.destroy();
+            });
+        })();
+    </script>
+</body>
+</html>
