@@ -216,7 +216,7 @@ while ($true) {
         foreach ($w in $weeklyAgg) { $key = "$($w.Site)|$($w.Alarm)|$($w.System)"; if ($allStats.ContainsKey($key)) { $allStats[$key].WeekCnt = $w.Count; $allStats[$key].WeekDur = $w.Duration } else { $allStats[$key] = @{ Site=$w.Site; Alarm=$w.Alarm; System=$w.System; DayCnt=0; DayDur=0; WeekCnt=$w.Count; WeekDur=$w.Duration; LastStatus=$w.LastStatus } } }
 
         $# Zamijeni cijeli blok kreiranja $finalStats sa ovim:
-		$finalStats = $allStats.Values | ForEach-Object {
+		$finalStats = $allStats.Values | ForEach-Object { 
 			$region = Get-RegionFromSite $_.Site
 			[PSCustomObject]@{
 				System        = $_.System
@@ -226,15 +226,15 @@ while ($true) {
 				LastStatus    = $_.LastStatus
 				FirstOccurred = $_.FirstOccurred
 				LastCleared   = $_.LastCleared
-				DayCnt        = [int]($_.DayCnt -as [int] ?: 0)
-				DayDur        = [double]($_.DayDur -as [double] ?: 0)
-				WeekCnt       = [int]($_.WeekCnt -as [int] ?: 0)
-				WeekDur       = [double]($_.WeekDur -as [double] ?: 0)
-				MonthCnt      = [int]($_.MonthCnt -as [int] ?: 0)
-				MonthDur      = [double]($_.MonthDur -as [double] ?: 0)
-				YearCnt       = [int]($_.YearCnt -as [int] ?: 0)
-				YearDur       = [double]($_.YearDur -as [double] ?: 0)
-			}
+				DayCnt        = [int]($_.DayCnt -or 0)
+				DayDur        = [double]($_.DayDur -or 0)
+				WeekCnt       = [int]($_.WeekCnt -or 0)
+				WeekDur       = [double]($_.WeekDur -or 0)
+				MonthCnt      = [int]($_.MonthCnt -or 0)
+				MonthDur      = [double]($_.MonthDur -or 0)
+				YearCnt       = [int]($_.YearCnt -or 0)
+				YearDur       = [double]($_.YearDur -or 0)
+			} 
 		}
 		function Get-SiteCoreName {
 			param([string]$RawSite)
