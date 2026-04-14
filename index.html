@@ -2,7 +2,7 @@
 <html lang="bs">
 <head>
     <meta charset="UTF-8">
-    <title>BHT Core Monitor – Blaze boje</title>
+    <title>BHT Core Monitor – Profi boje</title>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css">
@@ -15,12 +15,12 @@
         .btn-refresh { background: #1e293b; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; cursor: pointer; transition: 0.2s; }
         .btn-refresh:hover { background: #334155; }
         
-        /* BLAZE (vivid) boje za redove */
-        .critical-row { background-color: #FF0000 !important; color: #FFFFFF !important; border-left: 4px solid #CC0000 !important; }
-        .major-row { background-color: #FFA500 !important; color: #FFFFFF !important; border-left: 4px solid #CC7000 !important; }
-        .minor-row { background-color: #FFCC00 !important; color: #000000 !important; border-left: 4px solid #B8860B !important; }
-        .cleared-row { background-color: #00CC00 !important; color: #FFFFFF !important; border-left: 4px solid #008000 !important; }
-        .unknown-row { background-color: #808080 !important; color: #FFFFFF !important; border-left: 4px solid #555555 !important; }
+        /* Predefinirane, profesionalne boje */
+        .critical-row { background-color: #FFCCCC !important; color: #990000 !important; border-left: 4px solid #CC0000 !important; }
+        .major-row { background-color: #FFE0B3 !important; color: #CC7000 !important; border-left: 4px solid #FFA500 !important; }
+        .minor-row { background-color: #FFF2CC !important; color: #996600 !important; border-left: 4px solid #FFCC00 !important; }
+        .cleared-row { background-color: #CCFFCC !important; color: #006600 !important; border-left: 4px solid #00CC00 !important; }
+        .unknown-row { background-color: #E6E6E6 !important; color: #555555 !important; border-left: 4px solid #999999 !important; }
         
         .critical-row td, .major-row td, .minor-row td, .cleared-row td, .unknown-row td { color: inherit; }
         
@@ -246,7 +246,7 @@
                                 { title: "Total Duration (min)", className: "text-center font-mono text-emerald-400" },
                                 { title: "Status", className: "text-center font-bold" }
                             ],
-                            order: [[8, 'desc']],  // SORTIRANJE PO COUNT (kolona 8)
+                            order: [[8, 'desc']],  // sortiranje po Count (kolona 8)
                             pageLength: 25,
                             scrollX: false,
                             autoWidth: true,
