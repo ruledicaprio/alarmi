@@ -1,4 +1,4 @@
-# BHT Alarm Engine v25 - final robust version with correct duration calculation
+# BHT Alarm Engine v24 - fixed git order, robust aggregates
 $mutex = New-Object System.Threading.Mutex($false, "Global\BHTEngineMutex")
 if (-not $mutex.WaitOne(0)) { Write-Host "Skripta već radi." -ForegroundColor Red; exit }
 
@@ -39,7 +39,7 @@ while ($true) {
                 $alarm = $p[2].Trim()
                 $timeStr = $p[$tsIdx] -replace '_', ' '
                 $time = [DateTime]::Parse($timeStr)
-                if ($system -eq "IgnitionSCADA") { $status = "UNKNOWN" }
+                if ($system -eq "Ignition") { $status = "UNKNOWN" }
                 else { $status = if ($line -match 'clear|normal|ok|Stops|UsageNormal') { "CLEARED" } else { "ACTIVE" } }
                 $allEvents += [PSCustomObject]@{ System=$system; Site=$site; Alarm=$alarm; Time=$time; Status=$status }
             }
@@ -68,80 +68,109 @@ while ($true) {
 
         Write-Host "  Ukupno događaja: $($allEvents.Count)"
 
-        # Funkcija za izračunavanje trajanja unutar vremenskog intervala (samo preklapanja)
-        function Get-DurationInInterval($events, $startDate, $endDate) {
-            $grouped = $events | Where-Object { $_.System -ne "IgnitionSCADA" } | Group-Object Site, Alarm
-            $result = @()
-            foreach ($grp in $grouped) {
-                $sorted = $grp.Group | Sort-Object Time
-                $totalDur = 0
-                $activeStart = $null
-                $lastStatus = "CLEARED"
-                for ($i=0; $i -lt $sorted.Count; $i++) {
-                    $e = $sorted[$i]
-                    if ($e.Status -eq "ACTIVE") {
-                        $activeStart = $e.Time
-                        $lastStatus = "ACTIVE"
-                    } elseif ($e.Status -eq "CLEARED" -and $activeStart -ne $null) {
-                        $clearTime = $e.Time
-                        # Preklapanje sa intervalom
-                        $overlapStart = if ($activeStart -gt $startDate) { $activeStart } else { $startDate }
-                        $overlapEnd = if ($clearTime -lt $endDate) { $clearTime } else { $endDate }
-                        if ($overlapEnd -gt $overlapStart) {
-                            $totalDur += ($overlapEnd - $overlapStart).TotalMinutes
+        # --- Funkcija za agregaciju (dnevnu ili sedmičnu) ---
+        function Get-Aggregates($events, $startDate, $endDate) {
+        # events su svi događaji (nefiltrirani)
+        # startDate i endDate definišu interval za agregaciju
+        $grouped = $events | Where-Object { $_.System -ne "Ignition" } | Group-Object Site, Alarm | ForEach-Object {
+            $g = $_.Group | Sort-Object Time
+            $totalDur = 0
+            $totalCnt = 0
+            $lastStatus = "CLEARED"
+            $i = 0
+            while ($i -lt $g.Count) {
+                $current = $g[$i]
+                if ($current.Status -eq "ACTIVE") {
+                    # Potraži odgovarajući CLEARED (prvi nakon trenutnog)
+                    $clearTime = $endDate  # default do kraja intervala
+                    $j = $i + 1
+                    while ($j -lt $g.Count) {
+                        if ($g[$j].Status -eq "CLEARED") {
+                            $clearTime = $g[$j].Time
+                            break
                         }
-                        $activeStart = $null
-                        $lastStatus = "CLEARED"
+                        $j++
                     }
-                }
-                # Ako je ostalo aktivno do kraja intervala
-                if ($activeStart -ne $null) {
-                    $overlapStart = if ($activeStart -gt $startDate) { $activeStart } else { $startDate }
-                    $overlapEnd = $endDate
-                    if ($overlapEnd -gt $overlapStart) {
-                        $totalDur += ($overlapEnd - $overlapStart).TotalMinutes
+                    # Izračunaj stvarno trajanje unutar intervala
+                    $start = $current.Time
+                    $end = $clearTime
+                    # Ograniči na interval [startDate, endDate]
+                    if ($end -gt $endDate) { $end = $endDate }
+                    if ($start -lt $startDate) { $start = $startDate }
+                    if ($end > $start) {
+                        $duration = ($end - $start).TotalMinutes
+                        $totalDur += $duration
+                        $totalCnt++
+                    }
+                    # Pomjeri i na CLEARED (ako postoji) da ne brojimo ponovo
+                    if ($clearTime -ne $endDate) {
+                        # Pronađi index CLEARED događaja
+                        for ($k=$i+1; $k -lt $g.Count; $k++) {
+                            if ($g[$k].Status -eq "CLEARED") {
+                                $i = $k
+                                break
+                            }
+                        }
                     }
                     $lastStatus = "ACTIVE"
+                } else {
+                    $lastStatus = "CLEARED"
                 }
-                # Broj pojavljivanja u intervalu (samo ACTIVE koja su počela unutar intervala)
-                $cnt = ($sorted | Where-Object { $_.Status -eq "ACTIVE" -and $_.Time -ge $startDate -and $_.Time -le $endDate }).Count
-                $result += [PSCustomObject]@{
-                    Site = $grp.Values[0]
-                    Alarm = $grp.Values[1]
-                    System = $sorted[0].System
-                    Count = $cnt
-                    Duration = [Math]::Round($totalDur, 1)
-                    LastStatus = $lastStatus
+                $i++
+            }
+            # Nakon petlje, ako je posljednji status ACTIVE, računaj do kraja intervala
+            if ($lastStatus -eq "ACTIVE") {
+                $lastEvent = $g[-1]
+                if ($lastEvent.Time -lt $endDate) {
+                    $start = [Math]::Max($lastEvent.Time, $startDate)
+                    if ($start -lt $endDate) {
+                        $duration = ($endDate - $start).TotalMinutes
+                        $totalDur += $duration
+                        $totalCnt++
+                    }
                 }
             }
-            # Dodaj Ignition (samo broj)
-            $ignEvents = $events | Where-Object { $_.System -eq "IgnitionSCADA" -and $_.Time -ge $startDate -and $_.Time -le $endDate }
-            $ignGrouped = $ignEvents | Group-Object Site, Alarm | ForEach-Object {
-                [PSCustomObject]@{
-                    Site = $_.Values[0]
-                    Alarm = $_.Values[1]
-                    System = "IgnitionSCADA"
-                    Count = $_.Count
-                    Duration = 0
-                    LastStatus = "UNKNOWN"
-                }
+            [PSCustomObject]@{
+                Site = $_.Values[0]
+                Alarm = $_.Values[1]
+                System = $g[0].System
+                Count = $totalCnt
+                Duration = [Math]::Round($totalDur,1)
+                LastStatus = $lastStatus
             }
-            return ($result + $ignGrouped)
         }
+        # Ignition (samo broj)
+        $ignEvents = $events | Where-Object { $_.System -eq "Ignition" -and $_.Time -ge $startDate -and $_.Time -le $endDate }
+        $ignGrouped = $ignEvents | Group-Object Site, Alarm | ForEach-Object {
+            [PSCustomObject]@{
+                Site = $_.Values[0]
+                Alarm = $_.Values[1]
+                System = "Ignition"
+                Count = $_.Count
+                Duration = 0
+                LastStatus = "UNKNOWN"
+            }
+        }
+        return ($grouped + $ignGrouped)
+    }
 
         # Dnevni agregati (od ponoći do sada)
-        $dailyAgg = Get-DurationInInterval $allEvents $today $now
+        $dailyAgg = Get-Aggregates $allEvents $today $now
         # Sedmični agregati (posljednjih 7 dana do sada)
-        $weeklyAgg = Get-DurationInInterval $allEvents $weekAgo $now
+        $weeklyAgg = Get-Aggregates $allEvents $weekAgo $now
 
-        # Spajanje u jednu listu
+        # Spajanje u jednu listu (kombinujemo po (Site, Alarm, System))
         $allStats = @{}
         foreach ($d in $dailyAgg) {
             $key = "$($d.Site)|$($d.Alarm)|$($d.System)"
             $allStats[$key] = @{
-                Site = $d.Site; Alarm = $d.Alarm; System = $d.System
-                DayCnt = $d.Count; DayDur = $d.Duration
-                WeekCnt = 0; WeekDur = 0
+                Site = $d.Site
+                Alarm = $d.Alarm
+                System = $d.System
+                DayCnt = $d.Count
+                DayDur = $d.Duration
+                WeekCnt = 0
+                WeekDur = 0
                 LastStatus = $d.LastStatus
             }
         }
@@ -152,9 +181,13 @@ while ($true) {
                 $allStats[$key].WeekDur = $w.Duration
             } else {
                 $allStats[$key] = @{
-                    Site = $w.Site; Alarm = $w.Alarm; System = $w.System
-                    DayCnt = 0; DayDur = 0
-                    WeekCnt = $w.Count; WeekDur = $w.Duration
+                    Site = $w.Site
+                    Alarm = $w.Alarm
+                    System = $w.System
+                    DayCnt = 0
+                    DayDur = 0
+                    WeekCnt = $w.Count
+                    WeekDur = $w.Duration
                     LastStatus = $w.LastStatus
                 }
             }
@@ -162,15 +195,19 @@ while ($true) {
 
         $finalStats = $allStats.Values | ForEach-Object {
             [PSCustomObject]@{
-                Site = $_.Site; Alarm = $_.Alarm; System = $_.System
-                DayCnt = $_.DayCnt; DayDur = $_.DayDur
-                WeekCnt = $_.WeekCnt; WeekDur = $_.WeekDur
+                Site = $_.Site
+                Alarm = $_.Alarm
+                System = $_.System
+                DayCnt = $_.DayCnt
+                DayDur = $_.DayDur
+                WeekCnt = $_.WeekCnt
+                WeekDur = $_.WeekDur
                 LastStatus = $_.LastStatus
                 Region = "N/A"   # region se dodjeljuje na klijentu
             }
         }
 
-        # Ispis u konzolu
+        # --- Ispis u konzolu ---
         $newAlarms = $allEvents.Count - $previousCount
         if ($newAlarms -lt 0) { $newAlarms = 0 }
         $previousCount = $allEvents.Count
@@ -178,7 +215,7 @@ while ($true) {
 
         Clear-Host
         Write-Host "============================================================" -ForegroundColor Gray
-        Write-Host " BHT ENGINE v25 - $($now.ToString('HH:mm:ss'))"
+        Write-Host " BHT ENGINE v24 - $($now.ToString('HH:mm:ss'))"
         Write-Host "============================================================" -ForegroundColor Gray
         Write-Host "Novih događaja: $newAlarms"
         Write-Host "------------------------------------------------------------" -ForegroundColor Gray
@@ -187,7 +224,7 @@ while ($true) {
             Write-Host "  $($_.Site) - $($_.Duration) min"
         }
 
-        # JSON izlaz
+        # --- JSON izlaz ---
         $output = @{
             LastUpdate = $now.ToString("yyyy-MM-dd HH:mm:ss")
             Stats = $finalStats
@@ -195,14 +232,20 @@ while ($true) {
         }
         $output | ConvertTo-Json -Depth 5 | Set-Content $statsFile -Encoding UTF8
 
-        # Git sinhronizacija
+        # --- Git sinhronizacija (ispravljen redoslijed) ---
         Write-Host "Sinhronizacija sa GitHub-om..." -ForegroundColor Cyan
+        # Prvo lokalno dodaj i komituj
         git add $statsFile
         git commit -m "Auto-update $($now.ToString('yyyy-MM-dd HH:mm:ss'))" 2>&1 | Out-Null
+        # Zatim povuci remote promjene i rebase
         git pull --rebase --autostash 2>&1 | Out-Null
+        # Na kraju push
         $pushResult = git push 2>&1
-        if ($LASTEXITCODE -ne 0) { Write-Host "Git push greška: $pushResult" -ForegroundColor Red }
-        else { Write-Host "Push završen." -ForegroundColor Green }
+        if ($LASTEXITCODE -ne 0) {
+            Write-Host "Git push greška: $pushResult" -ForegroundColor Red
+        } else {
+            Write-Host "Push završen." -ForegroundColor Green
+        }
     }
     catch {
         Write-Host "GLAVNA GREŠKA: $($_.Exception.Message)" -ForegroundColor Red
