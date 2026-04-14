@@ -151,90 +151,101 @@ while ($true) {
 
         Write-Host "  UKUPNO: $($allEvents.Count) događaja"
 		
-		$statsData | ForEach-Object {
-			$_.DayCnt = 0
-			$_.DayDur = 0
-			# Ne diraj Week/Month/Year - oni se akumuliraju
-		}
-		
         # --- Agregacija ---
-        function Get-DurationInInterval($events, $startDate, $endDate) {
-            $grouped = $events | Where-Object { $_.System -ne "IgnitionSCADA" } | Group-Object Site, Alarm
-            $result = @()
-            foreach ($grp in $grouped) {
-                $sorted = $grp.Group | Sort-Object Time
-                $totalDur = 0
-                $activeStart = $null
-                $lastStatus = "CLEARED"
-                for ($i=0; $i -lt $sorted.Count; $i++) {
-                    $e = $sorted[$i]
-                    if ($e.Status -eq "ACTIVE") {
-                        $activeStart = $e.Time
-                        $lastStatus = "ACTIVE"
-                    } elseif ($e.Status -eq "CLEARED" -and $activeStart -ne $null) {
-                        $clearTime = $e.Time
-                        $overlapStart = if ($activeStart -gt $startDate) { $activeStart } else { $startDate }
-                        $overlapEnd   = if ($clearTime -lt $endDate) { $clearTime } else { $endDate }
-                        if ($overlapEnd -gt $overlapStart) { $totalDur += ($overlapEnd - $overlapStart).TotalMinutes }
-                        $activeStart = $null
-                        $lastStatus = "CLEARED"
-                    }
-                }
-                if ($activeStart -ne $null) {
-                    $overlapStart = if ($activeStart -gt $startDate) { $activeStart } else { $startDate }
-                    $overlapEnd = $endDate
-                    if ($overlapEnd -gt $overlapStart) { $totalDur += ($overlapEnd - $overlapStart).TotalMinutes }
-                }
-                $cnt = ($sorted | Where-Object { $_.Status -eq "ACTIVE" -and $_.Time -ge $startDate -and $_.Time -le $endDate }).Count
-                $result += [PSCustomObject]@{
-                    Site = $grp.Values[0]; Alarm = $grp.Values[1]; System = $sorted[0].System
-                    Count = $cnt; Duration = [Math]::Round($totalDur, 1); LastStatus = $lastStatus
-                }
-            }
-            $ignEvents = $events | Where-Object { $_.System -eq "IgnitionSCADA" -and $_.Time -ge $startDate -and $_.Time -le $endDate }
-            $ignGrouped = $ignEvents | Group-Object Site, Alarm | ForEach-Object {
-                [PSCustomObject]@{ Site = $_.Values[0]; Alarm = $_.Values[1]; System = "IgnitionSCADA"; Count = $_.Count; Duration = 0; LastStatus = "UNKNOWN" }
-            }
-            return ($result + $ignGrouped)
-        }
-		# === BONUS: Site Correlation ===
-		# Grupiši lokacije po "core" imenu za lakše mapiranje
+		function Get-DurationInInterval($events, $startDate, $endDate) {
+			$grouped = $events | Where-Object { $_.System -ne "IgnitionSCADA" } | Group-Object Site, Alarm
+			$result = @()
+			foreach ($grp in $grouped) {
+				$sorted = $grp.Group | Sort-Object Time
+				$totalDur = 0
+				$activeStart = $null
+				$lastStatus = "CLEARED"
+				for ($i=0; $i -lt $sorted.Count; $i++) {
+					$e = $sorted[$i]
+					if ($e.Status -eq "ACTIVE") {
+						$activeStart = $e.Time
+						$lastStatus = "ACTIVE"
+					} elseif ($e.Status -eq "CLEARED" -and $activeStart -ne $null) {
+						$clearTime = $e.Time
+						$overlapStart = if ($activeStart -gt $startDate) { $activeStart } else { $startDate }
+						$overlapEnd   = if ($clearTime -lt $endDate) { $clearTime } else { $endDate }
+						if ($overlapEnd -gt $overlapStart) { $totalDur += ($overlapEnd - $overlapStart).TotalMinutes }
+						$activeStart = $null
+						$lastStatus = "CLEARED"
+					}
+				}
+				if ($activeStart -ne $null) {
+					$overlapStart = if ($activeStart -gt $startDate) { $activeStart } else { $startDate }
+					$overlapEnd = $endDate
+					if ($overlapEnd -gt $overlapStart) { $totalDur += ($overlapEnd - $overlapStart).TotalMinutes }
+				}
+				$cnt = ($sorted | Where-Object { $_.Status -eq "ACTIVE" -and $_.Time -ge $startDate -and $_.Time -le $endDate }).Count
+				$result += [PSCustomObject]@{
+					Site = $grp.Values[0]; Alarm = $grp.Values[1]; System = $sorted[0].System
+					Count = $cnt; Duration = [Math]::Round($totalDur, 1); LastStatus = $lastStatus
+				}
+			}
+			$ignEvents = $events | Where-Object { $_.System -eq "IgnitionSCADA" -and $_.Time -ge $startDate -and $_.Time -le $endDate }
+			$ignGrouped = $ignEvents | Group-Object Site, Alarm | ForEach-Object {
+				[PSCustomObject]@{ Site = $_.Values[0]; Alarm = $_.Values[1]; System = "IgnitionSCADA"; Count = $_.Count; Duration = 0; LastStatus = "UNKNOWN" }
+			}
+			return ($result + $ignGrouped)
+		}
+
+		# === Site Correlation (Priprema za buduće mapiranje) ===
 		$siteGroups = $allEvents.Site | Select-Object -Unique | ForEach-Object {
 			$core = $_ -replace '_.*$', '' -replace '[-\s].*$', ''
 			[PSCustomObject]@{ Original = $_; Core = $core }
 		} | Group-Object Core
+		# TODO: Kasnije dodati: $siteGroups | Export-Csv "site_mapping.csv" -NoTypeInformation
+		# === KRAJ ===
 
-		# Za grupe s više varijanti, ponudi korisniku da potvrdi region (opciono, za prvi run)
-		# Ovdje možeš dodati Read-Host logiku ako želiš interaktivno mapiranje
-		# Ili sačuvaj u $siteRegionMap fajl za buduća pokretanja
-		# === KRAJ BONUSA ===
-        $dailyAgg = Get-DurationInInterval $allEvents $today $now
-        $weeklyAgg = Get-DurationInInterval $allEvents $weekAgo $now
+		$dailyAgg  = Get-DurationInInterval $allEvents $today $now
+		$weeklyAgg = Get-DurationInInterval $allEvents $weekAgo $now
 
-        $allStats = @{}
-        foreach ($d in $dailyAgg) { $key = "$($d.Site)|$($d.Alarm)|$($d.System)"; $allStats[$key] = @{ Site=$d.Site; Alarm=$d.Alarm; System=$d.System; DayCnt=$d.Count; DayDur=$d.Duration; WeekCnt=0; WeekDur=0; LastStatus=$d.LastStatus } }
-        foreach ($w in $weeklyAgg) { $key = "$($w.Site)|$($w.Alarm)|$($w.System)"; if ($allStats.ContainsKey($key)) { $allStats[$key].WeekCnt = $w.Count; $allStats[$key].WeekDur = $w.Duration } else { $allStats[$key] = @{ Site=$w.Site; Alarm=$w.Alarm; System=$w.System; DayCnt=0; DayDur=0; WeekCnt=$w.Count; WeekDur=$w.Duration; LastStatus=$w.LastStatus } } }
+		$allStats = @{}
+		foreach ($d in $dailyAgg) {
+			$key = "$($d.Site)|$($d.Alarm)|$($d.System)"
+			$allStats[$key] = @{
+				Site=$d.Site; Alarm=$d.Alarm; System=$d.System
+				DayCnt=$d.Count; DayDur=$d.Duration
+				WeekCnt=0; WeekDur=0
+				LastStatus=$d.LastStatus
+			}
+		}
+		foreach ($w in $weeklyAgg) {
+			$key = "$($w.Site)|$($w.Alarm)|$($w.System)"
+			if ($allStats.ContainsKey($key)) {
+				$allStats[$key].WeekCnt = $w.Count
+				$allStats[$key].WeekDur = $w.Duration
+			} else {
+				$allStats[$key] = @{
+					Site=$w.Site; Alarm=$w.Alarm; System=$w.System
+					DayCnt=0; DayDur=0
+					WeekCnt=$w.Count; WeekDur=$w.Duration
+					LastStatus=$w.LastStatus
+				}
+			}
+		}
 
-        $# Zamijeni cijeli blok kreiranja $finalStats sa ovim:
-		$finalStats = $allStats.Values | ForEach-Object { 
+		# --- Kreiranje finalnih statistika sa region mapiranjem ---
+		$finalStats = $allStats.Values | ForEach-Object {
 			$region = Get-RegionFromSite $_.Site
 			[PSCustomObject]@{
-				System        = $_.System
-				Site          = $_.Site
-				Alarm         = $_.Alarm
-				Region        = $region
-				LastStatus    = $_.LastStatus
-				FirstOccurred = $_.FirstOccurred
-				LastCleared   = $_.LastCleared
-				DayCnt        = [int]($_.DayCnt -or 0)
-				DayDur        = [double]($_.DayDur -or 0)
-				WeekCnt       = [int]($_.WeekCnt -or 0)
-				WeekDur       = [double]($_.WeekDur -or 0)
-				MonthCnt      = [int]($_.MonthCnt -or 0)
-				MonthDur      = [double]($_.MonthDur -or 0)
-				YearCnt       = [int]($_.YearCnt -or 0)
-				YearDur       = [double]($_.YearDur -or 0)
-			} 
+				System     = $_.System
+				Site       = $_.Site
+				Alarm      = $_.Alarm
+				Region     = $region
+				LastStatus = $_.LastStatus
+				DayCnt     = [int]($_.DayCnt -or 0)
+				DayDur     = [double]($_.DayDur -or 0)
+				WeekCnt    = [int]($_.WeekCnt -or 0)
+				WeekDur    = [double]($_.WeekDur -or 0)
+				MonthCnt   = 0
+				MonthDur   = 0
+				YearCnt    = 0
+				YearDur    = 0
+			}
 		}
 		function Get-SiteCoreName {
 			param([string]$RawSite)
@@ -280,8 +291,8 @@ while ($true) {
         Write-Host "============================================================" -ForegroundColor Gray
         Write-Host "Novih događaja: $newAlarms"
         Write-Host "------------------------------------------------------------" -ForegroundColor Gray
-        Write-Host "TOP 5 DNEVNIH ISPADADA:"
-        $dailyAgg | Where-Object { $_.Duration -gt 0 } | Sort-Object Duration -Descending | Select-Object -First 5 | ForEach-Object { Write-Host "  $($_.Site) - $($_.Duration) min" }
+        Write-Host "TOP 20 DNEVNIH ISPADA NAPAJANJA:"
+        $dailyAgg | Where-Object { $_.Duration -gt 0 } | Sort-Object Duration -Descending | Select-Object -First 20 | ForEach-Object { Write-Host "  $($_.Site) - $($_.Duration) min" }
 
         $output = @{ LastUpdate = $now.ToString("yyyy-MM-dd HH:mm:ss"); Stats = $finalStats; Recent = $allEvents | Select-Object System, Site, Alarm, Time, Status -First 500 }
         $output | ConvertTo-Json -Depth 5 | Set-Content $statsFile -Encoding UTF8
