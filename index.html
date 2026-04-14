@@ -2,25 +2,30 @@
 <html lang="bs">
 <head>
     <meta charset="UTF-8">
-    <title>BHT Core Monitor – 11 kolona (bez horizontalnog skrola)</title>
+    <title>BHT Core Monitor – ITU boje (ispravljeni datumi)</title>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css">
     <script src="https://cdn.datatables.net/2.0.8/js/dataTables.min.js"></script>
     <style>
         body { background: #020617; color: #e2e8f0; }
-        .active-outage { border-left: 4px solid #ef4444 !important; background: rgba(239, 68, 68, 0.1) !important; }
         .card { background: #0f172a; border: 1px solid #1e293b; border-radius: 1rem; }
         .loading-spinner { display: inline-block; width: 1rem; height: 1rem; border: 2px solid #f97316; border-top-color: transparent; border-radius: 50%; animation: spin 0.6s linear infinite; }
         @keyframes spin { to { transform: rotate(360deg); } }
         .btn-refresh { background: #1e293b; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; cursor: pointer; transition: 0.2s; }
         .btn-refresh:hover { background: #334155; }
-        /* Omogućavamo prijelom teksta u ćelijama – horizontalni scroll nestaje */
+        
+        /* ITU standardne boje za redove */
+        .critical-row { background-color: #FFE5E5 !important; color: #CC0000 !important; border-left: 4px solid #CC0000 !important; }
+        .major-row { background-color: #FFF0E0 !important; color: #CC7000 !important; border-left: 4px solid #FFA500 !important; }
+        .minor-row { background-color: #FFFFCC !important; color: #996600 !important; border-left: 4px solid #FFCC00 !important; }
+        .cleared-row { background-color: #E0FFE0 !important; color: #008000 !important; border-left: 4px solid #00CC00 !important; }
+        .unknown-row { background-color: #F0F0F0 !important; color: #666666 !important; border-left: 4px solid #999999 !important; }
+        
+        .critical-row td, .major-row td, .minor-row td, .cleared-row td, .unknown-row td { color: inherit; }
+        
         .dataTable td, .dataTable th { white-space: normal; word-break: break-word; vertical-align: top; }
-        /* DataTables kontejner neće imati horizontalni scroll */
-        .dataTables_wrapper { overflow-x: auto; } /* lagani overflow samo za wrapper, ali ne za tabelu */
         table.dataTable { width: 100% !important; }
-        /* Smanjujemo padding na manjim ekranima */
         @media (max-width: 1200px) {
             .dataTable td, .dataTable th { padding: 0.5rem 0.25rem !important; font-size: 0.7rem; }
         }
@@ -42,7 +47,7 @@
             </div>
         </div>
 
-        <div class="card p-6">
+        <div class="card p-6 overflow-x-auto">
             <table id="alarmTable" class="w-full text-sm">
                 <thead>
                     <tr class="text-left text-[10px] text-slate-500 uppercase border-b border-slate-800">
@@ -66,17 +71,26 @@
             let isRefreshing = false;
             let netecoMap = null;
 
-            // Helper: formatiranje datuma za prikaz (lokalno vrijeme)
-            function formatTimestamp(isoString) {
-                if (!isoString) return '-';
-                try {
-                    const d = new Date(isoString);
-                    if (isNaN(d.getTime())) return isoString;
-                    return d.toLocaleString('bs-BA', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' });
-                } catch(e) { return isoString; }
+            // Robust date parser
+            function parseDate(dateStr) {
+                if (!dateStr) return null;
+                // Replace space with T for ISO-like format
+                let normalized = dateStr.replace(' ', 'T');
+                let d = new Date(normalized);
+                if (isNaN(d.getTime())) {
+                    // Try original
+                    d = new Date(dateStr);
+                }
+                return isNaN(d.getTime()) ? null : d;
             }
 
-            // Helper: Izdvajanje regiona iz naziva sitea (za sisteme bez CSV mape)
+            function formatTimestamp(isoString) {
+                if (!isoString) return '-';
+                const d = parseDate(isoString);
+                if (!d) return '-';
+                return d.toLocaleString('bs-BA', { day:'2-digit', month:'2-digit', year:'numeric', hour:'2-digit', minute:'2-digit', second:'2-digit' });
+            }
+
             function extractRegion(siteName) {
                 if (!siteName) return 'N/A';
                 if (siteName.includes(' - ')) return siteName.split(' - ')[0].trim();
@@ -85,7 +99,6 @@
                 return 'N/A';
             }
 
-            // Učitavanje NetEco CSV mape
             async function loadNetEcoMap() {
                 if (netecoMap) return netecoMap;
                 try {
@@ -109,27 +122,42 @@
                 }
             }
 
-            // Helper: Izračun first_occurence i last_cleared iz Recent niza
             function computeFirstAndLast(recentList, system, site, alarm) {
                 let first = null, lastCleared = null;
                 if (!recentList || !Array.isArray(recentList)) return { first: '-', last: '-' };
                 for (const ev of recentList) {
                     if (ev.System === system && ev.Site === site && ev.Alarm === alarm) {
-                        const ts = new Date(ev.Time);
-                        if (!first || ts < first) first = ts;
-                        if (ev.Status === 'CLEARED') {
-                            if (!lastCleared || ts > lastCleared) lastCleared = ts;
+                        const ts = parseDate(ev.Time);
+                        if (ts) {
+                            if (!first || ts < first) first = ts;
+                            if (ev.Status === 'CLEARED') {
+                                if (!lastCleared || ts > lastCleared) lastCleared = ts;
+                            }
                         }
                     }
                 }
                 return { first: formatTimestamp(first), last: formatTimestamp(lastCleared) };
             }
 
-            // Helper: Određivanje severity
             function getSeverity(status, alarm) {
-                if (status === 'ACTIVE') return 'CRITICAL';
-                if (alarm && (alarm.includes('Failure') || alarm.includes('Disconnected'))) return 'MAJOR';
-                return 'INFO';
+                if (status === 'CLEARED') return 'CLEARED';
+                if (status === 'UNKNOWN') return 'UNKNOWN';
+                if (status === 'ACTIVE') {
+                    if (alarm && (alarm.includes('Failure') || alarm.includes('Disconnected'))) return 'MAJOR';
+                    return 'CRITICAL';
+                }
+                return 'MINOR';
+            }
+
+            function getRowClass(status, severity) {
+                if (status === 'CLEARED') return 'cleared-row';
+                if (status === 'UNKNOWN') return 'unknown-row';
+                if (status === 'ACTIVE') {
+                    if (severity === 'CRITICAL') return 'critical-row';
+                    if (severity === 'MAJOR') return 'major-row';
+                    if (severity === 'MINOR') return 'minor-row';
+                }
+                return 'unknown-row';
             }
 
             function setLoading(loading) {
@@ -157,6 +185,8 @@
                     document.getElementById('activeCount').innerHTML = activeCount + ' Aktivno';
 
                     const rows = [];
+                    const rowClasses = [];
+
                     for (const s of data.Stats) {
                         const system = s.System || '';
                         const rawSite = s.Site || '';
@@ -179,11 +209,11 @@
                         }
 
                         const eventId = s.Alarm || '';
-                        const severity = getSeverity(s.LastStatus, eventId);
+                        const status = s.LastStatus || '';
+                        const severity = getSeverity(status, eventId);
                         const { first, last } = computeFirstAndLast(data.Recent, system, rawSite, eventId);
                         const count = s.DayCnt ?? 0;
                         const duration = s.DayDur ?? 0;
-                        const status = s.LastStatus || '';
 
                         rows.push([
                             system,
@@ -192,12 +222,13 @@
                             nodeId,
                             eventId,
                             severity,
-                            first,      // first occurence timestamp
-                            last,       // last cleared timestamp
+                            first,
+                            last,
                             count,
                             duration,
-                            `<span class="${status === 'ACTIVE' ? 'text-red-500 animate-pulse font-black' : 'text-slate-600 text-[10px]'} uppercase">${status}</span>`
+                            `<span class="${status === 'ACTIVE' ? 'font-black' : ''}">${status}</span>`
                         ]);
+                        rowClasses.push(getRowClass(status, severity));
                     }
 
                     if (dataTable) {
@@ -210,30 +241,29 @@
                             columns: [
                                 { title: "System ID", className: "font-mono text-xs" },
                                 { title: "Region ID", className: "text-slate-400" },
-                                { title: "Site ID", className: "font-bold text-slate-200" },
+                                { title: "Site ID", className: "font-bold" },
                                 { title: "Node ID", className: "text-slate-400" },
                                 { title: "Event ID", className: "text-orange-400" },
-                                { title: "Severity", className: "uppercase text-xs" },
+                                { title: "Severity", className: "uppercase text-xs font-bold" },
                                 { title: "First Occurence", className: "text-slate-500 text-xs" },
                                 { title: "Last Cleared", className: "text-slate-500 text-xs" },
                                 { title: "Count", className: "text-center font-black" },
                                 { title: "Total Duration (min)", className: "text-center font-mono text-emerald-400" },
-                                { title: "Status", className: "text-center" }
+                                { title: "Status", className: "text-center font-bold" }
                             ],
                             order: [[9, 'desc']],
                             pageLength: 25,
-                            scrollX: false,   // nema horizontalnog scrolla
-                            responsive: true, // pokušaj prilagođavanja
+                            scrollX: false,
                             autoWidth: true,
                             language: { search: "Pretraga:", info: "Prikazano _START_ do _END_ od _TOTAL_ zapisa" }
                         });
                     }
 
-                    // Dodaj klasu za aktivne redove (status kolona indeks 10)
                     $('#alarmTable tbody tr').each(function(idx) {
-                        const rowData = dataTable.row(idx).data();
-                        if (rowData && rowData[10] && rowData[10].includes('ACTIVE')) $(this).addClass('active-outage');
-                        else $(this).removeClass('active-outage');
+                        const cls = rowClasses[idx];
+                        if (cls) {
+                            $(this).removeClass('critical-row major-row minor-row cleared-row unknown-row').addClass(cls);
+                        }
                     });
 
                 } catch (err) {
