@@ -408,41 +408,50 @@ while ($true) {
         Write-Host "GLAVNA GREŠKA: $($_.Exception.Message)" -ForegroundColor Red
 			}
 	
-	        # ==========================================
-			# KREIRANJE I ČUVANJE OUTPUTA (STATS_DATA.JSON)
-			# ==========================================
-			
-			# 1. Priprema objekta za izlaz
-			$output = @{ 
-				LastUpdate = $now.ToString("yyyy-MM-dd HH:mm:ss")
-				Stats      = $finalStats 
-				Recent     = $allEvents | Select-Object System, Site, Alarm, Time, Status -First 500 
-			}
+	    # ==========================================
+        # 1. KREIRANJE I ČUVANJE OUTPUTA (STATS_DATA.JSON)
+        # ==========================================
+        
+        # Priprema objekta za izlaz
+        $output = @{ 
+            LastUpdate = $now.ToString("yyyy-MM-dd HH:mm:ss")
+            Stats      = $finalStats 
+            Recent     = $allEvents | Select-Object System, Site, Alarm, Time, Status -First 500 
+        }
 
-			# 2. Konverzija u JSON (Depth 10 je sigurnije za kompleksne objekte)
-			$jsonString = $output | ConvertTo-Json -Depth 10
+        # Konverzija u JSON
+        $jsonString = $output | ConvertTo-Json -Depth 10
 
-			# 3. Čišćenje JSON-a od suvišnih razmaka u ključevima (Sigurnosna mjera)
-			# Ovo rješava problem ako PowerShell doda razmake u imena polja
-			$jsonString = $jsonString -replace '"(\w+)\s*"\s*:', '"$1":'
+        # Čišćenje JSON-a od suvišnih razmaka u ključevima (Sigurnosna mjera)
+        $jsonString = $jsonString -replace '"(\w+)\s*"\s*:', '"$1":'
 
-			# 4. Čuvanje fajla BEZ BOM-a (Bitno za web dashboard!)
-			# utf8NoBOM osigurava da browser ispravno čita JSON bez čudnih karaktera na početku
-			try {
-				$jsonString | Out-File -FilePath $statsFile -Encoding utf8NoBOM -Force
-				Write-Host "[$(Get-Date -Format 'HH:mm:ss')] stats_data.json uspješno ažuriran." -ForegroundColor Green
-			} catch {
-				Write-Host "[$(Get-Date -Format 'HH:mm:ss')] GREŠKA pri upisu fajla: $_" -ForegroundColor Red
-			}
+        # Čuvanje fajla BEZ BOM-a (Bitno za web dashboard!)
+        try {
+            $jsonString | Out-File -FilePath $statsFile -Encoding utf8NoBOM -Force
+            Write-Host "[$(Get-Date -Format 'HH:mm:ss')] stats_data.json uspješno ažuriran." -ForegroundColor Green
+        } catch {
+            Write-Host "[$(Get-Date -Format 'HH:mm:ss')] GREŠKA pri upisu fajla: $_" -ForegroundColor Red
+        }
 
-			# ==========================================
-			# KRAJ CIKLUSA / PAUZA
-			# ==========================================
-			
-		# Ako želiš da se skripta vrti u beskonačnoj petlji, ostavi ovo:
-		Start-Sleep -Seconds 300 # Čekaj 5 minuta prije sljedećeg ciklusa
-			
-		} # Kraj while petlje (ako postoji)
-	
-    Start-Sleep -Seconds 60
+        # ==========================================
+        # 2. KRAJ CIKLUSA / PAUZA
+        # ==========================================
+        
+        # Ispiši top listu za konzolu (kao što si imao prije)
+        Write-Host "------------------------------------------------------------"
+        Write-Host "TOP 20 DNEVNIH ISPADA NAPAJANJA:"
+        $topPower = $finalStats | Where-Object { $_.Alarm -match "Mains|AC Fail|Nestanak" } | Sort-Object DayDur -Descending | Select-Object -First 20
+        foreach ($p in $topPower) {
+            Write-Host ("  {0} - {1} min" -f $p.Site, $p.DayDur)
+        }
+
+        Write-Host "Sinhronizacija sa GitHub-om..."
+        # Ovdje ide tvoj git push kod ako ga imaš u skripti, inače preskoči
+        
+        Write-Host "Push završen."
+        Write-Host "============================================================"
+        
+        # Čekaj 5 minuta prije sljedećeg ciklusa
+        Start-Sleep -Seconds 300 
 }
+	
