@@ -1,6 +1,209 @@
 ﻿{
     "Recent":  [
                    {
+                       "System":  "U2020",
+                       "Site":  "CVIJETANJ",
+                       "Alarm":  "NE Is Disconnected",
+                       "Time":  "\/Date(1776151200000)\/",
+                       "Status":  "ACTIVE"
+                   },
+                   {
+                       "System":  "NetEco",
+                       "Site":  "LUKAVAC_INDUSTRIJSKA_ZONA",
+                       "Alarm":  "Door Open Alarm",
+                       "Time":  "\/Date(1776151166000)\/",
+                       "Status":  "ACTIVE"
+                   },
+                   {
+                       "System":  "RPS-SC200-MIB",
+                       "Site":  "VUCKOVAC",
+                       "Alarm":  "KUPRES",
+                       "Time":  "\/Date(1776151069000)\/",
+                       "Status":  "CLEARED"
+                   },
+                   {
+                       "System":  "U2020",
+                       "Site":  "KONJIC_PARSOVICI",
+                       "Alarm":  "NE Is Disconnected",
+                       "Time":  "\/Date(1776151088000)\/",
+                       "Status":  "CLEARED"
+                   },
+                   {
+                       "System":  "U2020",
+                       "Site":  "KOBAS",
+                       "Alarm":  "NE Is Disconnected",
+                       "Time":  "\/Date(1776151083000)\/",
+                       "Status":  "CLEARED"
+                   },
+                   {
+                       "System":  "U2020",
+                       "Site":  "CVIJETANJ",
+                       "Alarm":  "NE Is Disconnected",
+                       "Time":  "\/Date(1776151079000)\/",
+                       "Status":  "ACTIVE"
+                   },
+                   {
+                       "System":  "U2020",
+                       "Site":  "DOLAC_NA_LASVI",
+                       "Alarm":  "Otvorena vrata (Door Open Alarm)",
+                       "Time":  "\/Date(1776151077000)\/",
+                       "Status":  "ACTIVE"
+                   },
+                   {
+                       "System":  "RpsSc300Mib",
+                       "Site":  "SIPOVO",
+                       "Alarm":  "SIPOVO",
+                       "Time":  "\/Date(1776150972000)\/",
+                       "Status":  "CLEARED"
+                   },
+                   {
+                       "System":  "U2020",
+                       "Site":  "VLAKNICA",
+                       "Alarm":  "NE Is Disconnected",
+                       "Time":  "\/Date(1776151023000)\/",
+                       "Status":  "CLEARED"
+                   },
+                   {
+                       "System":  "U2020",
+                       "Site":  "SIPOVO",
+                       "Alarm":  "Nestanak 220 V",
+                       "Time":  "\/Date(1776150978000)\/",
+                       "Status":  "CLEARED"
+                   },
+                   {
+                       "System":  "U2020",
+                       "Site":  "KONJIC_PARSOVICI",
+                       "Alarm":  "NE Is Disconnected",
+                       "Time":  "\/Date(1776150973000)\/",
+                       "Status":  "ACTIVE"
+                   },
+                   {
+                       "System":  "NetEco",
+                       "Site":  "LUKAVAC_INDUSTRIJSKA_ZONA",
+                       "Alarm":  "Door Open Alarm",
+                       "Time":  "\/Date(1776150879000)\/",
+                       "Status":  "ACTIVE"
+                   },
+                   {
+                       "System":  "NetEco",
+                       "Site":  "BREKA",
+                       "Alarm":  "Door Open Alarm",
+                       "Time":  "\/Date(1776150851000)\/",
+                       "Status":  "ACTIVE"
+                   },
+                   {
+                       "System":  "NetEco",
+                       "Site":  "BREKA",
+                       "Alarm":  "Door Open Alarm",
+                       "Time":  "\/Date(1776150844000)\/",
+                       "Status":  "ACTIVE"
+                   },
+                   {
+                       "System":  "NetEco",
+                       "Site":  "PTI39_SAMAC_POSLOVNA_ZONA",
+                       "Alarm":  "AC Failure",
+                       "Time":  "\/Date(1776150840000)\/",
+                       "Status":  "ACTIVE"
+                   },
+                   {
+                       "System":  "RPS-SC200-MIB",
+                       "Site":  "VUCKOVAC",
+                       "Alarm":  "KUPRES",
+                       "Time":  "\/Date(1776150836000)\/",
+                       "Status":  "ACTIVE"
+                   },
+                   {
+                       "System":  "NetEco",
+                       "Site":  "MISIN_HAN",
+                       "Alarm":  "Load Fuse Broken",
+                       "Time":  "\/Date(1776150832000)\/",
+                       "Status":  "CLEARED"
+                   },
+                   {
+                       "System":  "NetEco",
+                       "Site":  "MISIN_HAN",
+                       "Alarm":  "Lithium Battery Protection",
+                       "Time":  "\/Date(1776150828000)\/",
+                       "Status":  "ACTIVE"
+                   },
+                   {
+                       "System":  "NetEco",
+                       "Site":  "MISIN_HAN",
+                       "Alarm":  "Door Status Sensor Alarm",
+                       "Time":  "\/Date(1776150824000)\/",
+                       "Status":  "ACTIVE"
+                   },
+                   {
+                       "System":  "NetEco",
+                       "Site":  "MISIN_HAN",
+                       "Alarm":  "AC Failure",
+                       "Time":  "\/Date(1776150820000)\/",
+                       "Status":  "ACTIVE"
+                   },
+                   {
+                       "System":  "NetEco",
+                       "Site":  "MISIN_HAN",
+                       "Alarm":  "Load Fuse Broken",
+                       "Time":  "\/Date(1776150816000)\/",
+                       "Status":  "CLEARED"
+                   },
+                   {
+                       "System":  "NetEco",
+                       "Site":  "MISIN_HAN",
+                       "Alarm":  "Door Status Sensor Alarm",
+                       "Time":  "\/Date(1776150812000)\/",
+                       "Status":  "ACTIVE"
+                   },
+                   {
+                       "System":  "NetEco",
+                       "Site":  "MISIN_HAN",
+                       "Alarm":  "Load Fuse Broken",
+                       "Time":  "\/Date(1776150808000)\/",
+                       "Status":  "CLEARED"
+                   },
+                   {
+                       "System":  "NetEco",
+                       "Site":  "MISIN_HAN",
+                       "Alarm":  "Lithium Battery Protection",
+                       "Time":  "\/Date(1776150808000)\/",
+                       "Status":  "ACTIVE"
+                   },
+                   {
+                       "System":  "NetEco",
+                       "Site":  "MISIN_HAN",
+                       "Alarm":  "Door Status Sensor Alarm",
+                       "Time":  "\/Date(1776150804000)\/",
+                       "Status":  "ACTIVE"
+                   },
+                   {
+                       "System":  "U2020",
+                       "Site":  "SIPOVO",
+                       "Alarm":  "Nestanak 220 V",
+                       "Time":  "\/Date(1776150805000)\/",
+                       "Status":  "ACTIVE"
+                   },
+                   {
+                       "System":  "NetEco",
+                       "Site":  "MISIN_HAN",
+                       "Alarm":  "AC Failure",
+                       "Time":  "\/Date(1776150800000)\/",
+                       "Status":  "ACTIVE"
+                   },
+                   {
+                       "System":  "NetEco",
+                       "Site":  "MISIN_HAN",
+                       "Alarm":  "Load Fuse Broken",
+                       "Time":  "\/Date(1776150796000)\/",
+                       "Status":  "CLEARED"
+                   },
+                   {
+                       "System":  "NetEco",
+                       "Site":  "MISIN_HAN",
+                       "Alarm":  "Door Status Sensor Alarm",
+                       "Time":  "\/Date(1776150792000)\/",
+                       "Status":  "ACTIVE"
+                   },
+                   {
                        "System":  "NetEco",
                        "Site":  "PTI39_SAMAC_POSLOVNA_ZONA",
                        "Alarm":  "AC Failure",
@@ -3296,214 +3499,137 @@
                        "Alarm":  "AC Failure",
                        "Time":  "\/Date(1776115886000)\/",
                        "Status":  "ACTIVE"
-                   },
-                   {
-                       "System":  "NetEco",
-                       "Site":  "RIBNIK_DRAGORAJ",
-                       "Alarm":  "AC Failure",
-                       "Time":  "\/Date(1776115564000)\/",
-                       "Status":  "ACTIVE"
-                   },
-                   {
-                       "System":  "NetEco",
-                       "Site":  "RIBNIK_DRAGORAJ",
-                       "Alarm":  "Mains Failure",
-                       "Time":  "\/Date(1776115555000)\/",
-                       "Status":  "ACTIVE"
-                   },
-                   {
-                       "System":  "NetEco",
-                       "Site":  "RIBNIK_DRAGORAJ",
-                       "Alarm":  "Mains Failure",
-                       "Time":  "\/Date(1776115462000)\/",
-                       "Status":  "ACTIVE"
-                   },
-                   {
-                       "System":  "NetEco",
-                       "Site":  "RIBNIK_DRAGORAJ",
-                       "Alarm":  "AC Failure",
-                       "Time":  "\/Date(1776115375000)\/",
-                       "Status":  "ACTIVE"
-                   },
-                   {
-                       "System":  "U2020",
-                       "Site":  "SESLIJE",
-                       "Alarm":  "Kvar ispravljaca (Rectifier Failure)",
-                       "Time":  "\/Date(1776114952000)\/",
-                       "Status":  "ACTIVE"
-                   },
-                   {
-                       "System":  "NetEco",
-                       "Site":  "RIBNIK_DRAGORAJ",
-                       "Alarm":  "AC Failure",
-                       "Time":  "\/Date(1776114891000)\/",
-                       "Status":  "ACTIVE"
-                   },
-                   {
-                       "System":  "NetEco",
-                       "Site":  "RIBNIK_DRAGORAJ",
-                       "Alarm":  "Mains Failure",
-                       "Time":  "\/Date(1776114882000)\/",
-                       "Status":  "ACTIVE"
-                   },
-                   {
-                       "System":  "NetEco",
-                       "Site":  "RIBNIK_DRAGORAJ",
-                       "Alarm":  "Mains Failure",
-                       "Time":  "\/Date(1776114790000)\/",
-                       "Status":  "ACTIVE"
-                   },
-                   {
-                       "System":  "IgnitionSCADA",
-                       "Site":  "SARAJEVO_-_ALIPASINO_POLJE",
-                       "Alarm":  "8000166",
-                       "Time":  "\/Date(1776114714000)\/",
-                       "Status":  "UNKNOWN"
-                   },
-                   {
-                       "System":  "NetEco",
-                       "Site":  "RIBNIK_DRAGORAJ",
-                       "Alarm":  "AC Failure",
-                       "Time":  "\/Date(1776114702000)\/",
-                       "Status":  "ACTIVE"
-                   },
-                   {
-                       "System":  "IgnitionSCADA",
-                       "Site":  "SARAJEVO_-_ALIPASINO_POLJE",
-                       "Alarm":  "8000166",
-                       "Time":  "\/Date(1776114694000)\/",
-                       "Status":  "UNKNOWN"
-                   },
-                   {
-                       "System":  "NetEco",
-                       "Site":  "RIBNIK_DRAGORAJ",
-                       "Alarm":  "AC Failure",
-                       "Time":  "\/Date(1776113994000)\/",
-                       "Status":  "ACTIVE"
-                   },
-                   {
-                       "System":  "BARAN_klima",
-                       "Site":  "",
-                       "Alarm":  "ACTIVE",
-                       "Time":  "\/Date(1776113948000)\/",
-                       "Status":  "ACTIVE"
-                   },
-                   {
-                       "System":  "NetEco",
-                       "Site":  "RIBNIK_DRAGORAJ",
-                       "Alarm":  "AC Failure",
-                       "Time":  "\/Date(1776113944000)\/",
-                       "Status":  "ACTIVE"
-                   },
-                   {
-                       "System":  "IgnitionSCADA",
-                       "Site":  "SARAJEVO_-_ALIPASINO_POLJE",
-                       "Alarm":  "8000166",
-                       "Time":  "\/Date(1776113134000)\/",
-                       "Status":  "UNKNOWN"
-                   },
-                   {
-                       "System":  "IgnitionSCADA",
-                       "Site":  "SARAJEVO_-_ALIPASINO_POLJE",
-                       "Alarm":  "8000166",
-                       "Time":  "\/Date(1776113114000)\/",
-                       "Status":  "UNKNOWN"
-                   },
-                   {
-                       "System":  "RPS-SC200-MIB",
-                       "Site":  "PUTOVICI",
-                       "Alarm":  "ZENICA",
-                       "Time":  "\/Date(1776112277000)\/",
-                       "Status":  "ACTIVE"
-                   },
-                   {
-                       "System":  "RPS-SC200-MIB",
-                       "Site":  "PUTOVICI",
-                       "Alarm":  "ZENICA",
-                       "Time":  "\/Date(1776112179000)\/",
-                       "Status":  "CLEARED"
-                   },
-                   {
-                       "System":  "NetEco",
-                       "Site":  "TUZLA_POZARNICA",
-                       "Alarm":  "Phase L2 Under Voltage",
-                       "Time":  "\/Date(1776111978000)\/",
-                       "Status":  "ACTIVE"
-                   },
-                   {
-                       "System":  "IgnitionSCADA",
-                       "Site":  "SARAJEVO_-_ALIPASINO_POLJE",
-                       "Alarm":  "8000166",
-                       "Time":  "\/Date(1776111554000)\/",
-                       "Status":  "UNKNOWN"
-                   },
-                   {
-                       "System":  "IgnitionSCADA",
-                       "Site":  "SARAJEVO_-_ALIPASINO_POLJE",
-                       "Alarm":  "8000166",
-                       "Time":  "\/Date(1776111534000)\/",
-                       "Status":  "UNKNOWN"
-                   },
-                   {
-                       "System":  "U2020",
-                       "Site":  "SESLIJE",
-                       "Alarm":  "Kvar ispravljaca (Rectifier Failure)",
-                       "Time":  "\/Date(1776111180000)\/",
-                       "Status":  "CLEARED"
-                   },
-                   {
-                       "System":  "IgnitionSCADA",
-                       "Site":  "SARAJEVO_-_ALIPASINO_POLJE",
-                       "Alarm":  "8000166",
-                       "Time":  "\/Date(1776109974000)\/",
-                       "Status":  "UNKNOWN"
-                   },
-                   {
-                       "System":  "IgnitionSCADA",
-                       "Site":  "SARAJEVO_-_ALIPASINO_POLJE",
-                       "Alarm":  "8000166",
-                       "Time":  "\/Date(1776109954000)\/",
-                       "Status":  "UNKNOWN"
-                   },
-                   {
-                       "System":  "U2020",
-                       "Site":  "CAJNICE",
-                       "Alarm":  "Nestanak 220 V",
-                       "Time":  "\/Date(1776109503000)\/",
-                       "Status":  "CLEARED"
-                   },
-                   {
-                       "System":  "U2020",
-                       "Site":  "CAJNICE",
-                       "Alarm":  "Nestanak 220 V",
-                       "Time":  "\/Date(1776108861000)\/",
-                       "Status":  "ACTIVE"
-                   },
-                   {
-                       "System":  "IgnitionSCADA",
-                       "Site":  "SARAJEVO_-_ALIPASINO_POLJE",
-                       "Alarm":  "8000166",
-                       "Time":  "\/Date(1776108394000)\/",
-                       "Status":  "UNKNOWN"
-                   },
-                   {
-                       "System":  "IgnitionSCADA",
-                       "Site":  "SARAJEVO_-_ALIPASINO_POLJE",
-                       "Alarm":  "8000166",
-                       "Time":  "\/Date(1776108374000)\/",
-                       "Status":  "UNKNOWN"
-                   },
-                   {
-                       "System":  "U2020",
-                       "Site":  "CAJNICE",
-                       "Alarm":  "Nestanak 220 V",
-                       "Time":  "\/Date(1776107468000)\/",
-                       "Status":  "CLEARED"
                    }
                ],
     "Stats":  [
                   {
+                      "Site":  "CVIJETANJ",
+                      "Alarm":  "NE Is Disconnected",
+                      "System":  "U2020",
+                      "DayCnt":  0,
+                      "DayDur":  0,
+                      "Region":  "N/A",
+                      "LastStatus":  "ACTIVE"
+                  },
+                  {
+                      "Site":  "LUKAVAC_INDUSTRIJSKA_ZONA",
+                      "Alarm":  "Door Open Alarm",
+                      "System":  "NetEco",
+                      "DayCnt":  0,
+                      "DayDur":  0,
+                      "Region":  "N/A",
+                      "LastStatus":  "ACTIVE"
+                  },
+                  {
+                      "Site":  "VUCKOVAC",
+                      "Alarm":  "KUPRES",
+                      "System":  "RPS-SC200-MIB",
+                      "DayCnt":  1,
+                      "DayDur":  3.9,
+                      "Region":  "N/A",
+                      "LastStatus":  "CLEARED"
+                  },
+                  {
+                      "Site":  "KONJIC_PARSOVICI",
+                      "Alarm":  "NE Is Disconnected",
+                      "System":  "U2020",
+                      "DayCnt":  1,
+                      "DayDur":  1.9,
+                      "Region":  "N/A",
+                      "LastStatus":  "CLEARED"
+                  },
+                  {
+                      "Site":  "KOBAS",
+                      "Alarm":  "NE Is Disconnected",
+                      "System":  "U2020",
+                      "DayCnt":  1,
+                      "DayDur":  23.3,
+                      "Region":  "N/A",
+                      "LastStatus":  "CLEARED"
+                  },
+                  {
+                      "Site":  "DOLAC_NA_LASVI",
+                      "Alarm":  "Otvorena vrata (Door Open Alarm)",
+                      "System":  "U2020",
+                      "DayCnt":  0,
+                      "DayDur":  0,
+                      "Region":  "N/A",
+                      "LastStatus":  "ACTIVE"
+                  },
+                  {
+                      "Site":  "SIPOVO",
+                      "Alarm":  "SIPOVO",
+                      "System":  "RpsSc300Mib",
+                      "DayCnt":  0,
+                      "DayDur":  0,
+                      "Region":  "N/A",
+                      "LastStatus":  "CLEARED"
+                  },
+                  {
+                      "Site":  "VLAKNICA",
+                      "Alarm":  "NE Is Disconnected",
+                      "System":  "U2020",
+                      "DayCnt":  1,
+                      "DayDur":  40.6,
+                      "Region":  "N/A",
+                      "LastStatus":  "CLEARED"
+                  },
+                  {
+                      "Site":  "SIPOVO",
+                      "Alarm":  "Nestanak 220 V",
+                      "System":  "U2020",
+                      "DayCnt":  1,
+                      "DayDur":  2.9,
+                      "Region":  "N/A",
+                      "LastStatus":  "CLEARED"
+                  },
+                  {
+                      "Site":  "BREKA",
+                      "Alarm":  "Door Open Alarm",
+                      "System":  "NetEco",
+                      "DayCnt":  0,
+                      "DayDur":  0,
+                      "Region":  "N/A",
+                      "LastStatus":  "ACTIVE"
+                  },
+                  {
                       "Site":  "PTI39_SAMAC_POSLOVNA_ZONA",
+                      "Alarm":  "AC Failure",
+                      "System":  "NetEco",
+                      "DayCnt":  0,
+                      "DayDur":  0,
+                      "Region":  "N/A",
+                      "LastStatus":  "ACTIVE"
+                  },
+                  {
+                      "Site":  "MISIN_HAN",
+                      "Alarm":  "Load Fuse Broken",
+                      "System":  "NetEco",
+                      "DayCnt":  0,
+                      "DayDur":  0,
+                      "Region":  "N/A",
+                      "LastStatus":  "CLEARED"
+                  },
+                  {
+                      "Site":  "MISIN_HAN",
+                      "Alarm":  "Lithium Battery Protection",
+                      "System":  "NetEco",
+                      "DayCnt":  0,
+                      "DayDur":  0,
+                      "Region":  "N/A",
+                      "LastStatus":  "ACTIVE"
+                  },
+                  {
+                      "Site":  "MISIN_HAN",
+                      "Alarm":  "Door Status Sensor Alarm",
+                      "System":  "NetEco",
+                      "DayCnt":  0,
+                      "DayDur":  0,
+                      "Region":  "N/A",
+                      "LastStatus":  "ACTIVE"
+                  },
+                  {
+                      "Site":  "MISIN_HAN",
                       "Alarm":  "AC Failure",
                       "System":  "NetEco",
                       "DayCnt":  0,
@@ -3569,15 +3695,6 @@
                       "Site":  "NOVI_TRAVNIK",
                       "Alarm":  "Door Open Alarm",
                       "System":  "NetEco",
-                      "DayCnt":  0,
-                      "DayDur":  0,
-                      "Region":  "N/A",
-                      "LastStatus":  "ACTIVE"
-                  },
-                  {
-                      "Site":  "KOBAS",
-                      "Alarm":  "NE Is Disconnected",
-                      "System":  "U2020",
                       "DayCnt":  0,
                       "DayDur":  0,
                       "Region":  "N/A",
@@ -3704,15 +3821,6 @@
                       "Site":  "KOBAS",
                       "Alarm":  "Low Battery Capacity",
                       "System":  "NetEco",
-                      "DayCnt":  0,
-                      "DayDur":  0,
-                      "Region":  "N/A",
-                      "LastStatus":  "ACTIVE"
-                  },
-                  {
-                      "Site":  "VLAKNICA",
-                      "Alarm":  "NE Is Disconnected",
-                      "System":  "U2020",
                       "DayCnt":  0,
                       "DayDur":  0,
                       "Region":  "N/A",
@@ -5555,213 +5663,6 @@
                       "LastStatus":  "ACTIVE"
                   },
                   {
-                      "Site":  "ROSCEVINA",
-                      "Alarm":  "Otvorena vrata (Door Open Alarm)",
-                      "System":  "U2020",
-                      "DayCnt":  0,
-                      "DayDur":  0,
-                      "Region":  "N/A",
-                      "LastStatus":  "CLEARED"
-                  },
-                  {
-                      "Site":  "LUKAVAC_DEVETAK",
-                      "Alarm":  "AC Failure",
-                      "System":  "NetEco",
-                      "DayCnt":  0,
-                      "DayDur":  0,
-                      "Region":  "N/A",
-                      "LastStatus":  "ACTIVE"
-                  },
-                  {
-                      "Site":  "LUKAVAC_DEVETAK",
-                      "Alarm":  "Mains Failure",
-                      "System":  "NetEco",
-                      "DayCnt":  0,
-                      "DayDur":  0,
-                      "Region":  "N/A",
-                      "LastStatus":  "ACTIVE"
-                  },
-                  {
-                      "Site":  "SANSKI_MOST_TOMINA",
-                      "Alarm":  "Mains Failure",
-                      "System":  "NetEco",
-                      "DayCnt":  0,
-                      "DayDur":  0,
-                      "Region":  "N/A",
-                      "LastStatus":  "ACTIVE"
-                  },
-                  {
-                      "Site":  "KRUPA_NA_VRBASU",
-                      "Alarm":  "Mains Failure",
-                      "System":  "NetEco",
-                      "DayCnt":  0,
-                      "DayDur":  0,
-                      "Region":  "N/A",
-                      "LastStatus":  "ACTIVE"
-                  },
-                  {
-                      "Site":  "VELIKA_VIDOVA",
-                      "Alarm":  "NE Is Disconnected",
-                      "System":  "U2020",
-                      "DayCnt":  0,
-                      "DayDur":  0,
-                      "Region":  "N/A",
-                      "LastStatus":  "CLEARED"
-                  },
-                  {
-                      "Site":  "SANSKI_MOST_TOMINA",
-                      "Alarm":  "AC Failure",
-                      "System":  "NetEco",
-                      "DayCnt":  0,
-                      "DayDur":  0,
-                      "Region":  "N/A",
-                      "LastStatus":  "ACTIVE"
-                  },
-                  {
-                      "Site":  "PASA_BUNAR_I",
-                      "Alarm":  "DCMCUMIB::dcTrapAlarmEntryRemoved",
-                      "System":  "Benning_napajanje",
-                      "DayCnt":  0,
-                      "DayDur":  0,
-                      "Region":  "N/A",
-                      "LastStatus":  "ACTIVE"
-                  },
-                  {
-                      "Site":  "STADION_TUSANJ",
-                      "Alarm":  "Battery Discharging",
-                      "System":  "NetEco",
-                      "DayCnt":  0,
-                      "DayDur":  0,
-                      "Region":  "N/A",
-                      "LastStatus":  "ACTIVE"
-                  },
-                  {
-                      "Site":  "PASA_BUNAR_II",
-                      "Alarm":  "DCMCUMIB::dcTrapAlarmEntryRemoved",
-                      "System":  "Benning_napajanje",
-                      "DayCnt":  0,
-                      "DayDur":  0,
-                      "Region":  "N/A",
-                      "LastStatus":  "ACTIVE"
-                  },
-                  {
-                      "Site":  "PASA_BUNAR_II",
-                      "Alarm":  "DCMCUMIB::dcTrapAlarmEntryAdded",
-                      "System":  "Benning_napajanje",
-                      "DayCnt":  0,
-                      "DayDur":  0,
-                      "Region":  "N/A",
-                      "LastStatus":  "ACTIVE"
-                  },
-                  {
-                      "Site":  "STADION_TUSANJ",
-                      "Alarm":  "Mains Failure",
-                      "System":  "NetEco",
-                      "DayCnt":  0,
-                      "DayDur":  0,
-                      "Region":  "N/A",
-                      "LastStatus":  "ACTIVE"
-                  },
-                  {
-                      "Site":  "IRAC_MEDRESA",
-                      "Alarm":  "Mains Failure",
-                      "System":  "NetEco",
-                      "DayCnt":  0,
-                      "DayDur":  0,
-                      "Region":  "N/A",
-                      "LastStatus":  "ACTIVE"
-                  },
-                  {
-                      "Site":  "PASA_BUNAR_I",
-                      "Alarm":  "DCMCUMIB::dcTrapAlarmEntryAdded",
-                      "System":  "Benning_napajanje",
-                      "DayCnt":  0,
-                      "DayDur":  0,
-                      "Region":  "N/A",
-                      "LastStatus":  "ACTIVE"
-                  },
-                  {
-                      "Site":  "STADION_TUSANJ",
-                      "Alarm":  "AC Failure",
-                      "System":  "NetEco",
-                      "DayCnt":  0,
-                      "DayDur":  0,
-                      "Region":  "N/A",
-                      "LastStatus":  "ACTIVE"
-                  },
-                  {
-                      "Site":  "IRAC_MEDRESA",
-                      "Alarm":  "AC Failure",
-                      "System":  "NetEco",
-                      "DayCnt":  0,
-                      "DayDur":  0,
-                      "Region":  "N/A",
-                      "LastStatus":  "ACTIVE"
-                  },
-                  {
-                      "Site":  "KALESIJA_HRASNO_DONJE",
-                      "Alarm":  "AC Failure",
-                      "System":  "NetEco",
-                      "DayCnt":  0,
-                      "DayDur":  0,
-                      "Region":  "N/A",
-                      "LastStatus":  "ACTIVE"
-                  },
-                  {
-                      "Site":  "FTTC_SELJUBLJE",
-                      "Alarm":  "KALESIJA",
-                      "System":  "RPS-SC200-MIB",
-                      "DayCnt":  0,
-                      "DayDur":  0,
-                      "Region":  "N/A",
-                      "LastStatus":  "CLEARED"
-                  },
-                  {
-                      "Site":  "KOLIMER",
-                      "Alarm":  "TUZLA",
-                      "System":  "RpsSc300Mib",
-                      "DayCnt":  0,
-                      "DayDur":  0,
-                      "Region":  "N/A",
-                      "LastStatus":  "ACTIVE"
-                  },
-                  {
-                      "Site":  "JEZERSKO",
-                      "Alarm":  "BUZIM_MAHMIC_SELO",
-                      "System":  "RPS-SC200-MIB",
-                      "DayCnt":  0,
-                      "DayDur":  0,
-                      "Region":  "N/A",
-                      "LastStatus":  "CLEARED"
-                  },
-                  {
-                      "Site":  "DVORANA_MEJDAN",
-                      "Alarm":  "NE Is Disconnected",
-                      "System":  "U2020",
-                      "DayCnt":  0,
-                      "DayDur":  0,
-                      "Region":  "N/A",
-                      "LastStatus":  "CLEARED"
-                  },
-                  {
-                      "Site":  "DOBOSNICA_DZAMIJA",
-                      "Alarm":  "AC Phase L1 Undervoltage",
-                      "System":  "NetEco",
-                      "DayCnt":  0,
-                      "DayDur":  0,
-                      "Region":  "N/A",
-                      "LastStatus":  "ACTIVE"
-                  },
-                  {
-                      "Site":  "KARADZE",
-                      "Alarm":  "Nestanak 220 V",
-                      "System":  "U2020",
-                      "DayCnt":  0,
-                      "DayDur":  0,
-                      "Region":  "N/A",
-                      "LastStatus":  "CLEARED"
-                  },
-                  {
                       "Site":  "SARAJEVO_-_ALIPASINO_POLJE",
                       "Alarm":  "8000166",
                       "System":  "IgnitionSCADA",
@@ -6300,16 +6201,7 @@
                       "DayDur":  0,
                       "Region":  "N/A",
                       "LastStatus":  "UNKNOWN"
-                  },
-                  {
-                      "Site":  "TUZLA_-_HOST_PASA_BUNAR",
-                      "Alarm":  "2000025",
-                      "System":  "IgnitionSCADA",
-                      "DayCnt":  0,
-                      "DayDur":  0,
-                      "Region":  "N/A",
-                      "LastStatus":  "UNKNOWN"
                   }
               ],
-    "LastUpdate":  "2026-04-14 09:26:54"
+    "LastUpdate":  "2026-04-14 09:28:01"
 }
