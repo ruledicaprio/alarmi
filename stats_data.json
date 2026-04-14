@@ -1,5 +1,5 @@
 {
-  "LastUpdate": "2026-04-14 11:46:00",
+  "LastUpdate": "2026-04-14 11:48:08",
   "Recent": [
     {
       "System": "U2020",
@@ -219,16 +219,16 @@
     },
     {
       "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "RSU KASINDOLSKA 1",
+      "Region": "N/A",
+      "Site": "SARAJEVO - RSU KASINDOLSKA 1",
       "Alarm": "1000029",
       "Time": "2026-04-14 11:17:43",
       "Status": "N/A"
     },
     {
       "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "RSU KASINDOLSKA 1",
+      "Region": "N/A",
+      "Site": "SARAJEVO - RSU KASINDOLSKA 1",
       "Alarm": "1000030",
       "Time": "2026-04-14 11:17:41",
       "Status": "N/A"
@@ -243,16 +243,16 @@
     },
     {
       "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "RSU KASINDOLSKA 1",
+      "Region": "N/A",
+      "Site": "SARAJEVO - RSU KASINDOLSKA 1",
       "Alarm": "Info",
       "Time": "2026-04-14 11:17:34",
       "Status": "N/A"
     },
     {
       "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "RSU KASINDOLSKA 1",
+      "Region": "N/A",
+      "Site": "SARAJEVO - RSU KASINDOLSKA 1",
       "Alarm": "Node Info",
       "Time": "2026-04-14 11:17:32",
       "Status": "N/A"
@@ -283,48 +283,48 @@
     },
     {
       "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "RSU KASINDOLSKA 1",
+      "Region": "N/A",
+      "Site": "SARAJEVO - RSU KASINDOLSKA 1",
       "Alarm": "1000029",
       "Time": "2026-04-14 11:16:02",
       "Status": "N/A"
     },
     {
       "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "ALIPASINO POLJE",
+      "Region": "N/A",
+      "Site": "SARAJEVO - ALIPASINO POLJE",
       "Alarm": "8000166",
       "Time": "2026-04-14 11:15:56",
       "Status": "N/A"
     },
     {
       "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "ALIPASINO POLJE",
+      "Region": "N/A",
+      "Site": "SARAJEVO - ALIPASINO POLJE",
       "Alarm": "8000166",
       "Time": "2026-04-14 11:15:50",
       "Status": "N/A"
     },
     {
       "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "RSU KASINDOLSKA 1",
+      "Region": "N/A",
+      "Site": "SARAJEVO - RSU KASINDOLSKA 1",
       "Alarm": "Node Info",
       "Time": "2026-04-14 11:15:47",
       "Status": "N/A"
     },
     {
       "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "RSU KASINDOLSKA 1",
+      "Region": "N/A",
+      "Site": "SARAJEVO - RSU KASINDOLSKA 1",
       "Alarm": "Info",
       "Time": "2026-04-14 11:15:45",
       "Status": "N/A"
     },
     {
       "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "RSU KASINDOLSKA 1",
+      "Region": "N/A",
+      "Site": "SARAJEVO - RSU KASINDOLSKA 1",
       "Alarm": "1000030",
       "Time": "2026-04-14 11:15:42",
       "Status": "N/A"
@@ -419,8 +419,8 @@
     },
     {
       "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "RSU DOBRINJA C4",
+      "Region": "N/A",
+      "Site": "SARAJEVO - RSU DOBRINJA C4",
       "Alarm": "1000020",
       "Time": "2026-04-14 11:07:10",
       "Status": "N/A"
@@ -467,8 +467,8 @@
     },
     {
       "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "RSU DOBRINJA C4",
+      "Region": "N/A",
+      "Site": "SARAJEVO - RSU DOBRINJA C4",
       "Alarm": "1000020",
       "Time": "2026-04-14 11:04:51",
       "Status": "N/A"
@@ -483,16 +483,16 @@
     },
     {
       "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "RSU DOBRINJA C4",
+      "Region": "N/A",
+      "Site": "SARAJEVO - RSU DOBRINJA C4",
       "Alarm": "1000020",
       "Time": "2026-04-14 11:03:11",
       "Status": "N/A"
     },
     {
       "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "RSU DOBRINJA C4",
+      "Region": "N/A",
+      "Site": "SARAJEVO - RSU DOBRINJA C4",
       "Alarm": "1000020",
       "Time": "2026-04-14 11:02:31",
       "Status": "N/A"
@@ -507,8 +507,8 @@
     },
     {
       "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "RSU DOBRINJA C4",
+      "Region": "N/A",
+      "Site": "SARAJEVO - RSU DOBRINJA C4",
       "Alarm": "1000020",
       "Time": "2026-04-14 11:02:11",
       "Status": "N/A"
@@ -523,24 +523,24 @@
     },
     {
       "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "RSU DOBRINJA C4",
+      "Region": "N/A",
+      "Site": "SARAJEVO - RSU DOBRINJA C4",
       "Alarm": "1000020",
       "Time": "2026-04-14 11:01:11",
       "Status": "N/A"
     },
     {
       "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "RSU DOBRINJA C4",
+      "Region": "N/A",
+      "Site": "SARAJEVO - RSU DOBRINJA C4",
       "Alarm": "1000020",
       "Time": "2026-04-14 11:00:51",
       "Status": "N/A"
     },
     {
       "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "RSU DOBRINJA C4",
+      "Region": "N/A",
+      "Site": "SARAJEVO - RSU DOBRINJA C4",
       "Alarm": "1000020",
       "Time": "2026-04-14 11:00:34",
       "Status": "N/A"
@@ -555,8 +555,8 @@
     },
     {
       "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "RSU DOBRINJA C4",
+      "Region": "N/A",
+      "Site": "SARAJEVO - RSU DOBRINJA C4",
       "Alarm": "1000020",
       "Time": "2026-04-14 11:00:11",
       "Status": "N/A"
@@ -571,8 +571,8 @@
     },
     {
       "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "RSU DOBRINJA C4",
+      "Region": "N/A",
+      "Site": "SARAJEVO - RSU DOBRINJA C4",
       "Alarm": "1000020",
       "Time": "2026-04-14 10:59:34",
       "Status": "N/A"
@@ -587,8 +587,8 @@
     },
     {
       "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "RSU DOBRINJA C4",
+      "Region": "N/A",
+      "Site": "SARAJEVO - RSU DOBRINJA C4",
       "Alarm": "1000021",
       "Time": "2026-04-14 10:59:11",
       "Status": "N/A"
@@ -627,72 +627,72 @@
     },
     {
       "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "RSU DOBRINJA C4",
+      "Region": "N/A",
+      "Site": "SARAJEVO - RSU DOBRINJA C4",
       "Alarm": "1000021",
       "Time": "2026-04-14 10:58:11",
       "Status": "N/A"
     },
     {
       "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "RSU KASINDOLSKA 1",
+      "Region": "N/A",
+      "Site": "SARAJEVO - RSU KASINDOLSKA 1",
       "Alarm": "1000029",
       "Time": "2026-04-14 10:55:04",
       "Status": "N/A"
     },
     {
       "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "RSU KASINDOLSKA 1",
+      "Region": "N/A",
+      "Site": "SARAJEVO - RSU KASINDOLSKA 1",
       "Alarm": "1000030",
       "Time": "2026-04-14 10:55:01",
       "Status": "N/A"
     },
     {
       "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "RSU KASINDOLSKA 1",
+      "Region": "N/A",
+      "Site": "SARAJEVO - RSU KASINDOLSKA 1",
       "Alarm": "Info",
       "Time": "2026-04-14 10:54:59",
       "Status": "N/A"
     },
     {
       "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "RSU KASINDOLSKA 1",
+      "Region": "N/A",
+      "Site": "SARAJEVO - RSU KASINDOLSKA 1",
       "Alarm": "Node Info",
       "Time": "2026-04-14 10:54:56",
       "Status": "N/A"
     },
     {
       "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "RSU KASINDOLSKA 1",
+      "Region": "N/A",
+      "Site": "SARAJEVO - RSU KASINDOLSKA 1",
       "Alarm": "1000029",
       "Time": "2026-04-14 10:54:30",
       "Status": "N/A"
     },
     {
       "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "RSU KASINDOLSKA 1",
+      "Region": "N/A",
+      "Site": "SARAJEVO - RSU KASINDOLSKA 1",
       "Alarm": "Node Info",
       "Time": "2026-04-14 10:54:05",
       "Status": "N/A"
     },
     {
       "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "RSU KASINDOLSKA 1",
+      "Region": "N/A",
+      "Site": "SARAJEVO - RSU KASINDOLSKA 1",
       "Alarm": "Info",
       "Time": "2026-04-14 10:54:02",
       "Status": "N/A"
     },
     {
       "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "RSU KASINDOLSKA 1",
+      "Region": "N/A",
+      "Site": "SARAJEVO - RSU KASINDOLSKA 1",
       "Alarm": "1000030",
       "Time": "2026-04-14 10:54:00",
       "Status": "N/A"
@@ -747,16 +747,16 @@
     },
     {
       "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "ALIPASINO POLJE",
+      "Region": "N/A",
+      "Site": "SARAJEVO - ALIPASINO POLJE",
       "Alarm": "8000166",
       "Time": "2026-04-14 10:49:36",
       "Status": "N/A"
     },
     {
       "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "ALIPASINO POLJE",
+      "Region": "N/A",
+      "Site": "SARAJEVO - ALIPASINO POLJE",
       "Alarm": "8000166",
       "Time": "2026-04-14 10:49:16",
       "Status": "N/A"
@@ -800,806 +800,6 @@
       "Alarm": "Mains Failure",
       "Time": "2026-04-14 10:41:49",
       "Status": "ACTIVE"
-    },
-    {
-      "System": "NetEco",
-      "Region": "ZENICA",
-      "Site": "BRESTOVO_PODGAJCI",
-      "Alarm": "Battery Discharging",
-      "Time": "2026-04-14 10:41:45",
-      "Status": "ACTIVE"
-    },
-    {
-      "System": "NetEco",
-      "Region": "ZENICA",
-      "Site": "BRESTOVO_PODGAJCI",
-      "Alarm": "BLVD Low Voltage Disconnected",
-      "Time": "2026-04-14 10:41:41",
-      "Status": "ACTIVE"
-    },
-    {
-      "System": "NetEco",
-      "Region": "ZENICA",
-      "Site": "BRESTOVO_PODGAJCI",
-      "Alarm": "Bus Bar Undervoltage",
-      "Time": "2026-04-14 10:41:37",
-      "Status": "ACTIVE"
-    },
-    {
-      "System": "NetEco",
-      "Region": "ZENICA",
-      "Site": "BRESTOVO_PODGAJCI",
-      "Alarm": "AC Failure",
-      "Time": "2026-04-14 10:41:33",
-      "Status": "ACTIVE"
-    },
-    {
-      "System": "NetEco",
-      "Region": "ZENICA",
-      "Site": "BRESTOVO_PODGAJCI",
-      "Alarm": "Battery Discharging",
-      "Time": "2026-04-14 10:41:29",
-      "Status": "ACTIVE"
-    },
-    {
-      "System": "NetEco",
-      "Region": "ZENICA",
-      "Site": "BRESTOVO_PODGAJCI",
-      "Alarm": "Mains Failure",
-      "Time": "2026-04-14 10:41:25",
-      "Status": "ACTIVE"
-    },
-    {
-      "System": "NetEco",
-      "Region": "ZENICA",
-      "Site": "BRESTOVO_PODGAJCI",
-      "Alarm": "BLVD Low Voltage Disconnected",
-      "Time": "2026-04-14 10:41:21",
-      "Status": "ACTIVE"
-    },
-    {
-      "System": "NetEco",
-      "Region": "ZENICA",
-      "Site": "BRESTOVO_PODGAJCI",
-      "Alarm": "Bus Bar Undervoltage",
-      "Time": "2026-04-14 10:41:17",
-      "Status": "ACTIVE"
-    },
-    {
-      "System": "NetEco",
-      "Region": "ZENICA",
-      "Site": "BRESTOVO_PODGAJCI",
-      "Alarm": "AC Failure",
-      "Time": "2026-04-14 10:41:13",
-      "Status": "ACTIVE"
-    },
-    {
-      "System": "U2020",
-      "Region": "N/A",
-      "Site": "DOLAC_NA_LASVI",
-      "Alarm": "Otvorena vrata (Door Open Alarm)",
-      "Time": "2026-04-14 10:38:55",
-      "Status": "CLEARED"
-    },
-    {
-      "System": "NetEco",
-      "Region": "SARAJEVO",
-      "Site": "SC_BJELASNICA",
-      "Alarm": "Door Status Sensor Alarm",
-      "Time": "2026-04-14 10:36:03",
-      "Status": "ACTIVE"
-    },
-    {
-      "System": "U2020",
-      "Region": "N/A",
-      "Site": "MILJEVICI",
-      "Alarm": "Otvorena vrata (Door Open Alarm)",
-      "Time": "2026-04-14 10:35:55",
-      "Status": "CLEARED"
-    },
-    {
-      "System": "NetEco",
-      "Region": "TRAVNIK",
-      "Site": "POTOCANI_BUG",
-      "Alarm": "Mains Failure",
-      "Time": "2026-04-14 10:35:16",
-      "Status": "ACTIVE"
-    },
-    {
-      "System": "NetEco",
-      "Region": "TRAVNIK",
-      "Site": "POTOCANI_BUG",
-      "Alarm": "Mains Failure",
-      "Time": "2026-04-14 10:34:36",
-      "Status": "ACTIVE"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "BS MILJEVICI",
-      "Alarm": "1000026",
-      "Time": "2026-04-14 10:34:04",
-      "Status": "N/A"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "BS MILJEVICI",
-      "Alarm": "1000026",
-      "Time": "2026-04-14 10:34:01",
-      "Status": "N/A"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "BS MILJEVICI",
-      "Alarm": "1000028",
-      "Time": "2026-04-14 10:33:48",
-      "Status": "N/A"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "BS MILJEVICI",
-      "Alarm": "1000026",
-      "Time": "2026-04-14 10:33:23",
-      "Status": "N/A"
-    },
-    {
-      "System": "NetEco",
-      "Region": "TUZLA",
-      "Site": "DOBOSNICA_DZAMIJA",
-      "Alarm": "Door Open Alarm",
-      "Time": "2026-04-14 10:33:20",
-      "Status": "ACTIVE"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "BS MILJEVICI",
-      "Alarm": "1000028",
-      "Time": "2026-04-14 10:32:47",
-      "Status": "N/A"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "BS MILJEVICI",
-      "Alarm": "1000026",
-      "Time": "2026-04-14 10:32:21",
-      "Status": "N/A"
-    },
-    {
-      "System": "NetEco",
-      "Region": "SARAJEVO",
-      "Site": "SC_BJELASNICA",
-      "Alarm": "Phase L3 Failure",
-      "Time": "2026-04-14 10:32:04",
-      "Status": "ACTIVE"
-    },
-    {
-      "System": "NetEco",
-      "Region": "SARAJEVO",
-      "Site": "SC_BJELASNICA",
-      "Alarm": "Phase L3 Failure",
-      "Time": "2026-04-14 10:31:58",
-      "Status": "ACTIVE"
-    },
-    {
-      "System": "NetEco",
-      "Region": "SARAJEVO",
-      "Site": "SC_BJELASNICA",
-      "Alarm": "AC Failure",
-      "Time": "2026-04-14 10:31:37",
-      "Status": "ACTIVE"
-    },
-    {
-      "System": "NetEco",
-      "Region": "ZENICA",
-      "Site": "KRASEVO",
-      "Alarm": "Battery Discharging",
-      "Time": "2026-04-14 10:31:33",
-      "Status": "ACTIVE"
-    },
-    {
-      "System": "NetEco",
-      "Region": "SARAJEVO",
-      "Site": "SC_BJELASNICA",
-      "Alarm": "Mains Failure",
-      "Time": "2026-04-14 10:31:29",
-      "Status": "ACTIVE"
-    },
-    {
-      "System": "NetEco",
-      "Region": "ZENICA",
-      "Site": "KRASEVO",
-      "Alarm": "Mains Failure",
-      "Time": "2026-04-14 10:30:48",
-      "Status": "ACTIVE"
-    },
-    {
-      "System": "NetEco",
-      "Region": "SARAJEVO",
-      "Site": "SC_BJELASNICA",
-      "Alarm": "Mains Failure",
-      "Time": "2026-04-14 10:30:25",
-      "Status": "ACTIVE"
-    },
-    {
-      "System": "NetEco",
-      "Region": "ZENICA",
-      "Site": "KRASEVO",
-      "Alarm": "AC Failure",
-      "Time": "2026-04-14 10:30:15",
-      "Status": "ACTIVE"
-    },
-    {
-      "System": "NetEco",
-      "Region": "SARAJEVO",
-      "Site": "SC_BJELASNICA",
-      "Alarm": "Phase L3 Failure",
-      "Time": "2026-04-14 10:29:52",
-      "Status": "ACTIVE"
-    },
-    {
-      "System": "U2020",
-      "Region": "N/A",
-      "Site": "STRPCI",
-      "Alarm": "NE Is Disconnected",
-      "Time": "2026-04-14 10:29:43",
-      "Status": "ACTIVE"
-    },
-    {
-      "System": "U2020",
-      "Region": "N/A",
-      "Site": "STRPCI",
-      "Alarm": "NE Is Disconnected",
-      "Time": "2026-04-14 10:29:35",
-      "Status": "ACTIVE"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "BS MILJEVICI",
-      "Alarm": "1000026",
-      "Time": "2026-04-14 10:29:08",
-      "Status": "N/A"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "BS MILJEVICI",
-      "Alarm": "1000026",
-      "Time": "2026-04-14 10:29:06",
-      "Status": "N/A"
-    },
-    {
-      "System": "NetEco",
-      "Region": "SARAJEVO",
-      "Site": "SC_BJELASNICA",
-      "Alarm": "AC Failure",
-      "Time": "2026-04-14 10:29:02",
-      "Status": "ACTIVE"
-    },
-    {
-      "System": "NetEco",
-      "Region": "SARAJEVO",
-      "Site": "SC_BJELASNICA",
-      "Alarm": "Phase L3 Failure",
-      "Time": "2026-04-14 10:28:58",
-      "Status": "ACTIVE"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "BS MILJEVICI",
-      "Alarm": "1000026",
-      "Time": "2026-04-14 10:28:01",
-      "Status": "N/A"
-    },
-    {
-      "System": "U2020",
-      "Region": "N/A",
-      "Site": "STRPCI",
-      "Alarm": "NE Is Disconnected",
-      "Time": "2026-04-14 10:27:35",
-      "Status": "ACTIVE"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "BS MILJEVICI",
-      "Alarm": "1000026",
-      "Time": "2026-04-14 10:27:01",
-      "Status": "N/A"
-    },
-    {
-      "System": "NetEco",
-      "Region": "SARAJEVO",
-      "Site": "SC_BJELASNICA",
-      "Alarm": "Door Status Sensor Alarm",
-      "Time": "2026-04-14 10:26:45",
-      "Status": "ACTIVE"
-    },
-    {
-      "System": "NetEco",
-      "Region": "SARAJEVO",
-      "Site": "SC_BJELASNICA",
-      "Alarm": "Door Status Sensor Alarm",
-      "Time": "2026-04-14 10:26:12",
-      "Status": "ACTIVE"
-    },
-    {
-      "System": "U2020",
-      "Region": "N/A",
-      "Site": "PTI11_GLADNO_POLJE",
-      "Alarm": "Nestanak 220 V",
-      "Time": "2026-04-14 10:26:14",
-      "Status": "CLEARED"
-    },
-    {
-      "System": "NetEco",
-      "Region": "SARAJEVO",
-      "Site": "ROGACICI",
-      "Alarm": "AC Failure",
-      "Time": "2026-04-14 10:26:08",
-      "Status": "ACTIVE"
-    },
-    {
-      "System": "NetEco",
-      "Region": "SARAJEVO",
-      "Site": "SC_BJELASNICA",
-      "Alarm": "Door Status Sensor Alarm",
-      "Time": "2026-04-14 10:26:04",
-      "Status": "ACTIVE"
-    },
-    {
-      "System": "NetEco",
-      "Region": "SARAJEVO",
-      "Site": "SC_BJELASNICA",
-      "Alarm": "Door Status Sensor Alarm",
-      "Time": "2026-04-14 10:26:00",
-      "Status": "ACTIVE"
-    },
-    {
-      "System": "NetEco",
-      "Region": "SARAJEVO",
-      "Site": "KAKRINJE",
-      "Alarm": "AC Failure",
-      "Time": "2026-04-14 10:25:56",
-      "Status": "ACTIVE"
-    },
-    {
-      "System": "NetEco",
-      "Region": "SARAJEVO",
-      "Site": "ROGACICI",
-      "Alarm": "Mains Failure",
-      "Time": "2026-04-14 10:25:52",
-      "Status": "ACTIVE"
-    },
-    {
-      "System": "NetEco",
-      "Region": "SARAJEVO",
-      "Site": "KAKRINJE",
-      "Alarm": "Mains Failure",
-      "Time": "2026-04-14 10:25:48",
-      "Status": "ACTIVE"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "BS MILJEVICI",
-      "Alarm": "1000026",
-      "Time": "2026-04-14 10:24:24",
-      "Status": "N/A"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "BS MILJEVICI",
-      "Alarm": "1000026",
-      "Time": "2026-04-14 10:24:21",
-      "Status": "N/A"
-    },
-    {
-      "System": "U2020",
-      "Region": "ZENICA",
-      "Site": "BRESTOVO_PODGAJCI",
-      "Alarm": "NE Is Disconnected",
-      "Time": "2026-04-14 10:24:02",
-      "Status": "CLEARED"
-    },
-    {
-      "System": "U2020",
-      "Region": "ZENICA",
-      "Site": "STANKOVICI",
-      "Alarm": "NE Is Disconnected",
-      "Time": "2026-04-14 10:24:00",
-      "Status": "CLEARED"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "BS MILJEVICI",
-      "Alarm": "1000026",
-      "Time": "2026-04-14 10:23:44",
-      "Status": "N/A"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "BS MILJEVICI",
-      "Alarm": "1000026",
-      "Time": "2026-04-14 10:23:41",
-      "Status": "N/A"
-    },
-    {
-      "System": "NetEco",
-      "Region": "SARAJEVO",
-      "Site": "KAKRINJE",
-      "Alarm": "Mains Failure",
-      "Time": "2026-04-14 10:23:40",
-      "Status": "ACTIVE"
-    },
-    {
-      "System": "NetEco",
-      "Region": "SARAJEVO",
-      "Site": "ROGACICI",
-      "Alarm": "Mains Failure",
-      "Time": "2026-04-14 10:23:39",
-      "Status": "ACTIVE"
-    },
-    {
-      "System": "U2020",
-      "Region": "ZENICA",
-      "Site": "STANKOVICI",
-      "Alarm": "NE Is Disconnected",
-      "Time": "2026-04-14 10:23:31",
-      "Status": "ACTIVE"
-    },
-    {
-      "System": "U2020",
-      "Region": "ZENICA",
-      "Site": "BRESTOVO_PODGAJCI",
-      "Alarm": "NE Is Disconnected",
-      "Time": "2026-04-14 10:23:29",
-      "Status": "ACTIVE"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "BS MILJEVICI",
-      "Alarm": "1000026",
-      "Time": "2026-04-14 10:23:04",
-      "Status": "N/A"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "BS MILJEVICI",
-      "Alarm": "1000026",
-      "Time": "2026-04-14 10:23:01",
-      "Status": "N/A"
-    },
-    {
-      "System": "U2020",
-      "Region": "N/A",
-      "Site": "PTI11_GLADNO_POLJE",
-      "Alarm": "Nestanak 220 V",
-      "Time": "2026-04-14 10:22:59",
-      "Status": "ACTIVE"
-    },
-    {
-      "System": "U2020",
-      "Region": "N/A",
-      "Site": "OBODNIK",
-      "Alarm": "Nestanak 220 V",
-      "Time": "2026-04-14 10:22:49",
-      "Status": "CLEARED"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "BS MILJEVICI",
-      "Alarm": "1000026",
-      "Time": "2026-04-14 10:22:41",
-      "Status": "N/A"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "BS MILJEVICI",
-      "Alarm": "1000026",
-      "Time": "2026-04-14 10:22:24",
-      "Status": "N/A"
-    },
-    {
-      "System": "NetEco",
-      "Region": "SARAJEVO",
-      "Site": "KAKRINJE",
-      "Alarm": "AC Failure",
-      "Time": "2026-04-14 10:22:20",
-      "Status": "ACTIVE"
-    },
-    {
-      "System": "NetEco",
-      "Region": "SARAJEVO",
-      "Site": "ROGACICI",
-      "Alarm": "AC Failure",
-      "Time": "2026-04-14 10:22:16",
-      "Status": "ACTIVE"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "BS MILJEVICI",
-      "Alarm": "1000026",
-      "Time": "2026-04-14 10:22:03",
-      "Status": "N/A"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "BS MILJEVICI",
-      "Alarm": "1000026",
-      "Time": "2026-04-14 10:22:01",
-      "Status": "N/A"
-    },
-    {
-      "System": "U2020",
-      "Region": "N/A",
-      "Site": "MILJEVICI",
-      "Alarm": "Nestanak 220 V",
-      "Time": "2026-04-14 10:21:54",
-      "Status": "CLEARED"
-    },
-    {
-      "System": "RpsSc300Mib",
-      "Region": "N/A",
-      "Site": "STRPCI",
-      "Alarm": "PRNJAVOR",
-      "Time": "2026-04-14 10:21:29",
-      "Status": "ACTIVE"
-    },
-    {
-      "System": "U2020",
-      "Region": "N/A",
-      "Site": "STRPCI",
-      "Alarm": "Nestanak 220 V",
-      "Time": "2026-04-14 10:21:32",
-      "Status": "ACTIVE"
-    },
-    {
-      "System": "U2020",
-      "Region": "N/A",
-      "Site": "OBODNIK",
-      "Alarm": "Nestanak 220 V",
-      "Time": "2026-04-14 10:20:49",
-      "Status": "ACTIVE"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "BS MILJEVICI",
-      "Alarm": "1000026",
-      "Time": "2026-04-14 10:20:41",
-      "Status": "N/A"
-    },
-    {
-      "System": "U2020",
-      "Region": "N/A",
-      "Site": "MILJEVICI",
-      "Alarm": "Nestanak 220 V",
-      "Time": "2026-04-14 10:19:55",
-      "Status": "ACTIVE"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "BS MILJEVICI",
-      "Alarm": "1000026",
-      "Time": "2026-04-14 10:19:41",
-      "Status": "N/A"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "BS MILJEVICI",
-      "Alarm": "1000027",
-      "Time": "2026-04-14 10:19:21",
-      "Status": "N/A"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "BS MILJEVICI",
-      "Alarm": "1000027",
-      "Time": "2026-04-14 10:18:41",
-      "Status": "N/A"
-    },
-    {
-      "System": "NetEco",
-      "Region": "ZENICA",
-      "Site": "BRESTOVO_PODGAJCI",
-      "Alarm": "BLVD Low Voltage Disconnected",
-      "Time": "2026-04-14 10:18:10",
-      "Status": "ACTIVE"
-    },
-    {
-      "System": "NetEco",
-      "Region": "SARAJEVO",
-      "Site": "SC_BJELASNICA",
-      "Alarm": "Door Status Sensor Alarm",
-      "Time": "2026-04-14 10:18:06",
-      "Status": "ACTIVE"
-    },
-    {
-      "System": "NetEco",
-      "Region": "ZENICA",
-      "Site": "BRESTOVO_PODGAJCI",
-      "Alarm": "Bus Bar Undervoltage",
-      "Time": "2026-04-14 10:16:34",
-      "Status": "ACTIVE"
-    },
-    {
-      "System": "NetEco",
-      "Region": "ZENICA",
-      "Site": "BRESTOVO_PODGAJCI",
-      "Alarm": "Battery Discharging",
-      "Time": "2026-04-14 10:16:09",
-      "Status": "ACTIVE"
-    },
-    {
-      "System": "NetEco",
-      "Region": "ZENICA",
-      "Site": "BRESTOVO_PODGAJCI",
-      "Alarm": "AC Failure",
-      "Time": "2026-04-14 10:15:34",
-      "Status": "ACTIVE"
-    },
-    {
-      "System": "NetEco",
-      "Region": "ZENICA",
-      "Site": "BRESTOVO_PODGAJCI",
-      "Alarm": "Mains Failure",
-      "Time": "2026-04-14 10:15:34",
-      "Status": "ACTIVE"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "BS MILJEVICI",
-      "Alarm": "1000027",
-      "Time": "2026-04-14 10:14:01",
-      "Status": "N/A"
-    },
-    {
-      "System": "NetEco",
-      "Region": "SARAJEVO",
-      "Site": "VOGOSCA_KOBILJA_GLAVA",
-      "Alarm": "Door Open Alarm",
-      "Time": "2026-04-14 10:13:44",
-      "Status": "ACTIVE"
-    },
-    {
-      "System": "U2020",
-      "Region": "ZENICA",
-      "Site": "STANKOVICI",
-      "Alarm": "NE Is Disconnected",
-      "Time": "2026-04-14 10:13:29",
-      "Status": "CLEARED"
-    },
-    {
-      "System": "U2020",
-      "Region": "ZENICA",
-      "Site": "BRESTOVO_PODGAJCI",
-      "Alarm": "NE Is Disconnected",
-      "Time": "2026-04-14 10:13:00",
-      "Status": "CLEARED"
-    },
-    {
-      "System": "U2020",
-      "Region": "N/A",
-      "Site": "STRAZBA",
-      "Alarm": "Otvorena vrata (Door Open Alarm)",
-      "Time": "2026-04-14 10:12:28",
-      "Status": "CLEARED"
-    },
-    {
-      "System": "NetEco",
-      "Region": "ZENICA",
-      "Site": "KOBAS",
-      "Alarm": "Low Battery Capacity",
-      "Time": "2026-04-14 10:12:17",
-      "Status": "ACTIVE"
-    },
-    {
-      "System": "NetEco",
-      "Region": "SARAJEVO",
-      "Site": "VOGOSCA_KOBILJA_GLAVA",
-      "Alarm": "Door Open Alarm",
-      "Time": "2026-04-14 10:12:12",
-      "Status": "ACTIVE"
-    },
-    {
-      "System": "U2020",
-      "Region": "BIHAC",
-      "Site": "DRAKSENIC",
-      "Alarm": "NE Is Disconnected",
-      "Time": "2026-04-14 10:11:36",
-      "Status": "ACTIVE"
-    },
-    {
-      "System": "U2020",
-      "Region": "N/A",
-      "Site": "STRAZBA",
-      "Alarm": "Otvorena vrata (Door Open Alarm)",
-      "Time": "2026-04-14 10:09:44",
-      "Status": "ACTIVE"
-    },
-    {
-      "System": "U2020",
-      "Region": "BIHAC",
-      "Site": "DRAKSENIC",
-      "Alarm": "NE Is Disconnected",
-      "Time": "2026-04-14 10:09:35",
-      "Status": "ACTIVE"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "BS MILJEVICI",
-      "Alarm": "1000027",
-      "Time": "2026-04-14 10:09:22",
-      "Status": "N/A"
-    },
-    {
-      "System": "RpsSc300Mib",
-      "Region": "N/A",
-      "Site": "GRABOVICA_TUZLA",
-      "Alarm": "TUZLA",
-      "Time": "2026-04-14 10:07:37",
-      "Status": "CLEARED"
-    },
-    {
-      "System": "U2020",
-      "Region": "N/A",
-      "Site": "GRABOVICA_TUZLA",
-      "Alarm": "Nestanak 220 V",
-      "Time": "2026-04-14 10:07:42",
-      "Status": "CLEARED"
-    },
-    {
-      "System": "NetEco",
-      "Region": "SARAJEVO",
-      "Site": "HOTEL_KONCEPT_RESIDENCE",
-      "Alarm": "AC Failure",
-      "Time": "2026-04-14 10:05:38",
-      "Status": "ACTIVE"
-    },
-    {
-      "System": "U2020",
-      "Region": "N/A",
-      "Site": "GRABOVICA_TUZLA",
-      "Alarm": "Nestanak 220 V",
-      "Time": "2026-04-14 10:05:25",
-      "Status": "ACTIVE"
-    },
-    {
-      "System": "RpsSc300Mib",
-      "Region": "N/A",
-      "Site": "GRABOVICA_TUZLA",
-      "Alarm": "TUZLA",
-      "Time": "2026-04-14 10:05:19",
-      "Status": "ACTIVE"
-    },
-    {
-      "System": "NetEco",
-      "Region": "BIHAC",
-      "Site": "DRAKSENIC",
-      "Alarm": "BLVD Low Voltage Disconnected",
-      "Time": "2026-04-14 10:04:15",
-      "Status": "ACTIVE"
     }
   ],
   "Daily": [
@@ -1622,16 +822,6 @@
       "DayCnt": 0,
       "DayDur": 0.0,
       "LastStatus": "ACTIVE"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "ALIPASINO POLJE",
-      "Alarm": "8000166",
-      "LastTime": "2026-04-14 11:15:56",
-      "DayCnt": 0,
-      "DayDur": 0.0,
-      "LastStatus": "N/A"
     },
     {
       "System": "RpsSc300Mib",
@@ -1822,76 +1012,6 @@
       "DayCnt": 2,
       "DayDur": 28.0,
       "LastStatus": "CLEARED"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "BS ENERGOINVEST",
-      "Alarm": "Info",
-      "LastTime": "2026-04-13 15:36:19",
-      "DayCnt": 0,
-      "DayDur": 0.0,
-      "LastStatus": "N/A"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "BS ENERGOINVEST",
-      "Alarm": "Node Info",
-      "LastTime": "2026-04-13 15:36:16",
-      "DayCnt": 0,
-      "DayDur": 0.0,
-      "LastStatus": "N/A"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "BS MILJEVICI",
-      "Alarm": "1000026",
-      "LastTime": "2026-04-14 10:34:04",
-      "DayCnt": 0,
-      "DayDur": 0.0,
-      "LastStatus": "N/A"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "BS MILJEVICI",
-      "Alarm": "1000027",
-      "LastTime": "2026-04-14 10:19:21",
-      "DayCnt": 0,
-      "DayDur": 0.0,
-      "LastStatus": "N/A"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "BS MILJEVICI",
-      "Alarm": "1000028",
-      "LastTime": "2026-04-14 10:33:48",
-      "DayCnt": 0,
-      "DayDur": 0.0,
-      "LastStatus": "N/A"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "BS MILJEVICI",
-      "Alarm": "Info",
-      "LastTime": "2026-04-13 15:34:37",
-      "DayCnt": 0,
-      "DayDur": 0.0,
-      "LastStatus": "N/A"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "BS MILJEVICI",
-      "Alarm": "Node Info",
-      "LastTime": "2026-04-13 15:34:34",
-      "DayCnt": 0,
-      "DayDur": 0.0,
-      "LastStatus": "N/A"
     },
     {
       "System": "BARAN_klima",
@@ -2142,386 +1262,6 @@
       "DayCnt": 4,
       "DayDur": 4.3,
       "LastStatus": "CLEARED"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "DMALTA",
-      "Alarm": "2000025",
-      "LastTime": "2026-04-13 13:08:37",
-      "DayCnt": 0,
-      "DayDur": 0.0,
-      "LastStatus": "N/A"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "DMALTA",
-      "Alarm": "8000022",
-      "LastTime": "2026-04-13 11:35:21",
-      "DayCnt": 0,
-      "DayDur": 0.0,
-      "LastStatus": "N/A"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "DMALTA",
-      "Alarm": "8000029",
-      "LastTime": "2026-04-13 13:09:29",
-      "DayCnt": 0,
-      "DayDur": 0.0,
-      "LastStatus": "N/A"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "DMALTA",
-      "Alarm": "8000032",
-      "LastTime": "2026-04-14 04:13:25",
-      "DayCnt": 0,
-      "DayDur": 0.0,
-      "LastStatus": "N/A"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "DMALTA",
-      "Alarm": "8000034",
-      "LastTime": "2026-04-13 13:08:35",
-      "DayCnt": 0,
-      "DayDur": 0.0,
-      "LastStatus": "N/A"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "DMALTA",
-      "Alarm": "8000036",
-      "LastTime": "2026-04-13 13:09:41",
-      "DayCnt": 0,
-      "DayDur": 0.0,
-      "LastStatus": "N/A"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "DMALTA",
-      "Alarm": "8000039",
-      "LastTime": "2026-04-13 13:09:34",
-      "DayCnt": 0,
-      "DayDur": 0.0,
-      "LastStatus": "N/A"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "DMALTA",
-      "Alarm": "8000041",
-      "LastTime": "2026-04-14 02:54:58",
-      "DayCnt": 0,
-      "DayDur": 0.0,
-      "LastStatus": "N/A"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "DMALTA",
-      "Alarm": "8000042",
-      "LastTime": "2026-04-13 13:09:36",
-      "DayCnt": 0,
-      "DayDur": 0.0,
-      "LastStatus": "N/A"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "DMALTA",
-      "Alarm": "8000045",
-      "LastTime": "2026-04-13 13:09:12",
-      "DayCnt": 0,
-      "DayDur": 0.0,
-      "LastStatus": "N/A"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "DMALTA",
-      "Alarm": "8000046",
-      "LastTime": "2026-04-13 13:09:09",
-      "DayCnt": 0,
-      "DayDur": 0.0,
-      "LastStatus": "N/A"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "DMALTA",
-      "Alarm": "8000047",
-      "LastTime": "2026-04-13 13:09:14",
-      "DayCnt": 0,
-      "DayDur": 0.0,
-      "LastStatus": "N/A"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "DMALTA",
-      "Alarm": "8000066",
-      "LastTime": "2026-04-13 13:08:42",
-      "DayCnt": 0,
-      "DayDur": 0.0,
-      "LastStatus": "N/A"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "DMALTA",
-      "Alarm": "8000247",
-      "LastTime": "2026-04-13 13:08:40",
-      "DayCnt": 0,
-      "DayDur": 0.0,
-      "LastStatus": "N/A"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "DMALTA",
-      "Alarm": "8000248",
-      "LastTime": "2026-04-13 13:09:17",
-      "DayCnt": 0,
-      "DayDur": 0.0,
-      "LastStatus": "N/A"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "DMALTA",
-      "Alarm": "8000249",
-      "LastTime": "2026-04-13 13:09:21",
-      "DayCnt": 0,
-      "DayDur": 0.0,
-      "LastStatus": "N/A"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "DMALTA",
-      "Alarm": "8000269",
-      "LastTime": "2026-04-13 13:09:31",
-      "DayCnt": 0,
-      "DayDur": 0.0,
-      "LastStatus": "N/A"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "DMALTA",
-      "Alarm": "8000270",
-      "LastTime": "2026-04-13 13:09:26",
-      "DayCnt": 0,
-      "DayDur": 0.0,
-      "LastStatus": "N/A"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "DMALTA",
-      "Alarm": "8000271",
-      "LastTime": "2026-04-13 13:09:39",
-      "DayCnt": 0,
-      "DayDur": 0.0,
-      "LastStatus": "N/A"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "DMALTA",
-      "Alarm": "8000272",
-      "LastTime": "2026-04-13 13:09:44",
-      "DayCnt": 0,
-      "DayDur": 0.0,
-      "LastStatus": "N/A"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "DMALTA",
-      "Alarm": "8000273",
-      "LastTime": "2026-04-13 17:52:56",
-      "DayCnt": 0,
-      "DayDur": 0.0,
-      "LastStatus": "N/A"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "DMALTA",
-      "Alarm": "8000274",
-      "LastTime": "2026-04-13 13:08:49",
-      "DayCnt": 0,
-      "DayDur": 0.0,
-      "LastStatus": "N/A"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "DMALTA",
-      "Alarm": "8000275",
-      "LastTime": "2026-04-13 13:09:02",
-      "DayCnt": 0,
-      "DayDur": 0.0,
-      "LastStatus": "N/A"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "DMALTA",
-      "Alarm": "8000276",
-      "LastTime": "2026-04-13 13:08:47",
-      "DayCnt": 0,
-      "DayDur": 0.0,
-      "LastStatus": "N/A"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "DMALTA",
-      "Alarm": "8000277",
-      "LastTime": "2026-04-13 13:08:44",
-      "DayCnt": 0,
-      "DayDur": 0.0,
-      "LastStatus": "N/A"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "DMALTA",
-      "Alarm": "8000278",
-      "LastTime": "2026-04-13 13:08:59",
-      "DayCnt": 0,
-      "DayDur": 0.0,
-      "LastStatus": "N/A"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "DMALTA",
-      "Alarm": "8000279",
-      "LastTime": "2026-04-13 13:08:54",
-      "DayCnt": 0,
-      "DayDur": 0.0,
-      "LastStatus": "N/A"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "DMALTA",
-      "Alarm": "8000280",
-      "LastTime": "2026-04-13 13:08:52",
-      "DayCnt": 0,
-      "DayDur": 0.0,
-      "LastStatus": "N/A"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "DMALTA",
-      "Alarm": "8000281",
-      "LastTime": "2026-04-13 13:08:57",
-      "DayCnt": 0,
-      "DayDur": 0.0,
-      "LastStatus": "N/A"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "DMALTA",
-      "Alarm": "8000282",
-      "LastTime": "2026-04-13 13:09:04",
-      "DayCnt": 0,
-      "DayDur": 0.0,
-      "LastStatus": "N/A"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "DMALTA",
-      "Alarm": "Info",
-      "LastTime": "2026-04-13 13:08:25",
-      "DayCnt": 0,
-      "DayDur": 0.0,
-      "LastStatus": "N/A"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "DMALTA",
-      "Alarm": "Modbus2",
-      "LastTime": "2026-04-13 13:09:24",
-      "DayCnt": 0,
-      "DayDur": 0.0,
-      "LastStatus": "N/A"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "DMALTA",
-      "Alarm": "ModbusBaterije1",
-      "LastTime": "2026-04-13 13:08:28",
-      "DayCnt": 0,
-      "DayDur": 0.0,
-      "LastStatus": "N/A"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "DMALTA",
-      "Alarm": "ModbusBaterije2",
-      "LastTime": "2026-04-13 13:08:30",
-      "DayCnt": 0,
-      "DayDur": 0.0,
-      "LastStatus": "N/A"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "DMALTA",
-      "Alarm": "ModbusBaterije3",
-      "LastTime": "2026-04-13 13:08:32",
-      "DayCnt": 0,
-      "DayDur": 0.0,
-      "LastStatus": "N/A"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "DMALTA",
-      "Alarm": "Node Info",
-      "LastTime": "2026-04-13 13:08:23",
-      "DayCnt": 0,
-      "DayDur": 0.0,
-      "LastStatus": "N/A"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "DMALTA",
-      "Alarm": "PLCDM",
-      "LastTime": "2026-04-13 13:09:07",
-      "DayCnt": 0,
-      "DayDur": 0.0,
-      "LastStatus": "N/A"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "DMALTA",
-      "Alarm": "PLCDM1",
-      "LastTime": "2026-04-13 13:09:19",
-      "DayCnt": 0,
-      "DayDur": 0.0,
-      "LastStatus": "N/A"
     },
     {
       "System": "NetEco",
@@ -2882,16 +1622,6 @@
       "DayCnt": 0,
       "DayDur": 0.0,
       "LastStatus": "ACTIVE"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Tuzla",
-      "Site": "HOST PASA BUNAR",
-      "Alarm": "2000028",
-      "LastTime": "2026-04-14 07:43:39",
-      "DayCnt": 0,
-      "DayDur": 0.0,
-      "LastStatus": "N/A"
     },
     {
       "System": "NetEco",
@@ -4324,106 +3054,6 @@
       "LastStatus": "ACTIVE"
     },
     {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "RRS BS VELIKI ZEP",
-      "Alarm": "1000007",
-      "LastTime": "2026-04-14 03:11:57",
-      "DayCnt": 0,
-      "DayDur": 0.0,
-      "LastStatus": "N/A"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "RSU DOBRINJA C4",
-      "Alarm": "1000020",
-      "LastTime": "2026-04-14 11:07:10",
-      "DayCnt": 0,
-      "DayDur": 0.0,
-      "LastStatus": "N/A"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "RSU DOBRINJA C4",
-      "Alarm": "1000021",
-      "LastTime": "2026-04-14 10:59:11",
-      "DayCnt": 0,
-      "DayDur": 0.0,
-      "LastStatus": "N/A"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "RSU DOBRINJA C4",
-      "Alarm": "Info",
-      "LastTime": "2026-04-13 15:35:21",
-      "DayCnt": 0,
-      "DayDur": 0.0,
-      "LastStatus": "N/A"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "RSU DOBRINJA C4",
-      "Alarm": "Node Info",
-      "LastTime": "2026-04-13 15:35:19",
-      "DayCnt": 0,
-      "DayDur": 0.0,
-      "LastStatus": "N/A"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "RSU KASINDOLSKA 1",
-      "Alarm": "1000029",
-      "LastTime": "2026-04-14 11:17:43",
-      "DayCnt": 0,
-      "DayDur": 0.0,
-      "LastStatus": "N/A"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "RSU KASINDOLSKA 1",
-      "Alarm": "1000030",
-      "LastTime": "2026-04-14 11:17:41",
-      "DayCnt": 0,
-      "DayDur": 0.0,
-      "LastStatus": "N/A"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "RSU KASINDOLSKA 1",
-      "Alarm": "1000031",
-      "LastTime": "2026-04-13 14:24:02",
-      "DayCnt": 0,
-      "DayDur": 0.0,
-      "LastStatus": "N/A"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "RSU KASINDOLSKA 1",
-      "Alarm": "Info",
-      "LastTime": "2026-04-14 11:17:34",
-      "DayCnt": 0,
-      "DayDur": 0.0,
-      "LastStatus": "N/A"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Sarajevo",
-      "Site": "RSU KASINDOLSKA 1",
-      "Alarm": "Node Info",
-      "LastTime": "2026-04-14 11:17:32",
-      "DayCnt": 0,
-      "DayDur": 0.0,
-      "LastStatus": "N/A"
-    },
-    {
       "System": "U2020",
       "Region": "N/A",
       "Site": "RUDINE",
@@ -4442,6 +3072,566 @@
       "DayCnt": 1,
       "DayDur": 0.5,
       "LastStatus": "CLEARED"
+    },
+    {
+      "System": "IgnitionSCADA",
+      "Region": "N/A",
+      "Site": "SARAJEVO - ALIPASINO POLJE",
+      "Alarm": "8000166",
+      "LastTime": "2026-04-14 11:15:56",
+      "DayCnt": 0,
+      "DayDur": 0.0,
+      "LastStatus": "N/A"
+    },
+    {
+      "System": "IgnitionSCADA",
+      "Region": "N/A",
+      "Site": "SARAJEVO - BS ENERGOINVEST",
+      "Alarm": "Info",
+      "LastTime": "2026-04-13 15:36:19",
+      "DayCnt": 0,
+      "DayDur": 0.0,
+      "LastStatus": "N/A"
+    },
+    {
+      "System": "IgnitionSCADA",
+      "Region": "N/A",
+      "Site": "SARAJEVO - BS ENERGOINVEST",
+      "Alarm": "Node Info",
+      "LastTime": "2026-04-13 15:36:16",
+      "DayCnt": 0,
+      "DayDur": 0.0,
+      "LastStatus": "N/A"
+    },
+    {
+      "System": "IgnitionSCADA",
+      "Region": "N/A",
+      "Site": "SARAJEVO - BS MILJEVICI",
+      "Alarm": "1000026",
+      "LastTime": "2026-04-14 10:34:04",
+      "DayCnt": 0,
+      "DayDur": 0.0,
+      "LastStatus": "N/A"
+    },
+    {
+      "System": "IgnitionSCADA",
+      "Region": "N/A",
+      "Site": "SARAJEVO - BS MILJEVICI",
+      "Alarm": "1000027",
+      "LastTime": "2026-04-14 10:19:21",
+      "DayCnt": 0,
+      "DayDur": 0.0,
+      "LastStatus": "N/A"
+    },
+    {
+      "System": "IgnitionSCADA",
+      "Region": "N/A",
+      "Site": "SARAJEVO - BS MILJEVICI",
+      "Alarm": "1000028",
+      "LastTime": "2026-04-14 10:33:48",
+      "DayCnt": 0,
+      "DayDur": 0.0,
+      "LastStatus": "N/A"
+    },
+    {
+      "System": "IgnitionSCADA",
+      "Region": "N/A",
+      "Site": "SARAJEVO - BS MILJEVICI",
+      "Alarm": "Info",
+      "LastTime": "2026-04-13 15:34:37",
+      "DayCnt": 0,
+      "DayDur": 0.0,
+      "LastStatus": "N/A"
+    },
+    {
+      "System": "IgnitionSCADA",
+      "Region": "N/A",
+      "Site": "SARAJEVO - BS MILJEVICI",
+      "Alarm": "Node Info",
+      "LastTime": "2026-04-13 15:34:34",
+      "DayCnt": 0,
+      "DayDur": 0.0,
+      "LastStatus": "N/A"
+    },
+    {
+      "System": "IgnitionSCADA",
+      "Region": "N/A",
+      "Site": "SARAJEVO - DMALTA",
+      "Alarm": "2000025",
+      "LastTime": "2026-04-13 13:08:37",
+      "DayCnt": 0,
+      "DayDur": 0.0,
+      "LastStatus": "N/A"
+    },
+    {
+      "System": "IgnitionSCADA",
+      "Region": "N/A",
+      "Site": "SARAJEVO - DMALTA",
+      "Alarm": "8000022",
+      "LastTime": "2026-04-13 11:35:21",
+      "DayCnt": 0,
+      "DayDur": 0.0,
+      "LastStatus": "N/A"
+    },
+    {
+      "System": "IgnitionSCADA",
+      "Region": "N/A",
+      "Site": "SARAJEVO - DMALTA",
+      "Alarm": "8000029",
+      "LastTime": "2026-04-13 13:09:29",
+      "DayCnt": 0,
+      "DayDur": 0.0,
+      "LastStatus": "N/A"
+    },
+    {
+      "System": "IgnitionSCADA",
+      "Region": "N/A",
+      "Site": "SARAJEVO - DMALTA",
+      "Alarm": "8000032",
+      "LastTime": "2026-04-14 04:13:25",
+      "DayCnt": 0,
+      "DayDur": 0.0,
+      "LastStatus": "N/A"
+    },
+    {
+      "System": "IgnitionSCADA",
+      "Region": "N/A",
+      "Site": "SARAJEVO - DMALTA",
+      "Alarm": "8000034",
+      "LastTime": "2026-04-13 13:08:35",
+      "DayCnt": 0,
+      "DayDur": 0.0,
+      "LastStatus": "N/A"
+    },
+    {
+      "System": "IgnitionSCADA",
+      "Region": "N/A",
+      "Site": "SARAJEVO - DMALTA",
+      "Alarm": "8000036",
+      "LastTime": "2026-04-13 13:09:41",
+      "DayCnt": 0,
+      "DayDur": 0.0,
+      "LastStatus": "N/A"
+    },
+    {
+      "System": "IgnitionSCADA",
+      "Region": "N/A",
+      "Site": "SARAJEVO - DMALTA",
+      "Alarm": "8000039",
+      "LastTime": "2026-04-13 13:09:34",
+      "DayCnt": 0,
+      "DayDur": 0.0,
+      "LastStatus": "N/A"
+    },
+    {
+      "System": "IgnitionSCADA",
+      "Region": "N/A",
+      "Site": "SARAJEVO - DMALTA",
+      "Alarm": "8000041",
+      "LastTime": "2026-04-14 02:54:58",
+      "DayCnt": 0,
+      "DayDur": 0.0,
+      "LastStatus": "N/A"
+    },
+    {
+      "System": "IgnitionSCADA",
+      "Region": "N/A",
+      "Site": "SARAJEVO - DMALTA",
+      "Alarm": "8000042",
+      "LastTime": "2026-04-13 13:09:36",
+      "DayCnt": 0,
+      "DayDur": 0.0,
+      "LastStatus": "N/A"
+    },
+    {
+      "System": "IgnitionSCADA",
+      "Region": "N/A",
+      "Site": "SARAJEVO - DMALTA",
+      "Alarm": "8000045",
+      "LastTime": "2026-04-13 13:09:12",
+      "DayCnt": 0,
+      "DayDur": 0.0,
+      "LastStatus": "N/A"
+    },
+    {
+      "System": "IgnitionSCADA",
+      "Region": "N/A",
+      "Site": "SARAJEVO - DMALTA",
+      "Alarm": "8000046",
+      "LastTime": "2026-04-13 13:09:09",
+      "DayCnt": 0,
+      "DayDur": 0.0,
+      "LastStatus": "N/A"
+    },
+    {
+      "System": "IgnitionSCADA",
+      "Region": "N/A",
+      "Site": "SARAJEVO - DMALTA",
+      "Alarm": "8000047",
+      "LastTime": "2026-04-13 13:09:14",
+      "DayCnt": 0,
+      "DayDur": 0.0,
+      "LastStatus": "N/A"
+    },
+    {
+      "System": "IgnitionSCADA",
+      "Region": "N/A",
+      "Site": "SARAJEVO - DMALTA",
+      "Alarm": "8000066",
+      "LastTime": "2026-04-13 13:08:42",
+      "DayCnt": 0,
+      "DayDur": 0.0,
+      "LastStatus": "N/A"
+    },
+    {
+      "System": "IgnitionSCADA",
+      "Region": "N/A",
+      "Site": "SARAJEVO - DMALTA",
+      "Alarm": "8000247",
+      "LastTime": "2026-04-13 13:08:40",
+      "DayCnt": 0,
+      "DayDur": 0.0,
+      "LastStatus": "N/A"
+    },
+    {
+      "System": "IgnitionSCADA",
+      "Region": "N/A",
+      "Site": "SARAJEVO - DMALTA",
+      "Alarm": "8000248",
+      "LastTime": "2026-04-13 13:09:17",
+      "DayCnt": 0,
+      "DayDur": 0.0,
+      "LastStatus": "N/A"
+    },
+    {
+      "System": "IgnitionSCADA",
+      "Region": "N/A",
+      "Site": "SARAJEVO - DMALTA",
+      "Alarm": "8000249",
+      "LastTime": "2026-04-13 13:09:21",
+      "DayCnt": 0,
+      "DayDur": 0.0,
+      "LastStatus": "N/A"
+    },
+    {
+      "System": "IgnitionSCADA",
+      "Region": "N/A",
+      "Site": "SARAJEVO - DMALTA",
+      "Alarm": "8000269",
+      "LastTime": "2026-04-13 13:09:31",
+      "DayCnt": 0,
+      "DayDur": 0.0,
+      "LastStatus": "N/A"
+    },
+    {
+      "System": "IgnitionSCADA",
+      "Region": "N/A",
+      "Site": "SARAJEVO - DMALTA",
+      "Alarm": "8000270",
+      "LastTime": "2026-04-13 13:09:26",
+      "DayCnt": 0,
+      "DayDur": 0.0,
+      "LastStatus": "N/A"
+    },
+    {
+      "System": "IgnitionSCADA",
+      "Region": "N/A",
+      "Site": "SARAJEVO - DMALTA",
+      "Alarm": "8000271",
+      "LastTime": "2026-04-13 13:09:39",
+      "DayCnt": 0,
+      "DayDur": 0.0,
+      "LastStatus": "N/A"
+    },
+    {
+      "System": "IgnitionSCADA",
+      "Region": "N/A",
+      "Site": "SARAJEVO - DMALTA",
+      "Alarm": "8000272",
+      "LastTime": "2026-04-13 13:09:44",
+      "DayCnt": 0,
+      "DayDur": 0.0,
+      "LastStatus": "N/A"
+    },
+    {
+      "System": "IgnitionSCADA",
+      "Region": "N/A",
+      "Site": "SARAJEVO - DMALTA",
+      "Alarm": "8000273",
+      "LastTime": "2026-04-13 17:52:56",
+      "DayCnt": 0,
+      "DayDur": 0.0,
+      "LastStatus": "N/A"
+    },
+    {
+      "System": "IgnitionSCADA",
+      "Region": "N/A",
+      "Site": "SARAJEVO - DMALTA",
+      "Alarm": "8000274",
+      "LastTime": "2026-04-13 13:08:49",
+      "DayCnt": 0,
+      "DayDur": 0.0,
+      "LastStatus": "N/A"
+    },
+    {
+      "System": "IgnitionSCADA",
+      "Region": "N/A",
+      "Site": "SARAJEVO - DMALTA",
+      "Alarm": "8000275",
+      "LastTime": "2026-04-13 13:09:02",
+      "DayCnt": 0,
+      "DayDur": 0.0,
+      "LastStatus": "N/A"
+    },
+    {
+      "System": "IgnitionSCADA",
+      "Region": "N/A",
+      "Site": "SARAJEVO - DMALTA",
+      "Alarm": "8000276",
+      "LastTime": "2026-04-13 13:08:47",
+      "DayCnt": 0,
+      "DayDur": 0.0,
+      "LastStatus": "N/A"
+    },
+    {
+      "System": "IgnitionSCADA",
+      "Region": "N/A",
+      "Site": "SARAJEVO - DMALTA",
+      "Alarm": "8000277",
+      "LastTime": "2026-04-13 13:08:44",
+      "DayCnt": 0,
+      "DayDur": 0.0,
+      "LastStatus": "N/A"
+    },
+    {
+      "System": "IgnitionSCADA",
+      "Region": "N/A",
+      "Site": "SARAJEVO - DMALTA",
+      "Alarm": "8000278",
+      "LastTime": "2026-04-13 13:08:59",
+      "DayCnt": 0,
+      "DayDur": 0.0,
+      "LastStatus": "N/A"
+    },
+    {
+      "System": "IgnitionSCADA",
+      "Region": "N/A",
+      "Site": "SARAJEVO - DMALTA",
+      "Alarm": "8000279",
+      "LastTime": "2026-04-13 13:08:54",
+      "DayCnt": 0,
+      "DayDur": 0.0,
+      "LastStatus": "N/A"
+    },
+    {
+      "System": "IgnitionSCADA",
+      "Region": "N/A",
+      "Site": "SARAJEVO - DMALTA",
+      "Alarm": "8000280",
+      "LastTime": "2026-04-13 13:08:52",
+      "DayCnt": 0,
+      "DayDur": 0.0,
+      "LastStatus": "N/A"
+    },
+    {
+      "System": "IgnitionSCADA",
+      "Region": "N/A",
+      "Site": "SARAJEVO - DMALTA",
+      "Alarm": "8000281",
+      "LastTime": "2026-04-13 13:08:57",
+      "DayCnt": 0,
+      "DayDur": 0.0,
+      "LastStatus": "N/A"
+    },
+    {
+      "System": "IgnitionSCADA",
+      "Region": "N/A",
+      "Site": "SARAJEVO - DMALTA",
+      "Alarm": "8000282",
+      "LastTime": "2026-04-13 13:09:04",
+      "DayCnt": 0,
+      "DayDur": 0.0,
+      "LastStatus": "N/A"
+    },
+    {
+      "System": "IgnitionSCADA",
+      "Region": "N/A",
+      "Site": "SARAJEVO - DMALTA",
+      "Alarm": "Info",
+      "LastTime": "2026-04-13 13:08:25",
+      "DayCnt": 0,
+      "DayDur": 0.0,
+      "LastStatus": "N/A"
+    },
+    {
+      "System": "IgnitionSCADA",
+      "Region": "N/A",
+      "Site": "SARAJEVO - DMALTA",
+      "Alarm": "Modbus2",
+      "LastTime": "2026-04-13 13:09:24",
+      "DayCnt": 0,
+      "DayDur": 0.0,
+      "LastStatus": "N/A"
+    },
+    {
+      "System": "IgnitionSCADA",
+      "Region": "N/A",
+      "Site": "SARAJEVO - DMALTA",
+      "Alarm": "ModbusBaterije1",
+      "LastTime": "2026-04-13 13:08:28",
+      "DayCnt": 0,
+      "DayDur": 0.0,
+      "LastStatus": "N/A"
+    },
+    {
+      "System": "IgnitionSCADA",
+      "Region": "N/A",
+      "Site": "SARAJEVO - DMALTA",
+      "Alarm": "ModbusBaterije2",
+      "LastTime": "2026-04-13 13:08:30",
+      "DayCnt": 0,
+      "DayDur": 0.0,
+      "LastStatus": "N/A"
+    },
+    {
+      "System": "IgnitionSCADA",
+      "Region": "N/A",
+      "Site": "SARAJEVO - DMALTA",
+      "Alarm": "ModbusBaterije3",
+      "LastTime": "2026-04-13 13:08:32",
+      "DayCnt": 0,
+      "DayDur": 0.0,
+      "LastStatus": "N/A"
+    },
+    {
+      "System": "IgnitionSCADA",
+      "Region": "N/A",
+      "Site": "SARAJEVO - DMALTA",
+      "Alarm": "Node Info",
+      "LastTime": "2026-04-13 13:08:23",
+      "DayCnt": 0,
+      "DayDur": 0.0,
+      "LastStatus": "N/A"
+    },
+    {
+      "System": "IgnitionSCADA",
+      "Region": "N/A",
+      "Site": "SARAJEVO - DMALTA",
+      "Alarm": "PLCDM",
+      "LastTime": "2026-04-13 13:09:07",
+      "DayCnt": 0,
+      "DayDur": 0.0,
+      "LastStatus": "N/A"
+    },
+    {
+      "System": "IgnitionSCADA",
+      "Region": "N/A",
+      "Site": "SARAJEVO - DMALTA",
+      "Alarm": "PLCDM1",
+      "LastTime": "2026-04-13 13:09:19",
+      "DayCnt": 0,
+      "DayDur": 0.0,
+      "LastStatus": "N/A"
+    },
+    {
+      "System": "IgnitionSCADA",
+      "Region": "N/A",
+      "Site": "SARAJEVO - RRS BS VELIKI ZEP",
+      "Alarm": "1000007",
+      "LastTime": "2026-04-14 03:11:57",
+      "DayCnt": 0,
+      "DayDur": 0.0,
+      "LastStatus": "N/A"
+    },
+    {
+      "System": "IgnitionSCADA",
+      "Region": "N/A",
+      "Site": "SARAJEVO - RSU DOBRINJA C4",
+      "Alarm": "1000020",
+      "LastTime": "2026-04-14 11:07:10",
+      "DayCnt": 0,
+      "DayDur": 0.0,
+      "LastStatus": "N/A"
+    },
+    {
+      "System": "IgnitionSCADA",
+      "Region": "N/A",
+      "Site": "SARAJEVO - RSU DOBRINJA C4",
+      "Alarm": "1000021",
+      "LastTime": "2026-04-14 10:59:11",
+      "DayCnt": 0,
+      "DayDur": 0.0,
+      "LastStatus": "N/A"
+    },
+    {
+      "System": "IgnitionSCADA",
+      "Region": "N/A",
+      "Site": "SARAJEVO - RSU DOBRINJA C4",
+      "Alarm": "Info",
+      "LastTime": "2026-04-13 15:35:21",
+      "DayCnt": 0,
+      "DayDur": 0.0,
+      "LastStatus": "N/A"
+    },
+    {
+      "System": "IgnitionSCADA",
+      "Region": "N/A",
+      "Site": "SARAJEVO - RSU DOBRINJA C4",
+      "Alarm": "Node Info",
+      "LastTime": "2026-04-13 15:35:19",
+      "DayCnt": 0,
+      "DayDur": 0.0,
+      "LastStatus": "N/A"
+    },
+    {
+      "System": "IgnitionSCADA",
+      "Region": "N/A",
+      "Site": "SARAJEVO - RSU KASINDOLSKA 1",
+      "Alarm": "1000029",
+      "LastTime": "2026-04-14 11:17:43",
+      "DayCnt": 0,
+      "DayDur": 0.0,
+      "LastStatus": "N/A"
+    },
+    {
+      "System": "IgnitionSCADA",
+      "Region": "N/A",
+      "Site": "SARAJEVO - RSU KASINDOLSKA 1",
+      "Alarm": "1000030",
+      "LastTime": "2026-04-14 11:17:41",
+      "DayCnt": 0,
+      "DayDur": 0.0,
+      "LastStatus": "N/A"
+    },
+    {
+      "System": "IgnitionSCADA",
+      "Region": "N/A",
+      "Site": "SARAJEVO - RSU KASINDOLSKA 1",
+      "Alarm": "1000031",
+      "LastTime": "2026-04-13 14:24:02",
+      "DayCnt": 0,
+      "DayDur": 0.0,
+      "LastStatus": "N/A"
+    },
+    {
+      "System": "IgnitionSCADA",
+      "Region": "N/A",
+      "Site": "SARAJEVO - RSU KASINDOLSKA 1",
+      "Alarm": "Info",
+      "LastTime": "2026-04-14 11:17:34",
+      "DayCnt": 0,
+      "DayDur": 0.0,
+      "LastStatus": "N/A"
+    },
+    {
+      "System": "IgnitionSCADA",
+      "Region": "N/A",
+      "Site": "SARAJEVO - RSU KASINDOLSKA 1",
+      "Alarm": "Node Info",
+      "LastTime": "2026-04-14 11:17:32",
+      "DayCnt": 0,
+      "DayDur": 0.0,
+      "LastStatus": "N/A"
     },
     {
       "System": "NetEco",
@@ -4744,36 +3934,6 @@
       "LastStatus": "CLEARED"
     },
     {
-      "System": "IgnitionSCADA",
-      "Region": "Zenica",
-      "Site": "TKC ZENICA",
-      "Alarm": "3000003",
-      "LastTime": "2026-04-14 09:23:51",
-      "DayCnt": 0,
-      "DayDur": 0.0,
-      "LastStatus": "N/A"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Zenica",
-      "Site": "TKC ZENICA",
-      "Alarm": "3000004",
-      "LastTime": "2026-04-14 03:10:11",
-      "DayCnt": 0,
-      "DayDur": 0.0,
-      "LastStatus": "N/A"
-    },
-    {
-      "System": "IgnitionSCADA",
-      "Region": "Zenica",
-      "Site": "TKC ZENICA",
-      "Alarm": "3000009",
-      "LastTime": "2026-04-14 07:57:31",
-      "DayCnt": 0,
-      "DayDur": 0.0,
-      "LastStatus": "N/A"
-    },
-    {
       "System": "U2020",
       "Region": "N/A",
       "Site": "TKC_VELIKA_KLADUSA",
@@ -4802,6 +3962,16 @@
       "DayCnt": 1,
       "DayDur": 4.2,
       "LastStatus": "CLEARED"
+    },
+    {
+      "System": "IgnitionSCADA",
+      "Region": "N/A",
+      "Site": "TUZLA - HOST PASA BUNAR",
+      "Alarm": "2000028",
+      "LastTime": "2026-04-14 07:43:39",
+      "DayCnt": 0,
+      "DayDur": 0.0,
+      "LastStatus": "N/A"
     },
     {
       "System": "NetEco",
@@ -5142,6 +4312,36 @@
       "DayCnt": 0,
       "DayDur": 0.0,
       "LastStatus": "ACTIVE"
+    },
+    {
+      "System": "IgnitionSCADA",
+      "Region": "N/A",
+      "Site": "ZENICA - TKC ZENICA",
+      "Alarm": "3000003",
+      "LastTime": "2026-04-14 09:23:51",
+      "DayCnt": 0,
+      "DayDur": 0.0,
+      "LastStatus": "N/A"
+    },
+    {
+      "System": "IgnitionSCADA",
+      "Region": "N/A",
+      "Site": "ZENICA - TKC ZENICA",
+      "Alarm": "3000004",
+      "LastTime": "2026-04-14 03:10:11",
+      "DayCnt": 0,
+      "DayDur": 0.0,
+      "LastStatus": "N/A"
+    },
+    {
+      "System": "IgnitionSCADA",
+      "Region": "N/A",
+      "Site": "ZENICA - TKC ZENICA",
+      "Alarm": "3000009",
+      "LastTime": "2026-04-14 07:57:31",
+      "DayCnt": 0,
+      "DayDur": 0.0,
+      "LastStatus": "N/A"
     },
     {
       "System": "U2020",
