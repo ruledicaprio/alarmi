@@ -3740,10 +3740,10 @@
                       "Site":  "VUCJA_LUKA",
                       "Alarm":  "Nestanak 220 V",
                       "System":  "U2020",
-                      "DayCnt":  4,
-                      "DayDur":  341.5,
+                      "DayCnt":  5,
+                      "DayDur":  341.4,
                       "Region":  "N/A",
-                      "LastStatus":  "CLEARED"
+                      "LastStatus":  "ACTIVE"
                   },
                   {
                       "Site":  "VUCJA_LUKA",
@@ -6176,5 +6176,5 @@
                       "LastStatus":  "UNKNOWN"
                   }
               ],
-    "LastUpdate":  "2026-04-14 08:42:04"
+    "LastUpdate":  "2026-04-14 08:42:55"
 }
