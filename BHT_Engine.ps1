@@ -1,10 +1,9 @@
-# BHT Alarm Engine v13.5 - Expert Edition
+# BHT Alarm Engine v13.6 - Konsolidovana Verzija
 $baseDir = "C:\Users\Rusmir\alarmi"
 Set-Location $baseDir
 $statsFile = "$baseDir\stats_data.json"
 $historyFile = "$baseDir\history_data.json"
 
-# Učitavanje mapa lokacija za Regije
 $siteMap = @{}
 try {
     if (Test-Path "$baseDir\neteco_sites.csv") {
@@ -12,11 +11,11 @@ try {
             $siteMap[$_.site_id.ToUpper()] = $_.region_id 
         }
     }
-} catch { Write-Host "Napomena: CSV baza nije učitana." -ForegroundColor Yellow }
+} catch { Write-Host "Napomena: Baza regija nije učitana." -ForegroundColor Yellow }
 
 if (-not (Test-Path $historyFile)) { "{}" | Set-Content $historyFile -Encoding UTF8 }
 
-Write-Host ">>> BHT ENGINE v13.5 START <<<" -ForegroundColor Cyan
+Write-Host ">>> BHT ENGINE v13.6 START <<<" -ForegroundColor Cyan
 
 while ($true) {
     try {
@@ -24,7 +23,6 @@ while ($true) {
         $todayKey = $now.ToString("yyyy-MM-dd")
         $allEvents = @()
 
-        # FETCH PODATAKA
         $sources = @(
             @{ Uri = "https://pokrivenost.bhtelecom.ba/alarmi/ispadnap"; Type = "CSV" },
             @{ Uri = "https://pokrivenost.bhtelecom.ba/alarmi/"; Type = "TEXT" }
@@ -60,7 +58,6 @@ while ($true) {
             } catch { }
         }
 
-        # DNEVNA AGREGACIJA
         $daily = $allEvents | Group-Object Site, Alarm | ForEach-Object {
             $g = $_.Group | Sort-Object Time
             $dur = 0; $cnt = 0
@@ -69,10 +66,17 @@ while ($true) {
                     $dur += ([DateTime]$g[$i+1].Time - [DateTime]$g[$i].Time).TotalMinutes; $cnt++
                 }
             }
-            [PSCustomObject]@{ Site=$_.Values[0]; Alarm=$_.Values[1]; System=$g[0].System; Region=$g[0].Region; DayCnt=$cnt; DayDur=[Math]::Round($dur,1); LastStatus=$g[-1].Status }
+            [PSCustomObject]@{ 
+                System=$g[0].System; Region=$g[0].Region; Site=$_.Values[0]; Alarm=$_.Values[1]; 
+                LastTime=$g[-1].Time; DayCnt=$cnt; DayDur=[Math]::Round($dur,1); LastStatus=$g[-1].Status 
+            }
         }
 
-        # EXPORT
+        $history = Get-Content $historyFile -Raw | ConvertFrom-Json
+        if ($null -eq $history) { $history = New-Object PSObject }
+        $history | Add-Member -NotePropertyName $todayKey -NotePropertyValue $daily -Force
+        $history | ConvertTo-Json -Depth 10 | Set-Content $historyFile -Encoding UTF8
+
         $out = @{ LastUpdate=$now.ToString("yyyy-MM-dd HH:mm:ss"); Daily=$daily; Recent=$allEvents | Select-Object -First 200 }
         $out | ConvertTo-Json -Depth 10 | Set-Content $statsFile -Encoding UTF8
         Write-Host "Sync OK @ $($now.ToString('HH:mm:ss'))" -ForegroundColor Green

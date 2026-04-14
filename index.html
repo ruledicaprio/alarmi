@@ -2,7 +2,7 @@
 <html lang="bs">
 <head>
     <meta charset="UTF-8">
-    <title>BHT Core v13.5</title>
+    <title>BHT Core v13.6</title>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css">
@@ -10,25 +10,24 @@
     <style>
         body { background: #010409; color: #c9d1d9; font-family: ui-sans-serif, system-ui; }
         .card { background: #0d1117; border: 1px solid #30363d; border-radius: 8px; }
-        /* Cleared alarmi - 40% vidljivosti */
-        .status-cleared { opacity: 0.4; color: #8b949e !important; font-style: italic; }
-        .active-row { background: #161b22 !important; font-weight: 500; }
-        .dataTables_wrapper .dataTables_filter input { background: #0d1117; border: 1px solid #30363d; color: white; border-radius: 4px; padding: 4px; }
+        .status-cleared { opacity: 0.45; color: #8b949e !important; font-style: italic; }
+        .active-row { background: #161b22 !important; font-weight: 500; border-left: 3px solid #f97316; }
+        .dataTables_wrapper .dataTables_filter input { background: #0d1117; border: 1px solid #30363d; color: white; border-radius: 4px; }
         table.dataTable tbody tr { border-bottom: 1px solid #21262d; }
     </style>
 </head>
 <body class="p-4">
     <div class="max-w-[1600px] mx-auto">
         <div class="flex justify-between items-center mb-4 card p-4">
-            <h1 class="text-lg font-bold text-orange-500">BHT NETWORK MONITOR <span class="text-xs text-slate-500">v13.5</span></h1>
-            <div id="syncTag" class="text-xs font-mono text-slate-500">Učitavam...</div>
+            <h1 class="text-lg font-bold text-orange-500 uppercase tracking-wider">BHT Network Monitor <span class="text-xs text-slate-500">v13.6</span></h1>
+            <div id="syncTag" class="text-xs font-mono text-slate-500">Učitavam podatke...</div>
         </div>
 
         <div class="card p-2">
             <table id="mainTable" class="w-full text-sm">
                 <thead>
                     <tr>
-                        <th>Sistem</th><th>Direkcija</th><th>Lokacija</th><th>Alarm</th><th>Count</th><th>Trajanje (min)</th><th>Status</th>
+                        <th>Sistem</th><th>Direkcija</th><th>Lokacija</th><th>Alarm</th><th>Vrijeme</th><th>Count</th><th>Trajanje (min)</th><th>Status</th>
                     </tr>
                 </thead>
             </table>
@@ -51,9 +50,10 @@
                         data: d.Daily,
                         columns: [
                             { data: "System" }, { data: "Region" }, { data: "Site" },
-                            { data: "Alarm" }, { data: "DayCnt" }, { data: "DayDur" }, { data: "LastStatus" }
+                            { data: "Alarm" }, { data: "LastTime" }, { data: "DayCnt" },
+                            { data: "DayDur" }, { data: "LastStatus" }
                         ],
-                        order: [[6, 'asc'], [4, 'desc']], // Prvo ACTIVE, pa najveći COUNT
+                        order: [[7, 'asc'], [4, 'desc']], // Prvo ACTIVE, pa najnovije VRIJEME
                         pageLength: 25,
                         createdRow: function(row, data) {
                             if (data.LastStatus === 'CLEARED') $(row).addClass('status-cleared');
