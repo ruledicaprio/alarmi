@@ -1,38 +1,238 @@
-<script>
-    let table = null;
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+    <meta charset="UTF-8">
+    <title>BHT Core Monitor – Final</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css">
+    <script src="https://cdn.datatables.net/2.0.8/js/dataTables.min.js"></script>
+    <style>
+        body { background: #020617; color: #e2e8f0; }
+        .card { background: #0f172a; border: 1px solid #1e293b; border-radius: 1rem; }
+        .loading-spinner { display: inline-block; width: 1rem; height: 1rem; border: 2px solid #f97316; border-top-color: transparent; border-radius: 50%; animation: spin 0.6s linear infinite; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .btn-refresh { background: #1e293b; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; cursor: pointer; transition: 0.2s; }
+        .btn-refresh:hover { background: #334155; }
 
-    async function update() {
-        try {
-            const r = await fetch('stats_data.json?t=' + Date.now());
-            const d = await r.json();
-            document.getElementById('syncTag').innerText = `Zadnji Sync: ${d.LastUpdate}`;
+        /* ITU pastelne boje */
+        .critical-row { background-color: #FFCCCC !important; color: #990000 !important; border-left: 4px solid #CC0000 !important; }
+        .major-row { background-color: #FFE0B3 !important; color: #CC7000 !important; border-left: 4px solid #FFA500 !important; }
+        .minor-row { background-color: #FFF2CC !important; color: #996600 !important; border-left: 4px solid #FFCC00 !important; }
+        .cleared-row { background-color: #CCFFCC !important; color: #006600 !important; border-left: 4px solid #00CC00 !important; }
+        .unknown-row { background-color: #E6E6E6 !important; color: #555555 !important; border-left: 4px solid #999999 !important; }
 
-            if (table) {
-                table.clear().rows.add(d.Daily).draw(false);
-            } else {
-                table = $('#mainTable').DataTable({
-                    data: d.Daily,
-                    columns: [
-                        { data: "System", defaultContent: "N/A" },
-                        { data: "Region", defaultContent: "N/A" },
-                        { data: "Site", defaultContent: "N/A" },
-                        { data: "Alarm", defaultContent: "N/A" },
-                        { data: "LastTime", defaultContent: "---" },
-                        { data: "DayCnt", defaultContent: "0" },
-                        { data: "DayDur", defaultContent: "0" },
-                        { data: "LastStatus", defaultContent: "N/A" }
-                    ],
-                    order: [[7, 'asc'], [4, 'desc']],
-                    pageLength: 25,
-                    createdRow: function(row, data) {
-                        if (data.LastStatus === 'CLEARED') $(row).addClass('status-cleared');
-                        else if (data.LastStatus === 'ACTIVE') $(row).addClass('active-row');
-                    }
-                });
+        .critical-row td, .major-row td, .minor-row td, .cleared-row td, .unknown-row td { color: inherit; }
+        .dataTable td, .dataTable th { white-space: normal; word-break: break-word; vertical-align: top; }
+        table.dataTable { width: 100% !important; }
+        @media (max-width: 1200px) {
+            .dataTable td, .dataTable th { padding: 0.5rem 0.25rem !important; font-size: 0.7rem; }
+        }
+    </style>
+</head>
+<body class="p-4">
+    <div class="max-w-[1600px] mx-auto">
+        <div class="flex justify-between items-center mb-6 card p-6">
+            <div class="flex items-center gap-4">
+                <div class="bg-orange-600 px-4 py-1 rounded font-black text-2xl italic">bh</div>
+                <div>
+                    <h1 class="text-xl font-black uppercase tracking-tight">Network <span class="text-orange-500 italic">Core Monitor</span></h1>
+                    <p id="updateTag" class="text-[10px] text-slate-500 font-mono">Povezivanje...</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-4">
+                <div id="activeCount" class="text-3xl font-black text-red-500">0</div>
+                <button id="manualRefreshBtn" class="btn-refresh flex items-center gap-1">🔄 Ručno</button>
+            </div>
+        </div>
+
+        <div class="card p-6 overflow-x-auto">
+            <table id="alarmTable" class="w-full text-sm">
+                <thead>
+                    <tr class="text-left text-[10px] text-slate-500 uppercase border-b border-slate-800">
+                        <th class="pb-3">System ID</th><th class="pb-3">Region ID</th><th class="pb-3">Site ID</th>
+                        <th class="pb-3">Node ID</th><th class="pb-3">Event ID</th><th class="pb-3">Severity</th>
+                        <th class="pb-3">First Occurence</th><th class="pb-3">Last Cleared</th>
+                        <th class="pb-3 text-center">Count</th><th class="pb-3 text-center">Total Duration (min)</th>
+                        <th class="pb-3 text-center">Status</th>
+                    </table>
+                </thead>
+                <tbody><tr><td colspan="11" class="text-center py-10 text-slate-500">Učitavanje podataka...</td></tr></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            let dataTable = null, abortController = null, refreshTimer = null, isRefreshing = false, netecoMap = null;
+
+            function parseDate(dateStr) {
+                if (!dateStr) return null;
+                let d = new Date(dateStr);
+                if (!isNaN(d.getTime())) return d;
+                let normalized = dateStr.replace(' ', 'T');
+                d = new Date(normalized);
+                if (!isNaN(d.getTime())) return d;
+                let parts = dateStr.match(/(\d{4})-(\d{2})-(\d{2})\s+(\d{2}):(\d{2}):(\d{2})/);
+                if (parts) return new Date(Date.UTC(parts[1], parts[2]-1, parts[3], parts[4], parts[5], parts[6]));
+                return null;
             }
-        } catch (e) { console.error("Data error..."); }
-    }
 
-    setInterval(update, 30000);
-    update();
-</script>
+            function formatTimestamp(ts) {
+                if (!ts) return '-';
+                let d = parseDate(ts);
+                if (!d) return '-';
+                return d.toLocaleString('bs-BA', { day:'2-digit', month:'2-digit', year:'numeric', hour:'2-digit', minute:'2-digit', second:'2-digit' });
+            }
+
+            function getRegionAndSite(system, rawSite) {
+                if (!rawSite) return { region: 'N/A', siteId: '' };
+                if (system === 'IgnitionSCADA' && rawSite.includes(' - ')) {
+                    let idx = rawSite.indexOf(' - ');
+                    return { region: rawSite.substring(0, idx).trim(), siteId: rawSite.substring(idx+3).trim() };
+                }
+                if (rawSite.includes(' - ')) {
+                    let idx = rawSite.indexOf(' - ');
+                    return { region: rawSite.substring(0, idx).trim(), siteId: rawSite };
+                }
+                let gradovi = ['Sarajevo','Tuzla','Zenica','Mostar','Bihac','Travnik','Banja Luka','Bijeljina','Doboj','Livno','Gorazde'];
+                let region = 'N/A';
+                for (let g of gradovi) if (rawSite.includes(g)) { region = g; break; }
+                return { region, siteId: rawSite };
+            }
+
+            async function loadNetEcoMap() {
+                if (netecoMap) return netecoMap;
+                try {
+                    let resp = await fetch('neteco_sites.csv?cache='+Date.now());
+                    if (!resp.ok) throw new Error('Ne mogu učitati neteco_sites.csv');
+                    let text = await resp.text();
+                    let lines = text.split(/\r?\n/);
+                    let map = new Map();
+                    for (let i=1; i<lines.length; i++) {
+                        let line = lines[i].trim();
+                        if (!line) continue;
+                        let [site_id, region_id, node_id] = line.split(';');
+                        if (site_id) map.set(site_id.trim(), { region_id: region_id?.trim()||'N/A', node_id: node_id?.trim()||'-' });
+                    }
+                    netecoMap = map;
+                    return map;
+                } catch(e) { console.error(e); return new Map(); }
+            }
+
+            function computeFirstLast(recent, system, site, alarm) {
+                let first = null, lastCleared = null;
+                if (!recent || !Array.isArray(recent)) return { first:'-', last:'-' };
+                for (let ev of recent) {
+                    if (ev.System === system && ev.Site === site && ev.Alarm === alarm) {
+                        let ts = parseDate(ev.Time);
+                        if (ts) {
+                            if (!first || ts < first) first = ts;
+                            if (ev.Status === 'CLEARED') if (!lastCleared || ts > lastCleared) lastCleared = ts;
+                        }
+                    }
+                }
+                return { first: formatTimestamp(first), last: formatTimestamp(lastCleared) };
+            }
+
+            function getSeverity(status, alarm) {
+                if (status === 'CLEARED') return 'CLEARED';
+                if (status === 'UNKNOWN') return 'UNKNOWN';
+                if (status === 'ACTIVE') {
+                    if (alarm && (alarm.includes('Failure') || alarm.includes('Disconnected'))) return 'MAJOR';
+                    return 'CRITICAL';
+                }
+                return 'MINOR';
+            }
+
+            function getRowClass(status, severity) {
+                if (status === 'CLEARED') return 'cleared-row';
+                if (status === 'UNKNOWN') return 'unknown-row';
+                if (status === 'ACTIVE') {
+                    if (severity === 'CRITICAL') return 'critical-row';
+                    if (severity === 'MAJOR') return 'major-row';
+                    if (severity === 'MINOR') return 'minor-row';
+                }
+                return 'unknown-row';
+            }
+
+            async function refreshData(showLoading=false) {
+                if (isRefreshing) return;
+                isRefreshing = true;
+                if (showLoading) document.getElementById('manualRefreshBtn').innerHTML = '<span class="loading-spinner"></span> Osvježavam...';
+                if (abortController) abortController.abort();
+                abortController = new AbortController();
+                try {
+                    let neteco = await loadNetEcoMap();
+                    let resp = await fetch('stats_data.json?cache='+Date.now(), { signal: abortController.signal });
+                    if (!resp.ok) throw new Error('HTTP '+resp.status);
+                    let data = await resp.json();
+                    if (!data || !data.Stats || !Array.isArray(data.Stats)) throw new Error('Neispravan JSON');
+                    document.getElementById('updateTag').innerHTML = `📡 Zadnji sync: ${data.LastUpdate || 'nepoznat'}`;
+                    let activeCount = data.Stats.filter(s => s.LastStatus === 'ACTIVE').length;
+                    document.getElementById('activeCount').innerHTML = activeCount + ' Aktivno';
+                    let rows = [], rowClasses = [];
+                    for (let s of data.Stats) {
+                        let system = s.System || '', rawSite = s.Site || '';
+                        let region = 'N/A', siteId = rawSite, nodeId = '-';
+                        if (system === 'NetEco' && neteco.has(rawSite)) {
+                            let e = neteco.get(rawSite);
+                            region = e.region_id; siteId = rawSite; nodeId = e.node_id;
+                        } else if (system === 'IgnitionSCADA') {
+                            let {region:r, siteId:sid} = getRegionAndSite(system, rawSite);
+                            region = r; siteId = sid; nodeId = sid;
+                        } else {
+                            let {region:r, siteId:sid} = getRegionAndSite(system, rawSite);
+                            region = r; siteId = sid; nodeId = sid;
+                        }
+                        let eventId = s.Alarm || '', status = s.LastStatus || '';
+                        let severity = getSeverity(status, eventId);
+                        let {first, last} = computeFirstLast(data.Recent, system, rawSite, eventId);
+                        let count = s.DayCnt ?? 0, duration = s.DayDur ?? 0;
+                        rows.push([system, region, siteId, nodeId, eventId, severity, first, last, count, duration, `<span class="${status==='ACTIVE'?'font-black':''}">${status}</span>`]);
+                        rowClasses.push(getRowClass(status, severity));
+                    }
+                    if (dataTable) { dataTable.clear(); dataTable.rows.add(rows); dataTable.draw(); }
+                    else {
+                        dataTable = $('#alarmTable').DataTable({
+                            data: rows,
+                            columns: [
+                                { title: "System ID", className: "font-mono text-xs" },
+                                { title: "Region ID", className: "text-slate-400" },
+                                { title: "Site ID", className: "font-bold" },
+                                { title: "Node ID", className: "text-slate-400" },
+                                { title: "Event ID", className: "text-orange-400" },
+                                { title: "Severity", className: "uppercase text-xs font-bold" },
+                                { title: "First Occurence", className: "text-slate-500 text-xs" },
+                                { title: "Last Cleared", className: "text-slate-500 text-xs" },
+                                { title: "Count", className: "text-center font-black" },
+                                { title: "Total Duration (min)", className: "text-center font-mono text-emerald-400" },
+                                { title: "Status", className: "text-center font-bold" }
+                            ],
+                            order: [[8, 'desc']],
+                            pageLength: 25,
+                            scrollX: false,
+                            autoWidth: true,
+                            language: { search: "Pretraga:", info: "Prikazano _START_ do _END_ od _TOTAL_ zapisa" }
+                        });
+                    }
+                    $('#alarmTable tbody tr').each(function(idx) {
+                        let cls = rowClasses[idx];
+                        if (cls) $(this).removeClass('critical-row major-row minor-row cleared-row unknown-row').addClass(cls);
+                    });
+                } catch(err) {
+                    if (err.name !== 'AbortError') console.error(err);
+                    document.getElementById('updateTag').innerHTML = `⚠️ Greška: ${err.message} (pokušaj ponovo)`;
+                } finally {
+                    isRefreshing = false;
+                    if (showLoading) document.getElementById('manualRefreshBtn').innerHTML = '🔄 Ručno';
+                }
+            }
+            document.getElementById('manualRefreshBtn').addEventListener('click', () => refreshData(true));
+            refreshTimer = setInterval(() => refreshData(false), 30000);
+            refreshData(true);
+            window.addEventListener('beforeunload', () => { clearInterval(refreshTimer); if(abortController) abortController.abort(); if(dataTable) dataTable.destroy(); });
+        })();
+    </script>
+</body>
+</html>
