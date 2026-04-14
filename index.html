@@ -1,71 +1,38 @@
-<!DOCTYPE html>
-<html lang="bs">
-<head>
-    <meta charset="UTF-8">
-    <title>BHT Core v13.6</title>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css">
-    <script src="https://cdn.datatables.net/2.0.8/js/dataTables.min.js"></script>
-    <style>
-        body { background: #010409; color: #c9d1d9; font-family: ui-sans-serif, system-ui; }
-        .card { background: #0d1117; border: 1px solid #30363d; border-radius: 8px; }
-        .status-cleared { opacity: 0.45; color: #8b949e !important; font-style: italic; }
-        .active-row { background: #161b22 !important; font-weight: 500; border-left: 3px solid #f97316; }
-        .dataTables_wrapper .dataTables_filter input { background: #0d1117; border: 1px solid #30363d; color: white; border-radius: 4px; }
-        table.dataTable tbody tr { border-bottom: 1px solid #21262d; }
-    </style>
-</head>
-<body class="p-4">
-    <div class="max-w-[1600px] mx-auto">
-        <div class="flex justify-between items-center mb-4 card p-4">
-            <h1 class="text-lg font-bold text-orange-500 uppercase tracking-wider">BHT Network Monitor <span class="text-xs text-slate-500">v13.6</span></h1>
-            <div id="syncTag" class="text-xs font-mono text-slate-500">Učitavam podatke...</div>
-        </div>
+<script>
+    let table = null;
 
-        <div class="card p-2">
-            <table id="mainTable" class="w-full text-sm">
-                <thead>
-                    <tr>
-                        <th>Sistem</th><th>Direkcija</th><th>Lokacija</th><th>Alarm</th><th>Vrijeme</th><th>Count</th><th>Trajanje (min)</th><th>Status</th>
-                    </tr>
-                </thead>
-            </table>
-        </div>
-    </div>
+    async function update() {
+        try {
+            const r = await fetch('stats_data.json?t=' + Date.now());
+            const d = await r.json();
+            document.getElementById('syncTag').innerText = `Zadnji Sync: ${d.LastUpdate}`;
 
-    <script>
-        let table = null;
+            if (table) {
+                table.clear().rows.add(d.Daily).draw(false);
+            } else {
+                table = $('#mainTable').DataTable({
+                    data: d.Daily,
+                    columns: [
+                        { data: "System", defaultContent: "N/A" },
+                        { data: "Region", defaultContent: "N/A" },
+                        { data: "Site", defaultContent: "N/A" },
+                        { data: "Alarm", defaultContent: "N/A" },
+                        { data: "LastTime", defaultContent: "---" },
+                        { data: "DayCnt", defaultContent: "0" },
+                        { data: "DayDur", defaultContent: "0" },
+                        { data: "LastStatus", defaultContent: "N/A" }
+                    ],
+                    order: [[7, 'asc'], [4, 'desc']],
+                    pageLength: 25,
+                    createdRow: function(row, data) {
+                        if (data.LastStatus === 'CLEARED') $(row).addClass('status-cleared');
+                        else if (data.LastStatus === 'ACTIVE') $(row).addClass('active-row');
+                    }
+                });
+            }
+        } catch (e) { console.error("Data error..."); }
+    }
 
-        async function update() {
-            try {
-                const r = await fetch('stats_data.json?t=' + Date.now());
-                const d = await r.json();
-                document.getElementById('syncTag').innerText = `Zadnji Sync: ${d.LastUpdate}`;
-
-                if (table) {
-                    table.clear().rows.add(d.Daily).draw(false);
-                } else {
-                    table = $('#mainTable').DataTable({
-                        data: d.Daily,
-                        columns: [
-                            { data: "System" }, { data: "Region" }, { data: "Site" },
-                            { data: "Alarm" }, { data: "LastTime" }, { data: "DayCnt" },
-                            { data: "DayDur" }, { data: "LastStatus" }
-                        ],
-                        order: [[7, 'asc'], [4, 'desc']], // Prvo ACTIVE, pa najnovije VRIJEME
-                        pageLength: 25,
-                        createdRow: function(row, data) {
-                            if (data.LastStatus === 'CLEARED') $(row).addClass('status-cleared');
-                            else if (data.LastStatus === 'ACTIVE') $(row).addClass('active-row');
-                        }
-                    });
-                }
-            } catch (e) { console.error("Sync..."); }
-        }
-
-        setInterval(update, 30000);
-        update();
-    </script>
-</body>
-</html>
+    setInterval(update, 30000);
+    update();
+</script>

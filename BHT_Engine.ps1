@@ -1,4 +1,4 @@
-# BHT Alarm Engine v13.6 - Konsolidovana Verzija
+# BHT Alarm Engine v13.7 - Final Structural Fix
 $baseDir = "C:\Users\Rusmir\alarmi"
 Set-Location $baseDir
 $statsFile = "$baseDir\stats_data.json"
@@ -11,16 +11,13 @@ try {
             $siteMap[$_.site_id.ToUpper()] = $_.region_id 
         }
     }
-} catch { Write-Host "Napomena: Baza regija nije učitana." -ForegroundColor Yellow }
+} catch { }
 
-if (-not (Test-Path $historyFile)) { "{}" | Set-Content $historyFile -Encoding UTF8 }
-
-Write-Host ">>> BHT ENGINE v13.6 START <<<" -ForegroundColor Cyan
+Write-Host ">>> BHT ENGINE v13.7 START <<<" -ForegroundColor Cyan
 
 while ($true) {
     try {
         $now = Get-Date
-        $todayKey = $now.ToString("yyyy-MM-dd")
         $allEvents = @()
 
         $sources = @(
@@ -32,7 +29,6 @@ while ($true) {
             try {
                 $resp = Invoke-WebRequest -Uri $src.Uri -UseBasicParsing -TimeoutSec 15
                 $lines = [System.Text.Encoding]::UTF8.GetString($resp.Content).Split("`n")
-                
                 if ($src.Type -eq "CSV") {
                     foreach ($line in $lines) {
                         if ($line -notlike "*,*") { continue }
@@ -42,12 +38,8 @@ while ($true) {
 
                         $sys = $p[0]; $rawSite = $p[1]; $alarm = $p[2]
                         $timeStr = $p[$tsIdx].Replace('_',' ')
-                        
-                        $region = "N/A"; $siteId = $rawSite.ToUpper()
-                        if ($sys -eq "IgnitionSCADA" -and $rawSite -match '^(.*?) - (.*)$') {
-                            $region = $Matches[1].Trim(); $siteId = $Matches[2].Trim().ToUpper()
-                        }
-                        if ($region -eq "N/A" -and $siteMap.ContainsKey($siteId)) { $region = $siteMap[$siteId] }
+                        $siteId = $rawSite.ToUpper()
+                        $region = if ($siteMap.ContainsKey($siteId)) { $siteMap[$siteId] } else { "N/A" }
                         
                         $status = if ($line -match 'clear|normal|ok|Stops|UsageNormal') { "CLEARED" } else { "ACTIVE" }
                         if ($sys -eq "IgnitionSCADA") { $status = "N/A" } 
@@ -58,6 +50,7 @@ while ($true) {
             } catch { }
         }
 
+        # KLJUČNI FIX: Precizno mapiranje polja
         $daily = $allEvents | Group-Object Site, Alarm | ForEach-Object {
             $g = $_.Group | Sort-Object Time
             $dur = 0; $cnt = 0
@@ -66,18 +59,25 @@ while ($true) {
                     $dur += ([DateTime]$g[$i+1].Time - [DateTime]$g[$i].Time).TotalMinutes; $cnt++
                 }
             }
+
+            # Eksplicitno kreiranje polja koja JS očekuje
             [PSCustomObject]@{ 
-                System=$g[0].System; Region=$g[0].Region; Site=$_.Values[0]; Alarm=$_.Values[1]; 
-                LastTime=$g[-1].Time; DayCnt=$cnt; DayDur=[Math]::Round($dur,1); LastStatus=$g[-1].Status 
+                System     = [string]$g[0].System
+                Region     = [string]$g[0].Region
+                Site       = [string]$_.Values[0]
+                Alarm      = [string]$_.Values[1]
+                LastTime   = [string]$g[-1].Time
+                DayCnt     = [int]$cnt
+                DayDur     = [double][Math]::Round($dur,1)
+                LastStatus = [string]$g[-1].Status
             }
         }
 
-        $history = Get-Content $historyFile -Raw | ConvertFrom-Json
-        if ($null -eq $history) { $history = New-Object PSObject }
-        $history | Add-Member -NotePropertyName $todayKey -NotePropertyValue $daily -Force
-        $history | ConvertTo-Json -Depth 10 | Set-Content $historyFile -Encoding UTF8
-
-        $out = @{ LastUpdate=$now.ToString("yyyy-MM-dd HH:mm:ss"); Daily=$daily; Recent=$allEvents | Select-Object -First 200 }
+        $out = @{ 
+            LastUpdate = $now.ToString("yyyy-MM-dd HH:mm:ss"); 
+            Daily = $daily; 
+            Recent = $allEvents | Select-Object -First 100 
+        }
         $out | ConvertTo-Json -Depth 10 | Set-Content $statsFile -Encoding UTF8
         Write-Host "Sync OK @ $($now.ToString('HH:mm:ss'))" -ForegroundColor Green
 
