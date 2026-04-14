@@ -97,8 +97,21 @@ while ($true) {
             }
         }
 
-        # FINAL EXPORT
-        $out = @{ LastUpdate=$now.ToString("yyyy-MM-dd HH:mm:ss"); Daily=$daily; Weekly=$weekly; Recent=$allEvents | Select-Object System, Site, Alarm, Time, Status -First 200 }
+       # Ako je lista prazna, ubaci info red da Rusmir zna da radi
+        if ($daily.Count -eq 0) {
+            $daily = @([PSCustomObject]@{ 
+                Site="SYSTEM_CHECK"; Alarm="No active alarms"; System="ENGINE"; 
+                Region="OK"; DayCnt=0; DayDur=0; LastStatus="CLEARED" 
+            })
+        }
+
+        # FINAL EXPORT (sa prisilnim osvježenjem)
+        $out = @{ 
+            LastUpdate=$now.ToString("yyyy-MM-dd HH:mm:ss"); 
+            Daily=$daily; 
+            Weekly=$weekly; 
+            Recent=$allEvents | Select-Object System, Site, Alarm, Time, Status -First 200 
+        }
         $out | ConvertTo-Json -Depth 10 | Set-Content $statsFile -Encoding UTF8
         
         Write-Host "Sync OK @ $($now.ToString('HH:mm:ss'))" -ForegroundColor Green

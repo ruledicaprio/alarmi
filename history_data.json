@@ -83,6 +83,15 @@
     },
     {
       "Site": "BOKANI",
+      "Alarm": "Kvar ispravljaca (Rectifier Failure)",
+      "System": "U2020",
+      "Region": "N/A",
+      "DayCnt": 0,
+      "DayDur": 0.0,
+      "LastStatus": "CLEARED"
+    },
+    {
+      "Site": "BOKANI",
       "Alarm": "Nestanak 220 V",
       "System": "U2020",
       "Region": "N/A",
@@ -1072,6 +1081,15 @@
       "LastStatus": "ACTIVE"
     },
     {
+      "Site": "GRADISKA_VODOVOD",
+      "Alarm": "Mains Failure",
+      "System": "NetEco",
+      "Region": "N/A",
+      "DayCnt": 0,
+      "DayDur": 0.0,
+      "LastStatus": "ACTIVE"
+    },
+    {
       "Site": "GRUBISICI",
       "Alarm": "AC Failure",
       "System": "NetEco",
@@ -1133,6 +1151,15 @@
       "DayCnt": 1,
       "DayDur": 0.1,
       "LastStatus": "CLEARED"
+    },
+    {
+      "Site": "HASANI",
+      "Alarm": "NE Is Disconnected",
+      "System": "U2020",
+      "Region": "N/A",
+      "DayCnt": 0,
+      "DayDur": 0.0,
+      "LastStatus": "ACTIVE"
     },
     {
       "Site": "HOTEL_KONCEPT_RESIDENCE",
@@ -1720,6 +1747,15 @@
       "LastStatus": "ACTIVE"
     },
     {
+      "Site": "LUKAVAC_GNOJNICA",
+      "Alarm": "Door Open Alarm",
+      "System": "NetEco",
+      "Region": "N/A",
+      "DayCnt": 0,
+      "DayDur": 0.0,
+      "LastStatus": "ACTIVE"
+    },
+    {
       "Site": "LUKAVAC_INDUSTRIJSKA_ZONA",
       "Alarm": "Door Open Alarm",
       "System": "NetEco",
@@ -2048,9 +2084,9 @@
       "Alarm": "Otvorena vrata (Door Open Alarm)",
       "System": "U2020",
       "Region": "N/A",
-      "DayCnt": 0,
-      "DayDur": 0.0,
-      "LastStatus": "ACTIVE"
+      "DayCnt": 1,
+      "DayDur": 154.1,
+      "LastStatus": "CLEARED"
     },
     {
       "Site": "MOSTARSKO_RASKRSCE",
@@ -2777,8 +2813,8 @@
       "Alarm": "NE Is Disconnected",
       "System": "U2020",
       "Region": "N/A",
-      "DayCnt": 0,
-      "DayDur": 0.0,
+      "DayCnt": 1,
+      "DayDur": 0.5,
       "LastStatus": "CLEARED"
     },
     {
@@ -3056,8 +3092,8 @@
       "Alarm": "CAZIN",
       "System": "RpsSc300Mib",
       "Region": "N/A",
-      "DayCnt": 1,
-      "DayDur": 2.8,
+      "DayCnt": 2,
+      "DayDur": 2.9,
       "LastStatus": "CLEARED"
     },
     {
