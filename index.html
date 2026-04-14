@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="bs">
+<html lang="bs" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +8,7 @@
   <meta name="theme-color" content="#FF6B00">
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
   <script>
     tailwind.config = {
       theme: {
@@ -17,13 +17,29 @@
             bht: { orange: '#FF6B00', dark: '#002B5C', bg: '#F4F5F7', border: '#E5E7EB' },
             status: { active: '#EF4444', cleared: '#10B981', unknown: '#6B7280' }
           },
-          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
+          fontFamily: { 
+            inter: ['Inter', 'system-ui', 'sans-serif'],
+            roboto: ['Roboto', 'system-ui', 'sans-serif']
+          }
         }
       }
     }
   </script>
   <style>
     body { background-color: #F4F5F7; font-family: 'Inter', sans-serif; }
+    
+    /* Compact View Styles */
+    .compact .bht-table th { padding: 0.4rem 0.6rem; font-size: 0.7rem; }
+    .compact .bht-table td { padding: 0.4rem 0.6rem; font-size: 0.75rem; }
+    .compact .badge { padding: 0.1rem 0.4rem; font-size: 0.65rem; }
+    .compact .stat-card { padding: 0.6rem 0.8rem; }
+    .compact .stat-value { font-size: 1.5rem; }
+    .compact .stat-label { font-size: 0.65rem; }
+    
+    /* Normal View */
+    .normal .bht-table th { padding: 0.75rem 1rem; font-size: 0.7rem; }
+    .normal .bht-table td { padding: 0.75rem 1rem; font-size: 0.875rem; }
+    
     .tab-btn { padding: 0.6rem 1rem; font-size: 0.875rem; font-weight: 500; border-radius: 0.5rem 0.5rem 0 0; transition: all 0.2s; }
     .tab-btn.active { background: white; color: #FF6B00; box-shadow: 0 2px 4px rgba(0,0,0,0.05); border-bottom: 2px solid #FF6B00; }
     .tab-btn:not(.active) { color: #6B7280; background: transparent; }
@@ -39,71 +55,76 @@
     ::-webkit-scrollbar-track { background: transparent; }
   </style>
 </head>
-<body class="min-h-screen flex flex-col text-gray-800">
+<body class="min-h-screen flex flex-col text-gray-800 normal" id="bodyView">
 
   <header class="bg-white shadow-sm sticky top-0 z-50 border-b border-bht-border">
-    <div class="max-w-[1600px] mx-auto px-4 h-16 flex items-center justify-between">
+    <div class="max-w-[1600px] mx-auto px-4 h-14 flex items-center justify-between">
       <div class="flex items-center gap-3">
-        <div class="w-9 h-9 bg-bht-orange rounded-lg flex items-center justify-center text-white font-bold shadow-sm">BHT</div>
+        <div class="w-8 h-8 bg-bht-orange rounded-lg flex items-center justify-center text-white font-bold text-sm shadow-sm">BHT</div>
         <div>
-          <h1 class="text-lg font-bold text-bht-dark leading-tight">Alarm Engine <span class="text-gray-400 font-normal text-sm">v3.1</span></h1>
+          <h1 class="text-base font-bold text-bht-dark leading-tight">Alarm Engine <span class="text-gray-400 font-normal text-xs">v3.1</span></h1>
           <p class="text-[10px] text-gray-500 uppercase tracking-wider font-medium">Sektor za energetiku, ID TIRS</p>
         </div>
       </div>
-      <div class="flex items-center gap-4">
+      <div class="flex items-center gap-3">
+        <!-- View Toggle -->
+        <button id="viewToggle" class="px-3 py-1.5 text-xs font-medium rounded-lg border border-gray-200 bg-white hover:bg-gray-50 transition flex items-center gap-2" title="Toggle Compact/Normal view">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          <span id="viewLabel">Compact</span>
+        </button>
         <span class="text-xs text-gray-500 hidden md:inline">Ažurirano: <span id="lastUpdate" class="font-mono font-medium">--:--</span></span>
-        <button id="refreshBtn" class="p-2 rounded-lg hover:bg-gray-100 text-gray-600 transition border border-gray-200" title="Osvježi podatke">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+        <button id="refreshBtn" class="p-1.5 rounded-lg hover:bg-gray-100 text-gray-600 transition border border-gray-200" title="Osvježi podatke">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
         </button>
       </div>
     </div>
   </header>
 
-  <main class="flex-1 max-w-[1600px] mx-auto px-4 py-6 w-full space-y-6">
+  <main class="flex-1 max-w-[1600px] mx-auto px-4 py-4 w-full space-y-4">
     <!-- Stats -->
-    <section class="grid grid-cols-2 md:grid-cols-4 gap-4">
-      <div class="bg-white p-4 rounded-xl shadow-sm border border-bht-border">
-        <p class="text-xs font-medium text-gray-500 uppercase">Aktivni Alarmi</p>
-        <p class="text-2xl font-bold text-bht-dark mt-1" id="statActive">0</p>
+    <section class="grid grid-cols-2 md:grid-cols-4 gap-3">
+      <div class="stat-card bg-white p-4 rounded-xl shadow-sm border border-bht-border">
+        <p class="stat-label text-xs font-medium text-gray-500 uppercase">Aktivni Alarmi</p>
+        <p class="stat-value text-2xl font-bold text-bht-dark mt-1" id="statActive">0</p>
       </div>
-      <div class="bg-white p-4 rounded-xl shadow-sm border border-bht-border">
-        <p class="text-xs font-medium text-gray-500 uppercase">Razriješeni (24h)</p>
-        <p class="text-2xl font-bold text-status-cleared mt-1" id="statCleared">0</p>
+      <div class="stat-card bg-white p-4 rounded-xl shadow-sm border border-bht-border">
+        <p class="stat-label text-xs font-medium text-gray-500 uppercase">Razriješeni (24h)</p>
+        <p class="stat-value text-2xl font-bold text-status-cleared mt-1" id="statCleared">0</p>
       </div>
-      <div class="bg-white p-4 rounded-xl shadow-sm border border-bht-border">
-        <p class="text-xs font-medium text-gray-500 uppercase">Ukupno Lokacija</p>
-        <p class="text-2xl font-bold text-bht-dark mt-1" id="statSites">0</p>
+      <div class="stat-card bg-white p-4 rounded-xl shadow-sm border border-bht-border">
+        <p class="stat-label text-xs font-medium text-gray-500 uppercase">Ukupno Lokacija</p>
+        <p class="stat-value text-2xl font-bold text-bht-dark mt-1" id="statSites">0</p>
       </div>
-      <div class="bg-white p-4 rounded-xl shadow-sm border border-bht-border">
-        <p class="text-xs font-medium text-gray-500 uppercase">Ukupno Trajanje</p>
-        <p class="text-2xl font-bold text-bht-orange mt-1" id="statDur">0h</p>
+      <div class="stat-card bg-white p-4 rounded-xl shadow-sm border border-bht-border">
+        <p class="stat-label text-xs font-medium text-gray-500 uppercase">Ukupno Trajanje</p>
+        <p class="stat-value text-2xl font-bold text-bht-orange mt-1" id="statDur">0h</p>
       </div>
     </section>
 
     <!-- Table Section -->
     <section class="bg-white rounded-xl shadow-sm border border-bht-border overflow-hidden">
-      <div class="p-4 border-b border-bht-border flex flex-wrap gap-3 justify-between items-center bg-gray-50/50">
+      <div class="p-3 border-b border-bht-border flex flex-wrap gap-2 justify-between items-center bg-gray-50/50">
         <div class="flex gap-1" id="tabsContainer">
           <button class="tab-btn active" data-tab="daily">📅 Dnevni</button>
           <button class="tab-btn" data-tab="weekly">📆 Sedmični</button>
           <button class="tab-btn" data-tab="monthly">🗓️ Mjesečni</button>
           <button class="tab-btn" data-tab="yearly">🌐 Godišnji</button>
         </div>
-        <div class="flex gap-2 text-sm">
-          <input type="text" id="search" placeholder="Pretraži..." class="bg-white border border-gray-200 rounded px-2 py-1 text-sm w-32 focus:ring-2 focus:ring-bht-orange/20 focus:border-bht-orange outline-none">
-          <select id="filterSys" class="bg-white border border-gray-200 rounded px-2 py-1"><option value="all">Svi Sistemi</option></select>
-          <select id="filterReg" class="bg-white border border-gray-200 rounded px-2 py-1"><option value="all">Sve Direkcije</option></select>
-          <select id="filterStat" class="bg-white border border-gray-200 rounded px-2 py-1"><option value="all">Svi Statusi</option></select>
+        <div class="flex gap-2 text-xs">
+          <input type="text" id="search" placeholder="Pretraži..." class="bg-white border border-gray-200 rounded px-2 py-1 text-xs w-32 focus:ring-2 focus:ring-bht-orange/20 focus:border-bht-orange outline-none">
+          <select id="filterSys" class="bg-white border border-gray-200 rounded px-2 py-1 text-xs"><option value="all">Svi Sistemi</option></select>
+          <select id="filterReg" class="bg-white border border-gray-200 rounded px-2 py-1 text-xs"><option value="all">Sve Direkcije</option></select>
+          <select id="filterStat" class="bg-white border border-gray-200 rounded px-2 py-1 text-xs"><option value="all">Svi Statusi</option></select>
         </div>
       </div>
       
       <div class="overflow-x-auto" style="max-height: 480px;">
-        <table class="w-full text-left border-collapse">
+        <table class="bht-table w-full text-left border-collapse">
           <thead class="bg-gray-50 sticky top-0 z-10 text-xs uppercase text-gray-500 font-semibold border-b border-gray-200" id="thead"></thead>
           <tbody class="divide-y divide-gray-100 text-sm" id="tbody"></tbody>
         </table>
       </div>
-      <div class="p-3 border-t bg-gray-50 flex justify-between items-center text-xs text-gray-500">
+      <div class="p-2 border-t bg-gray-50 flex justify-between items-center text-xs text-gray-500">
         <span id="pagInfo">Učitavanje...</span>
         <div class="flex gap-1" id="pagCtrl"></div>
       </div>
@@ -126,18 +147,34 @@
     </section>
   </main>
 
-  <footer class="text-center py-4 text-xs text-gray-400 border-t border-bht-border bg-white mt-auto">
+  <footer class="text-center py-3 text-xs text-gray-400 border-t border-bht-border bg-white mt-auto">
     &copy; <span id="year"></span> BH Telecom | Dashboard Deploy | Powered by BHT Engine
   </footer>
 
 <script>
-const state = { data: [], filtered: [], tab: 'daily', page: 1, size: 25, sort: { key: 'DayDur', dir: 'desc' }, charts: {} };
+const state = {  [], filtered: [], tab: 'daily', page: 1, size: 25, sort: { key: 'DayDur', dir: 'desc' }, charts: {}, compactView: false };
 const tabs = {
   daily:   { key: 'DayDur',   cnt: 'DayCnt',   ts: true },
   weekly:  { key: 'WeekDur',  cnt: 'WeekCnt',  ts: false },
   monthly: { key: 'MonthDur', cnt: 'MonthCnt', ts: false },
   yearly:  { key: 'YearDur',  cnt: 'YearCnt',  ts: false }
 };
+
+// View Toggle
+document.getElementById('viewToggle').addEventListener('click', () => {
+  state.compactView = !state.compactView;
+  const body = document.getElementById('bodyView');
+  const label = document.getElementById('viewLabel');
+  if (state.compactView) {
+    body.classList.remove('normal');
+    body.classList.add('compact');
+    label.textContent = 'Normal';
+  } else {
+    body.classList.remove('compact');
+    body.classList.add('normal');
+    label.textContent = 'Compact';
+  }
+});
 
 const clean = (raw) => raw.map(r => {
   let o = {};
@@ -172,15 +209,15 @@ const mapRegion = s => {
 };
 
 const fmtTime = v => {
-  if(!v) return '-';
+  if(!v) return '<span class="text-gray-400/50 italic">-</span>';
   let ts = v;
   if(typeof v==='string') {
     if(v.includes('Date(')) ts = parseInt(v.match(/\d+/)[0]);
     else if(v.includes('T')) ts = new Date(v).getTime();
-    else return '-';
+    else return '<span class="text-gray-400/50 italic">-</span>';
   }
   const d = new Date(ts);
-  if(isNaN(d)) return '-';
+  if(isNaN(d)) return '<span class="text-gray-400/50 italic">-</span>';
   return `${String(d.getDate()).padStart(2,'0')}.${String(d.getMonth()+1).padStart(2,'0')}.${d.getFullYear()} ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`;
 };
 const fmtDur = m => m>=1440?`${(m/1440).toFixed(1)}d`:m>=60?`${(m/60).toFixed(1)}h`:`${m}m`;
@@ -188,7 +225,7 @@ const badge = s => {
   const c = s==='ACTIVE'?'badge-active':s==='CLEARED'?'badge-cleared':'badge-unknown';
   return `<span class="badge ${c}">${s}</span>`;
 };
-const sysColor = s => s==='NetEco'?'text-blue-600 bg-blue-50 border-blue-200':s==='U2020'?'text-purple-600 bg-purple-50 border-purple-200':'text-orange-600 bg-orange-50 border-orange-200';
+const sysColor = s => s==='NetEco'?'text-blue-700 bg-blue-50 border-blue-200':s==='U2020'?'text-purple-700 bg-purple-50 border-purple-200':'text-orange-700 bg-orange-50 border-orange-200';
 
 const renderChart = (id, type, data, opts) => {
   const ctx = document.getElementById(id).getContext('2d');
@@ -204,8 +241,8 @@ const apply = () => {
   const cfg = tabs[state.tab];
 
   state.filtered = state.data.filter(d => {
-    const matchQ = `${d.Site}${d.Alarm}${d.System}${d.Region}`.toLowerCase().includes(q);
-    return matchQ && (fS==='all'||d.System===fS) && (fR==='all'||d.Region===fR) && (fSt==='all'||d.Status===fSt);
+    const match = `${d.Site}${d.Alarm}${d.System}${d.Region}`.toLowerCase().includes(q);
+    return match && (fS==='all'||d.System===fS) && (fR==='all'||d.Region===fR) && (fSt==='all'||d.Status===fSt);
   });
 
   const k = state.sort.key, dir = state.sort.dir==='asc'?1:-1;
@@ -228,13 +265,13 @@ const renderCharts = () => {
   const cfg = tabs[state.tab];
   // 1. Top 10 Duration
   const top10 = [...state.data].sort((a,b)=>b[cfg.key]-a[cfg.key]).slice(0,10);
-  renderChart('chart1','bar',{labels:top10.map(d=>d.Site),datasets:[{data:top10.map(d=>d[cfg.key]),backgroundColor:'#FF6B00',borderRadius:4}]},{indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{grid:{color:'#f3f4f6'},ticks:{callback:v=>fmtDur(v)}},y:{grid:{display:false}}}});
+  renderChart('chart1','bar',{labels:top10.map(d=>d.Site),datasets:[{top10.map(d=>d[cfg.key]),backgroundColor:'#FF6B00',borderRadius:4}]},{indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{grid:{color:'#f3f4f6'},ticks:{callback:v=>fmtDur(v)}},y:{grid:{display:false}}}});
   
   // 2. Top 20 Alarm Count (exclude NE Is Disconnected)
   const power = state.data.filter(d=>d.Alarm && !d.Alarm.toLowerCase().includes('ne is disconnected') && d.Alarm!=='-');
   const cnts = {}; power.forEach(d=>cnts[d.Site]=(cnts[d.Site]||0)+1);
   const top20 = Object.entries(cnts).sort((a,b)=>b[1]-a[1]).slice(0,20);
-  renderChart('chart2','bar',{labels:top20.map(d=>d[0]),datasets:[{label:'Broj',data:top20.map(d=>d[1]),backgroundColor:'#002B5C',borderRadius:4}]},{plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,grid:{color:'#f3f4f6'}},x:{grid:{display:false},ticks:{maxRotation:45}}}});
+  renderChart('chart2','bar',{labels:top20.map(d=>d[0]),datasets:[{label:'Broj',top20.map(d=>d[1]),backgroundColor:'#002B5C',borderRadius:4}]},{plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,grid:{color:'#f3f4f6'}},x:{grid:{display:false},ticks:{maxRotation:45}}}});
   
   // 3. Sources
   const sysCnt = {}; state.data.forEach(d=>sysCnt[d.System]=(sysCnt[d.System]||0)+1);
@@ -246,28 +283,30 @@ const renderTable = () => {
   const cfg = tabs[state.tab];
   const start = (state.page-1)*state.size;
   const page = state.filtered.slice(start, start+state.size);
+  const durKey = cfg.durKey, cntKey = cfg.cntKey;
+
   const cols = [
     {k:'System',l:'Sistem'}, {k:'Region',l:'Direkcija'}, {k:'Site',l:'Node ID'}, {k:'Alarm',l:'Alarm'}, {k:'Status',l:'Status'}
   ];
   if(cfg.ts) { cols.push({k:'First',l:'Prvi Put'}); cols.push({k:'Last',l:'Zadnji Put'}); }
-  cols.push({k:cfg.key,l:'Trajanje'}, {k:cfg.cnt,l:'Count'});
+  cols.push({k:durKey,l:'Trajanje'}, {k:cntKey,l:'Count'});
 
-  document.getElementById('thead').innerHTML = cols.map(c=>`<th class="p-3 ${state.sort.key===c.k?'text-bht-orange':'text-gray-500'}" data-k="${c.k}"><div class="flex items-center gap-1">${c.l} ${state.sort.key===c.k?(state.sort.dir==='asc'?'↑':'↓'):''}</div></th>`).join('');
+  document.getElementById('thead').innerHTML = cols.map(c=>`<th class="p-2 ${state.sort.key===c.k?'text-bht-orange':'text-gray-500'}" data-k="${c.k}"><div class="flex items-center gap-1">${c.l} ${state.sort.key===c.k?(state.sort.dir==='asc'?'↑':'↓'):''}</div></th>`).join('');
 
   const tb = document.getElementById('tbody');
-  if(!page.length) { tb.innerHTML=`<tr><td colspan="${cols.length}" class="p-8 text-center text-gray-400">Nema podataka za odabrane filtere.</td></tr>`; return; }
+  if(!page.length) { tb.innerHTML=`<tr><td colspan="${cols.length}" class="p-4 text-center text-gray-400">Nema podataka za odabrane filtere.</td></tr>`; return; }
   
   tb.innerHTML = page.map(d=>{
+    const sysC = getSysColor(d.System);
+    const dur = d[durKey]||0;
     let row = `
-      <td class="p-3"><span class="px-2 py-0.5 text-xs font-medium rounded border ${sysColor(d.System)}">${d.System}</span></td>
-      <td class="p-3 font-medium text-gray-700">${d.Region}</td>
-      <td class="p-3 font-medium">${d.Site}</td>
-      <td class="p-3 max-w-xs truncate text-gray-500" title="${d.Alarm}">${d.Alarm}</td>
-      <td class="p-3">${badge(d.Status)}</td>`;
-    if(cfg.ts) row+=`<td class="p-3 font-mono text-xs text-gray-500 whitespace-nowrap">${fmtTime(d.First)}</td><td class="p-3 font-mono text-xs text-gray-500 whitespace-nowrap">${fmtTime(d.Last)}</td>`;
-    const dur = d[cfg.key]||0;
-    row+=`<td class="p-3 font-mono font-semibold whitespace-nowrap ${dur>120?'text-red-500':'text-gray-700'}">${fmtDur(dur)}</td>
-           <td class="p-3 font-mono text-center">${d[cfg.cnt]||0}</td>`;
+      <td class="p-2"><span class="px-1.5 py-0.5 text-[10px] font-medium rounded border ${sysC}">${d.System}</span></td>
+      <td class="p-2 font-medium text-gray-700">${d.Region}</td>
+      <td class="p-2 font-medium">${d.Site}</td>
+      <td class="p-2 max-w-xs truncate text-gray-500" title="${d.Alarm}">${d.Alarm}</td>
+      <td class="p-2">${badge(d.Status)}</td>`;
+    if(cfg.ts) row+=`<td class="p-2 font-mono text-[10px] text-gray-500 whitespace-nowrap">${fmtTime(d.First)}</td><td class="p-2 font-mono text-[10px] text-gray-500 whitespace-nowrap">${fmtTime(d.Last)}</td>`;
+    row+=`<td class="p-2 font-mono font-semibold whitespace-nowrap ${dur>120?'text-red-500':'text-gray-700'}">${fmtDur(dur)}</td><td class="p-2 font-mono text-center">${d[cntKey]||0}</td>`;
     return `<tr class="hover:bg-orange-50/30 transition">${row}</tr>`;
   }).join('');
 
@@ -276,7 +315,7 @@ const renderTable = () => {
   let p = '';
   for(let i=1;i<=tp;i++) {
     if(i===1||i===tp||(i>=state.page-1&&i<=state.page+1))
-      p+=`<button class="px-3 py-1 rounded text-xs font-medium ${i===state.page?'bg-bht-orange text-white':'bg-white border border-gray-200 text-gray-600 hover:bg-gray-50'}" data-p="${i}">${i}</button>`;
+      p+=`<button class="px-2 py-0.5 rounded text-[10px] font-medium ${i===state.page?'bg-bht-orange text-white':'bg-white border border-gray-200 text-gray-600 hover:bg-gray-50'}" data-p="${i}">${i}</button>`;
     else if(i===state.page-2||i===state.page+2) p+=`<span class="px-1 text-gray-400">...</span>`;
   }
   document.getElementById('pagCtrl').innerHTML=p;
@@ -293,7 +332,7 @@ const load = async () => {
     state.data = clean(arr);
   } catch(e) {
     console.error('Greška:', e);
-    document.getElementById('tbody').innerHTML=`<tr><td colspan="9" class="p-8 text-center text-gray-500">⚠️ Nije moguće učitati stats_data.json. Pokreni preko GitHub Pages ili lokalnog servera (npr. VS Code Live Server). CORS blokira file:// protokol.</td></tr>`;
+    document.getElementById('tbody').innerHTML=`<tr><td colspan="9" class="p-4 text-center text-gray-500">⚠️ Nije moguće učitati stats_data.json.</td></tr>`;
   }
   document.getElementById('lastUpdate').textContent = new Date().toLocaleTimeString('bs-BA');
   
