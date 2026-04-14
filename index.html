@@ -1,242 +1,171 @@
 <!DOCTYPE html>
 <html lang="bs">
 <head>
-    <meta charset="UTF-8">
-    <title>BHT Core Monitor – Dnevni & Sedmični</title>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css">
-    <script src="https://cdn.datatables.net/2.0.8/js/dataTables.min.js"></script>
-    <style>
-        body { background: #F3F2F1; color: #323130; font-family: 'Segoe UI', system-ui, sans-serif; }
-        .card { background: #FFFFFF; border: 1px solid #E1DFDD; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
-        .loading-spinner { display: inline-block; width: 1rem; height: 1rem; border: 2px solid #0078D4; border-top-color: transparent; border-radius: 50%; animation: spin 0.6s linear infinite; }
-        @keyframes spin { to { transform: rotate(360deg); } }
-        .btn-refresh { background: #E1DFDD; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.75rem; cursor: pointer; transition: 0.2s; color: #323130; }
-        .btn-refresh:hover { background: #C8C6C4; }
-        .tab-bar { display: flex; gap: 0.5rem; margin-bottom: 1rem; border-bottom: 1px solid #E1DFDD; }
-        .tab-btn { background: none; border: none; padding: 0.75rem 1.5rem; font-size: 0.9rem; font-weight: 600; color: #605E5C; cursor: pointer; border-bottom: 2px solid transparent; transition: 0.2s; }
-        .tab-btn.active { color: #0078D4; border-bottom-color: #0078D4; }
-        .tab-pane { display: none; }
-        .tab-pane.active { display: block; }
-        .dataTables_wrapper .dataTables_length, .dataTables_wrapper .dataTables_filter, .dataTables_wrapper .dataTables_info, .dataTables_wrapper .dataTables_paginate { font-size: 0.8rem; color: #605E5C; }
-        table.dataTable thead th { background-color: #F9F9F9; color: #323130; font-weight: 600; border-bottom: 1px solid #E1DFDD; }
-        table.dataTable tbody td { border-bottom: 1px solid #F0F0F0; }
-        .critical-row { background-color: #FCE4E4 !important; color: #A80000 !important; border-left: 3px solid #A80000 !important; }
-        .major-row { background-color: #FFF4E4 !important; color: #B45F06 !important; border-left: 3px solid #B45F06 !important; }
-        .minor-row { background-color: #FFF9E4 !important; color: #9C6E00 !important; border-left: 3px solid #9C6E00 !important; }
-        .cleared-row { background-color: #E4F4E4 !important; color: #006100 !important; border-left: 3px solid #006100 !important; }
-        .unknown-row { background-color: #F4F4F4 !important; color: #666666 !important; border-left: 3px solid #999999 !important; }
-        .critical-row td, .major-row td, .minor-row td, .cleared-row td, .unknown-row td { color: inherit; }
-        .dataTable td, .dataTable th { white-space: normal; word-break: break-word; vertical-align: top; }
-        table.dataTable { width: 100% !important; }
-        @media (max-width: 1200px) { .dataTable td, .dataTable th { padding: 0.5rem 0.25rem !important; font-size: 0.7rem; } }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BHT Core Monitor • Dnevni & Sedmični</title>
+  
+  <!-- CDNs -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.datatables.net/2.0.8/js/dataTables.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css">
+  
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+    body { font-family: 'Inter', system-ui; background: #0f172a; color: #e2e8f0; margin:0; padding:20px; }
+    .container { max-width: 1480px; margin: 0 auto; }
+    h1 { font-size: 2.8rem; font-weight: 700; text-align: center; color: #10b981; margin-bottom: 4px; }
+    .subtitle { text-align: center; color: #64748b; margin-bottom: 30px; font-size: 1.1rem; }
+    .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-bottom: 30px; }
+    .card { background: #1e2937; border-radius: 20px; padding: 28px 24px; text-align: center; box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.3); }
+    .card-value { font-size: 3.2rem; font-weight: 700; line-height: 1; margin-bottom: 8px; }
+    .card-label { font-size: 0.95rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px; }
+    .refresh-btn { background: #10b981; color: white; border: none; padding: 14px 32px; border-radius: 9999px; font-weight: 600; font-size: 1.1rem; cursor: pointer; display: flex; align-items: center; gap: 10px; box-shadow: 0 4px 6px -1px rgb(16 185 129); transition: all 0.2s; }
+    .refresh-btn:hover { background: #059669; transform: translateY(-2px); }
+    table { font-size: 0.95rem; }
+    .dataTables_wrapper .dataTables_paginate .paginate_button { color: #e2e8f0 !important; }
+    .status-live { color: #10b981; font-weight: 600; }
+  </style>
 </head>
-<body class="p-4">
-    <div class="max-w-[1600px] mx-auto">
-        <div class="flex justify-between items-center mb-6 card p-6">
-            <div class="flex items-center gap-4">
-                <div class="bg-orange-600 px-4 py-1 rounded font-black text-2xl italic text-white">bh</div>
-                <div>
-                    <h1 class="text-xl font-black uppercase tracking-tight">Network <span class="text-orange-500 italic">Core Monitor</span></h1>
-                    <p id="updateTag" class="text-[10px] text-slate-500 font-mono">Povezivanje...</p>
-                </div>
-            </div>
-            <div class="flex items-center gap-4">
-                <div id="activeCount" class="text-3xl font-black text-red-600">0</div>
-                <button id="manualRefreshBtn" class="btn-refresh flex items-center gap-1">🔄 Ručno</button>
-            </div>
-        </div>
-        <div class="card p-6">
-            <div class="tab-bar">
-                <button class="tab-btn active" data-tab="daily">📅 Dnevni prikaz</button>
-                <button class="tab-btn" data-tab="weekly">📊 Sedmični prikaz</button>
-            </div>
-            <div id="dailyTab" class="tab-pane active"><table id="dailyTable" class="w-full text-sm"><thead><tr><th>System ID</th><th>Region ID</th><th>Site ID</th><th>Node ID</th><th>Event ID</th><th>Severity</th><th>First Occurence</th><th>Last Cleared</th><th class="text-center">Count (24h)</th><th class="text-center">Duration (min)</th><th>Status</th></tr></thead><tbody></tbody></table></div>
-            <div id="weeklyTab" class="tab-pane"><table id="weeklyTable" class="w-full text-sm"><thead><tr><th>System ID</th><th>Region ID</th><th>Site ID</th><th>Node ID</th><th>Event ID</th><th>Severity</th><th>First Occurence</th><th>Last Cleared</th><th class="text-center">Count (7d)</th><th class="text-center">Duration (min)</th><th>Status</th></tr></thead><tbody></tbody></table></div>
-        </div>
+<body>
+  <div class="container">
+    <h1>BHT Core Monitor</h1>
+    <p class="subtitle">Dnevni &amp; Sedmični • pokrivenost.bhtelecom.ba/alarmi/ispadnap</p>
+
+    <div class="flex justify-end mb-6">
+      <button onclick="loadData()" class="refresh-btn">
+        <span>↻</span> Refresh now
+      </button>
+      <div id="fetchStatus" class="ml-6 flex items-center text-sm"></div>
     </div>
-    <script>
-        (function() {
-            let dailyTable = null, weeklyTable = null, abortController = null, refreshTimer = null, isRefreshing = false, netecoMap = null;
-            function parseDate(dateStr) {
-                if (!dateStr) return null;
-                let d = new Date(dateStr);
-                if (!isNaN(d.getTime())) return d;
-                let normalized = dateStr.replace(' ', 'T');
-                d = new Date(normalized);
-                if (!isNaN(d.getTime())) return d;
-                let parts = dateStr.match(/(\d{4})-(\d{2})-(\d{2})\s+(\d{2}):(\d{2}):(\d{2})/);
-                if (parts) return new Date(Date.UTC(parts[1], parts[2]-1, parts[3], parts[4], parts[5], parts[6]));
-                return null;
-            }
-            function formatTimestamp(ts) {
-                if (!ts) return '-';
-                let d = parseDate(ts);
-                if (!d) return '-';
-                return d.toLocaleString('bs-BA', { day:'2-digit', month:'2-digit', year:'numeric', hour:'2-digit', minute:'2-digit', second:'2-digit' });
-            }
-            function getRegionAndSite(system, rawSite) {
-                if (!rawSite) return { region: 'N/A', siteId: '' };
-                if (system === 'IgnitionSCADA' && rawSite.includes(' - ')) {
-                    let idx = rawSite.indexOf(' - ');
-                    return { region: rawSite.substring(0, idx).trim(), siteId: rawSite.substring(idx+3).trim() };
-                }
-                if (rawSite.includes(' - ')) {
-                    let idx = rawSite.indexOf(' - ');
-                    return { region: rawSite.substring(0, idx).trim(), siteId: rawSite };
-                }
-                const gradovi = ['Sarajevo','Tuzla','Zenica','Mostar','Bihac','Travnik','Banja Luka','Bijeljina','Doboj','Livno','Gorazde'];
-                let region = 'N/A';
-                for (let g of gradovi) if (rawSite.includes(g)) { region = g; break; }
-                return { region, siteId: rawSite };
-            }
-            async function loadNetEcoMap() {
-                if (netecoMap) return netecoMap;
-                try {
-                    let resp = await fetch('neteco_sites.csv?cache='+Date.now());
-                    if (!resp.ok) throw new Error('Ne mogu učitati neteco_sites.csv');
-                    let text = await resp.text();
-                    let lines = text.split(/\r?\n/);
-                    let map = new Map();
-                    for (let i=1; i<lines.length; i++) {
-                        let line = lines[i].trim();
-                        if (!line) continue;
-                        let [site_id, region_id, node_id] = line.split(';');
-                        if (site_id) map.set(site_id.trim(), { region_id: region_id?.trim()||'N/A', node_id: node_id?.trim()||'-' });
-                    }
-                    netecoMap = map;
-                    return map;
-                } catch(e) { console.error(e); return new Map(); }
-            }
-            function computeFirstLast(recent, system, site, alarm) {
-                let first = null, lastCleared = null;
-                if (!recent || !Array.isArray(recent)) return { first:'-', last:'-' };
-                for (let ev of recent) {
-                    if (ev.System === system && ev.Site === site && ev.Alarm === alarm) {
-                        let ts = parseDate(ev.Time);
-                        if (ts) {
-                            if (!first || ts < first) first = ts;
-                            if (ev.Status === 'CLEARED') {
-                                if (!lastCleared || ts > lastCleared) lastCleared = ts;
-                            }
-                        }
-                    }
-                }
-                return { first: formatTimestamp(first), last: formatTimestamp(lastCleared) };
-            }
-            function getSeverity(status, alarm) {
-                if (status === 'CLEARED') return 'CLEARED';
-                if (status === 'UNKNOWN') return 'UNKNOWN';
-                if (status === 'ACTIVE') {
-                    if (alarm && (alarm.includes('Failure') || alarm.includes('Disconnected'))) return 'MAJOR';
-                    return 'CRITICAL';
-                }
-                return 'MINOR';
-            }
-            function getRowClass(status, severity) {
-                if (status === 'CLEARED') return 'cleared-row';
-                if (status === 'UNKNOWN') return 'unknown-row';
-                if (status === 'ACTIVE') {
-                    if (severity === 'CRITICAL') return 'critical-row';
-                    if (severity === 'MAJOR') return 'major-row';
-                    if (severity === 'MINOR') return 'minor-row';
-                }
-                return 'unknown-row';
-            }
-            async function refreshData(showLoading=false) {
-                if (isRefreshing) return;
-                isRefreshing = true;
-                if (showLoading) document.getElementById('manualRefreshBtn').innerHTML = '<span class="loading-spinner"></span> Osvježavam...';
-                if (abortController) abortController.abort();
-                abortController = new AbortController();
-                try {
-                    const neteco = await loadNetEcoMap();
-                    const resp = await fetch('stats_data.json?cache='+Date.now(), { signal: abortController.signal });
-                    if (!resp.ok) throw new Error('HTTP '+resp.status);
-                    const data = await resp.json();
-                    if (!data || !data.Stats || !Array.isArray(data.Stats)) throw new Error('Neispravan JSON');
-                    document.getElementById('updateTag').innerHTML = `📡 Zadnji sync: ${data.LastUpdate || 'nepoznat'}`;
-                    let activeCount = data.Stats.filter(s => s.LastStatus === 'ACTIVE').length;
-                    document.getElementById('activeCount').innerHTML = activeCount + ' Aktivno';
-                    let dailyRows = [], weeklyRows = [], dailyClasses = [], weeklyClasses = [];
-                    for (let s of data.Stats) {
-                        let system = s.System || '', rawSite = s.Site || '';
-                        let region = 'N/A', siteId = rawSite, nodeId = '-';
-                        if (system === 'NetEco' && neteco.has(rawSite)) {
-                            let e = neteco.get(rawSite);
-                            region = e.region_id; siteId = rawSite; nodeId = e.node_id;
-                        } else if (system === 'IgnitionSCADA') {
-                            let {region:r, siteId:sid} = getRegionAndSite(system, rawSite);
-                            region = r; siteId = sid; nodeId = sid;
-                        } else {
-                            let {region:r, siteId:sid} = getRegionAndSite(system, rawSite);
-                            region = r; siteId = sid; nodeId = sid;
-                        }
-                        let eventId = s.Alarm || '', status = s.LastStatus || '';
-                        let severity = getSeverity(status, eventId);
-                        let {first, last} = computeFirstLast(data.Recent, system, rawSite, eventId);
-                        let dayCnt = s.DayCnt ?? 0, dayDur = s.DayDur ?? 0;
-                        let weekCnt = s.WeekCnt ?? 0, weekDur = s.WeekDur ?? 0;
-                        dailyRows.push([system, region, siteId, nodeId, eventId, severity, first, last, dayCnt, dayDur, `<span class="${status==='ACTIVE'?'font-black':''}">${status}</span>`]);
-                        dailyClasses.push(getRowClass(status, severity));
-                        weeklyRows.push([system, region, siteId, nodeId, eventId, severity, first, last, weekCnt, weekDur, `<span class="${status==='ACTIVE'?'font-black':''}">${status}</span>`]);
-                        weeklyClasses.push(getRowClass(status, severity));
-                    }
-                    if (dailyTable) { dailyTable.clear(); dailyTable.rows.add(dailyRows); dailyTable.draw(); }
-                    else {
-                        dailyTable = $('#dailyTable').DataTable({
-                            data: dailyRows,
-                            columns: [
-                                { title: "System ID", className: "font-mono text-xs" },
-                                { title: "Region ID", className: "text-slate-400" },
-                                { title: "Site ID", className: "font-bold" },
-                                { title: "Node ID", className: "text-slate-400" },
-                                { title: "Event ID", className: "text-orange-400" },
-                                { title: "Severity", className: "uppercase text-xs font-bold" },
-                                { title: "First Occurence", className: "text-slate-500 text-xs" },
-                                { title: "Last Cleared", className: "text-slate-500 text-xs" },
-                                { title: "Count (24h)", className: "text-center font-black" },
-                                { title: "Duration (min)", className: "text-center font-mono text-emerald-600" },
-                                { title: "Status", className: "text-center font-bold" }
-                            ],
-                            order: [[8, 'desc']], pageLength: 25, scrollX: false, autoWidth: true,
-                            language: { search: "Pretraga:", info: "Prikazano _START_ do _END_ od _TOTAL_ zapisa" }
-                        });
-                    }
-                    $('#dailyTable tbody tr').each(function(idx) { let cls = dailyClasses[idx]; if (cls) $(this).removeClass('critical-row major-row minor-row cleared-row unknown-row').addClass(cls); });
-                    if (weeklyTable) { weeklyTable.clear(); weeklyTable.rows.add(weeklyRows); weeklyTable.draw(); }
-                    else {
-                        weeklyTable = $('#weeklyTable').DataTable({
-                            data: weeklyRows,
-                            columns: [
-                                { title: "System ID", className: "font-mono text-xs" },
-                                { title: "Region ID", className: "text-slate-400" },
-                                { title: "Site ID", className: "font-bold" },
-                                { title: "Node ID", className: "text-slate-400" },
-                                { title: "Event ID", className: "text-orange-400" },
-                                { title: "Severity", className: "uppercase text-xs font-bold" },
-                                { title: "First Occurence", className: "text-slate-500 text-xs" },
-                                { title: "Last Cleared", className: "text-slate-500 text-xs" },
-                                { title: "Count (7d)", className: "text-center font-black" },
-                                { title: "Duration (min)", className: "text-center font-mono text-emerald-600" },
-                                { title: "Status", className: "text-center font-bold" }
-                            ],
-                            order: [[8, 'desc']], pageLength: 25, scrollX: false, autoWidth: true,
-                            language: { search: "Pretraga:", info: "Prikazano _START_ do _END_ od _TOTAL_ zapisa" }
-                        });
-                    }
-                    $('#weeklyTable tbody tr').each(function(idx) { let cls = weeklyClasses[idx]; if (cls) $(this).removeClass('critical-row major-row minor-row cleared-row unknown-row').addClass(cls); });
-                } catch(err) { if (err.name !== 'AbortError') console.error(err); document.getElementById('updateTag').innerHTML = `⚠️ Greška: ${err.message} (pokušaj ponovo)`; }
-                finally { isRefreshing = false; if (showLoading) document.getElementById('manualRefreshBtn').innerHTML = '🔄 Ručno'; }
-            }
-            document.querySelectorAll('.tab-btn').forEach(btn => { btn.addEventListener('click', () => { const tabId = btn.getAttribute('data-tab'); document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active')); document.getElementById(tabId === 'daily' ? 'dailyTab' : 'weeklyTab').classList.add('active'); }); });
-            document.getElementById('manualRefreshBtn').addEventListener('click', () => refreshData(true));
-            refreshTimer = setInterval(() => refreshData(false), 30000);
-            refreshData(true);
-            window.addEventListener('beforeunload', () => { clearInterval(refreshTimer); if (abortController) abortController.abort(); if (dailyTable) dailyTable.destroy(); if (weeklyTable) weeklyTable.destroy(); });
-        })();
-    </script>
+
+    <div id="summary" class="summary-grid"></div>
+
+    <div class="bg-[#1e2937] rounded-3xl p-6 shadow-2xl overflow-hidden">
+      <table id="alarmTable" class="w-full text-sm">
+        <thead class="bg-[#0f172a] sticky top-0">
+          <tr>
+            <th>ALARM_NAME</th>
+            <th>SITE</th>
+            <th>FIRST_OCCURRENCE</th>
+            <th colspan="2">LAST_DAY</th>
+            <th colspan="2">LAST_WEEK</th>
+            <th colspan="2">LAST_MONTH</th>
+            <th colspan="2">LAST_YEAR</th>
+            <th>TOTAL_DURATION</th>
+            <th>TOTAL_COUNT</th>
+          </tr>
+          <tr class="text-xs bg-[#0f172a]">
+            <th></th><th></th><th></th>
+            <th class="text-emerald-400">DUR</th><th class="text-emerald-400">COUNT</th>
+            <th class="text-emerald-400">DUR</th><th class="text-emerald-400">COUNT</th>
+            <th class="text-emerald-400">DUR</th><th class="text-emerald-400">COUNT</th>
+            <th class="text-emerald-400">DUR</th><th class="text-emerald-400">COUNT</th>
+            <th></th><th></th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    const JSON_URL = "https://raw.githubusercontent.com/ruledicaprio/alarmi/main/stats_data.json";
+
+    function parseDotNetDate(str) {
+      const match = str && str.match(/\/Date\((\d+)\)\//);
+      return match ? new Date(parseInt(match[1])) : null;
+    }
+
+    async function loadData() {
+      const statusEl = document.getElementById('fetchStatus');
+      statusEl.innerHTML = `<span class="text-amber-400">Učitavam podatke...</span>`;
+
+      try {
+        const res = await fetch(JSON_URL, { cache: "no-cache" });
+        if (!res.ok) throw new Error("Ne mogu učitati stats_data.json");
+        const data = await res.json();
+
+        const stats = data.Stats || [];
+        const recent = data.Recent || [];
+        const lastUpdate = data.LastUpdate || "—";
+
+        // FIRST OCCURRENCE iz Recent podataka
+        const firstMap = {};
+        recent.forEach(r => {
+          const key = `${r.Alarm}|${r.Site}`;
+          const time = parseDotNetDate(r.Time);
+          if (time && (!firstMap[key] || time < firstMap[key])) firstMap[key] = time;
+        });
+
+        const tableData = stats.map(s => {
+          const key = `${s.Alarm}|${s.Site}`;
+          const firstTime = firstMap[key] ? firstMap[key].toLocaleString('bs-BA') : lastUpdate;
+          return {
+            name: s.Alarm || '—',
+            site: s.Site || '—',
+            first: firstTime,
+            dayDur: (s.DayDur || 0) + ' min',
+            dayCount: s.DayCnt || 0,
+            weekDur: (s.WeekDur || 0) + ' min',
+            weekCount: s.WeekCnt || 0,
+            monthDur: '—',
+            monthCount: 0,
+            yearDur: '—',
+            yearCount: 0,
+            totalDuration: '—',
+            totalCount: (s.DayCnt || 0) + (s.WeekCnt || 0)
+          };
+        });
+
+        // Summary cards
+        const criticalToday = recent.filter(r => {
+          const t = parseDotNetDate(r.Time);
+          return t && (t > new Date(Date.now() - 86400000)) && r.Status === 'ACTIVE';
+        }).length;
+
+        document.getElementById('summary').innerHTML = `
+          <div class="card"><div class="card-value text-red-400">${criticalToday}</div><div class="card-label">CRITICAL TODAY</div></div>
+          <div class="card"><div class="card-value text-emerald-400">${recent.length}</div><div class="card-label">TOTAL EVENTS</div></div>
+          <div class="card"><div class="card-value text-amber-400">${stats.length}</div><div class="card-label">UNIQUE ALARMS</div></div>
+          <div class="card"><div class="card-value text-blue-400">${stats.filter(s => /NetEco|Benning|BARAN|DeepSea/i.test(s.System)).length}</div><div class="card-label">POWER ALARMS</div></div>
+        `;
+
+        // DataTable
+        if ($.fn.DataTable.isDataTable('#alarmTable')) $('#alarmTable').DataTable().destroy();
+        const tbody = document.querySelector('#alarmTable tbody');
+        tbody.innerHTML = tableData.map(r => `
+          <tr>
+            <td class="font-medium">${r.name}</td>
+            <td class="text-amber-400">${r.site}</td>
+            <td>${r.first}</td>
+            <td class="text-emerald-400">${r.dayDur}</td><td class="font-bold">${r.dayCount}</td>
+            <td class="text-emerald-400">${r.weekDur}</td><td class="font-bold">${r.weekCount}</td>
+            <td class="text-emerald-400">${r.monthDur}</td><td class="font-bold">${r.monthCount}</td>
+            <td class="text-emerald-400">${r.yearDur}</td><td class="font-bold">${r.yearCount}</td>
+            <td class="font-medium">${r.totalDuration}</td>
+            <td class="font-bold">${r.totalCount}</td>
+          </tr>
+        `).join('');
+
+        new DataTable('#alarmTable', {
+          paging: true,
+          pageLength: 25,
+          order: [[12, 'desc']],
+          scrollX: true,
+          language: { search: "Pretraži:", lengthMenu: "Prikaži _MENU_ redova" }
+        });
+
+        statusEl.innerHTML = `<span class="status-live">✅ LIVE</span> • Last update: <span class="font-medium">${lastUpdate}</span> • ${stats.length} alarmi`;
+
+      } catch (e) {
+        statusEl.innerHTML = `<span class="text-red-400">❌ ${e.message}</span>`;
+      }
+    }
+
+    // Auto-refresh svakih 60 sekundi
+    window.onload = loadData;
+    setInterval(loadData, 60000);
+  </script>
 </body>
 </html>
