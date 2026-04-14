@@ -86,7 +86,10 @@ while ($true) {
         $history | ConvertTo-Json -Depth 10 | Set-Content $historyFile -Encoding UTF8
 
         # Agregacija za Weekly Tab
-        $weekly = $history.PSObject.Properties.Value | Update-List -Add @() | Group-Object Site, Alarm | ForEach-Object {
+        $allHistoryData = $history.PSObject.Properties.Value | ForEach-Object { $_ }
+        if ($null -eq $allHistoryData) { $allHistoryData = @() }
+
+        $weekly = $allHistoryData | Group-Object Site, Alarm | ForEach-Object {
             [PSCustomObject]@{
                 Site=$_.Values[0]; Alarm=$_.Values[1]; System=$_.Group[0].System; Region=$_.Group[0].Region;
                 WeekCnt=($_.Group | Measure-Object DayCnt -Sum).Sum;
