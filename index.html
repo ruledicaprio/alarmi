@@ -11,13 +11,15 @@
     body { font-family: system-ui; background:#0f172a; color:#e2e8f0; margin:0; padding:20px; }
     .container { max-width: 1480px; margin:0 auto; }
     h1 { text-align:center; font-size:2.8rem; color:#10b981; margin-bottom:4px; }
-    .subtitle { text-align:center; color:#64748b; margin-bottom:30px; }
+    .subtitle { text-align:center; color:#64748b; margin-bottom:20px; }
+    .tabs { display:flex; justify-content:center; gap:8px; margin-bottom:20px; flex-wrap:wrap; }
+    .tab { padding:12px 28px; border-radius:9999px; background:#1e2937; color:#e2e8f0; font-weight:600; cursor:pointer; transition:all 0.2s; }
+    .tab.active { background:#10b981; color:white; }
     .summary { display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); gap:20px; margin-bottom:30px; }
     .card { background:#1e2937; border-radius:20px; padding:24px; text-align:center; }
     .card-value { font-size:3rem; font-weight:700; margin-bottom:6px; }
     .card-label { font-size:0.95rem; color:#94a3b8; text-transform:uppercase; }
-    .refresh-btn { background:#10b981; color:white; border:none; padding:14px 32px; border-radius:9999px; font-weight:600; display:flex; align-items:center; gap:10px; box-shadow:0 4px 6px -1px rgb(16 185 129); }
-    .refresh-btn:hover { background:#059669; }
+    table { font-size:0.95rem; }
   </style>
 </head>
 <body>
@@ -25,10 +27,16 @@
     <h1>BHTelecom • Alarm Performance Dashboard</h1>
     <p class="subtitle">U2020 • NetEco • Eaton • Deep Sea • Baran • Benning • IgnitionSCADA</p>
 
+    <!-- TABS -->
+    <div class="tabs" id="tabs">
+      <div class="tab active" data-period="day">DNEVNI (24h)</div>
+      <div class="tab" data-period="week">SEDMICA (7 dana)</div>
+      <div class="tab" data-period="month">MJESČNI (30 dana)</div>
+      <div class="tab" data-period="year">GODIŠNJI (365 dana)</div>
+    </div>
+
     <div class="flex justify-end mb-6">
-      <button onclick="loadData()" class="refresh-btn">
-        <span>↻</span> Refresh now
-      </button>
+      <button onclick="loadData()" class="tab" style="background:#10b981;color:white;padding:12px 32px;border-radius:9999px;">↻ Refresh now</button>
       <div id="fetchStatus" class="ml-6 flex items-center text-sm"></div>
     </div>
 
@@ -64,93 +72,77 @@
 
   <script>
     const JSON_URL = "https://raw.githubusercontent.com/ruledicaprio/alarmi/main/stats_data.json";
+    let allStats = [];
 
     function parseDotNetDate(str) {
       const m = str && str.match(/\/Date\((\d+)\)\//);
       return m ? new Date(parseInt(m[1])) : null;
     }
 
-    async function loadData() {
+    function loadData() {
       const status = document.getElementById('fetchStatus');
       status.innerHTML = 'Učitavam...';
 
-      try {
-        const res = await fetch(JSON_URL, { cache: 'no-cache' });
-        const data = await res.json();
+      fetch(JSON_URL, { cache: 'no-cache' })
+        .then(res => res.json())
+        .then(data => {
+          allStats = data.Stats || [];
+          const recent = data.Recent || [];
+          const lastUpdate = data.LastUpdate || '—';
 
-        const stats = data.Stats || [];
-        const recent = data.Recent || [];
-        const lastUpdate = data.LastUpdate || '—';
+          // Summary
+          const criticalToday = recent.filter(r => {
+            const t = parseDotNetDate(r.Time);
+            return t && (t > new Date(Date.now() - 86400000)) && r.Status === 'ACTIVE';
+          }).length;
 
-        // FIRST OCCURRENCE iz Recent
-        const firstMap = {};
-        recent.forEach(r => {
-          const key = `${r.Alarm}|${r.Site}`;
-          const t = parseDotNetDate(r.Time);
-          if (t && (!firstMap[key] || t < firstMap[key])) firstMap[key] = t;
-        });
+          document.getElementById('summary').innerHTML = `
+            <div class="card"><div class="card-value text-red-400">${criticalToday}</div><div class="card-label">CRITICAL / POWER TODAY</div></div>
+            <div class="card"><div class="card-value text-emerald-400">${recent.length}</div><div class="card-label">TOTAL EVENTS</div></div>
+            <div class="card"><div class="card-value text-amber-400">${allStats.length}</div><div class="card-label">UNIQUE ALARMS</div></div>
+            <div class="card"><div class="card-value text-blue-400">${allStats.filter(s => /NetEco|Eaton|Benning|BARAN|DeepSea/i.test(s.System)).length}</div><div class="card-label">POWER ALARMS</div></div>
+          `;
 
-        const tableData = stats.map(s => {
-          const key = `${s.Alarm}|${s.Site}`;
-          const first = firstMap[key] ? firstMap[key].toLocaleString('bs-BA') : lastUpdate;
-          return {
-            name: s.Alarm || '—',
-            site: s.Site || '—',
-            first: first,
-            dayDur: (s.DayDur || 0) + ' min',
-            dayCount: s.DayCnt || 0,
-            weekDur: (s.WeekDur || 0) + ' min',
-            weekCount: s.WeekCnt || 0,
-            monthDur: '—',
-            monthCount: 0,
-            yearDur: '—',
-            yearCount: 0,
-            totalDuration: '—',
-            totalCount: (s.DayCnt || 0) + (s.WeekCnt || 0)
-          };
-        });
-
-        // Summary
-        const criticalToday = recent.filter(r => {
-          const t = parseDotNetDate(r.Time);
-          return t && t > new Date(Date.now() - 86400000) && r.Status === 'ACTIVE';
-        }).length;
-
-        document.getElementById('summary').innerHTML = `
-          <div class="card"><div class="card-value text-red-400">${criticalToday}</div><div class="card-label">CRITICAL / POWER TODAY</div></div>
-          <div class="card"><div class="card-value text-emerald-400">${recent.length}</div><div class="card-label">TOTAL EVENTS</div></div>
-          <div class="card"><div class="card-value text-amber-400">${stats.length}</div><div class="card-label">UNIQUE ALARMS</div></div>
-          <div class="card"><div class="card-value text-blue-400">${stats.filter(s => /NetEco|Eaton|Benning|BARAN|DeepSea/i.test(s.System)).length}</div><div class="card-label">POWER ALARMS</div></div>
-        `;
-
-        // DataTable
-        if ($.fn.DataTable.isDataTable('#alarmTable')) $('#alarmTable').DataTable().destroy();
-        const tbody = document.querySelector('#alarmTable tbody');
-        tbody.innerHTML = tableData.map(r => `
-          <tr>
-            <td class="font-medium">${r.name}</td>
-            <td class="text-amber-400">${r.site}</td>
-            <td>${r.first}</td>
-            <td class="text-emerald-400">${r.dayDur}</td><td class="font-bold">${r.dayCount}</td>
-            <td class="text-emerald-400">${r.weekDur}</td><td class="font-bold">${r.weekCount}</td>
-            <td class="text-emerald-400">${r.monthDur}</td><td class="font-bold">${r.monthCount}</td>
-            <td class="text-emerald-400">${r.yearDur}</td><td class="font-bold">${r.yearCount}</td>
-            <td class="font-medium">${r.totalDuration}</td>
-            <td class="font-bold">${r.totalCount}</td>
-          </tr>
-        `).join('');
-
-        new DataTable('#alarmTable', {
-          paging: true, pageLength: 25, order: [[12, 'desc']], scrollX: true,
-          language: { search: "Pretraži:", lengthMenu: "Prikaži _MENU_ redova" }
-        });
-
-        status.innerHTML = `✅ Live • Last update: <span class="font-medium">${lastUpdate}</span> • ${stats.length} alarmi`;
-
-      } catch (e) {
-        status.innerHTML = `❌ Greška: ${e.message}`;
-      }
+          renderTable('day'); // default tab
+          status.innerHTML = `✅ Live • Last update: <span class="font-medium">${lastUpdate}</span>`;
+        })
+        .catch(e => status.innerHTML = `❌ Greška: ${e.message}`);
     }
+
+    function renderTable(period) {
+      if ($.fn.DataTable.isDataTable('#alarmTable')) $('#alarmTable').DataTable().destroy();
+
+      const tbody = document.querySelector('#alarmTable tbody');
+      tbody.innerHTML = allStats.map(s => {
+        let dur = '—', cnt = 0;
+        if (period === 'day') { dur = (s.DayDur || 0) + ' min'; cnt = s.DayCnt || 0; }
+        else if (period === 'week') { dur = (s.WeekDur || 0) + ' min'; cnt = s.WeekCnt || 0; }
+        else if (period === 'month' || period === 'year') { dur = '—'; cnt = 0; }
+
+        return `
+          <tr>
+            <td class="font-medium">${s.Alarm || '—'}</td>
+            <td class="text-amber-400">${s.Site || '—'}</td>
+            <td>—</td>
+            <td class="text-emerald-400">${dur}</td><td class="font-bold">${cnt}</td>
+            <td class="text-emerald-400">${dur}</td><td class="font-bold">${cnt}</td>
+            <td class="text-emerald-400">—</td><td class="font-bold">0</td>
+            <td class="text-emerald-400">—</td><td class="font-bold">0</td>
+            <td class="font-medium">—</td>
+            <td class="font-bold">${cnt}</td>
+          </tr>`;
+      }).join('');
+
+      new DataTable('#alarmTable', { paging:true, pageLength:25, order:[[12,'desc']], scrollX:true });
+    }
+
+    // Tabovi
+    document.getElementById('tabs').addEventListener('click', e => {
+      if (!e.target.classList.contains('tab')) return;
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      e.target.classList.add('active');
+      renderTable(e.target.dataset.period);
+    });
 
     window.onload = loadData;
     setInterval(loadData, 60000);
