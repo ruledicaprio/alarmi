@@ -8,7 +8,11 @@ $statsFile = "$repoPath\stats_data.json"
 $counterFile = "$repoPath\last_count.txt"
 
 git config user.name "ruledicaprio"
+<<<<<<< Updated upstream
 git config user.email "tvoja-email@adresa.com"
+=======
+git config user.email "rusmirskopljak@gmail.com"
+>>>>>>> Stashed changes
 
 $previousCount = 0
 if (Test-Path $counterFile) { $previousCount = [int](Get-Content $counterFile) }
