@@ -19,3 +19,7 @@ events.tsv
 # editor
 *.swp
 *.swo
+
+# frontend
+**/node_modules/
+web/dist/

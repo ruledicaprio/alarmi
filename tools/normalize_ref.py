@@ -22,7 +22,7 @@ CLASS_RULES = [
     ("NE_DISCONNECTED",    r"\bne is disconnected\b|\bdisconnected\b"),
     ("COMMS_LOST",         r"gubitak komunikacije|prisustvo komunikacije|comms[- ]?lost|communication|snmpv2-mib|nepoznat|node info"),
     ("GENSET_EVENT",       r"engine ?(start|stop)|generator ?(start|stop|enable|over|under)|notifengine|notiflevel|levelstatus|namedalarm|\bdse\b|\bdea[_ ]|nivo goriva|fuel|oilpressure"),
-    ("MAINS_FAILURE",      r"nestanak 220|mains ?(failure|fail)|mains phase l[123]|mains\d*voltage|ac[_ ]?fail|acinputfault|ac input fault|input fault|ac phase l[123]|partial[- ]ac[- ]fail|phase[- ]?fail|phase l[123]|under ?voltage|nestanak (mreže|mreze)|undervoltage|ispad faze|ispad[_ ]?mreze|blackout"),
+    ("MAINS_FAILURE",      r"nestanak 220|mains ?(failure|fail)|mains phase l[123]|mains\d*voltage|ac[_ ]?fail|acinputfault|ac input fault|input fault|ac phase l[123]|partial[- ]ac[- ]fail|phase[- ]?fail|phase l[123]|under ?voltage|nestanak (mreže|mreze)|undervoltage|ispad faze|ispad[_ ]?mreze|blackout|notifmains|mains ?return"),
     ("RECTIFIER_FAILURE",  r"kvar ispravlja|rectifier (power )?(failure|fail)|rectifier[- ]fail|ispravlja"),
     ("RECTIFIER_COMMS",    r"rectifier[- ]comms[- ]lost"),
     ("SOLAR_FAULT",        r"solar[_ ]?fail|solar[- ]comms[- ]lost"),
@@ -56,13 +56,11 @@ def norm_sev(s):
     if s.isdigit(): return {"1":"warning","2":"minor","3":"major"}.get(s,"minor")
     return "major"
 
-STATEFUL_SOURCES = {"u2020","rps_sc200","rps_sc300","benning","baran","dse74xx","modbus_eaton"}
+STATEFUL_SOURCES = {"ignition","neteco","u2020","rps_sc200","rps_sc300","benning","baran","dse74xx","modbus_eaton","html_oos"}
 def norm_transition(source, status):
-    if source not in STATEFUL_SOURCES:
-        return INSTANT
     s = (status or "").strip().lower()
     if s in ("cleared","clear","normal","alarmnormal","removed","entryremoved"): return CLEAR
-    if s in ("major","critical","active","alarmactive","added","entryadded"): return RAISE
+    if s in ("critical","major","minor","warning","low","active","alarmactive","added","entryadded"): return RAISE
     return INSTANT
 
 def parse_ts(s):
@@ -76,9 +74,10 @@ def parse_ts(s):
 def site_key(raw):
     if not raw: return ""
     s = raw.strip().upper()
-    s = re.sub(r"^(BTS_|BS_|RRST_|RR_|DEA_|_DSE_)", "", s)
     s = s.replace(" ", "_").replace("-", "_")
-    return re.sub(r"_+", "_", s).strip("_")
+    s = re.sub(r"_+", "_", s)
+    s = re.sub(r"^(BTS_|BS_|RRST_|RR_|DEA_|_DSE_)", "", s)
+    return s.strip("_")
 
 def split_csv(line):
     return [p.strip().strip('"').strip() for p in line.split(",")]
@@ -93,8 +92,9 @@ def p_ignition(f):
 
 def p_neteco(f):
     if len(f) < 4: return None
+    status = f[4] if len(f) >= 5 else "active"
     return dict(source="neteco", raw_site=f[1], site=site_key(f[1]), region="",
-               raw_alarm=f[2], code="", sev="major", status="active", ts=f[3], ip="")
+               raw_alarm=f[2], code="", sev=status, status=status, ts=f[3], ip="")
 
 def p_u2020(f):
     if len(f) < 5: return None
@@ -109,7 +109,7 @@ def p_rps(f, src):
 def p_dse(f):
     if len(f) < 9: return None
     return dict(source="dse74xx", raw_site=f[1], site=site_key(f[1]), region="",
-               raw_alarm=(f[5] or f[4]), code="", sev=f[8], status=f[4], ts=f[6], ip=f[7])
+               raw_alarm=(f[5] or f[4]), code="", sev=f[8], status=f[8], ts=f[6], ip=f[7])
 
 def p_benning(f):
     if len(f) < 7: return None

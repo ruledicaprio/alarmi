@@ -22,4 +22,4 @@ tokio-postgres = "0.7"
 toml = "0.8"
 axum = "0.7"
 deadpool-postgres = "0.14"
-tower-http = { version = "0.5", features = ["cors"] }
+tower-http = { version = "0.5", features = ["cors", "fs"] }

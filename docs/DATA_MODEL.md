@@ -96,3 +96,19 @@ first-raise-to-first-clear logic as the prior PowerShell engine, now in SQL.
   and `gis-map-export/`.
 - **Ingest API**: Stage 1 bulk-loads via `COPY`; a streaming ingest endpoint
   (Rust/Axum) replaces the periodic curl+load loop.
+
+## Update — live feed (2026-06): Ignition & NetEco are stateful
+
+The live `/alarmi/ispadnap` feed carries an explicit **status field** that the
+April sample lacked:
+- **Ignition**: field 5 = `critical` (raise) / `cleared` (clear).
+- **NetEco**: now a 5th field = `critical` / `cleared`.
+- **DSE**: the **last** field is the status (`major` / `clear`), e.g.
+  `notifMainsFail`→raise, `notifMainsReturn`→clear.
+
+So transition is now **purely status-driven for every source** (no more
+count-only special cases): `cleared/clear/normal/removed → CLEAR`,
+`critical/major/minor/warning/low/active/added → RAISE`, else INSTANT. These
+RAISE/CLEAR pairs feed `rebuild_episodes()` for duration analytics. `notifmains`
+was added to the MAINS_FAILURE taxonomy so DSE mains fail/return pair to the same
+class. Verified on a live sample: 100% parse + classify, correct pairing.

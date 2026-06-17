@@ -31,9 +31,11 @@ pub fn site_key(raw: &str) -> String {
         return String::new();
     }
     let mut s = raw.trim().to_uppercase();
-    s = SITE_PREFIX_RX.replace(&s, "").into_owned();
+    // normalize separators FIRST so space-separated prefixes ("BS Cadjavica")
+    // strip the same as underscore ones ("BTS_CADJAVICA") -> cross-source unify.
     s = s.replace(' ', "_").replace('-', "_");
     s = UNDERSCORES_RX.replace_all(&s, "_").into_owned();
+    s = SITE_PREFIX_RX.replace(&s, "").into_owned();
     s.trim_matches('_').to_string()
 }
 
@@ -74,7 +76,7 @@ fn finalize(r: Raw) -> Result<CanonicalEvent, DropReason> {
         region: r.region.to_uppercase(),
         alarm_class: classify(&r.raw_alarm),
         severity: norm_severity(&r.sev),
-        transition: norm_transition(r.source, &r.status),
+        transition: norm_transition(&r.status),
         raw_alarm: r.raw_alarm,
         device_ip: r.ip.filter(|s| !s.is_empty()),
     })
@@ -106,8 +108,9 @@ pub fn normalize_line(line: &str) -> Result<CanonicalEvent, DropReason> {
             if f.len() < 4 {
                 return Err(DropReason::FieldCount(sysname.into()));
             }
+            let status = if f.len() >= 5 { f[4].clone() } else { "active".to_string() };
             Raw { source: Source::NetEco, raw_site: f[1].clone(), region: String::new(),
-                  raw_alarm: f[2].clone(), sev: "major".into(), status: "active".into(),
+                  raw_alarm: f[2].clone(), sev: status.clone(), status,
                   ts: f[3].clone(), ip: None }
         }
         "U2020" => {
@@ -133,7 +136,7 @@ pub fn normalize_line(line: &str) -> Result<CanonicalEvent, DropReason> {
             }
             let alarm = if f[5].is_empty() { f[4].clone() } else { f[5].clone() };
             Raw { source: Source::Dse74xx, raw_site: f[1].clone(), region: String::new(),
-                  raw_alarm: alarm, sev: f[8].clone(), status: f[4].clone(),
+                  raw_alarm: alarm, sev: f[8].clone(), status: f[8].clone(),
                   ts: f[6].clone(), ip: Some(f[7].clone()) }
         }
         "Benning_napajanje" => {

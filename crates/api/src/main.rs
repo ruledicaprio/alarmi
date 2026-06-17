@@ -14,6 +14,7 @@ use serde::Deserialize;
 use serde_json::json;
 use std::net::SocketAddr;
 use tower_http::cors::{Any, CorsLayer};
+use tower_http::services::{ServeDir, ServeFile};
 
 #[derive(Clone)]
 pub struct AppState {
@@ -36,6 +37,8 @@ pub type ApiResult = Result<Json<serde_json::Value>, ApiError>;
 struct ApiCfg {
     #[serde(default = "default_bind")]
     bind: String,
+    #[serde(default = "default_static")]
+    static_dir: String,
     #[serde(default)]
     database: DbCfg,
 }
@@ -45,6 +48,7 @@ struct DbCfg {
     dsn: String,
 }
 fn default_bind() -> String { "0.0.0.0:8080".into() }
+fn default_static() -> String { "web/dist".into() }
 
 fn load_cfg() -> ApiCfg {
     let mut path = "config/api.toml".to_string();
@@ -55,7 +59,7 @@ fn load_cfg() -> ApiCfg {
     let mut cfg: ApiCfg = std::fs::read_to_string(&path)
         .ok()
         .and_then(|s| toml::from_str(&s).ok())
-        .unwrap_or_else(|| ApiCfg { bind: default_bind(), database: DbCfg::default() });
+        .unwrap_or_else(|| ApiCfg { bind: default_bind(), static_dir: default_static(), database: DbCfg::default() });
     // env wins (containers inject DATABASE_URL=host=timescaledb ...)
     if let Ok(url) = std::env::var("DATABASE_URL") { cfg.database.dsn = url; }
     if cfg.database.dsn.is_empty() {
@@ -86,8 +90,16 @@ async fn main() -> anyhow::Result<()> {
         .route("/ingest/raw/ispadnap", post(ingest::ingest_raw_ispadnap))
         .route("/ingest/events", post(ingest::ingest_events))
         .route("/ingest/measurements", post(ingest::ingest_measurements))
-        .with_state(state)
-        .layer(cors);
+        .with_state(state);
+
+    let app = if std::path::Path::new(&cfg.static_dir).exists() {
+        let index = format!("{}/index.html", cfg.static_dir);
+        eprintln!("[api] serving UI from {}", cfg.static_dir);
+        app.fallback_service(ServeDir::new(&cfg.static_dir).fallback(ServeFile::new(index)))
+    } else {
+        app
+    };
+    let app = app.layer(cors);
 
     let addr: SocketAddr = cfg.bind.parse()?;
     let listener = tokio::net::TcpListener::bind(addr).await?;

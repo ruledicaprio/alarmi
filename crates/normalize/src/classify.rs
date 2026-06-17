@@ -2,7 +2,7 @@
 //! Rules are ordered (first match wins) and validated against the real
 //! master_alarms.log (99.27% classified). See tools/normalize_ref.py oracle.
 
-use crate::types::{AlarmClass, Severity, Source, Transition};
+use crate::types::{AlarmClass, Severity, Transition};
 use once_cell::sync::Lazy;
 use regex::Regex;
 
@@ -12,7 +12,7 @@ static RULES: Lazy<Vec<(AlarmClass, Regex)>> = Lazy::new(|| {
         (AlarmClass::NeDisconnected,  r"\bne is disconnected\b|\bdisconnected\b"),
         (AlarmClass::CommsLost,       r"gubitak komunikacije|prisustvo komunikacije|comms[- ]?lost|communication|snmpv2-mib|nepoznat|node info"),
         (AlarmClass::GensetEvent,     r"engine ?(start|stop)|generator ?(start|stop|enable|over|under)|notifengine|notiflevel|levelstatus|namedalarm|\bdse\b|\bdea[_ ]|nivo goriva|fuel|oilpressure"),
-        (AlarmClass::MainsFailure,    r"nestanak 220|mains ?(failure|fail)|mains phase l[123]|mains\d*voltage|ac[_ ]?fail|acinputfault|ac input fault|input fault|ac phase l[123]|partial[- ]ac[- ]fail|phase[- ]?fail|phase l[123]|under ?voltage|nestanak (mreže|mreze)|undervoltage|ispad faze|ispad[_ ]?mreze|blackout"),
+        (AlarmClass::MainsFailure,    r"nestanak 220|mains ?(failure|fail)|mains phase l[123]|mains\d*voltage|ac[_ ]?fail|acinputfault|ac input fault|input fault|ac phase l[123]|partial[- ]ac[- ]fail|phase[- ]?fail|phase l[123]|under ?voltage|nestanak (mreže|mreze)|undervoltage|ispad faze|ispad[_ ]?mreze|blackout|notifmains|mains ?return"),
         (AlarmClass::RectifierFailure, r"kvar ispravlja|rectifier (power )?(failure|fail)|rectifier[- ]fail|ispravlja"),
         (AlarmClass::RectifierComms,  r"rectifier[- ]comms[- ]lost"),
         (AlarmClass::SolarFault,      r"solar[_ ]?fail|solar[- ]comms[- ]lost"),
@@ -57,19 +57,16 @@ pub fn norm_severity(s: &str) -> Severity {
     }
 }
 
-/// Source-aware transition. Count-only sources are always Instant; only
-/// stateful sources resolve Raise/Clear so durations can pair.
-pub fn norm_transition(source: Source, status: &str) -> Transition {
-    if !source.is_stateful() {
-        return Transition::Instant;
-    }
+/// Status-driven transition. Every source carries a status token that resolves
+/// to raise/clear (Ignition field 5 = critical/cleared, NetEco field 5, U2020/RPS
+/// status, DSE last field, Benning added/removed, etc.). Unknown -> Instant.
+pub fn norm_transition(status: &str) -> Transition {
     match status.trim().to_lowercase().as_str() {
         "cleared" | "clear" | "normal" | "alarmnormal" | "removed" | "entryremoved" => {
             Transition::Clear
         }
-        "major" | "critical" | "active" | "alarmactive" | "added" | "entryadded" => {
-            Transition::Raise
-        }
+        "critical" | "major" | "minor" | "warning" | "low" | "active" | "alarmactive"
+        | "added" | "entryadded" => Transition::Raise,
         _ => Transition::Instant,
     }
 }

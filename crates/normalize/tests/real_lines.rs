@@ -4,7 +4,7 @@
 use bht_normalize::{normalize_line, parse_oos_table, AlarmClass, Severity, Source, Transition};
 
 #[test]
-fn ignition_critical_is_instant() {
+fn ignition_critical_is_raise() {
     let l = r#"IgnitionSCADA,   Sarajevo - DMalta ,   "8000041",   UPS 2 S1 ALARMI modula 37 ,   Critical , 2026-04-14_01:53:38"#;
     let e = normalize_line(l).unwrap();
     assert_eq!(e.source, Source::Ignition);
@@ -12,7 +12,7 @@ fn ignition_critical_is_instant() {
     assert_eq!(e.site_key, "DMALTA");
     assert_eq!(e.alarm_class, AlarmClass::UpsModule);
     assert_eq!(e.severity, Severity::Critical);
-    assert_eq!(e.transition, Transition::Instant); // count-only source
+    assert_eq!(e.transition, Transition::Raise); // status field critical -> raise
 }
 
 #[test]
@@ -44,12 +44,12 @@ fn u2020_nestanak_220_is_mains_failure() {
 }
 
 #[test]
-fn neteco_is_count_only() {
+fn neteco_legacy_4field_is_raise() {
     let l = "NetEco , KISELJAK_CENTAR ,  Mains Phase L3 Failure , 2026-04-14 01:44:59";
     let e = normalize_line(l).unwrap();
     assert_eq!(e.source, Source::NetEco);
     assert_eq!(e.alarm_class, AlarmClass::MainsFailure);
-    assert_eq!(e.transition, Transition::Instant);
+    assert_eq!(e.transition, Transition::Raise);
 }
 
 #[test]
@@ -116,4 +116,37 @@ fn oos_table_sections_and_rows() {
     assert_eq!(evs[0].site_key, "POTOCARI_MUZEJ");
     assert_eq!(evs[0].region, "TUZLA");
     assert_eq!(evs[2].raw_alarm, "OUT_OF_SERVICE:MPLS");
+}
+
+#[test]
+fn ignition_cleared_is_clear() {
+    let l = r#"IgnitionSCADA,   Bihac - BS Cadjavica ,   "4000035",   Gubitak komunikacije ,   cleared , 2026-06-17_05:52:27"#;
+    let e = normalize_line(l).unwrap();
+    assert_eq!(e.alarm_class, AlarmClass::CommsLost);
+    assert_eq!(e.transition, Transition::Clear);
+    assert_eq!(e.site_key, "CADJAVICA");
+}
+
+#[test]
+fn neteco_live_5field_pairs() {
+    let raise = "NetEco , CELINAC_BOJICI ,  AC Failure , 2026-06-17 05:41:12 , critical";
+    let clear = "NetEco , CELINAC_BOJICI ,  AC Failure , 2026-06-17 05:44:31 , cleared";
+    let r = normalize_line(raise).unwrap();
+    let c = normalize_line(clear).unwrap();
+    assert_eq!(r.alarm_class, AlarmClass::MainsFailure);
+    assert_eq!(r.transition, Transition::Raise);
+    assert_eq!(c.transition, Transition::Clear);
+}
+
+#[test]
+fn dse_mains_fail_and_return_pair() {
+    let fail = "DSE-74xx, DEA_Alaginci , _DSE_RR_Alaginci ,  , singleEventNotification , notifMainsFail , 2026-06-17_05:44:04 , 10.10.4.69, major";
+    let ret  = "DSE-74xx, DEA_Alaginci , _DSE_RR_Alaginci ,  , singleEventNotification , notifMainsReturn , 2026-06-17_05:51:54 , 10.10.4.69, clear";
+    let f = normalize_line(fail).unwrap();
+    let r = normalize_line(ret).unwrap();
+    assert_eq!(f.alarm_class, AlarmClass::MainsFailure);
+    assert_eq!(f.transition, Transition::Raise);
+    assert_eq!(r.alarm_class, AlarmClass::MainsFailure); // notifmains -> pairs with fail
+    assert_eq!(r.transition, Transition::Clear);
+    assert_eq!(f.site_key, "ALAGINCI");
 }
