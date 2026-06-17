@@ -1,0 +1,352 @@
+[
+    {
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - RSU Kasindolska 1",
+        "Alarm":  "Info",
+        "Count":  1313,
+        "Duration":  0
+    },
+    {
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - RSU Kasindolska 1",
+        "Alarm":  "1000030",
+        "Count":  1046,
+        "Duration":  0
+    },
+    {
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - RSU Kasindolska 1",
+        "Alarm":  "Node Info",
+        "Count":  999,
+        "Duration":  0
+    },
+    {
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - RSU Kasindolska 1",
+        "Alarm":  "1000029",
+        "Count":  616,
+        "Duration":  0
+    },
+    {
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Count":  85,
+        "Duration":  0
+    },
+    {
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - Alipasino Polje",
+        "Alarm":  "8000166",
+        "Count":  38,
+        "Duration":  0
+    },
+    {
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Phase L2 Failure",
+        "Count":  23,
+        "Duration":  0
+    },
+    {
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Phase L3 Failure",
+        "Count":  22,
+        "Duration":  0
+    },
+    {
+        "System":  "U2020",
+        "Site":  "PODBARE",
+        "Alarm":  "Kvar ispravljaca (Rectifier Failure)",
+        "Count":  16,
+        "Duration":  185.25
+    },
+    {
+        "System":  "U2020",
+        "Site":  "RADOVAN",
+        "Alarm":  "NE Is Disconnected",
+        "Count":  15,
+        "Duration":  317.93
+    },
+    {
+        "System":  "NetEco",
+        "Site":  "PAPRASKO",
+        "Alarm":  "Compressor Fault",
+        "Count":  13,
+        "Duration":  0
+    },
+    {
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000273",
+        "Count":  11,
+        "Duration":  0
+    },
+    {
+        "System":  "U2020",
+        "Site":  "BARACI",
+        "Alarm":  "NE Is Disconnected",
+        "Count":  11,
+        "Duration":  14.87
+    },
+    {
+        "System":  "U2020",
+        "Site":  "PRIJEKO_BRDO",
+        "Alarm":  "Otvorena vrata (Door Open Alarm)",
+        "Count":  11,
+        "Duration":  270.53
+    },
+    {
+        "System":  "U2020",
+        "Site":  "CAJNICE",
+        "Alarm":  "Nestanak 220 V",
+        "Count":  10,
+        "Duration":  283.98
+    },
+    {
+        "System":  "RPS-SC200-MIB",
+        "Site":  "PUTOVICI",
+        "Alarm":  "ZENICA",
+        "Count":  8,
+        "Duration":  0
+    },
+    {
+        "System":  "NetEco",
+        "Site":  "DRAKSENIC",
+        "Alarm":  "Bus Bar Undervoltage",
+        "Count":  8,
+        "Duration":  0
+    },
+    {
+        "System":  "NetEco",
+        "Site":  "DRAKSENIC",
+        "Alarm":  "Mains Failure",
+        "Count":  8,
+        "Duration":  0
+    },
+    {
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - RSU Kasindolska 1",
+        "Alarm":  "1000031",
+        "Count":  8,
+        "Duration":  0
+    },
+    {
+        "System":  "U2020",
+        "Site":  "DRAKSENIC",
+        "Alarm":  "NE Is Disconnected",
+        "Count":  8,
+        "Duration":  44.67
+    },
+    {
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Rectifier Power Failure",
+        "Count":  8,
+        "Duration":  0
+    },
+    {
+        "System":  "NetEco",
+        "Site":  "DRAKSENIC",
+        "Alarm":  "Battery Discharging",
+        "Count":  8,
+        "Duration":  0
+    },
+    {
+        "System":  "NetEco",
+        "Site":  "DRAKSENIC",
+        "Alarm":  "AC Failure",
+        "Count":  7,
+        "Duration":  0
+    },
+    {
+        "System":  "NetEco",
+        "Site":  "JELICA",
+        "Alarm":  "Battery Fuse Break",
+        "Count":  7,
+        "Duration":  0
+    },
+    {
+        "System":  "NetEco",
+        "Site":  "MAJEVICA",
+        "Alarm":  "Mains Phase L1 Undervoltage",
+        "Count":  7,
+        "Duration":  0
+    },
+    {
+        "System":  "U2020",
+        "Site":  "ZEDANJSKO",
+        "Alarm":  "NE Is Disconnected",
+        "Count":  6,
+        "Duration":  351.72
+    },
+    {
+        "System":  "IgnitionSCADA",
+        "Site":  "Tuzla - HOST Pasa Bunar",
+        "Alarm":  "2000028",
+        "Count":  6,
+        "Duration":  0
+    },
+    {
+        "System":  "U2020",
+        "Site":  "CELINAC_BOJICI",
+        "Alarm":  "NE Is Disconnected",
+        "Count":  6,
+        "Duration":  26.05
+    },
+    {
+        "System":  "U2020",
+        "Site":  "OBODNIK",
+        "Alarm":  "Nestanak 220 V",
+        "Count":  6,
+        "Duration":  6.87
+    },
+    {
+        "System":  "NetEco",
+        "Site":  "MAJEVICA",
+        "Alarm":  "AC Phase L2 Undervoltage",
+        "Count":  6,
+        "Duration":  0
+    },
+    {
+        "System":  "NetEco",
+        "Site":  "RIBNIK_DRAGORAJ",
+        "Alarm":  "AC Failure",
+        "Count":  6,
+        "Duration":  0
+    },
+    {
+        "System":  "NetEco",
+        "Site":  "MAJEVICA",
+        "Alarm":  "AC Phase L1 Undervoltage",
+        "Count":  6,
+        "Duration":  0
+    },
+    {
+        "System":  "NetEco",
+        "Site":  "MAJEVICA",
+        "Alarm":  "Mains Phase L2 Undervoltage",
+        "Count":  6,
+        "Duration":  0
+    },
+    {
+        "System":  "IgnitionSCADA",
+        "Site":  "Zenica - TKC Zenica",
+        "Alarm":  "3000004",
+        "Count":  5,
+        "Duration":  0
+    },
+    {
+        "System":  "NetEco",
+        "Site":  "RIBNIK_DRAGORAJ",
+        "Alarm":  "Mains Failure",
+        "Count":  5,
+        "Duration":  0
+    },
+    {
+        "System":  "U2020",
+        "Site":  "TREBEVIC_VIDIKOVAC",
+        "Alarm":  "NE Is Disconnected",
+        "Count":  5,
+        "Duration":  0.13
+    },
+    {
+        "System":  "NetEco",
+        "Site":  "DRAKSENIC",
+        "Alarm":  "BLVD Low Voltage Disconnected",
+        "Count":  5,
+        "Duration":  0
+    },
+    {
+        "System":  "NetEco",
+        "Site":  "CELINAC_BOJICI",
+        "Alarm":  "AC Failure",
+        "Count":  4,
+        "Duration":  0
+    },
+    {
+        "System":  "U2020",
+        "Site":  "GRACANICA_INDUSTRIJSKA_ZONA",
+        "Alarm":  "Otvorena vrata (Door Open Alarm)",
+        "Count":  4,
+        "Duration":  33.85
+    },
+    {
+        "System":  "RPS-SC200-MIB",
+        "Site":  "PAKLENIK_RR",
+        "Alarm":  "OLOVO",
+        "Count":  4,
+        "Duration":  0
+    },
+    {
+        "System":  "U2020",
+        "Site":  "BRAKOVCI",
+        "Alarm":  "Nestanak 220 V",
+        "Count":  4,
+        "Duration":  364.8
+    },
+    {
+        "System":  "RpsSc300Mib",
+        "Site":  "MOSTARSKO_RASKRSCE",
+        "Alarm":  "SARAJEVO",
+        "Count":  4,
+        "Duration":  0
+    },
+    {
+        "System":  "DSE-74xx",
+        "Site":  "DEA_Visibaba",
+        "Alarm":  "_DSE_RR_BS_Visibaba",
+        "Count":  4,
+        "Duration":  4.32
+    },
+    {
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000032",
+        "Count":  4,
+        "Duration":  0
+    },
+    {
+        "System":  "RPS-SC200-MIB",
+        "Site":  "BS_Kamensko",
+        "Alarm":  "Olovo",
+        "Count":  4,
+        "Duration":  0
+    },
+    {
+        "System":  "U2020",
+        "Site":  "LJUBACE",
+        "Alarm":  "Otvorena vrata (Door Open Alarm)",
+        "Count":  4,
+        "Duration":  33.5
+    },
+    {
+        "System":  "U2020",
+        "Site":  "BRAKOVCI",
+        "Alarm":  "NE Is Disconnected",
+        "Count":  4,
+        "Duration":  322.17
+    },
+    {
+        "System":  "U2020",
+        "Site":  "KATUNISTE",
+        "Alarm":  "NE Is Disconnected",
+        "Count":  4,
+        "Duration":  12.75
+    },
+    {
+        "System":  "U2020",
+        "Site":  "MALIC",
+        "Alarm":  "Otvorena vrata (Door Open Alarm)",
+        "Count":  3,
+        "Duration":  213.12
+    },
+    {
+        "System":  "U2020",
+        "Site":  "VIDIKOVAC",
+        "Alarm":  "Otvorena vrata (Door Open Alarm)",
+        "Count":  3,
+        "Duration":  158.55
+    }
+]

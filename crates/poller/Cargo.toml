@@ -1,0 +1,22 @@
+[package]
+name = "bht-poller"
+version = "0.1.0"
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+description = "Async Modbus poller for Eaton SC200/300; emits canonical alarm events + telemetry"
+
+[dependencies]
+bht-normalize = { path = "../normalize" }
+tokio.workspace = true
+tokio-modbus.workspace = true
+tokio-postgres.workspace = true
+serde = { workspace = true }
+serde_json.workspace = true
+toml.workspace = true
+anyhow.workspace = true
+chrono.workspace = true
+
+[[bin]]
+name = "bht-poller"
+path = "src/main.rs"

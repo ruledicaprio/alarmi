@@ -1,0 +1,2428 @@
+[
+  {
+    "ip": "10.10.1.62",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "RAVNA_ROMANIJA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.1.91",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "ILIDZA_ATC",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.1.99",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "MOSTARSKO RASKRSCE 2 kWp",
+    "type": "eaton",
+    "base0": false,
+    "fne": true
+  },
+  {
+    "ip": "10.10.1.112",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "BRIJESCE",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.1.117",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "BUTMIR 2 kWp",
+    "type": "eaton",
+    "base0": false,
+    "fne": true
+  },
+  {
+    "ip": "10.10.1.127",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "NISICI 2kWp",
+    "type": "eaton",
+    "base0": false,
+    "debug": false,
+    "fne": true
+  },
+  {
+    "ip": "10.10.1.125",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "DONJI KOTORAC 2 kWp",
+    "type": "eaton",
+    "base0": false,
+    "fne": true
+  },
+  {
+    "ip": "10.10.1.126",
+    "port": 502,
+    "unit": 0,
+    "name_fallback": "UPRAVNA ZGRADA 23 kWp",
+    "type": "smartlogger",
+    "base0": false,
+    "debug": false
+  },
+  {
+    "ip": "10.10.1.128",
+    "port": 502,
+    "unit": 0,
+    "name_fallback": "DMALTA 24 kWp",
+    "type": "smartlogger",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.2",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "DJURDJEVIK",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.3",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "PERUNIKA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.5",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "BRCKO",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.8",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "VUKOVINE",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.10",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "ZVORNIK",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.11",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "OMAZICI",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.12",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "NUKICI",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.13",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "KOVACI",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.14",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "MILICI",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.15",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "VLASENICA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.16",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "KLJESTANI",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.17",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "TISCA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.18",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "TRAMOSNICA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.19",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "BREZOVO_POLJE",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.20",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "KONJEVIC_POLJE",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.22",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "JASENICA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.26",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "BUKVIK",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.28",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "DRINJACA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.29",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "PAR_SELO",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.30",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "LIPOVICE",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.31",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "SREBRENICA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.32",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "POTOCARI",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.33",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "BRATUNAC",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.34",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "PISTA_JAVRICI",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.35",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "PRILUK",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.36",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "SELJUBLJE",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.42",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "KONJUH",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.43",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "POLJICE",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.44",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "KLOKOTNICA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.45",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "STRAZEVAC",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.46",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "HOTILJ",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.53",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "KARAULA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.54",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "OZREN_KRALJICA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.55",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "VASICI",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.56",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "SELO_BANOVICI",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.76",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "PODGAJEVI",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.77",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "TINJA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.78",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "KUSLAT",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.79",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "OBODNICA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.80",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "SOLINA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.81",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "KALESIJA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.82",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "CERSKA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.84",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "JANJA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.85",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "GRABOVICA_TUZLA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.86",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "SEKOVICI",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.87",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "STUPARI",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.88",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "MUKANOVICI",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.89",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "KOLIMER",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.90",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "RASLJANI",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.91",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "DRAGALJEVAC",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.92",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "DONJE_GUSTE",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.93",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "BRCKO_BROD",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.94",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "GRABOVAC",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.95",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "BREZOVICE",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.96",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "NAHVIOCI",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.97",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "MEDJASI",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.98",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "UGLJEVIK",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.99",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "RAVNA_TRESNJA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.100",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "NISAN",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.101",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "LEDENICE",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.102",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "TEOCAK",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.103",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "DOBOSNICA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.104",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "MORANCANI",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.105",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "BRGULE",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.106",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "SKUGRIC",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.107",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "MODRICA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.108",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "DUJSKA_VODA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.109",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "ZAGONI",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.110",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "KARAKAJ",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.111",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "LONCARI",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.113",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "LIPNICA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.114",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "LOPARE",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.115",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "SMOLUCA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.116",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "KOPRIVNA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.117",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "BISTARAC_ATC",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.118",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "UDRIGOVO",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.119",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "SATOROVICI",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.120",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "VRAZICI",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.121",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "GORNJA_TUZLA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.122",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "SIMIN_HAN",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.123",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "SIMIN_HAN_II",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.124",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "SLAVINOVICI",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.125",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "MOSNIK",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.126",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "STARIC",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.128",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "SLATINA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.129",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "KULA_GRAD",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.130",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "POTOCARI",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.2.131",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "RUHOTINA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.3.44",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "MOSTRE 2kWp",
+    "type": "eaton",
+    "base0": false,
+    "fne": true
+  },
+  {
+    "ip": "10.10.3.101",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "SERICI",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.3.103",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "DEVETINE",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.3.105",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "KLASNICE_RR",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.3.106",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "ROVINE",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.3.107",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "BULETIC",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.3.108",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "JELAH",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.3.109",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "ALIBEGOVCI_RR",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.3.112",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "GOLJESNICA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.3.113",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "TRESNJEVA_GLAVA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.3.114",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "BREZA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.3.115",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "BEGOV HAN",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.3.116",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "TOPCIC_POLJE",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.3.119",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "DEVETINE_RR",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.3.120",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "BOSANSKI_BROD",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.3.121",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "OBODNIK",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.3.122",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "GRADISKA_SJEVERNI_KORIDOR",
+    "type": "eaton",
+    "base0": false,
+    "debug": true
+  },
+  {
+    "ip": "10.10.3.123",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "PONIJERI",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.3.124",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "GOLUBINJA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.3.126",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "VOZUCA_KRS_RR",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.3.127",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "VOZUCA_KRS",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.3.129",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "OLOVO_GAJ_RR",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.3.131",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "KUMSALE",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.3.132",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "PAKLENIK_RR",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.3.133",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "SOLUN_RR",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.3.136",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "ZALUZANI",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.3.137",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "KRUSCICA 2kWp",
+    "type": "eaton",
+    "base0": false,
+    "debug": false,
+    "fne": true
+  },
+  {
+    "ip": "10.10.3.138",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "ZUPCA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.3.141",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "CELINAC",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.3.153",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "STRPCI",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.3.157",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "SRBAC",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.3.160",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "DUSANOVO",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.3.162",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "STRIJEZEVO",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.3.163",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "KRIVAJA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.4.2",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "RIPAC 2kWp",
+    "type": "eaton",
+    "base0": false,
+    "fne": true
+  },
+  {
+    "ip": "10.10.4.3",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "BIPTT",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.4.4",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "OZIMICE",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.4.5",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "GLAVICA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.4.6",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "VELIKA_GOMILA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.4.8",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "LAZICI",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.4.9",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "SEDRA 2kWp",
+    "type": "eaton",
+    "base0": false,
+    "fne": true
+  },
+  {
+    "ip": "10.10.4.10",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "MIOSTRAH",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.4.11",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "RAMICA_KAMEN",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.4.12",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "MAHALA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.4.13",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "VRHPOLJE 2kWp",
+    "type": "eaton",
+    "base0": false,
+    "fne": true
+  },
+  {
+    "ip": "10.10.4.14",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "BJELAJ",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.4.15",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "BOSANSKA_OTOKA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.4.16",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "SABICI 2kWp",
+    "type": "eaton",
+    "base0": false,
+    "fne": true
+  },
+  {
+    "ip": "10.10.4.17",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "KONJODER",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.4.18",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "JEZERSKO 2 kWp",
+    "type": "eaton",
+    "base0": false,
+    "fne": true
+  },
+  {
+    "ip": "10.10.4.19",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "RAZBOJNA 2 kWp",
+    "type": "eaton",
+    "base0": false,
+    "fne": true
+  },
+  {
+    "ip": "10.10.4.20",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "VRELO 2 kWp",
+    "type": "eaton",
+    "base0": false,
+    "debug": false,
+    "fne": true
+  },
+  {
+    "ip": "10.10.4.21",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "NUHANOVICI",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.4.22",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "STURLIC",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.4.23",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "KOSTAJNICA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.4.24",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "ALAGINCI",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.4.25",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "DUBICA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.4.26",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "MALJEVAC",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.4.27",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "TODOROVSKA_SLAPNICA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.4.28",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "PODZVIZD 2 kWp",
+    "type": "eaton",
+    "base0": false,
+    "fne": true
+  },
+  {
+    "ip": "10.10.4.29",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "VRNOGRAC 2 kWp",
+    "type": "eaton",
+    "base0": false,
+    "debug": false,    
+    "fne": true
+  },
+  {
+    "ip": "10.10.4.30",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "SJENICA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.4.31",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "JOHOVA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.4.32",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "CRLJENI",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.4.33",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "VILJENJACA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.4.35",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "PRIJEDOR_TKC",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.4.37",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "MALA_PECA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.4.49",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "RUJSKA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.4.68",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "LJUTOC_RR",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.4.72",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "KRNJA_JELA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.4.73",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "VELIKA_KLADUSA_PTT",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.4.74",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "FTTE_SUMATAC",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.4.76",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "FTTE_BOSANSKI_PETROVAC",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.4.77",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "GATA 2 kWp",
+    "type": "eaton",
+    "base0": false,
+    "fne": true
+  },
+  {
+    "ip": "10.10.4.78",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "FTTE_VRSTA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.4.79",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "FTTE_SKOKOVI",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.4.81",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "FTTE_OSTROZAC",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.4.82",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "FTTE_OTOKA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.4.83",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "FTTE_CAVA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.4.84",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "FTTE_KAMENICA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.4.85",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "FTTE_PODZVIVD",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.4.86",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "FTTE_MALA_KLADUSA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.4.87",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "BRAVSKO",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.4.88",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "LUSCI_PALANKA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.4.89",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "GORNJI_KAMENGRAD",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.4.90",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "STARI_MAJDAN",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.4.91",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "VISIBABA 2 kWp",
+    "type": "eaton",
+    "base0": false,
+    "debug": false,
+    "fne": true
+  },
+  {
+    "ip": "10.10.4.92",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "BOSANSKI_NOVI",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.4.93",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "IVANJSKA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.4.94",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "RUDICE",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.4.95",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "CIKOTE",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.4.96",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "SVODNA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.4.97",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "KOZARA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.4.98",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "FTTE_ZBORISTE",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.4.99",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "FTTE_VRNOGRAC",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.4.104",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "PUHORINE_RR_PRENOS",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.4.105",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "KNEZICA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.4.106",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "LAZICI",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.4.107",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "DINARA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.4.108",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "KESTENJAR",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.4.109",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "ORAHOVA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.4.110",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "AZAPSKO_BRDO",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.4.111",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "CATRNJA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.4.112",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "URIJE",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.4.113",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "KATUNISTE",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.4.114",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "RAMICI",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.4.115",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "KLJUC_LUBICA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.4.116",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "KULEN_VAKUF",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.4.117",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "VELIKA_GOMILA_II",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.4.118",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "FTTE_STIJENA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.4.134",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "FTTE_DONJA_VIDOVSKA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.4.135",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "FTTE_VAROSKA_RIJEKA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.4.136",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "FTTE_JEZERSKI",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.4.137",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "FTTE_STURLIC",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.4.138",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "FTTE_SLATINA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.4.139",
+    "port": 502,
+    "unit": 0,
+    "name_fallback": "BIHAC 24 kWp",
+    "type": "smartlogger",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.6",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "TRAVNIK_TKC",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.7",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "JEZERO",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.8",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "CUBREN",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.9",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "DONJI VAKUF",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.10",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "DJIHANICI",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.11",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "FOJNICA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.12",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "GLAMOC",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.13",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "BESPELJ",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.14",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "KAONIK",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.15",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "KARADZE_GLAVICE",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.16",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "KIK",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.17",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "KISELJAK",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.18",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "KUPRESKA_VRATA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.19",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "LISINA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.20",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "LIVNO",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.21",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "LOPAR",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.22",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "MRKONJIC_GRAD",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.23",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "OBORCI",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.24",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "RAJCI",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.25",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "ROSTOVO",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.26",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "SKENDER VAKUF",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.27",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "SENKOVICI",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.28",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "SIMUNOVICI",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.29",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "SUICA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.30",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "TURBE",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.31",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "VIDOVICI",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.32",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "PALEZ_VINAC",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.33",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "VRANA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.34",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "VRILA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.35",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "FTTE_BILALOVAC",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.37",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "FTTE_FOJNICA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.38",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "FTTE_VOLJEVAC",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.39",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "FTTE_GRACANICA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.40",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "HAN BILA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.41",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "FTTE_KALIBUNAR",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.42",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "FTTE_KACUNI",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.43",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "FTTE_KRUSCICA_VITEZ",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.44",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "FTTE_NADBARE",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.47",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "FTTE_VINAC",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.48",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "FTTE_TRENICA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.50",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "HAMAMDZICI_RR",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.51",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "FTTE_ZITARNICA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.52",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "KACUNI_RR",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.53",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "KACUNI",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.54",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "TC_JAJCE_SHOP",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.55",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "BUSOVAČKE STAJE",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.56",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "FTTE_TURBE",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.57",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "FTTE_DVAKUF",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.58",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "VRANA_RR",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.59",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "TICEVO",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.74",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "FTTE_DVAKUF2_KUTANJA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.76",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "KOZICE",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.77",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "FTTE_FILANI",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.78",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "FTTE_STARI_VITEZ",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.81",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "VUCKOVAC",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.84",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "FTTE_VESELA",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.85",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "AMIDZICI",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.88",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "SIPOVO",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.89",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "BALJVINE",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.90",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "ZABRISCE_RR",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.91",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "BABIN_GRAD_RR",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.92",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "RACICI",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.94",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "FTTE_GORNJI_VAKUF",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.95",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "BUGOJNO_PAKETSKO",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.96",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "IVOVIK",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.97",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "RUDINE_TOMISLAVGRAD",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.100",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "FTTE_DOLAC_NA_LASVI",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.106",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "BREZINA_CUSINE_RR",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.107",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "POUGAR_RR",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.108",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "SUICA_RR",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.109",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "KRESEVO_RR",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.119",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "BILALOVAC_RR",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.120",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "BABANOVAC_BRDO_RR",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.121",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "FOJNICKE_STAJE_RR",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.122",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "VUCKOVAC_RR",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.123",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "FTTE_NOVI_TRAVNIK_PRENOS",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.124",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "FTTE_NOVI_TRAVNIK",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.125",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "FTTE_TURBE_PRENOS",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.128",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "FTTE_KARAULA_PRENOS",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.130",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "TRAVNIK_TKC_PRENOS",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.137",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "FTTE_TURBE_RR",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.138",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "FTTE_DVAKUF_RR",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.155",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "MLINISTE_MIKRO 4.1 kWp",
+    "type": "eaton",
+    "base0": false,
+    "debug": false,
+    "fne": true
+  },
+  {
+    "ip": "10.10.6.253",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "DRVAR",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.6.254",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "BOSANSKO_GRAHOVO",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.7.5",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "HINJEVAC_RR",
+    "type": "eaton",
+    "base0": false
+  },
+  {
+    "ip": "10.10.7.7",
+    "port": 502,
+    "unit": 1,
+    "name_fallback": "BOROVNO",
+    "type": "eaton",
+    "base0": false
+  }
+]

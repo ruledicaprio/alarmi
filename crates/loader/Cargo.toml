@@ -1,0 +1,18 @@
+[package]
+name = "bht-loader"
+version = "0.1.0"
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+description = "Bulk-normalize ispadnap logs into Postgres COPY / JSONL for TimescaleDB"
+
+[dependencies]
+bht-normalize = { path = "../normalize" }
+chrono.workspace = true
+serde = { workspace = true }
+serde_json.workspace = true
+anyhow.workspace = true
+
+[[bin]]
+name = "bht-loader"
+path = "src/main.rs"

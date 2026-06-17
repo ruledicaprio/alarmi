@@ -1,0 +1,108 @@
+# BHT Analytics Engine v5 - Custom logic za sisteme
+$masterLog = "E:\alarm-dashboard\master_alarms.log"
+$url = "https://pokrivenost.bhtelecom.ba/alarmi/ispadnap"
+
+Write-Host "🚀 Engine v5 pokrenut. Primjenjujem specifičnu logiku za Rusmira..." -ForegroundColor Cyan
+
+while ($true) {
+    try {
+        $response = Invoke-WebRequest -Uri $url -UseBasicParsing -TimeoutSec 20
+        $rawContent = [System.Text.Encoding]::UTF8.GetString($response.Content).Trim()
+        if (-not [string]::IsNullOrWhiteSpace($rawContent)) {
+            Add-Content -Path $masterLog -Value $rawContent -Encoding UTF8
+        }
+
+        $allLines = Get-Content $masterLog | Where-Object { $_ -like "*,*" }
+        $events = @()
+        $seen = New-Object System.Collections.Generic.HashSet[string]
+
+        foreach ($line in $allLines) {
+            $p = $line.Split(',').ForEach({ $_.Trim().Trim('"') })
+            
+            # Detekcija sistema
+            $system = $p[0]
+            $site = $p[1]
+            $alarmName = $p[2]
+            
+            # Traženje timestampa (različiti formati _ ili razmak)
+            $tsIdx = 0..($p.Count-1) | Where-Object { $p[$_] -match '\d{4}-\d{2}-\d{2}' } | Select-Object -First 1
+            if ($null -eq $tsIdx) { continue }
+            
+            $tsString = $p[$tsIdx].Replace('_', ' ') # Normalizacija na standardni format
+            $time = [DateTime]::Parse($tsString)
+            
+            # De-duplikacija
+            $key = "$system|$site|$alarmName|$tsString"
+            if (-not $seen.Add($key)) { continue }
+
+            # LOGIKA PO SISTEMIMA
+            $status = "UNKNOWN"
+            if ($system -eq "U2020") {
+                $status = if ($line -match 'cleared') { "CLEARED" } else { "ACTIVE" }
+            }
+            elseif ($system -match "DSE") {
+                # DSE Logika: starts/stops ili normal/shutdown
+                if ($line -match 'Stops|alarmNormal|UsageNormal') { $status = "CLEARED" }
+                elseif ($line -match 'Starts|alarmShutdown|StartFill') { $status = "ACTIVE" }
+            }
+            elseif ($system -eq "NetEco" -or $system -eq "IgnitionSCADA") {
+                $status = "INSTANT" # Samo brojimo, nema durationa
+            }
+
+            $events += [PSCustomObject]@{
+                System = $system
+                Site   = $site
+                Alarm  = $alarmName
+                Time   = $time
+                Status = $status
+            }
+        }
+
+        function Get-Stats($periodDays) {
+            $cutoff = (Get-Date).AddDays(-$periodDays)
+            $filtered = $events | Where-Object { $_.Time -ge $cutoff }
+            
+            $results = $filtered | Group-Object System, Site, Alarm | ForEach-Object {
+                $group = $_.Group | Sort-Object Time
+                $duration = 0
+                $count = 0
+
+                if ($_.Values[0] -eq "U2020" -or $_.Values[0] -match "DSE") {
+                    # Kalkulacija trajanja za sisteme koji imaju status
+                    for ($i=0; $i -lt ($group.Count - 1); $i++) {
+                        if ($group[$i].Status -eq "ACTIVE" -and $group[$i+1].Status -eq "CLEARED") {
+                            $duration += ($group[$i+1].Time - $group[$i].Time).TotalMinutes
+                        }
+                    }
+                    $count = ($group | Where-Object { $_.Status -eq "ACTIVE" }).Count
+                    if ($count -eq 0) { $count = $group.Count } # Fallback
+                }
+                else {
+                    # NetEco & Ignition: Broj alarma podijeljen sa 2 (prema zahtjevu)
+                    $count = [Math]::Ceiling($group.Count / 2)
+                    $duration = 0 # Nema timestampa za kraj
+                }
+
+                [PSCustomObject]@{
+                    System   = $_.Values[0]
+                    Site     = $_.Values[1]
+                    Alarm    = $_.Values[2]
+                    Count    = $count
+                    Duration = [Math]::Round($duration, 2)
+                }
+            }
+            return $results | Sort-Object Count -Descending | Select-Object -First 50
+        }
+
+        # Generisanje JSON-a (isto kao prije)
+        Get-Stats 1   | ConvertTo-Json | Set-Content "E:\alarm-dashboard\stats_day.json"
+        Get-Stats 7   | ConvertTo-Json | Set-Content "E:\alarm-dashboard\stats_week.json"
+        Get-Stats 30  | ConvertTo-Json | Set-Content "E:\alarm-dashboard\stats_month.json"
+        Get-Stats 365 | ConvertTo-Json | Set-Content "E:\alarm-dashboard\stats_year.json"
+        $events | Sort-Object Time -Descending | Select-Object -First 500 | ConvertTo-Json | Set-Content "E:\alarm-dashboard\latest_events.json"
+
+        Write-Host "[$(Get-Date -Format 'HH:mm:ss')] ✅ Obrada završena." -ForegroundColor Green
+    }
+    catch { Write-Host "❌ Greška: $($_.Exception.Message)" -ForegroundColor Red }
+    Start-Sleep -Seconds 60
+}

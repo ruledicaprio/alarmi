@@ -1,0 +1,25 @@
+# Stage-1 dev stack: just TimescaleDB. App services (Rust API, web UI) come
+# in later stages. Run from repo root:  docker compose -f deploy/docker-compose.yml up -d
+services:
+  timescaledb:
+    image: timescale/timescaledb:2.17.2-pg16
+    container_name: bht_tsdb
+    environment:
+      POSTGRES_USER: ${PGUSER:-bht}
+      POSTGRES_PASSWORD: ${PGPASSWORD:-bht_dev_pw}
+      POSTGRES_DB: ${PGDATABASE:-alarms}
+    ports:
+      - "${PGPORT:-5432}:5432"
+    volumes:
+      - tsdb_data:/var/lib/postgresql/data
+      # schema + seeds run automatically on first init, in filename order:
+      - ../db/schema.sql:/docker-entrypoint-initdb.d/01_schema.sql:ro
+      - ../db/seed_dimensions.sql:/docker-entrypoint-initdb.d/02_seed_dimensions.sql:ro
+      - ../db/seed_sites.sql:/docker-entrypoint-initdb.d/03_seed_sites.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${PGUSER:-bht} -d ${PGDATABASE:-alarms}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+volumes:
+  tsdb_data:

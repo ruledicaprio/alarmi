@@ -1,0 +1,13 @@
+[package]
+name = "bht-normalize"
+version = "0.1.0"
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+description = "Cross-source alarm normalization into the BHT canonical event model"
+
+[dependencies]
+regex.workspace = true
+once_cell.workspace = true
+chrono.workspace = true
+serde.workspace = true

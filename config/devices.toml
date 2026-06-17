@@ -1,0 +1,3303 @@
+# Device registry generated from modbus/plcs.json (300 devices).
+# Enabled by default. Set enabled=false to skip a device.
+
+[[device]]
+ip = "10.10.1.62"
+port = 502
+unit = 1
+site_key = "RAVNA_ROMANIJA"
+name = "RAVNA_ROMANIJA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.1.91"
+port = 502
+unit = 1
+site_key = "ILIDZA_ATC"
+name = "ILIDZA_ATC"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.1.99"
+port = 502
+unit = 1
+site_key = "MOSTARSKO_RASKRSCE_2_KWP"
+name = "MOSTARSKO RASKRSCE 2 kWp"
+type = "eaton"
+base0 = false
+fne = true
+enabled = true
+
+[[device]]
+ip = "10.10.1.112"
+port = 502
+unit = 1
+site_key = "BRIJESCE"
+name = "BRIJESCE"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.1.117"
+port = 502
+unit = 1
+site_key = "BUTMIR_2_KWP"
+name = "BUTMIR 2 kWp"
+type = "eaton"
+base0 = false
+fne = true
+enabled = true
+
+[[device]]
+ip = "10.10.1.127"
+port = 502
+unit = 1
+site_key = "NISICI_2KWP"
+name = "NISICI 2kWp"
+type = "eaton"
+base0 = false
+fne = true
+enabled = true
+
+[[device]]
+ip = "10.10.1.125"
+port = 502
+unit = 1
+site_key = "DONJI_KOTORAC_2_KWP"
+name = "DONJI KOTORAC 2 kWp"
+type = "eaton"
+base0 = false
+fne = true
+enabled = true
+
+[[device]]
+ip = "10.10.1.126"
+port = 502
+unit = 0
+site_key = "UPRAVNA_ZGRADA_23_KWP"
+name = "UPRAVNA ZGRADA 23 kWp"
+type = "smartlogger"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.1.128"
+port = 502
+unit = 0
+site_key = "DMALTA_24_KWP"
+name = "DMALTA 24 kWp"
+type = "smartlogger"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.2"
+port = 502
+unit = 1
+site_key = "DJURDJEVIK"
+name = "DJURDJEVIK"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.3"
+port = 502
+unit = 1
+site_key = "PERUNIKA"
+name = "PERUNIKA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.5"
+port = 502
+unit = 1
+site_key = "BRCKO"
+name = "BRCKO"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.8"
+port = 502
+unit = 1
+site_key = "VUKOVINE"
+name = "VUKOVINE"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.10"
+port = 502
+unit = 1
+site_key = "ZVORNIK"
+name = "ZVORNIK"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.11"
+port = 502
+unit = 1
+site_key = "OMAZICI"
+name = "OMAZICI"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.12"
+port = 502
+unit = 1
+site_key = "NUKICI"
+name = "NUKICI"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.13"
+port = 502
+unit = 1
+site_key = "KOVACI"
+name = "KOVACI"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.14"
+port = 502
+unit = 1
+site_key = "MILICI"
+name = "MILICI"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.15"
+port = 502
+unit = 1
+site_key = "VLASENICA"
+name = "VLASENICA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.16"
+port = 502
+unit = 1
+site_key = "KLJESTANI"
+name = "KLJESTANI"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.17"
+port = 502
+unit = 1
+site_key = "TISCA"
+name = "TISCA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.18"
+port = 502
+unit = 1
+site_key = "TRAMOSNICA"
+name = "TRAMOSNICA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.19"
+port = 502
+unit = 1
+site_key = "BREZOVO_POLJE"
+name = "BREZOVO_POLJE"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.20"
+port = 502
+unit = 1
+site_key = "KONJEVIC_POLJE"
+name = "KONJEVIC_POLJE"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.22"
+port = 502
+unit = 1
+site_key = "JASENICA"
+name = "JASENICA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.26"
+port = 502
+unit = 1
+site_key = "BUKVIK"
+name = "BUKVIK"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.28"
+port = 502
+unit = 1
+site_key = "DRINJACA"
+name = "DRINJACA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.29"
+port = 502
+unit = 1
+site_key = "PAR_SELO"
+name = "PAR_SELO"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.30"
+port = 502
+unit = 1
+site_key = "LIPOVICE"
+name = "LIPOVICE"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.31"
+port = 502
+unit = 1
+site_key = "SREBRENICA"
+name = "SREBRENICA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.32"
+port = 502
+unit = 1
+site_key = "POTOCARI"
+name = "POTOCARI"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.33"
+port = 502
+unit = 1
+site_key = "BRATUNAC"
+name = "BRATUNAC"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.34"
+port = 502
+unit = 1
+site_key = "PISTA_JAVRICI"
+name = "PISTA_JAVRICI"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.35"
+port = 502
+unit = 1
+site_key = "PRILUK"
+name = "PRILUK"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.36"
+port = 502
+unit = 1
+site_key = "SELJUBLJE"
+name = "SELJUBLJE"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.42"
+port = 502
+unit = 1
+site_key = "KONJUH"
+name = "KONJUH"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.43"
+port = 502
+unit = 1
+site_key = "POLJICE"
+name = "POLJICE"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.44"
+port = 502
+unit = 1
+site_key = "KLOKOTNICA"
+name = "KLOKOTNICA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.45"
+port = 502
+unit = 1
+site_key = "STRAZEVAC"
+name = "STRAZEVAC"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.46"
+port = 502
+unit = 1
+site_key = "HOTILJ"
+name = "HOTILJ"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.53"
+port = 502
+unit = 1
+site_key = "KARAULA"
+name = "KARAULA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.54"
+port = 502
+unit = 1
+site_key = "OZREN_KRALJICA"
+name = "OZREN_KRALJICA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.55"
+port = 502
+unit = 1
+site_key = "VASICI"
+name = "VASICI"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.56"
+port = 502
+unit = 1
+site_key = "SELO_BANOVICI"
+name = "SELO_BANOVICI"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.76"
+port = 502
+unit = 1
+site_key = "PODGAJEVI"
+name = "PODGAJEVI"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.77"
+port = 502
+unit = 1
+site_key = "TINJA"
+name = "TINJA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.78"
+port = 502
+unit = 1
+site_key = "KUSLAT"
+name = "KUSLAT"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.79"
+port = 502
+unit = 1
+site_key = "OBODNICA"
+name = "OBODNICA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.80"
+port = 502
+unit = 1
+site_key = "SOLINA"
+name = "SOLINA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.81"
+port = 502
+unit = 1
+site_key = "KALESIJA"
+name = "KALESIJA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.82"
+port = 502
+unit = 1
+site_key = "CERSKA"
+name = "CERSKA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.84"
+port = 502
+unit = 1
+site_key = "JANJA"
+name = "JANJA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.85"
+port = 502
+unit = 1
+site_key = "GRABOVICA_TUZLA"
+name = "GRABOVICA_TUZLA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.86"
+port = 502
+unit = 1
+site_key = "SEKOVICI"
+name = "SEKOVICI"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.87"
+port = 502
+unit = 1
+site_key = "STUPARI"
+name = "STUPARI"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.88"
+port = 502
+unit = 1
+site_key = "MUKANOVICI"
+name = "MUKANOVICI"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.89"
+port = 502
+unit = 1
+site_key = "KOLIMER"
+name = "KOLIMER"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.90"
+port = 502
+unit = 1
+site_key = "RASLJANI"
+name = "RASLJANI"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.91"
+port = 502
+unit = 1
+site_key = "DRAGALJEVAC"
+name = "DRAGALJEVAC"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.92"
+port = 502
+unit = 1
+site_key = "DONJE_GUSTE"
+name = "DONJE_GUSTE"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.93"
+port = 502
+unit = 1
+site_key = "BRCKO_BROD"
+name = "BRCKO_BROD"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.94"
+port = 502
+unit = 1
+site_key = "GRABOVAC"
+name = "GRABOVAC"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.95"
+port = 502
+unit = 1
+site_key = "BREZOVICE"
+name = "BREZOVICE"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.96"
+port = 502
+unit = 1
+site_key = "NAHVIOCI"
+name = "NAHVIOCI"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.97"
+port = 502
+unit = 1
+site_key = "MEDJASI"
+name = "MEDJASI"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.98"
+port = 502
+unit = 1
+site_key = "UGLJEVIK"
+name = "UGLJEVIK"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.99"
+port = 502
+unit = 1
+site_key = "RAVNA_TRESNJA"
+name = "RAVNA_TRESNJA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.100"
+port = 502
+unit = 1
+site_key = "NISAN"
+name = "NISAN"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.101"
+port = 502
+unit = 1
+site_key = "LEDENICE"
+name = "LEDENICE"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.102"
+port = 502
+unit = 1
+site_key = "TEOCAK"
+name = "TEOCAK"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.103"
+port = 502
+unit = 1
+site_key = "DOBOSNICA"
+name = "DOBOSNICA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.104"
+port = 502
+unit = 1
+site_key = "MORANCANI"
+name = "MORANCANI"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.105"
+port = 502
+unit = 1
+site_key = "BRGULE"
+name = "BRGULE"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.106"
+port = 502
+unit = 1
+site_key = "SKUGRIC"
+name = "SKUGRIC"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.107"
+port = 502
+unit = 1
+site_key = "MODRICA"
+name = "MODRICA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.108"
+port = 502
+unit = 1
+site_key = "DUJSKA_VODA"
+name = "DUJSKA_VODA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.109"
+port = 502
+unit = 1
+site_key = "ZAGONI"
+name = "ZAGONI"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.110"
+port = 502
+unit = 1
+site_key = "KARAKAJ"
+name = "KARAKAJ"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.111"
+port = 502
+unit = 1
+site_key = "LONCARI"
+name = "LONCARI"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.113"
+port = 502
+unit = 1
+site_key = "LIPNICA"
+name = "LIPNICA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.114"
+port = 502
+unit = 1
+site_key = "LOPARE"
+name = "LOPARE"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.115"
+port = 502
+unit = 1
+site_key = "SMOLUCA"
+name = "SMOLUCA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.116"
+port = 502
+unit = 1
+site_key = "KOPRIVNA"
+name = "KOPRIVNA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.117"
+port = 502
+unit = 1
+site_key = "BISTARAC_ATC"
+name = "BISTARAC_ATC"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.118"
+port = 502
+unit = 1
+site_key = "UDRIGOVO"
+name = "UDRIGOVO"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.119"
+port = 502
+unit = 1
+site_key = "SATOROVICI"
+name = "SATOROVICI"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.120"
+port = 502
+unit = 1
+site_key = "VRAZICI"
+name = "VRAZICI"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.121"
+port = 502
+unit = 1
+site_key = "GORNJA_TUZLA"
+name = "GORNJA_TUZLA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.122"
+port = 502
+unit = 1
+site_key = "SIMIN_HAN"
+name = "SIMIN_HAN"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.123"
+port = 502
+unit = 1
+site_key = "SIMIN_HAN_II"
+name = "SIMIN_HAN_II"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.124"
+port = 502
+unit = 1
+site_key = "SLAVINOVICI"
+name = "SLAVINOVICI"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.125"
+port = 502
+unit = 1
+site_key = "MOSNIK"
+name = "MOSNIK"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.126"
+port = 502
+unit = 1
+site_key = "STARIC"
+name = "STARIC"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.128"
+port = 502
+unit = 1
+site_key = "SLATINA"
+name = "SLATINA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.129"
+port = 502
+unit = 1
+site_key = "KULA_GRAD"
+name = "KULA_GRAD"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.130"
+port = 502
+unit = 1
+site_key = "POTOCARI"
+name = "POTOCARI"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.2.131"
+port = 502
+unit = 1
+site_key = "RUHOTINA"
+name = "RUHOTINA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.3.44"
+port = 502
+unit = 1
+site_key = "MOSTRE_2KWP"
+name = "MOSTRE 2kWp"
+type = "eaton"
+base0 = false
+fne = true
+enabled = true
+
+[[device]]
+ip = "10.10.3.101"
+port = 502
+unit = 1
+site_key = "SERICI"
+name = "SERICI"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.3.103"
+port = 502
+unit = 1
+site_key = "DEVETINE"
+name = "DEVETINE"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.3.105"
+port = 502
+unit = 1
+site_key = "KLASNICE_RR"
+name = "KLASNICE_RR"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.3.106"
+port = 502
+unit = 1
+site_key = "ROVINE"
+name = "ROVINE"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.3.107"
+port = 502
+unit = 1
+site_key = "BULETIC"
+name = "BULETIC"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.3.108"
+port = 502
+unit = 1
+site_key = "JELAH"
+name = "JELAH"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.3.109"
+port = 502
+unit = 1
+site_key = "ALIBEGOVCI_RR"
+name = "ALIBEGOVCI_RR"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.3.112"
+port = 502
+unit = 1
+site_key = "GOLJESNICA"
+name = "GOLJESNICA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.3.113"
+port = 502
+unit = 1
+site_key = "TRESNJEVA_GLAVA"
+name = "TRESNJEVA_GLAVA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.3.114"
+port = 502
+unit = 1
+site_key = "BREZA"
+name = "BREZA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.3.115"
+port = 502
+unit = 1
+site_key = "BEGOV_HAN"
+name = "BEGOV HAN"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.3.116"
+port = 502
+unit = 1
+site_key = "TOPCIC_POLJE"
+name = "TOPCIC_POLJE"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.3.119"
+port = 502
+unit = 1
+site_key = "DEVETINE_RR"
+name = "DEVETINE_RR"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.3.120"
+port = 502
+unit = 1
+site_key = "BOSANSKI_BROD"
+name = "BOSANSKI_BROD"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.3.121"
+port = 502
+unit = 1
+site_key = "OBODNIK"
+name = "OBODNIK"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.3.122"
+port = 502
+unit = 1
+site_key = "GRADISKA_SJEVERNI_KORIDOR"
+name = "GRADISKA_SJEVERNI_KORIDOR"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.3.123"
+port = 502
+unit = 1
+site_key = "PONIJERI"
+name = "PONIJERI"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.3.124"
+port = 502
+unit = 1
+site_key = "GOLUBINJA"
+name = "GOLUBINJA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.3.126"
+port = 502
+unit = 1
+site_key = "VOZUCA_KRS_RR"
+name = "VOZUCA_KRS_RR"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.3.127"
+port = 502
+unit = 1
+site_key = "VOZUCA_KRS"
+name = "VOZUCA_KRS"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.3.129"
+port = 502
+unit = 1
+site_key = "OLOVO_GAJ_RR"
+name = "OLOVO_GAJ_RR"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.3.131"
+port = 502
+unit = 1
+site_key = "KUMSALE"
+name = "KUMSALE"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.3.132"
+port = 502
+unit = 1
+site_key = "PAKLENIK_RR"
+name = "PAKLENIK_RR"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.3.133"
+port = 502
+unit = 1
+site_key = "SOLUN_RR"
+name = "SOLUN_RR"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.3.136"
+port = 502
+unit = 1
+site_key = "ZALUZANI"
+name = "ZALUZANI"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.3.137"
+port = 502
+unit = 1
+site_key = "KRUSCICA_2KWP"
+name = "KRUSCICA 2kWp"
+type = "eaton"
+base0 = false
+fne = true
+enabled = true
+
+[[device]]
+ip = "10.10.3.138"
+port = 502
+unit = 1
+site_key = "ZUPCA"
+name = "ZUPCA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.3.141"
+port = 502
+unit = 1
+site_key = "CELINAC"
+name = "CELINAC"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.3.153"
+port = 502
+unit = 1
+site_key = "STRPCI"
+name = "STRPCI"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.3.157"
+port = 502
+unit = 1
+site_key = "SRBAC"
+name = "SRBAC"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.3.160"
+port = 502
+unit = 1
+site_key = "DUSANOVO"
+name = "DUSANOVO"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.3.162"
+port = 502
+unit = 1
+site_key = "STRIJEZEVO"
+name = "STRIJEZEVO"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.3.163"
+port = 502
+unit = 1
+site_key = "KRIVAJA"
+name = "KRIVAJA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.4.2"
+port = 502
+unit = 1
+site_key = "RIPAC_2KWP"
+name = "RIPAC 2kWp"
+type = "eaton"
+base0 = false
+fne = true
+enabled = true
+
+[[device]]
+ip = "10.10.4.3"
+port = 502
+unit = 1
+site_key = "BIPTT"
+name = "BIPTT"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.4.4"
+port = 502
+unit = 1
+site_key = "OZIMICE"
+name = "OZIMICE"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.4.5"
+port = 502
+unit = 1
+site_key = "GLAVICA"
+name = "GLAVICA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.4.6"
+port = 502
+unit = 1
+site_key = "VELIKA_GOMILA"
+name = "VELIKA_GOMILA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.4.8"
+port = 502
+unit = 1
+site_key = "LAZICI"
+name = "LAZICI"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.4.9"
+port = 502
+unit = 1
+site_key = "SEDRA_2KWP"
+name = "SEDRA 2kWp"
+type = "eaton"
+base0 = false
+fne = true
+enabled = true
+
+[[device]]
+ip = "10.10.4.10"
+port = 502
+unit = 1
+site_key = "MIOSTRAH"
+name = "MIOSTRAH"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.4.11"
+port = 502
+unit = 1
+site_key = "RAMICA_KAMEN"
+name = "RAMICA_KAMEN"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.4.12"
+port = 502
+unit = 1
+site_key = "MAHALA"
+name = "MAHALA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.4.13"
+port = 502
+unit = 1
+site_key = "VRHPOLJE_2KWP"
+name = "VRHPOLJE 2kWp"
+type = "eaton"
+base0 = false
+fne = true
+enabled = true
+
+[[device]]
+ip = "10.10.4.14"
+port = 502
+unit = 1
+site_key = "BJELAJ"
+name = "BJELAJ"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.4.15"
+port = 502
+unit = 1
+site_key = "BOSANSKA_OTOKA"
+name = "BOSANSKA_OTOKA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.4.16"
+port = 502
+unit = 1
+site_key = "SABICI_2KWP"
+name = "SABICI 2kWp"
+type = "eaton"
+base0 = false
+fne = true
+enabled = true
+
+[[device]]
+ip = "10.10.4.17"
+port = 502
+unit = 1
+site_key = "KONJODER"
+name = "KONJODER"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.4.18"
+port = 502
+unit = 1
+site_key = "JEZERSKO_2_KWP"
+name = "JEZERSKO 2 kWp"
+type = "eaton"
+base0 = false
+fne = true
+enabled = true
+
+[[device]]
+ip = "10.10.4.19"
+port = 502
+unit = 1
+site_key = "RAZBOJNA_2_KWP"
+name = "RAZBOJNA 2 kWp"
+type = "eaton"
+base0 = false
+fne = true
+enabled = true
+
+[[device]]
+ip = "10.10.4.20"
+port = 502
+unit = 1
+site_key = "VRELO_2_KWP"
+name = "VRELO 2 kWp"
+type = "eaton"
+base0 = false
+fne = true
+enabled = true
+
+[[device]]
+ip = "10.10.4.21"
+port = 502
+unit = 1
+site_key = "NUHANOVICI"
+name = "NUHANOVICI"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.4.22"
+port = 502
+unit = 1
+site_key = "STURLIC"
+name = "STURLIC"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.4.23"
+port = 502
+unit = 1
+site_key = "KOSTAJNICA"
+name = "KOSTAJNICA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.4.24"
+port = 502
+unit = 1
+site_key = "ALAGINCI"
+name = "ALAGINCI"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.4.25"
+port = 502
+unit = 1
+site_key = "DUBICA"
+name = "DUBICA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.4.26"
+port = 502
+unit = 1
+site_key = "MALJEVAC"
+name = "MALJEVAC"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.4.27"
+port = 502
+unit = 1
+site_key = "TODOROVSKA_SLAPNICA"
+name = "TODOROVSKA_SLAPNICA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.4.28"
+port = 502
+unit = 1
+site_key = "PODZVIZD_2_KWP"
+name = "PODZVIZD 2 kWp"
+type = "eaton"
+base0 = false
+fne = true
+enabled = true
+
+[[device]]
+ip = "10.10.4.29"
+port = 502
+unit = 1
+site_key = "VRNOGRAC_2_KWP"
+name = "VRNOGRAC 2 kWp"
+type = "eaton"
+base0 = false
+fne = true
+enabled = true
+
+[[device]]
+ip = "10.10.4.30"
+port = 502
+unit = 1
+site_key = "SJENICA"
+name = "SJENICA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.4.31"
+port = 502
+unit = 1
+site_key = "JOHOVA"
+name = "JOHOVA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.4.32"
+port = 502
+unit = 1
+site_key = "CRLJENI"
+name = "CRLJENI"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.4.33"
+port = 502
+unit = 1
+site_key = "VILJENJACA"
+name = "VILJENJACA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.4.35"
+port = 502
+unit = 1
+site_key = "PRIJEDOR_TKC"
+name = "PRIJEDOR_TKC"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.4.37"
+port = 502
+unit = 1
+site_key = "MALA_PECA"
+name = "MALA_PECA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.4.49"
+port = 502
+unit = 1
+site_key = "RUJSKA"
+name = "RUJSKA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.4.68"
+port = 502
+unit = 1
+site_key = "LJUTOC_RR"
+name = "LJUTOC_RR"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.4.72"
+port = 502
+unit = 1
+site_key = "KRNJA_JELA"
+name = "KRNJA_JELA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.4.73"
+port = 502
+unit = 1
+site_key = "VELIKA_KLADUSA_PTT"
+name = "VELIKA_KLADUSA_PTT"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.4.74"
+port = 502
+unit = 1
+site_key = "FTTE_SUMATAC"
+name = "FTTE_SUMATAC"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.4.76"
+port = 502
+unit = 1
+site_key = "FTTE_BOSANSKI_PETROVAC"
+name = "FTTE_BOSANSKI_PETROVAC"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.4.77"
+port = 502
+unit = 1
+site_key = "GATA_2_KWP"
+name = "GATA 2 kWp"
+type = "eaton"
+base0 = false
+fne = true
+enabled = true
+
+[[device]]
+ip = "10.10.4.78"
+port = 502
+unit = 1
+site_key = "FTTE_VRSTA"
+name = "FTTE_VRSTA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.4.79"
+port = 502
+unit = 1
+site_key = "FTTE_SKOKOVI"
+name = "FTTE_SKOKOVI"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.4.81"
+port = 502
+unit = 1
+site_key = "FTTE_OSTROZAC"
+name = "FTTE_OSTROZAC"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.4.82"
+port = 502
+unit = 1
+site_key = "FTTE_OTOKA"
+name = "FTTE_OTOKA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.4.83"
+port = 502
+unit = 1
+site_key = "FTTE_CAVA"
+name = "FTTE_CAVA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.4.84"
+port = 502
+unit = 1
+site_key = "FTTE_KAMENICA"
+name = "FTTE_KAMENICA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.4.85"
+port = 502
+unit = 1
+site_key = "FTTE_PODZVIVD"
+name = "FTTE_PODZVIVD"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.4.86"
+port = 502
+unit = 1
+site_key = "FTTE_MALA_KLADUSA"
+name = "FTTE_MALA_KLADUSA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.4.87"
+port = 502
+unit = 1
+site_key = "BRAVSKO"
+name = "BRAVSKO"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.4.88"
+port = 502
+unit = 1
+site_key = "LUSCI_PALANKA"
+name = "LUSCI_PALANKA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.4.89"
+port = 502
+unit = 1
+site_key = "GORNJI_KAMENGRAD"
+name = "GORNJI_KAMENGRAD"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.4.90"
+port = 502
+unit = 1
+site_key = "STARI_MAJDAN"
+name = "STARI_MAJDAN"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.4.91"
+port = 502
+unit = 1
+site_key = "VISIBABA_2_KWP"
+name = "VISIBABA 2 kWp"
+type = "eaton"
+base0 = false
+fne = true
+enabled = true
+
+[[device]]
+ip = "10.10.4.92"
+port = 502
+unit = 1
+site_key = "BOSANSKI_NOVI"
+name = "BOSANSKI_NOVI"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.4.93"
+port = 502
+unit = 1
+site_key = "IVANJSKA"
+name = "IVANJSKA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.4.94"
+port = 502
+unit = 1
+site_key = "RUDICE"
+name = "RUDICE"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.4.95"
+port = 502
+unit = 1
+site_key = "CIKOTE"
+name = "CIKOTE"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.4.96"
+port = 502
+unit = 1
+site_key = "SVODNA"
+name = "SVODNA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.4.97"
+port = 502
+unit = 1
+site_key = "KOZARA"
+name = "KOZARA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.4.98"
+port = 502
+unit = 1
+site_key = "FTTE_ZBORISTE"
+name = "FTTE_ZBORISTE"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.4.99"
+port = 502
+unit = 1
+site_key = "FTTE_VRNOGRAC"
+name = "FTTE_VRNOGRAC"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.4.104"
+port = 502
+unit = 1
+site_key = "PUHORINE_RR_PRENOS"
+name = "PUHORINE_RR_PRENOS"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.4.105"
+port = 502
+unit = 1
+site_key = "KNEZICA"
+name = "KNEZICA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.4.106"
+port = 502
+unit = 1
+site_key = "LAZICI"
+name = "LAZICI"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.4.107"
+port = 502
+unit = 1
+site_key = "DINARA"
+name = "DINARA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.4.108"
+port = 502
+unit = 1
+site_key = "KESTENJAR"
+name = "KESTENJAR"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.4.109"
+port = 502
+unit = 1
+site_key = "ORAHOVA"
+name = "ORAHOVA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.4.110"
+port = 502
+unit = 1
+site_key = "AZAPSKO_BRDO"
+name = "AZAPSKO_BRDO"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.4.111"
+port = 502
+unit = 1
+site_key = "CATRNJA"
+name = "CATRNJA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.4.112"
+port = 502
+unit = 1
+site_key = "URIJE"
+name = "URIJE"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.4.113"
+port = 502
+unit = 1
+site_key = "KATUNISTE"
+name = "KATUNISTE"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.4.114"
+port = 502
+unit = 1
+site_key = "RAMICI"
+name = "RAMICI"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.4.115"
+port = 502
+unit = 1
+site_key = "KLJUC_LUBICA"
+name = "KLJUC_LUBICA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.4.116"
+port = 502
+unit = 1
+site_key = "KULEN_VAKUF"
+name = "KULEN_VAKUF"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.4.117"
+port = 502
+unit = 1
+site_key = "VELIKA_GOMILA_II"
+name = "VELIKA_GOMILA_II"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.4.118"
+port = 502
+unit = 1
+site_key = "FTTE_STIJENA"
+name = "FTTE_STIJENA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.4.134"
+port = 502
+unit = 1
+site_key = "FTTE_DONJA_VIDOVSKA"
+name = "FTTE_DONJA_VIDOVSKA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.4.135"
+port = 502
+unit = 1
+site_key = "FTTE_VAROSKA_RIJEKA"
+name = "FTTE_VAROSKA_RIJEKA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.4.136"
+port = 502
+unit = 1
+site_key = "FTTE_JEZERSKI"
+name = "FTTE_JEZERSKI"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.4.137"
+port = 502
+unit = 1
+site_key = "FTTE_STURLIC"
+name = "FTTE_STURLIC"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.4.138"
+port = 502
+unit = 1
+site_key = "FTTE_SLATINA"
+name = "FTTE_SLATINA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.4.139"
+port = 502
+unit = 0
+site_key = "BIHAC_24_KWP"
+name = "BIHAC 24 kWp"
+type = "smartlogger"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.6"
+port = 502
+unit = 1
+site_key = "TRAVNIK_TKC"
+name = "TRAVNIK_TKC"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.7"
+port = 502
+unit = 1
+site_key = "JEZERO"
+name = "JEZERO"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.8"
+port = 502
+unit = 1
+site_key = "CUBREN"
+name = "CUBREN"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.9"
+port = 502
+unit = 1
+site_key = "DONJI_VAKUF"
+name = "DONJI VAKUF"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.10"
+port = 502
+unit = 1
+site_key = "DJIHANICI"
+name = "DJIHANICI"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.11"
+port = 502
+unit = 1
+site_key = "FOJNICA"
+name = "FOJNICA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.12"
+port = 502
+unit = 1
+site_key = "GLAMOC"
+name = "GLAMOC"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.13"
+port = 502
+unit = 1
+site_key = "BESPELJ"
+name = "BESPELJ"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.14"
+port = 502
+unit = 1
+site_key = "KAONIK"
+name = "KAONIK"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.15"
+port = 502
+unit = 1
+site_key = "KARADZE_GLAVICE"
+name = "KARADZE_GLAVICE"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.16"
+port = 502
+unit = 1
+site_key = "KIK"
+name = "KIK"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.17"
+port = 502
+unit = 1
+site_key = "KISELJAK"
+name = "KISELJAK"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.18"
+port = 502
+unit = 1
+site_key = "KUPRESKA_VRATA"
+name = "KUPRESKA_VRATA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.19"
+port = 502
+unit = 1
+site_key = "LISINA"
+name = "LISINA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.20"
+port = 502
+unit = 1
+site_key = "LIVNO"
+name = "LIVNO"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.21"
+port = 502
+unit = 1
+site_key = "LOPAR"
+name = "LOPAR"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.22"
+port = 502
+unit = 1
+site_key = "MRKONJIC_GRAD"
+name = "MRKONJIC_GRAD"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.23"
+port = 502
+unit = 1
+site_key = "OBORCI"
+name = "OBORCI"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.24"
+port = 502
+unit = 1
+site_key = "RAJCI"
+name = "RAJCI"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.25"
+port = 502
+unit = 1
+site_key = "ROSTOVO"
+name = "ROSTOVO"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.26"
+port = 502
+unit = 1
+site_key = "SKENDER_VAKUF"
+name = "SKENDER VAKUF"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.27"
+port = 502
+unit = 1
+site_key = "SENKOVICI"
+name = "SENKOVICI"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.28"
+port = 502
+unit = 1
+site_key = "SIMUNOVICI"
+name = "SIMUNOVICI"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.29"
+port = 502
+unit = 1
+site_key = "SUICA"
+name = "SUICA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.30"
+port = 502
+unit = 1
+site_key = "TURBE"
+name = "TURBE"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.31"
+port = 502
+unit = 1
+site_key = "VIDOVICI"
+name = "VIDOVICI"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.32"
+port = 502
+unit = 1
+site_key = "PALEZ_VINAC"
+name = "PALEZ_VINAC"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.33"
+port = 502
+unit = 1
+site_key = "VRANA"
+name = "VRANA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.34"
+port = 502
+unit = 1
+site_key = "VRILA"
+name = "VRILA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.35"
+port = 502
+unit = 1
+site_key = "FTTE_BILALOVAC"
+name = "FTTE_BILALOVAC"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.37"
+port = 502
+unit = 1
+site_key = "FTTE_FOJNICA"
+name = "FTTE_FOJNICA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.38"
+port = 502
+unit = 1
+site_key = "FTTE_VOLJEVAC"
+name = "FTTE_VOLJEVAC"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.39"
+port = 502
+unit = 1
+site_key = "FTTE_GRACANICA"
+name = "FTTE_GRACANICA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.40"
+port = 502
+unit = 1
+site_key = "HAN_BILA"
+name = "HAN BILA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.41"
+port = 502
+unit = 1
+site_key = "FTTE_KALIBUNAR"
+name = "FTTE_KALIBUNAR"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.42"
+port = 502
+unit = 1
+site_key = "FTTE_KACUNI"
+name = "FTTE_KACUNI"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.43"
+port = 502
+unit = 1
+site_key = "FTTE_KRUSCICA_VITEZ"
+name = "FTTE_KRUSCICA_VITEZ"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.44"
+port = 502
+unit = 1
+site_key = "FTTE_NADBARE"
+name = "FTTE_NADBARE"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.47"
+port = 502
+unit = 1
+site_key = "FTTE_VINAC"
+name = "FTTE_VINAC"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.48"
+port = 502
+unit = 1
+site_key = "FTTE_TRENICA"
+name = "FTTE_TRENICA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.50"
+port = 502
+unit = 1
+site_key = "HAMAMDZICI_RR"
+name = "HAMAMDZICI_RR"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.51"
+port = 502
+unit = 1
+site_key = "FTTE_ZITARNICA"
+name = "FTTE_ZITARNICA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.52"
+port = 502
+unit = 1
+site_key = "KACUNI_RR"
+name = "KACUNI_RR"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.53"
+port = 502
+unit = 1
+site_key = "KACUNI"
+name = "KACUNI"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.54"
+port = 502
+unit = 1
+site_key = "TC_JAJCE_SHOP"
+name = "TC_JAJCE_SHOP"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.55"
+port = 502
+unit = 1
+site_key = "BUSOVAČKE_STAJE"
+name = "BUSOVAČKE STAJE"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.56"
+port = 502
+unit = 1
+site_key = "FTTE_TURBE"
+name = "FTTE_TURBE"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.57"
+port = 502
+unit = 1
+site_key = "FTTE_DVAKUF"
+name = "FTTE_DVAKUF"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.58"
+port = 502
+unit = 1
+site_key = "VRANA_RR"
+name = "VRANA_RR"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.59"
+port = 502
+unit = 1
+site_key = "TICEVO"
+name = "TICEVO"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.74"
+port = 502
+unit = 1
+site_key = "FTTE_DVAKUF2_KUTANJA"
+name = "FTTE_DVAKUF2_KUTANJA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.76"
+port = 502
+unit = 1
+site_key = "KOZICE"
+name = "KOZICE"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.77"
+port = 502
+unit = 1
+site_key = "FTTE_FILANI"
+name = "FTTE_FILANI"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.78"
+port = 502
+unit = 1
+site_key = "FTTE_STARI_VITEZ"
+name = "FTTE_STARI_VITEZ"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.81"
+port = 502
+unit = 1
+site_key = "VUCKOVAC"
+name = "VUCKOVAC"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.84"
+port = 502
+unit = 1
+site_key = "FTTE_VESELA"
+name = "FTTE_VESELA"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.85"
+port = 502
+unit = 1
+site_key = "AMIDZICI"
+name = "AMIDZICI"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.88"
+port = 502
+unit = 1
+site_key = "SIPOVO"
+name = "SIPOVO"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.89"
+port = 502
+unit = 1
+site_key = "BALJVINE"
+name = "BALJVINE"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.90"
+port = 502
+unit = 1
+site_key = "ZABRISCE_RR"
+name = "ZABRISCE_RR"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.91"
+port = 502
+unit = 1
+site_key = "BABIN_GRAD_RR"
+name = "BABIN_GRAD_RR"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.92"
+port = 502
+unit = 1
+site_key = "RACICI"
+name = "RACICI"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.94"
+port = 502
+unit = 1
+site_key = "FTTE_GORNJI_VAKUF"
+name = "FTTE_GORNJI_VAKUF"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.95"
+port = 502
+unit = 1
+site_key = "BUGOJNO_PAKETSKO"
+name = "BUGOJNO_PAKETSKO"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.96"
+port = 502
+unit = 1
+site_key = "IVOVIK"
+name = "IVOVIK"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.97"
+port = 502
+unit = 1
+site_key = "RUDINE_TOMISLAVGRAD"
+name = "RUDINE_TOMISLAVGRAD"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.100"
+port = 502
+unit = 1
+site_key = "FTTE_DOLAC_NA_LASVI"
+name = "FTTE_DOLAC_NA_LASVI"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.106"
+port = 502
+unit = 1
+site_key = "BREZINA_CUSINE_RR"
+name = "BREZINA_CUSINE_RR"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.107"
+port = 502
+unit = 1
+site_key = "POUGAR_RR"
+name = "POUGAR_RR"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.108"
+port = 502
+unit = 1
+site_key = "SUICA_RR"
+name = "SUICA_RR"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.109"
+port = 502
+unit = 1
+site_key = "KRESEVO_RR"
+name = "KRESEVO_RR"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.119"
+port = 502
+unit = 1
+site_key = "BILALOVAC_RR"
+name = "BILALOVAC_RR"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.120"
+port = 502
+unit = 1
+site_key = "BABANOVAC_BRDO_RR"
+name = "BABANOVAC_BRDO_RR"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.121"
+port = 502
+unit = 1
+site_key = "FOJNICKE_STAJE_RR"
+name = "FOJNICKE_STAJE_RR"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.122"
+port = 502
+unit = 1
+site_key = "VUCKOVAC_RR"
+name = "VUCKOVAC_RR"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.123"
+port = 502
+unit = 1
+site_key = "FTTE_NOVI_TRAVNIK_PRENOS"
+name = "FTTE_NOVI_TRAVNIK_PRENOS"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.124"
+port = 502
+unit = 1
+site_key = "FTTE_NOVI_TRAVNIK"
+name = "FTTE_NOVI_TRAVNIK"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.125"
+port = 502
+unit = 1
+site_key = "FTTE_TURBE_PRENOS"
+name = "FTTE_TURBE_PRENOS"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.128"
+port = 502
+unit = 1
+site_key = "FTTE_KARAULA_PRENOS"
+name = "FTTE_KARAULA_PRENOS"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.130"
+port = 502
+unit = 1
+site_key = "TRAVNIK_TKC_PRENOS"
+name = "TRAVNIK_TKC_PRENOS"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.137"
+port = 502
+unit = 1
+site_key = "FTTE_TURBE_RR"
+name = "FTTE_TURBE_RR"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.138"
+port = 502
+unit = 1
+site_key = "FTTE_DVAKUF_RR"
+name = "FTTE_DVAKUF_RR"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.155"
+port = 502
+unit = 1
+site_key = "MLINISTE_MIKRO_4.1_KWP"
+name = "MLINISTE_MIKRO 4.1 kWp"
+type = "eaton"
+base0 = false
+fne = true
+enabled = true
+
+[[device]]
+ip = "10.10.6.253"
+port = 502
+unit = 1
+site_key = "DRVAR"
+name = "DRVAR"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.6.254"
+port = 502
+unit = 1
+site_key = "BOSANSKO_GRAHOVO"
+name = "BOSANSKO_GRAHOVO"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.7.5"
+port = 502
+unit = 1
+site_key = "HINJEVAC_RR"
+name = "HINJEVAC_RR"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+
+[[device]]
+ip = "10.10.7.7"
+port = 502
+unit = 1
+site_key = "BOROVNO"
+name = "BOROVNO"
+type = "eaton"
+base0 = false
+fne = false
+enabled = true
+

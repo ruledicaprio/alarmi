@@ -1,0 +1,464 @@
+# Eaton SC200/300 discrete-input alarm map (addr -> name/class/severity).
+# Generated from modbus/alarmna_lista.json. 1001-1004 are summary status bits.
+
+[[summary_bit]]
+addr = 1001
+label = "Critical"
+
+[[summary_bit]]
+addr = 1002
+label = "Major"
+
+[[summary_bit]]
+addr = 1003
+label = "Minor"
+
+[[summary_bit]]
+addr = 1004
+label = "Warning"
+
+[[alarm]]
+addr = 1101
+name = "Fan-Fail"
+class = "COOLING_FAULT"
+severity = "major"
+
+[[alarm]]
+addr = 1102
+name = "Mains-Fail"
+class = "MAINS_FAILURE"
+severity = "critical"
+
+[[alarm]]
+addr = 1103
+name = "MOV-Fail"
+class = "FUSE_LOAD"
+severity = "major"
+
+[[alarm]]
+addr = 1104
+name = "Load-Fuse-Fail"
+class = "FUSE_LOAD"
+severity = "major"
+
+[[alarm]]
+addr = 1105
+name = "Battery-Fuse-Fail"
+class = "BATTERY_FAULT"
+severity = "major"
+
+[[alarm]]
+addr = 1107
+name = "Phase-Fail"
+class = "MAINS_FAILURE"
+severity = "critical"
+
+[[alarm]]
+addr = 1201
+name = "Low-Float"
+class = "BATTERY_LOW"
+severity = "major"
+
+[[alarm]]
+addr = 1205
+name = "Rectifier-Fail"
+class = "RECTIFIER_FAILURE"
+severity = "major"
+
+[[alarm]]
+addr = 1206
+name = "Multiple-Rectifier-Fail"
+class = "RECTIFIER_FAILURE"
+severity = "critical"
+
+[[alarm]]
+addr = 1209
+name = "Partial-AC-Fail"
+class = "MAINS_FAILURE"
+severity = "major"
+
+[[alarm]]
+addr = 1210
+name = "AC-Fail"
+class = "MAINS_FAILURE"
+severity = "critical"
+
+[[alarm]]
+addr = 1211
+name = "System-Overload"
+class = "FUSE_LOAD"
+severity = "major"
+
+[[alarm]]
+addr = 1212
+name = "Load-Fuse-Fail"
+class = "FUSE_LOAD"
+severity = "major"
+
+[[alarm]]
+addr = 1213
+name = "Battery-Fuse-Fail"
+class = "BATTERY_FAULT"
+severity = "major"
+
+[[alarm]]
+addr = 1215
+name = "MOV-Fail"
+class = "FUSE_LOAD"
+severity = "major"
+
+[[alarm]]
+addr = 1216
+name = "ACD-Fan-Fail"
+class = "COOLING_FAULT"
+severity = "major"
+
+[[alarm]]
+addr = 1217
+name = "LVD1-Disconnected"
+class = "BATTERY_LOW"
+severity = "major"
+
+[[alarm]]
+addr = 1218
+name = "LVD1-Fail"
+class = "BATTERY_FAULT"
+severity = "major"
+
+[[alarm]]
+addr = 1219
+name = "LVD1-Manual"
+class = "GENERIC_ERROR"
+severity = "warning"
+
+[[alarm]]
+addr = 1220
+name = "LVD2-Disconnected"
+class = "BATTERY_LOW"
+severity = "major"
+
+[[alarm]]
+addr = 1221
+name = "LVD2-Fail"
+class = "BATTERY_FAULT"
+severity = "major"
+
+[[alarm]]
+addr = 1222
+name = "LVD2-Manual"
+class = "GENERIC_ERROR"
+severity = "warning"
+
+[[alarm]]
+addr = 1223
+name = "Battery-Temperature-Low"
+class = "BATTERY_FAULT"
+severity = "minor"
+
+[[alarm]]
+addr = 1224
+name = "Battery-Temperature-High"
+class = "BATTERY_FAULT"
+severity = "major"
+
+[[alarm]]
+addr = 1225
+name = "Sensor-Fail"
+class = "BATTERY_FAULT"
+severity = "minor"
+
+[[alarm]]
+addr = 1230
+name = "In-Discharge"
+class = "BATTERY_LOW"
+severity = "major"
+
+[[alarm]]
+addr = 1231
+name = "Battery-Current-Limit"
+class = "BATTERY_LOW"
+severity = "minor"
+
+[[alarm]]
+addr = 1232
+name = "Rectifier-No-Load"
+class = "RECTIFIER_FAILURE"
+severity = "minor"
+
+[[alarm]]
+addr = 1233
+name = "Rectifier-Current-Limit"
+class = "RECTIFIER_FAILURE"
+severity = "minor"
+
+[[alarm]]
+addr = 1234
+name = "Rectifier-Over-Temperature"
+class = "RECTIFIER_FAILURE"
+severity = "major"
+
+[[alarm]]
+addr = 1235
+name = "AC-Phase1-Fail"
+class = "MAINS_FAILURE"
+severity = "major"
+
+[[alarm]]
+addr = 1236
+name = "AC-Phase1-Voltage"
+class = "MAINS_FAILURE"
+severity = "major"
+
+[[alarm]]
+addr = 1237
+name = "AC-Phase2-Fail"
+class = "MAINS_FAILURE"
+severity = "major"
+
+[[alarm]]
+addr = 1238
+name = "AC-Phase2-Voltage"
+class = "MAINS_FAILURE"
+severity = "major"
+
+[[alarm]]
+addr = 1239
+name = "AC-Phase3-Fail"
+class = "MAINS_FAILURE"
+severity = "major"
+
+[[alarm]]
+addr = 1240
+name = "AC-Phase3-Voltage"
+class = "MAINS_FAILURE"
+severity = "major"
+
+[[alarm]]
+addr = 1241
+name = "AC-Frequency"
+class = "MAINS_FAILURE"
+severity = "minor"
+
+[[alarm]]
+addr = 1242
+name = "Generator-Enable"
+class = "GENSET_EVENT"
+severity = "major"
+
+[[alarm]]
+addr = 1243
+name = "Cabinet-Fan-Fail"
+class = "COOLING_FAULT"
+severity = "major"
+
+[[alarm]]
+addr = 1244
+name = "New-Hardware"
+class = "GENERIC_ERROR"
+severity = "warning"
+
+[[alarm]]
+addr = 1245
+name = "Unknown-Hardware"
+class = "GENERIC_ERROR"
+severity = "warning"
+
+[[alarm]]
+addr = 1246
+name = "Missing-Hardware"
+class = "GENERIC_ERROR"
+severity = "major"
+
+[[alarm]]
+addr = 1247
+name = "Standby-Mode"
+class = "GENERIC_ERROR"
+severity = "warning"
+
+[[alarm]]
+addr = 1248
+name = "LVD1-Characterization-Error"
+class = "BATTERY_FAULT"
+severity = "minor"
+
+[[alarm]]
+addr = 1249
+name = "LVD2-Characterization-Error"
+class = "BATTERY_FAULT"
+severity = "minor"
+
+[[alarm]]
+addr = 1250
+name = "String-Fail"
+class = "BATTERY_FAULT"
+severity = "major"
+
+[[alarm]]
+addr = 1251
+name = "Generator-Fail"
+class = "GENSET_EVENT"
+severity = "major"
+
+[[alarm]]
+addr = 1252
+name = "LVD-Disconnected"
+class = "BATTERY_LOW"
+severity = "major"
+
+[[alarm]]
+addr = 1253
+name = "LVD-Fail"
+class = "BATTERY_FAULT"
+severity = "major"
+
+[[alarm]]
+addr = 1254
+name = "LVD-Manual"
+class = "GENERIC_ERROR"
+severity = "warning"
+
+[[alarm]]
+addr = 1255
+name = "LVD-Characterization-Error"
+class = "BATTERY_FAULT"
+severity = "minor"
+
+[[alarm]]
+addr = 1256
+name = "Configuration-Error"
+class = "GENERIC_ERROR"
+severity = "warning"
+
+[[alarm]]
+addr = 1257
+name = "Wrong-Battery-Polarity"
+class = "BATTERY_FAULT"
+severity = "critical"
+
+[[alarm]]
+addr = 1258
+name = "Characterizing-Battery"
+class = "GENERIC_ERROR"
+severity = "warning"
+
+[[alarm]]
+addr = 1259
+name = "DO-Manual"
+class = "GENERIC_ERROR"
+severity = "warning"
+
+[[alarm]]
+addr = 1263
+name = "DCDC-Fail"
+class = "RECTIFIER_FAILURE"
+severity = "major"
+
+[[alarm]]
+addr = 1264
+name = "Solar-Fail"
+class = "SOLAR_FAULT"
+severity = "minor"
+
+[[alarm]]
+addr = 1265
+name = "System-Overload-B"
+class = "FUSE_LOAD"
+severity = "major"
+
+[[alarm]]
+addr = 1301
+name = "DI-Alarm-1"
+class = "GENERIC_ERROR"
+severity = "warning"
+
+[[alarm]]
+addr = 1302
+name = "DI-Alarm-2"
+class = "GENERIC_ERROR"
+severity = "warning"
+
+[[alarm]]
+addr = 1303
+name = "DI-Alarm-3"
+class = "GENERIC_ERROR"
+severity = "warning"
+
+[[alarm]]
+addr = 1304
+name = "DI-Alarm-4"
+class = "GENERIC_ERROR"
+severity = "warning"
+
+# Coils 1..12 = configurable digital-output dry contacts (door, etc.)
+[[coil]]
+addr = 1
+name = "DO-Alarm-1"
+class = "GENERIC_ERROR"
+severity = "warning"
+
+[[coil]]
+addr = 2
+name = "DO-Alarm-2"
+class = "GENERIC_ERROR"
+severity = "warning"
+
+[[coil]]
+addr = 3
+name = "DO-Alarm-3"
+class = "GENERIC_ERROR"
+severity = "warning"
+
+[[coil]]
+addr = 4
+name = "DO-Alarm-4"
+class = "GENERIC_ERROR"
+severity = "warning"
+
+[[coil]]
+addr = 5
+name = "DO-Alarm-5"
+class = "GENERIC_ERROR"
+severity = "warning"
+
+[[coil]]
+addr = 6
+name = "DO-Alarm-6"
+class = "GENERIC_ERROR"
+severity = "warning"
+
+[[coil]]
+addr = 7
+name = "DO-Alarm-7"
+class = "GENERIC_ERROR"
+severity = "warning"
+
+[[coil]]
+addr = 8
+name = "DO-Alarm-8"
+class = "GENERIC_ERROR"
+severity = "warning"
+
+[[coil]]
+addr = 9
+name = "DO-Alarm-9"
+class = "GENERIC_ERROR"
+severity = "warning"
+
+[[coil]]
+addr = 10
+name = "DO-Alarm-10"
+class = "GENERIC_ERROR"
+severity = "warning"
+
+[[coil]]
+addr = 11
+name = "DO-Alarm-11"
+class = "GENERIC_ERROR"
+severity = "warning"
+
+[[coil]]
+addr = 12
+name = "DO-Alarm-12"
+class = "GENERIC_ERROR"
+severity = "warning"
+

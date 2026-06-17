@@ -1,0 +1,3502 @@
+[
+    {
+        "Time":  "2026-04-14T03:10:54",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - RRS BS Veliki Zep",
+        "Alarm":  "1000007",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T03:10:11",
+        "System":  "IgnitionSCADA",
+        "Site":  "Zenica - TKC Zenica",
+        "Alarm":  "3000004",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T03:09:58",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - RRS BS Veliki Zep",
+        "Alarm":  "1000007",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T03:09:56",
+        "System":  "IgnitionSCADA",
+        "Site":  "Zenica - TKC Zenica",
+        "Alarm":  "3000004",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T03:03:53",
+        "System":  "IgnitionSCADA",
+        "Site":  "Tuzla - HOST Pasa Bunar",
+        "Alarm":  "2000028",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T03:03:47",
+        "System":  "IgnitionSCADA",
+        "Site":  "Tuzla - HOST Pasa Bunar",
+        "Alarm":  "2000028",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T02:56:15",
+        "System":  "IgnitionSCADA",
+        "Site":  "Tuzla - HOST Pasa Bunar",
+        "Alarm":  "2000028",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T02:55:05",
+        "System":  "IgnitionSCADA",
+        "Site":  "Tuzla - HOST Pasa Bunar",
+        "Alarm":  "2000028",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T02:54:58",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T02:54:57",
+        "System":  "U2020",
+        "Site":  "PODBARE",
+        "Alarm":  "Kvar ispravljaca (Rectifier Failure)",
+        "Status":  "CLEARED"
+    },
+    {
+        "Time":  "2026-04-14T02:54:55",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T02:54:21",
+        "System":  "U2020",
+        "Site":  "PODBARE",
+        "Alarm":  "Kvar ispravljaca (Rectifier Failure)",
+        "Status":  "ACTIVE"
+    },
+    {
+        "Time":  "2026-04-14T02:53:29",
+        "System":  "U2020",
+        "Site":  "PODBARE",
+        "Alarm":  "Kvar ispravljaca (Rectifier Failure)",
+        "Status":  "CLEARED"
+    },
+    {
+        "Time":  "2026-04-14T02:52:55",
+        "System":  "IgnitionSCADA",
+        "Site":  "Tuzla - HOST Pasa Bunar",
+        "Alarm":  "2000028",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T02:52:05",
+        "System":  "IgnitionSCADA",
+        "Site":  "Tuzla - HOST Pasa Bunar",
+        "Alarm":  "2000028",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T02:50:35",
+        "System":  "IgnitionSCADA",
+        "Site":  "Tuzla - HOST Pasa Bunar",
+        "Alarm":  "2000028",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T02:50:18",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T02:50:16",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T02:48:18",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T02:48:15",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T02:46:38",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T02:46:36",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T02:40:07",
+        "System":  "IgnitionSCADA",
+        "Site":  "Tuzla - HOST Pasa Bunar",
+        "Alarm":  "2000028",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T02:39:14",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - RRS BS Veliki Zep",
+        "Alarm":  "1000007",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T02:38:55",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - RRS BS Veliki Zep",
+        "Alarm":  "1000007",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T02:38:53",
+        "System":  "IgnitionSCADA",
+        "Site":  "Tuzla - HOST Pasa Bunar",
+        "Alarm":  "2000028",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T02:38:14",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - RRS BS Veliki Zep",
+        "Alarm":  "1000007",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T02:37:14",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - RRS BS Veliki Zep",
+        "Alarm":  "1000007",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T02:36:47",
+        "System":  "IgnitionSCADA",
+        "Site":  "Tuzla - HOST Pasa Bunar",
+        "Alarm":  "2000028",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T02:35:12",
+        "System":  "U2020",
+        "Site":  "PODBARE",
+        "Alarm":  "Kvar ispravljaca (Rectifier Failure)",
+        "Status":  "ACTIVE"
+    },
+    {
+        "Time":  "2026-04-14T02:34:53",
+        "System":  "IgnitionSCADA",
+        "Site":  "Tuzla - HOST Pasa Bunar",
+        "Alarm":  "2000028",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T02:34:10",
+        "System":  "U2020",
+        "Site":  "PODBARE",
+        "Alarm":  "Kvar ispravljaca (Rectifier Failure)",
+        "Status":  "CLEARED"
+    },
+    {
+        "Time":  "2026-04-14T02:33:31",
+        "System":  "IgnitionSCADA",
+        "Site":  "Zenica - TKC Zenica",
+        "Alarm":  "3000004",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T02:33:11",
+        "System":  "IgnitionSCADA",
+        "Site":  "Zenica - TKC Zenica",
+        "Alarm":  "3000004",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T02:33:09",
+        "System":  "U2020",
+        "Site":  "PODBARE",
+        "Alarm":  "Kvar ispravljaca (Rectifier Failure)",
+        "Status":  "ACTIVE"
+    },
+    {
+        "Time":  "2026-04-14T02:32:47",
+        "System":  "IgnitionSCADA",
+        "Site":  "Tuzla - HOST Pasa Bunar",
+        "Alarm":  "2000028",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T02:32:30",
+        "System":  "U2020",
+        "Site":  "PODBARE",
+        "Alarm":  "Kvar ispravljaca (Rectifier Failure)",
+        "Status":  "CLEARED"
+    },
+    {
+        "Time":  "2026-04-14T02:17:38",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T02:17:36",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T02:15:38",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T02:15:35",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T02:10:44",
+        "System":  "U2020",
+        "Site":  "PODBARE",
+        "Alarm":  "Kvar ispravljaca (Rectifier Failure)",
+        "Status":  "ACTIVE"
+    },
+    {
+        "Time":  "2026-04-14T02:09:40",
+        "System":  "U2020",
+        "Site":  "PODBARE",
+        "Alarm":  "Kvar ispravljaca (Rectifier Failure)",
+        "Status":  "CLEARED"
+    },
+    {
+        "Time":  "2026-04-14T02:08:50",
+        "System":  "U2020",
+        "Site":  "PODBARE",
+        "Alarm":  "Kvar ispravljaca (Rectifier Failure)",
+        "Status":  "ACTIVE"
+    },
+    {
+        "Time":  "2026-04-14T02:08:11",
+        "System":  "U2020",
+        "Site":  "PODBARE",
+        "Alarm":  "Kvar ispravljaca (Rectifier Failure)",
+        "Status":  "CLEARED"
+    },
+    {
+        "Time":  "2026-04-14T02:07:32",
+        "System":  "U2020",
+        "Site":  "PODBARE",
+        "Alarm":  "Kvar ispravljaca (Rectifier Failure)",
+        "Status":  "ACTIVE"
+    },
+    {
+        "Time":  "2026-04-14T02:06:40",
+        "System":  "U2020",
+        "Site":  "PODBARE",
+        "Alarm":  "Kvar ispravljaca (Rectifier Failure)",
+        "Status":  "CLEARED"
+    },
+    {
+        "Time":  "2026-04-14T01:53:38",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:53:35",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:52:58",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:52:55",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:49:38",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:49:36",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:47:38",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:47:35",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:46:14",
+        "System":  "U2020",
+        "Site":  "PODBARE",
+        "Alarm":  "Kvar ispravljaca (Rectifier Failure)",
+        "Status":  "ACTIVE"
+    },
+    {
+        "Time":  "2026-04-14T01:45:06",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Rectifier Power Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:44:59",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Phase L3 Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:44:31",
+        "System":  "U2020",
+        "Site":  "PODBARE",
+        "Alarm":  "Kvar ispravljaca (Rectifier Failure)",
+        "Status":  "CLEARED"
+    },
+    {
+        "Time":  "2026-04-14T01:43:17",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Phase L3 Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:42:50",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Phase L2 Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:40:38",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:40:35",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:40:10",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Phase L2 Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:39:56",
+        "System":  "U2020",
+        "Site":  "VUCJA_LUKA",
+        "Alarm":  "Nestanak 220 V",
+        "Status":  "ACTIVE"
+    },
+    {
+        "Time":  "2026-04-14T01:39:12",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:39:08",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "AC Phase L1 Undervoltage",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:39:04",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Rectifier Power Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:38:53",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "AC Phase L1 Undervoltage",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:38:52",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:38:27",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Rectifier Power Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:38:20",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Phase L2 Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:37:45",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Phase L2 Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:37:21",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:37:18",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:37:15",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Phase L3 Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:36:58",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:36:55",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:36:38",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:36:35",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:36:18",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:36:16",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:36:12",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Phase L3 Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:35:44",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Phase L2 Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:30:51",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Phase L2 Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:30:47",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Rectifier Power Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:30:25",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "AC Phase L1 Undervoltage",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:30:21",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:30:04",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000032",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:29:59",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "AC Phase L1 Undervoltage",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:29:59",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:29:24",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000032",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:27:47",
+        "System":  "NetEco",
+        "Site":  "SEFEROVICI_MIKRO",
+        "Alarm":  "Mains Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:27:31",
+        "System":  "NetEco",
+        "Site":  "SEFEROVICI_MIKRO",
+        "Alarm":  "Mains Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:24:59",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Rectifier Power Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:24:52",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Phase L2 Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:23:38",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:23:35",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:22:54",
+        "System":  "U2020",
+        "Site":  "PODBARE",
+        "Alarm":  "Kvar ispravljaca (Rectifier Failure)",
+        "Status":  "ACTIVE"
+    },
+    {
+        "Time":  "2026-04-14T01:22:38",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:22:35",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:21:39",
+        "System":  "U2020",
+        "Site":  "RUDINE",
+        "Alarm":  "Kvar ispravljaca (Rectifier Failure)",
+        "Status":  "CLEARED"
+    },
+    {
+        "Time":  "2026-04-14T01:21:18",
+        "System":  "U2020",
+        "Site":  "RUDINE",
+        "Alarm":  "Kvar ispravljaca (Rectifier Failure)",
+        "Status":  "ACTIVE"
+    },
+    {
+        "Time":  "2026-04-14T01:21:08",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Phase L2 Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:21:04",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Rectifier Power Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:19:38",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:19:35",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:19:22",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:19:20",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:19:16",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Rectifier Power Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:19:03",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Phase L2 Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:18:38",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:18:35",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:18:26",
+        "System":  "U2020",
+        "Site":  "LJUBIJANKICI",
+        "Alarm":  "Nestanak 220 V",
+        "Status":  "ACTIVE"
+    },
+    {
+        "Time":  "2026-04-14T01:18:18",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:18:15",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:17:43",
+        "System":  "NetEco",
+        "Site":  "BALKANA",
+        "Alarm":  "AC Phase L3 Undervoltage",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:17:18",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:17:15",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:16:58",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:16:55",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:16:33",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Phase L2 Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:16:06",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Phase L3 Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:15:15",
+        "System":  "NetEco",
+        "Site":  "BALKANA",
+        "Alarm":  "AC Phase L3 Undervoltage",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:13:20",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Phase L3 Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:12:52",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Phase L2 Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:11:38",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:11:35",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:11:18",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:11:15",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:09:24",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Phase L2 Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:08:57",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Phase L3 Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:07:53",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Phase L3 Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:07:24",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Phase L2 Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:06:56",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Phase L2 Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:06:28",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Phase L3 Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:06:09",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Phase L3 Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:05:32",
+        "System":  "BARAN_klima",
+        "Site":  "RR_Tusnica_Livno",
+        "Alarm":  "ACTIVE",
+        "Status":  "UNKNOWN"
+    },
+    {
+        "Time":  "2026-04-14T01:05:20",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Phase L3 Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:05:03",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Phase L3 Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:04:33",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Phase L2 Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:04:18",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Phase L2 Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:03:50",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Phase L3 Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T01:00:24",
+        "System":  "U2020",
+        "Site":  "PODBARE",
+        "Alarm":  "Kvar ispravljaca (Rectifier Failure)",
+        "Status":  "CLEARED"
+    },
+    {
+        "Time":  "2026-04-14T00:57:14",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Phase L3 Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T00:56:46",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Phase L2 Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T00:51:54",
+        "System":  "BARAN_klima",
+        "Site":  "BS_DOBRNJA",
+        "Alarm":  "ACTIVE",
+        "Status":  "UNKNOWN"
+    },
+    {
+        "Time":  "2026-04-14T00:51:41",
+        "System":  "NetEco",
+        "Site":  "FOCA_JOSANICA",
+        "Alarm":  "Mains Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T00:51:32",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Phase L2 Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T00:51:02",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Phase L3 Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T00:50:19",
+        "System":  "NetEco",
+        "Site":  "FOCA_JOSANICA",
+        "Alarm":  "AC Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T00:50:15",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Phase L3 Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T00:49:46",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Phase L2 Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T00:48:27",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Phase L2 Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T00:48:23",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Rectifier Power Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T00:47:10",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Rectifier Power Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T00:47:03",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Phase L3 Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T00:46:32",
+        "System":  "U2020",
+        "Site":  "PODBARE",
+        "Alarm":  "Kvar ispravljaca (Rectifier Failure)",
+        "Status":  "ACTIVE"
+    },
+    {
+        "Time":  "2026-04-14T00:46:13",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Phase L3 Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T00:46:09",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Rectifier Power Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T00:45:34",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Rectifier Power Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T00:45:28",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Phase L3 Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T00:45:22",
+        "System":  "U2020",
+        "Site":  "PODBARE",
+        "Alarm":  "Kvar ispravljaca (Rectifier Failure)",
+        "Status":  "CLEARED"
+    },
+    {
+        "Time":  "2026-04-14T00:43:41",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Phase L3 Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T00:43:37",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Rectifier Power Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T00:42:15",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Rectifier Power Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T00:42:07",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Phase L2 Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T00:41:26",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Phase L2 Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T00:41:17",
+        "System":  "U2020",
+        "Site":  "PODBARE",
+        "Alarm":  "Kvar ispravljaca (Rectifier Failure)",
+        "Status":  "ACTIVE"
+    },
+    {
+        "Time":  "2026-04-14T00:40:59",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Phase L3 Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T00:40:28",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Phase L3 Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T00:39:35",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Phase L3 Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T00:37:14",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Phase L3 Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T00:36:46",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Phase L2 Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T00:36:36",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Phase L2 Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T00:36:32",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Rectifier Power Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T00:35:13",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Rectifier Power Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T00:35:07",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Phase L3 Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T00:30:55",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - Alipasino Polje",
+        "Alarm":  "8000166",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T00:30:35",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - Alipasino Polje",
+        "Alarm":  "8000166",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T00:26:55",
+        "System":  "U2020",
+        "Site":  "PALEZ",
+        "Alarm":  "Nestanak 220 V",
+        "Status":  "ACTIVE"
+    },
+    {
+        "Time":  "2026-04-14T00:22:34",
+        "System":  "U2020",
+        "Site":  "PODBARE",
+        "Alarm":  "Kvar ispravljaca (Rectifier Failure)",
+        "Status":  "CLEARED"
+    },
+    {
+        "Time":  "2026-04-14T00:18:24",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000032",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T00:17:44",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000032",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T00:11:29",
+        "System":  "U2020",
+        "Site":  "PODBARE",
+        "Alarm":  "Kvar ispravljaca (Rectifier Failure)",
+        "Status":  "ACTIVE"
+    },
+    {
+        "Time":  "2026-04-14T00:10:25",
+        "System":  "U2020",
+        "Site":  "PODBARE",
+        "Alarm":  "Kvar ispravljaca (Rectifier Failure)",
+        "Status":  "CLEARED"
+    },
+    {
+        "Time":  "2026-04-14T00:07:55",
+        "System":  "NetEco",
+        "Site":  "RIBNIK_DRAGORAJ",
+        "Alarm":  "Mains Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T00:06:22",
+        "System":  "NetEco",
+        "Site":  "RIBNIK_DRAGORAJ",
+        "Alarm":  "AC Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T00:05:38",
+        "System":  "U2020",
+        "Site":  "PODBARE",
+        "Alarm":  "Kvar ispravljaca (Rectifier Failure)",
+        "Status":  "ACTIVE"
+    },
+    {
+        "Time":  "2026-04-14T00:04:34",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - Alipasino Polje",
+        "Alarm":  "8000166",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T00:04:14",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - Alipasino Polje",
+        "Alarm":  "8000166",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T00:03:56",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Phase L3 Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-14T00:03:28",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Phase L2 Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T23:58:29",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Phase L2 Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T23:58:02",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Phase L3 Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T23:57:19",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Phase L3 Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T23:56:50",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Phase L2 Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T23:55:40",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Phase L2 Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T23:55:13",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Phase L3 Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T23:54:28",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Phase L3 Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T23:54:01",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Phase L2 Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T23:53:53",
+        "System":  "U2020",
+        "Site":  "POGAR",
+        "Alarm":  "Nestanak 220 V",
+        "Status":  "CLEARED"
+    },
+    {
+        "Time":  "2026-04-13T23:53:51",
+        "System":  "U2020",
+        "Site":  "DUBOSTICA",
+        "Alarm":  "Nestanak 220 V",
+        "Status":  "CLEARED"
+    },
+    {
+        "Time":  "2026-04-13T23:53:50",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Phase L2 Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T23:53:21",
+        "System":  "U2020",
+        "Site":  "OBODNIK",
+        "Alarm":  "Nestanak 220 V",
+        "Status":  "CLEARED"
+    },
+    {
+        "Time":  "2026-04-13T23:52:55",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Phase L2 Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T23:52:24",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Phase L2 Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T23:52:11",
+        "System":  "U2020",
+        "Site":  "OBODNIK",
+        "Alarm":  "Nestanak 220 V",
+        "Status":  "ACTIVE"
+    },
+    {
+        "Time":  "2026-04-13T23:51:56",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Phase L3 Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T23:49:45",
+        "System":  "U2020",
+        "Site":  "DUBOSTICA",
+        "Alarm":  "Nestanak 220 V",
+        "Status":  "ACTIVE"
+    },
+    {
+        "Time":  "2026-04-13T23:49:41",
+        "System":  "U2020",
+        "Site":  "POGAR",
+        "Alarm":  "Nestanak 220 V",
+        "Status":  "ACTIVE"
+    },
+    {
+        "Time":  "2026-04-13T23:48:53",
+        "System":  "U2020",
+        "Site":  "OBODNIK",
+        "Alarm":  "Nestanak 220 V",
+        "Status":  "CLEARED"
+    },
+    {
+        "Time":  "2026-04-13T23:48:44",
+        "System":  "U2020",
+        "Site":  "OBODNIK",
+        "Alarm":  "Nestanak 220 V",
+        "Status":  "ACTIVE"
+    },
+    {
+        "Time":  "2026-04-13T23:48:19",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Phase L3 Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T23:47:51",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Phase L2 Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T23:46:48",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Phase L2 Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T23:46:19",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Phase L3 Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T23:43:09",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Phase L3 Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T23:42:42",
+        "System":  "NetEco",
+        "Site":  "KISELJAK_CENTAR",
+        "Alarm":  "Mains Phase L2 Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T23:42:04",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000032",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T23:41:24",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000032",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T23:38:21",
+        "System":  "NetEco",
+        "Site":  "RIBNIK_DRAGORAJ",
+        "Alarm":  "AC Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T23:38:13",
+        "System":  "NetEco",
+        "Site":  "RIBNIK_DRAGORAJ",
+        "Alarm":  "Mains Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T23:36:38",
+        "System":  "NetEco",
+        "Site":  "RIBNIK_DRAGORAJ",
+        "Alarm":  "Mains Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T23:35:11",
+        "System":  "NetEco",
+        "Site":  "RIBNIK_DRAGORAJ",
+        "Alarm":  "AC Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T23:34:56",
+        "System":  "U2020",
+        "Site":  "RUDINE",
+        "Alarm":  "Kvar ispravljaca (Rectifier Failure)",
+        "Status":  "CLEARED"
+    },
+    {
+        "Time":  "2026-04-13T23:34:37",
+        "System":  "U2020",
+        "Site":  "RUDINE",
+        "Alarm":  "Kvar ispravljaca (Rectifier Failure)",
+        "Status":  "ACTIVE"
+    },
+    {
+        "Time":  "2026-04-13T23:34:35",
+        "System":  "NetEco",
+        "Site":  "RIBNIK_DRAGORAJ",
+        "Alarm":  "AC Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T23:34:30",
+        "System":  "NetEco",
+        "Site":  "RIBNIK_DRAGORAJ",
+        "Alarm":  "Mains Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T23:32:56",
+        "System":  "NetEco",
+        "Site":  "RIBNIK_DRAGORAJ",
+        "Alarm":  "Mains Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T23:31:26",
+        "System":  "NetEco",
+        "Site":  "RIBNIK_DRAGORAJ",
+        "Alarm":  "AC Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T23:26:04",
+        "System":  "NetEco",
+        "Site":  "RIBNIK_DRAGORAJ",
+        "Alarm":  "AC Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T23:25:55",
+        "System":  "NetEco",
+        "Site":  "RIBNIK_DRAGORAJ",
+        "Alarm":  "Mains Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T23:24:22",
+        "System":  "NetEco",
+        "Site":  "RIBNIK_DRAGORAJ",
+        "Alarm":  "Mains Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T23:22:55",
+        "System":  "NetEco",
+        "Site":  "RIBNIK_DRAGORAJ",
+        "Alarm":  "AC Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T23:15:52",
+        "System":  "U2020",
+        "Site":  "SESLIJE",
+        "Alarm":  "Kvar ispravljaca (Rectifier Failure)",
+        "Status":  "ACTIVE"
+    },
+    {
+        "Time":  "2026-04-13T23:14:51",
+        "System":  "NetEco",
+        "Site":  "RIBNIK_DRAGORAJ",
+        "Alarm":  "AC Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T23:14:42",
+        "System":  "NetEco",
+        "Site":  "RIBNIK_DRAGORAJ",
+        "Alarm":  "Mains Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T23:13:10",
+        "System":  "NetEco",
+        "Site":  "RIBNIK_DRAGORAJ",
+        "Alarm":  "Mains Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T23:11:54",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - Alipasino Polje",
+        "Alarm":  "8000166",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T23:11:42",
+        "System":  "NetEco",
+        "Site":  "RIBNIK_DRAGORAJ",
+        "Alarm":  "AC Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T23:11:34",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - Alipasino Polje",
+        "Alarm":  "8000166",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T22:59:54",
+        "System":  "NetEco",
+        "Site":  "RIBNIK_DRAGORAJ",
+        "Alarm":  "AC Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T22:59:08",
+        "System":  "BARAN_klima",
+        "Site":  "",
+        "Alarm":  "ACTIVE",
+        "Status":  "UNKNOWN"
+    },
+    {
+        "Time":  "2026-04-13T22:59:04",
+        "System":  "NetEco",
+        "Site":  "RIBNIK_DRAGORAJ",
+        "Alarm":  "AC Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T22:45:34",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - Alipasino Polje",
+        "Alarm":  "8000166",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T22:45:14",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - Alipasino Polje",
+        "Alarm":  "8000166",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T22:31:17",
+        "System":  "RPS-SC200-MIB",
+        "Site":  "PUTOVICI",
+        "Alarm":  "ZENICA",
+        "Status":  "UNKNOWN"
+    },
+    {
+        "Time":  "2026-04-13T22:29:39",
+        "System":  "RPS-SC200-MIB",
+        "Site":  "PUTOVICI",
+        "Alarm":  "ZENICA",
+        "Status":  "UNKNOWN"
+    },
+    {
+        "Time":  "2026-04-13T22:26:18",
+        "System":  "NetEco",
+        "Site":  "TUZLA_POZARNICA",
+        "Alarm":  "Phase L2 Under Voltage",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T22:19:14",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - Alipasino Polje",
+        "Alarm":  "8000166",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T22:18:54",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - Alipasino Polje",
+        "Alarm":  "8000166",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T22:13:00",
+        "System":  "U2020",
+        "Site":  "SESLIJE",
+        "Alarm":  "Kvar ispravljaca (Rectifier Failure)",
+        "Status":  "CLEARED"
+    },
+    {
+        "Time":  "2026-04-13T21:52:54",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - Alipasino Polje",
+        "Alarm":  "8000166",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T21:52:34",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - Alipasino Polje",
+        "Alarm":  "8000166",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T21:45:03",
+        "System":  "U2020",
+        "Site":  "CAJNICE",
+        "Alarm":  "Nestanak 220 V",
+        "Status":  "CLEARED"
+    },
+    {
+        "Time":  "2026-04-13T21:34:21",
+        "System":  "U2020",
+        "Site":  "CAJNICE",
+        "Alarm":  "Nestanak 220 V",
+        "Status":  "ACTIVE"
+    },
+    {
+        "Time":  "2026-04-13T21:26:34",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - Alipasino Polje",
+        "Alarm":  "8000166",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T21:26:14",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - Alipasino Polje",
+        "Alarm":  "8000166",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T21:11:08",
+        "System":  "U2020",
+        "Site":  "CAJNICE",
+        "Alarm":  "Nestanak 220 V",
+        "Status":  "CLEARED"
+    },
+    {
+        "Time":  "2026-04-13T21:10:14",
+        "System":  "U2020",
+        "Site":  "OBODNIK",
+        "Alarm":  "Nestanak 220 V",
+        "Status":  "CLEARED"
+    },
+    {
+        "Time":  "2026-04-13T21:09:22",
+        "System":  "U2020",
+        "Site":  "OBODNIK",
+        "Alarm":  "Nestanak 220 V",
+        "Status":  "ACTIVE"
+    },
+    {
+        "Time":  "2026-04-13T21:00:14",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - Alipasino Polje",
+        "Alarm":  "8000166",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T20:59:54",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - Alipasino Polje",
+        "Alarm":  "8000166",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T20:59:50",
+        "System":  "U2020",
+        "Site":  "CAJNICE",
+        "Alarm":  "Nestanak 220 V",
+        "Status":  "ACTIVE"
+    },
+    {
+        "Time":  "2026-04-13T20:52:49",
+        "System":  "U2020",
+        "Site":  "CAJNICE",
+        "Alarm":  "Nestanak 220 V",
+        "Status":  "CLEARED"
+    },
+    {
+        "Time":  "2026-04-13T20:47:13",
+        "System":  "U2020",
+        "Site":  "CAJNICE",
+        "Alarm":  "Nestanak 220 V",
+        "Status":  "ACTIVE"
+    },
+    {
+        "Time":  "2026-04-13T20:33:54",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - Alipasino Polje",
+        "Alarm":  "8000166",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T20:33:34",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - Alipasino Polje",
+        "Alarm":  "8000166",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T20:31:01",
+        "System":  "U2020",
+        "Site":  "CAJNICE",
+        "Alarm":  "Nestanak 220 V",
+        "Status":  "CLEARED"
+    },
+    {
+        "Time":  "2026-04-13T20:30:03",
+        "System":  "U2020",
+        "Site":  "OBODNIK",
+        "Alarm":  "Nestanak 220 V",
+        "Status":  "CLEARED"
+    },
+    {
+        "Time":  "2026-04-13T20:26:51",
+        "System":  "U2020",
+        "Site":  "OBODNIK",
+        "Alarm":  "Nestanak 220 V",
+        "Status":  "ACTIVE"
+    },
+    {
+        "Time":  "2026-04-13T20:22:34",
+        "System":  "U2020",
+        "Site":  "CAJNICE",
+        "Alarm":  "Nestanak 220 V",
+        "Status":  "ACTIVE"
+    },
+    {
+        "Time":  "2026-04-13T20:07:34",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - Alipasino Polje",
+        "Alarm":  "8000166",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T20:07:19",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T20:07:16",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T20:07:14",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - Alipasino Polje",
+        "Alarm":  "8000166",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T20:05:57",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T20:05:54",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T20:05:37",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T20:05:34",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T20:05:23",
+        "System":  "U2020",
+        "Site":  "BRAKOVCI",
+        "Alarm":  "Nestanak 220 V",
+        "Status":  "CLEARED"
+    },
+    {
+        "Time":  "2026-04-13T20:05:17",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T20:05:14",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T20:04:50",
+        "System":  "U2020",
+        "Site":  "CAJNICE",
+        "Alarm":  "Nestanak 220 V",
+        "Status":  "CLEARED"
+    },
+    {
+        "Time":  "2026-04-13T20:04:47",
+        "System":  "U2020",
+        "Site":  "ZEDANJSKO",
+        "Alarm":  "NE Is Disconnected",
+        "Status":  "CLEARED"
+    },
+    {
+        "Time":  "2026-04-13T20:04:44",
+        "System":  "BARAN_klima",
+        "Site":  "BS_STARINA",
+        "Alarm":  "ACTIVE",
+        "Status":  "UNKNOWN"
+    },
+    {
+        "Time":  "2026-04-13T20:04:40",
+        "System":  "BARAN_klima",
+        "Site":  "BS_STARINA",
+        "Alarm":  "ACTIVE",
+        "Status":  "UNKNOWN"
+    },
+    {
+        "Time":  "2026-04-13T20:04:36",
+        "System":  "BARAN_klima",
+        "Site":  "BS_STARINA",
+        "Alarm":  "ACTIVE",
+        "Status":  "UNKNOWN"
+    },
+    {
+        "Time":  "2026-04-13T20:04:23",
+        "System":  "U2020",
+        "Site":  "BRAKOVCI",
+        "Alarm":  "NE Is Disconnected",
+        "Status":  "CLEARED"
+    },
+    {
+        "Time":  "2026-04-13T20:01:57",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T20:01:54",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T20:01:17",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T20:01:14",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T20:00:37",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T20:00:34",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T20:00:27",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T20:00:24",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T20:00:22",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T20:00:19",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T20:00:17",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T20:00:14",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T20:00:12",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T20:00:09",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T20:00:05",
+        "System":  "RPS-SC200-MIB",
+        "Site":  "PUTOVICI",
+        "Alarm":  "ZENICA",
+        "Status":  "UNKNOWN"
+    },
+    {
+        "Time":  "2026-04-13T20:00:03",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T20:00:00",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T19:58:23",
+        "System":  "RPS-SC200-MIB",
+        "Site":  "PUTOVICI",
+        "Alarm":  "ZENICA",
+        "Status":  "UNKNOWN"
+    },
+    {
+        "Time":  "2026-04-13T19:58:19",
+        "System":  "RPS-SC200-MIB",
+        "Site":  "PUTOVICI",
+        "Alarm":  "ZENICA",
+        "Status":  "UNKNOWN"
+    },
+    {
+        "Time":  "2026-04-13T19:56:42",
+        "System":  "RpsSc300Mib",
+        "Site":  "BOS_GRAHOVO",
+        "Alarm":  "BOSANSKO_GRAHOVO",
+        "Status":  "UNKNOWN"
+    },
+    {
+        "Time":  "2026-04-13T19:55:05",
+        "System":  "RpsSc300Mib",
+        "Site":  "BOS_GRAHOVO",
+        "Alarm":  "BOSANSKO_GRAHOVO",
+        "Status":  "UNKNOWN"
+    },
+    {
+        "Time":  "2026-04-13T19:54:46",
+        "System":  "U2020",
+        "Site":  "CAJNICE",
+        "Alarm":  "Nestanak 220 V",
+        "Status":  "ACTIVE"
+    },
+    {
+        "Time":  "2026-04-13T19:54:00",
+        "System":  "U2020",
+        "Site":  "CAJNICE",
+        "Alarm":  "Nestanak 220 V",
+        "Status":  "CLEARED"
+    },
+    {
+        "Time":  "2026-04-13T19:53:28",
+        "System":  "RPS-SC200-MIB",
+        "Site":  "PUTOVICI",
+        "Alarm":  "ZENICA",
+        "Status":  "UNKNOWN"
+    },
+    {
+        "Time":  "2026-04-13T19:53:24",
+        "System":  "RPS-SC200-MIB",
+        "Site":  "PUTOVICI",
+        "Alarm":  "ZENICA",
+        "Status":  "UNKNOWN"
+    },
+    {
+        "Time":  "2026-04-13T19:52:36",
+        "System":  "U2020",
+        "Site":  "OBODNIK",
+        "Alarm":  "Nestanak 220 V",
+        "Status":  "CLEARED"
+    },
+    {
+        "Time":  "2026-04-13T19:51:57",
+        "System":  "U2020",
+        "Site":  "OBODNIK",
+        "Alarm":  "Nestanak 220 V",
+        "Status":  "ACTIVE"
+    },
+    {
+        "Time":  "2026-04-13T19:51:47",
+        "System":  "RPS-SC200-MIB",
+        "Site":  "PUTOVICI",
+        "Alarm":  "ZENICA",
+        "Status":  "UNKNOWN"
+    },
+    {
+        "Time":  "2026-04-13T19:51:44",
+        "System":  "RPS-SC200-MIB",
+        "Site":  "PUTOVICI",
+        "Alarm":  "ZENICA",
+        "Status":  "UNKNOWN"
+    },
+    {
+        "Time":  "2026-04-13T19:51:41",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T19:51:39",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T19:51:35",
+        "System":  "NetEco",
+        "Site":  "TUZLA_POZARNICA",
+        "Alarm":  "Phase L2 Under Voltage",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T19:51:32",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T19:51:30",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T19:50:48",
+        "System":  "U2020",
+        "Site":  "OBODNIK",
+        "Alarm":  "Nestanak 220 V",
+        "Status":  "CLEARED"
+    },
+    {
+        "Time":  "2026-04-13T19:49:58",
+        "System":  "U2020",
+        "Site":  "OBODNIK",
+        "Alarm":  "Nestanak 220 V",
+        "Status":  "ACTIVE"
+    },
+    {
+        "Time":  "2026-04-13T19:49:53",
+        "System":  "RpsSc300Mib",
+        "Site":  "MOSTARSKO_RASKRSCE",
+        "Alarm":  "SARAJEVO",
+        "Status":  "UNKNOWN"
+    },
+    {
+        "Time":  "2026-04-13T19:49:46",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T19:49:44",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000041",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T19:48:07",
+        "System":  "RpsSc300Mib",
+        "Site":  "MOSTARSKO_RASKRSCE",
+        "Alarm":  "SARAJEVO",
+        "Status":  "UNKNOWN"
+    },
+    {
+        "Time":  "2026-04-13T19:48:03",
+        "System":  "RpsSc300Mib",
+        "Site":  "BOS_GRAHOVO",
+        "Alarm":  "BOSANSKO_GRAHOVO",
+        "Status":  "UNKNOWN"
+    },
+    {
+        "Time":  "2026-04-13T19:46:22",
+        "System":  "RpsSc300Mib",
+        "Site":  "MOSTARSKO_RASKRSCE",
+        "Alarm":  "SARAJEVO",
+        "Status":  "UNKNOWN"
+    },
+    {
+        "Time":  "2026-04-13T19:44:41",
+        "System":  "RpsSc300Mib",
+        "Site":  "MOSTARSKO_RASKRSCE",
+        "Alarm":  "SARAJEVO",
+        "Status":  "UNKNOWN"
+    },
+    {
+        "Time":  "2026-04-13T19:37:25",
+        "System":  "U2020",
+        "Site":  "CAJNICE",
+        "Alarm":  "Nestanak 220 V",
+        "Status":  "ACTIVE"
+    },
+    {
+        "Time":  "2026-04-13T19:36:28",
+        "System":  "U2020",
+        "Site":  "CAJNICE",
+        "Alarm":  "Nestanak 220 V",
+        "Status":  "CLEARED"
+    },
+    {
+        "Time":  "2026-04-13T19:33:00",
+        "System":  "U2020",
+        "Site":  "PUHORINE",
+        "Alarm":  "Kvar ispravljaca (Rectifier Failure)",
+        "Status":  "ACTIVE"
+    },
+    {
+        "Time":  "2026-04-13T19:26:11",
+        "System":  "NetEco",
+        "Site":  "PAPRASKO",
+        "Alarm":  "Compressor Fault",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T19:17:36",
+        "System":  "U2020",
+        "Site":  "CAJNICE",
+        "Alarm":  "Nestanak 220 V",
+        "Status":  "ACTIVE"
+    },
+    {
+        "Time":  "2026-04-13T19:16:14",
+        "System":  "U2020",
+        "Site":  "CAJNICE",
+        "Alarm":  "Nestanak 220 V",
+        "Status":  "CLEARED"
+    },
+    {
+        "Time":  "2026-04-13T19:10:54",
+        "System":  "U2020",
+        "Site":  "CAJNICE",
+        "Alarm":  "Nestanak 220 V",
+        "Status":  "ACTIVE"
+    },
+    {
+        "Time":  "2026-04-13T19:09:43",
+        "System":  "U2020",
+        "Site":  "BARACI",
+        "Alarm":  "NE Is Disconnected",
+        "Status":  "CLEARED"
+    },
+    {
+        "Time":  "2026-04-13T19:07:51",
+        "System":  "U2020",
+        "Site":  "BARACI",
+        "Alarm":  "NE Is Disconnected",
+        "Status":  "ACTIVE"
+    },
+    {
+        "Time":  "2026-04-13T19:06:58",
+        "System":  "NetEco",
+        "Site":  "SREBRENICA_CENTAR",
+        "Alarm":  "Phase L3 Over Voltage",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T19:06:03",
+        "System":  "NetEco",
+        "Site":  "SREBRENICA_CENTAR",
+        "Alarm":  "Phase L3 Over Voltage",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T19:01:53",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - Alipasino Polje",
+        "Alarm":  "8000166",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T19:01:33",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - Alipasino Polje",
+        "Alarm":  "8000166",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T18:56:45",
+        "System":  "NetEco",
+        "Site":  "PAPRASKO",
+        "Alarm":  "Compressor Fault",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T18:54:43",
+        "System":  "U2020",
+        "Site":  "BARACI",
+        "Alarm":  "NE Is Disconnected",
+        "Status":  "CLEARED"
+    },
+    {
+        "Time":  "2026-04-13T18:54:38",
+        "System":  "U2020",
+        "Site":  "BARACI",
+        "Alarm":  "NE Is Disconnected",
+        "Status":  "ACTIVE"
+    },
+    {
+        "Time":  "2026-04-13T18:52:40",
+        "System":  "U2020",
+        "Site":  "BARACI",
+        "Alarm":  "NE Is Disconnected",
+        "Status":  "ACTIVE"
+    },
+    {
+        "Time":  "2026-04-13T18:51:12",
+        "System":  "U2020",
+        "Site":  "SIPOVO_PLJEVA",
+        "Alarm":  "NE Is Disconnected",
+        "Status":  "CLEARED"
+    },
+    {
+        "Time":  "2026-04-13T18:50:59",
+        "System":  "U2020",
+        "Site":  "KATUNISTE",
+        "Alarm":  "NE Is Disconnected",
+        "Status":  "CLEARED"
+    },
+    {
+        "Time":  "2026-04-13T18:50:51",
+        "System":  "U2020",
+        "Site":  "BARACI",
+        "Alarm":  "NE Is Disconnected",
+        "Status":  "ACTIVE"
+    },
+    {
+        "Time":  "2026-04-13T18:50:49",
+        "System":  "nepoznat_alarm",
+        "Site":  "",
+        "Alarm":  "",
+        "Status":  "UNKNOWN"
+    },
+    {
+        "Time":  "2026-04-13T18:50:39",
+        "System":  "U2020",
+        "Site":  "BARACI",
+        "Alarm":  "NE Is Disconnected",
+        "Status":  "ACTIVE"
+    },
+    {
+        "Time":  "2026-04-13T18:50:12",
+        "System":  "U2020",
+        "Site":  "KATUNISTE",
+        "Alarm":  "NE Is Disconnected",
+        "Status":  "ACTIVE"
+    },
+    {
+        "Time":  "2026-04-13T18:50:02",
+        "System":  "NetEco",
+        "Site":  "PAPRASKO",
+        "Alarm":  "Compressor Fault",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T18:49:29",
+        "System":  "U2020",
+        "Site":  "SIPOVO_PLJEVA",
+        "Alarm":  "NE Is Disconnected",
+        "Status":  "ACTIVE"
+    },
+    {
+        "Time":  "2026-04-13T18:48:40",
+        "System":  "U2020",
+        "Site":  "BARACI",
+        "Alarm":  "NE Is Disconnected",
+        "Status":  "ACTIVE"
+    },
+    {
+        "Time":  "2026-04-13T18:48:33",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - Alipasino Polje",
+        "Alarm":  "8000166",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T18:48:13",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - Alipasino Polje",
+        "Alarm":  "8000166",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T18:48:11",
+        "System":  "U2020",
+        "Site":  "KATUNISTE",
+        "Alarm":  "NE Is Disconnected",
+        "Status":  "ACTIVE"
+    },
+    {
+        "Time":  "2026-04-13T18:46:55",
+        "System":  "U2020",
+        "Site":  "BARACI",
+        "Alarm":  "NE Is Disconnected",
+        "Status":  "ACTIVE"
+    },
+    {
+        "Time":  "2026-04-13T18:43:55",
+        "System":  "U2020",
+        "Site":  "KONJEVIC_POLJE",
+        "Alarm":  "Kvar ispravljaca (Rectifier Failure)",
+        "Status":  "ACTIVE"
+    },
+    {
+        "Time":  "2026-04-13T18:37:00",
+        "System":  "U2020",
+        "Site":  "BARACI",
+        "Alarm":  "NE Is Disconnected",
+        "Status":  "CLEARED"
+    },
+    {
+        "Time":  "2026-04-13T18:36:07",
+        "System":  "U2020",
+        "Site":  "BARACI",
+        "Alarm":  "NE Is Disconnected",
+        "Status":  "ACTIVE"
+    },
+    {
+        "Time":  "2026-04-13T18:35:33",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - Alipasino Polje",
+        "Alarm":  "8000166",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T18:35:13",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - Alipasino Polje",
+        "Alarm":  "8000166",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T18:34:11",
+        "System":  "U2020",
+        "Site":  "BARACI",
+        "Alarm":  "NE Is Disconnected",
+        "Status":  "ACTIVE"
+    },
+    {
+        "Time":  "2026-04-13T18:33:55",
+        "System":  "U2020",
+        "Site":  "CAJNICE",
+        "Alarm":  "Nestanak 220 V",
+        "Status":  "CLEARED"
+    },
+    {
+        "Time":  "2026-04-13T18:30:44",
+        "System":  "U2020",
+        "Site":  "DRINJACA",
+        "Alarm":  "Kvar ispravljaca (Rectifier Failure)",
+        "Status":  "ACTIVE"
+    },
+    {
+        "Time":  "2026-04-13T18:26:14",
+        "System":  "NetEco",
+        "Site":  "DRAKSENIC",
+        "Alarm":  "Battery Discharging",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T18:25:03",
+        "System":  "NetEco",
+        "Site":  "DRAKSENIC",
+        "Alarm":  "Battery Discharging",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T18:24:57",
+        "System":  "NetEco",
+        "Site":  "DRAKSENIC",
+        "Alarm":  "Bus Bar Undervoltage",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T18:24:53",
+        "System":  "NetEco",
+        "Site":  "DRAKSENIC",
+        "Alarm":  "AC Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T18:24:43",
+        "System":  "NetEco",
+        "Site":  "DRAKSENIC",
+        "Alarm":  "Mains Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T18:24:28",
+        "System":  "NetEco",
+        "Site":  "DRAKSENIC",
+        "Alarm":  "Mains Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T18:24:12",
+        "System":  "NetEco",
+        "Site":  "DRAKSENIC",
+        "Alarm":  "Bus Bar Undervoltage",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T18:23:53",
+        "System":  "NetEco",
+        "Site":  "DRAKSENIC",
+        "Alarm":  "AC Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T18:22:13",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - Alipasino Polje",
+        "Alarm":  "8000166",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T18:21:54",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - Alipasino Polje",
+        "Alarm":  "8000166",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T18:19:45",
+        "System":  "NetEco",
+        "Site":  "PAPRASKO",
+        "Alarm":  "Compressor Fault",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T18:13:01",
+        "System":  "NetEco",
+        "Site":  "PAPRASKO",
+        "Alarm":  "Compressor Fault",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T18:12:15",
+        "System":  "NetEco",
+        "Site":  "JALIJA",
+        "Alarm":  "Door Open Alarm",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T18:12:11",
+        "System":  "NetEco",
+        "Site":  "JALIJA",
+        "Alarm":  "Door Open Alarm",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T18:12:07",
+        "System":  "NetEco",
+        "Site":  "JALIJA",
+        "Alarm":  "Door Open Alarm",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T18:11:30",
+        "System":  "NetEco",
+        "Site":  "JALIJA",
+        "Alarm":  "Door Open Alarm",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T18:09:13",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - Alipasino Polje",
+        "Alarm":  "8000166",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T18:08:53",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - Alipasino Polje",
+        "Alarm":  "8000166",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T18:07:38",
+        "System":  "NetEco",
+        "Site":  "OSS",
+        "Alarm":  "Certificate Is About to Expire",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T18:07:34",
+        "System":  "NetEco",
+        "Site":  "OSS",
+        "Alarm":  "Certificate Is About to Expire",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T18:05:46",
+        "System":  "U2020",
+        "Site":  "CAJNICE",
+        "Alarm":  "Nestanak 220 V",
+        "Status":  "ACTIVE"
+    },
+    {
+        "Time":  "2026-04-13T18:01:27",
+        "System":  "NetEco",
+        "Site":  "JELICA",
+        "Alarm":  "Battery Fuse Break",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T17:56:14",
+        "System":  "U2020",
+        "Site":  "SAHBETSKI_GRAD",
+        "Alarm":  "Nestanak 220 V",
+        "Status":  "CLEARED"
+    },
+    {
+        "Time":  "2026-04-13T17:55:53",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - Alipasino Polje",
+        "Alarm":  "8000166",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T17:55:44",
+        "System":  "IgnitionSCADA",
+        "Site":  "Zenica - TKC Zenica",
+        "Alarm":  "3000004",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T17:55:44",
+        "System":  "U2020",
+        "Site":  "SAHBETSKI_GRAD",
+        "Alarm":  "Nestanak 220 V",
+        "Status":  "ACTIVE"
+    },
+    {
+        "Time":  "2026-04-13T17:55:35",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - Alipasino Polje",
+        "Alarm":  "8000166",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T17:55:32",
+        "System":  "IgnitionSCADA",
+        "Site":  "Zenica - TKC Zenica",
+        "Alarm":  "3000004",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T17:53:55",
+        "System":  "RpsSc300Mib",
+        "Site":  "KONJEVIC_POLJE",
+        "Alarm":  "BRATUNAC",
+        "Status":  "UNKNOWN"
+    },
+    {
+        "Time":  "2026-04-13T17:53:11",
+        "System":  "RpsSc300Mib",
+        "Site":  "KONJEVIC_POLJE",
+        "Alarm":  "BRATUNAC",
+        "Status":  "UNKNOWN"
+    },
+    {
+        "Time":  "2026-04-13T17:52:56",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000273",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T17:47:24",
+        "System":  "IgnitionSCADA",
+        "Site":  "Zenica - TKC Zenica",
+        "Alarm":  "3000003",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T17:47:05",
+        "System":  "IgnitionSCADA",
+        "Site":  "Zenica - TKC Zenica",
+        "Alarm":  "3000003",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T17:43:36",
+        "System":  "NetEco",
+        "Site":  "PAPRASKO",
+        "Alarm":  "Compressor Fault",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T17:40:42",
+        "System":  "NetEco",
+        "Site":  "JELICA",
+        "Alarm":  "Battery Fuse Break",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T17:36:54",
+        "System":  "NetEco",
+        "Site":  "PAPRASKO",
+        "Alarm":  "Compressor Fault",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T17:31:19",
+        "System":  "NetEco",
+        "Site":  "DRAKSENIC",
+        "Alarm":  "Battery Discharging",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T17:31:15",
+        "System":  "NetEco",
+        "Site":  "DRAKSENIC",
+        "Alarm":  "Mains Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T17:31:11",
+        "System":  "NetEco",
+        "Site":  "DRAKSENIC",
+        "Alarm":  "BLVD Low Voltage Disconnected",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T17:31:07",
+        "System":  "NetEco",
+        "Site":  "DRAKSENIC",
+        "Alarm":  "Bus Bar Undervoltage",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T17:31:03",
+        "System":  "NetEco",
+        "Site":  "DRAKSENIC",
+        "Alarm":  "AC Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T17:29:33",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - Alipasino Polje",
+        "Alarm":  "8000166",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T17:29:13",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - Alipasino Polje",
+        "Alarm":  "8000166",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T17:20:08",
+        "System":  "U2020",
+        "Site":  "DRAKSENIC",
+        "Alarm":  "NE Is Disconnected",
+        "Status":  "CLEARED"
+    },
+    {
+        "Time":  "2026-04-13T17:19:05",
+        "System":  "U2020",
+        "Site":  "LJUBIJANKICI",
+        "Alarm":  "Nestanak 220 V",
+        "Status":  "CLEARED"
+    },
+    {
+        "Time":  "2026-04-13T17:16:59",
+        "System":  "U2020",
+        "Site":  "DRAKSENIC",
+        "Alarm":  "NE Is Disconnected",
+        "Status":  "ACTIVE"
+    },
+    {
+        "Time":  "2026-04-13T17:15:00",
+        "System":  "U2020",
+        "Site":  "DRAKSENIC",
+        "Alarm":  "NE Is Disconnected",
+        "Status":  "ACTIVE"
+    },
+    {
+        "Time":  "2026-04-13T17:09:39",
+        "System":  "NetEco",
+        "Site":  "DRAKSENIC",
+        "Alarm":  "BLVD Low Voltage Disconnected",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T17:09:06",
+        "System":  "NetEco",
+        "Site":  "DRAKSENIC",
+        "Alarm":  "Battery Discharging",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T17:08:28",
+        "System":  "NetEco",
+        "Site":  "DRAKSENIC",
+        "Alarm":  "Mains Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T17:08:11",
+        "System":  "NetEco",
+        "Site":  "DRAKSENIC",
+        "Alarm":  "Bus Bar Undervoltage",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T17:07:55",
+        "System":  "NetEco",
+        "Site":  "DRAKSENIC",
+        "Alarm":  "AC Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T17:07:33",
+        "System":  "U2020",
+        "Site":  "LJUBIJANKICI",
+        "Alarm":  "Nestanak 220 V",
+        "Status":  "ACTIVE"
+    },
+    {
+        "Time":  "2026-04-13T17:06:37",
+        "System":  "NetEco",
+        "Site":  "PAPRASKO",
+        "Alarm":  "Compressor Fault",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T17:03:13",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - Alipasino Polje",
+        "Alarm":  "8000166",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T17:02:53",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - Alipasino Polje",
+        "Alarm":  "8000166",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T16:59:53",
+        "System":  "NetEco",
+        "Site":  "PAPRASKO",
+        "Alarm":  "Compressor Fault",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T16:55:17",
+        "System":  "NetEco",
+        "Site":  "PTI33_TETIMA",
+        "Alarm":  "Low Battery Capacity",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T16:51:32",
+        "System":  "IgnitionSCADA",
+        "Site":  "Zenica - TKC Zenica",
+        "Alarm":  "3000004",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T16:51:12",
+        "System":  "IgnitionSCADA",
+        "Site":  "Zenica - TKC Zenica",
+        "Alarm":  "3000004",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T16:40:42",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000032",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T16:40:02",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - DMalta",
+        "Alarm":  "8000032",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T16:36:53",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - Alipasino Polje",
+        "Alarm":  "8000166",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T16:36:33",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - Alipasino Polje",
+        "Alarm":  "8000166",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T16:36:01",
+        "System":  "NetEco",
+        "Site":  "JELICA",
+        "Alarm":  "Battery Fuse Break",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T16:32:59",
+        "System":  "NetEco",
+        "Site":  "KOBILJACA",
+        "Alarm":  "Battery Discharging",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T16:32:55",
+        "System":  "NetEco",
+        "Site":  "KOBILJACA",
+        "Alarm":  "Mains Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T16:32:51",
+        "System":  "NetEco",
+        "Site":  "KOBILJACA",
+        "Alarm":  "BLVD Low Voltage Disconnected",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T16:32:47",
+        "System":  "NetEco",
+        "Site":  "KOBILJACA",
+        "Alarm":  "Bus Bar Undervoltage",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T16:32:43",
+        "System":  "NetEco",
+        "Site":  "KOBILJACA",
+        "Alarm":  "AC Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T16:30:49",
+        "System":  "NetEco",
+        "Site":  "MISEVICI",
+        "Alarm":  "Mains Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T16:30:45",
+        "System":  "NetEco",
+        "Site":  "MISEVICI",
+        "Alarm":  "Battery Discharging",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T16:30:41",
+        "System":  "NetEco",
+        "Site":  "MISEVICI",
+        "Alarm":  "BLVD Low Voltage Disconnected",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T16:30:37",
+        "System":  "NetEco",
+        "Site":  "MISEVICI",
+        "Alarm":  "Bus Bar Undervoltage",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T16:30:33",
+        "System":  "NetEco",
+        "Site":  "MISEVICI",
+        "Alarm":  "AC Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T16:29:39",
+        "System":  "NetEco",
+        "Site":  "PAPRASKO",
+        "Alarm":  "Compressor Fault",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T16:27:12",
+        "System":  "IgnitionSCADA",
+        "Site":  "Zenica - TKC Zenica",
+        "Alarm":  "3000003",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T16:26:52",
+        "System":  "IgnitionSCADA",
+        "Site":  "Zenica - TKC Zenica",
+        "Alarm":  "3000003",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T16:25:59",
+        "System":  "U2020",
+        "Site":  "KOBILJACA",
+        "Alarm":  "NE Is Disconnected",
+        "Status":  "CLEARED"
+    },
+    {
+        "Time":  "2026-04-13T16:25:55",
+        "System":  "U2020",
+        "Site":  "KOBILJACA",
+        "Alarm":  "NE Is Disconnected",
+        "Status":  "ACTIVE"
+    },
+    {
+        "Time":  "2026-04-13T16:23:54",
+        "System":  "U2020",
+        "Site":  "KOBILJACA",
+        "Alarm":  "NE Is Disconnected",
+        "Status":  "ACTIVE"
+    },
+    {
+        "Time":  "2026-04-13T16:23:53",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - Alipasino Polje",
+        "Alarm":  "8000166",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T16:23:33",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - Alipasino Polje",
+        "Alarm":  "8000166",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T16:22:57",
+        "System":  "NetEco",
+        "Site":  "PAPRASKO",
+        "Alarm":  "Compressor Fault",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T16:20:15",
+        "System":  "U2020",
+        "Site":  "ZENIK",
+        "Alarm":  "Nestanak 220 V",
+        "Status":  "CLEARED"
+    },
+    {
+        "Time":  "2026-04-13T16:19:00",
+        "System":  "NetEco",
+        "Site":  "GLADNO_POLJE_POSLOVNA_ZONA",
+        "Alarm":  "AC Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T16:18:51",
+        "System":  "NetEco",
+        "Site":  "GLADNO_POLJE_POSLOVNA_ZONA",
+        "Alarm":  "Mains Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T16:18:31",
+        "System":  "NetEco",
+        "Site":  "KOBILJACA",
+        "Alarm":  "BLVD Low Voltage Disconnected",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T16:17:22",
+        "System":  "NetEco",
+        "Site":  "GLADNO_POLJE_POSLOVNA_ZONA",
+        "Alarm":  "Mains Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T16:17:06",
+        "System":  "NetEco",
+        "Site":  "MISEVICI",
+        "Alarm":  "BLVD Low Voltage Disconnected",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T16:16:56",
+        "System":  "NetEco",
+        "Site":  "KOBILJACA",
+        "Alarm":  "Bus Bar Undervoltage",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T16:16:36",
+        "System":  "NetEco",
+        "Site":  "MISEVICI",
+        "Alarm":  "Battery Discharging",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T16:16:32",
+        "System":  "NetEco",
+        "Site":  "KOBILJACA",
+        "Alarm":  "Battery Discharging",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T16:16:11",
+        "System":  "U2020",
+        "Site":  "ZENIK",
+        "Alarm":  "Nestanak 220 V",
+        "Status":  "ACTIVE"
+    },
+    {
+        "Time":  "2026-04-13T16:15:54",
+        "System":  "NetEco",
+        "Site":  "KOBILJACA",
+        "Alarm":  "Mains Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T16:15:54",
+        "System":  "NetEco",
+        "Site":  "MISEVICI",
+        "Alarm":  "Mains Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T16:15:50",
+        "System":  "NetEco",
+        "Site":  "JELICA",
+        "Alarm":  "Battery Fuse Break",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T16:15:40",
+        "System":  "NetEco",
+        "Site":  "MISEVICI",
+        "Alarm":  "Bus Bar Undervoltage",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T16:15:27",
+        "System":  "NetEco",
+        "Site":  "GLADNO_POLJE_POSLOVNA_ZONA",
+        "Alarm":  "AC Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T16:15:23",
+        "System":  "NetEco",
+        "Site":  "MISEVICI",
+        "Alarm":  "AC Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T16:15:19",
+        "System":  "NetEco",
+        "Site":  "KOBILJACA",
+        "Alarm":  "AC Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T16:14:28",
+        "System":  "NetEco",
+        "Site":  "DRAKSENIC",
+        "Alarm":  "Mains Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T16:14:24",
+        "System":  "NetEco",
+        "Site":  "DRAKSENIC",
+        "Alarm":  "Battery Discharging",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T16:14:20",
+        "System":  "NetEco",
+        "Site":  "DRAKSENIC",
+        "Alarm":  "BLVD Low Voltage Disconnected",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T16:14:16",
+        "System":  "NetEco",
+        "Site":  "DRAKSENIC",
+        "Alarm":  "Bus Bar Undervoltage",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T16:14:12",
+        "System":  "NetEco",
+        "Site":  "DRAKSENIC",
+        "Alarm":  "AC Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T16:12:55",
+        "System":  "U2020",
+        "Site":  "BRAKOVCI",
+        "Alarm":  "NE Is Disconnected",
+        "Status":  "ACTIVE"
+    },
+    {
+        "Time":  "2026-04-13T16:10:55",
+        "System":  "U2020",
+        "Site":  "BRAKOVCI",
+        "Alarm":  "NE Is Disconnected",
+        "Status":  "ACTIVE"
+    },
+    {
+        "Time":  "2026-04-13T16:10:33",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - Alipasino Polje",
+        "Alarm":  "8000166",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T16:10:13",
+        "System":  "IgnitionSCADA",
+        "Site":  "Sarajevo - Alipasino Polje",
+        "Alarm":  "8000166",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T16:10:06",
+        "System":  "NetEco",
+        "Site":  "JELICA",
+        "Alarm":  "Battery Fuse Break",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T16:09:03",
+        "System":  "U2020",
+        "Site":  "DRAKSENIC",
+        "Alarm":  "NE Is Disconnected",
+        "Status":  "CLEARED"
+    },
+    {
+        "Time":  "2026-04-13T16:01:55",
+        "System":  "U2020",
+        "Site":  "DRAKSENIC",
+        "Alarm":  "NE Is Disconnected",
+        "Status":  "ACTIVE"
+    },
+    {
+        "Time":  "2026-04-13T16:00:24",
+        "System":  "U2020",
+        "Site":  "ZEDANJSKO",
+        "Alarm":  "NE Is Disconnected",
+        "Status":  "ACTIVE"
+    },
+    {
+        "Time":  "2026-04-13T15:59:55",
+        "System":  "U2020",
+        "Site":  "DRAKSENIC",
+        "Alarm":  "NE Is Disconnected",
+        "Status":  "ACTIVE"
+    },
+    {
+        "Time":  "2026-04-13T15:58:23",
+        "System":  "U2020",
+        "Site":  "ZEDANJSKO",
+        "Alarm":  "NE Is Disconnected",
+        "Status":  "ACTIVE"
+    },
+    {
+        "Time":  "2026-04-13T15:56:54",
+        "System":  "U2020",
+        "Site":  "BRAKOVCI",
+        "Alarm":  "Nestanak 220 V",
+        "Status":  "ACTIVE"
+    },
+    {
+        "Time":  "2026-04-13T15:55:45",
+        "System":  "U2020",
+        "Site":  "BRAKOVCI",
+        "Alarm":  "Nestanak 220 V",
+        "Status":  "CLEARED"
+    },
+    {
+        "Time":  "2026-04-13T15:54:21",
+        "System":  "NetEco",
+        "Site":  "DRAKSENIC",
+        "Alarm":  "BLVD Low Voltage Disconnected",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T15:53:57",
+        "System":  "U2020",
+        "Site":  "BRAKOVCI",
+        "Alarm":  "Nestanak 220 V",
+        "Status":  "ACTIVE"
+    },
+    {
+        "Time":  "2026-04-13T15:53:31",
+        "System":  "NetEco",
+        "Site":  "PAPRASKO",
+        "Alarm":  "Compressor Fault",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T15:53:21",
+        "System":  "NetEco",
+        "Site":  "DRAKSENIC",
+        "Alarm":  "Battery Discharging",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T15:52:43",
+        "System":  "NetEco",
+        "Site":  "DRAKSENIC",
+        "Alarm":  "Mains Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T15:52:39",
+        "System":  "NetEco",
+        "Site":  "DRAKSENIC",
+        "Alarm":  "Bus Bar Undervoltage",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T15:52:09",
+        "System":  "NetEco",
+        "Site":  "DRAKSENIC",
+        "Alarm":  "AC Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T15:51:20",
+        "System":  "NetEco",
+        "Site":  "PTI33_TETIMA",
+        "Alarm":  "Battery Discharging",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T15:51:16",
+        "System":  "NetEco",
+        "Site":  "PTI33_TETIMA",
+        "Alarm":  "Mains Failure",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T15:51:12",
+        "System":  "NetEco",
+        "Site":  "PTI33_TETIMA",
+        "Alarm":  "BLVD Low Voltage Disconnected",
+        "Status":  "INSTANT"
+    },
+    {
+        "Time":  "2026-04-13T15:51:08",
+        "System":  "NetEco",
+        "Site":  "PTI33_TETIMA",
+        "Alarm":  "Bus Bar Undervoltage",
+        "Status":  "INSTANT"
+    }
+]

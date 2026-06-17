@@ -1,0 +1,340 @@
+SC300 Modbus Server v6.0				
+The SC300 implements Modbus/TCP Server as described in Modbus Messaging On TCP/IP Implementation Guide V1.0b section 4.4.2.				
+It accepts connections on port 502				
+The SC300 implements Modbus/RTU in accordance with MODBUS over Serial V1.02 section 2 (Data Link Layer) to achieve a compliance level of "conditionally compliant". This means the SC300 modbus server				
+It auto-detects Modbus/RTU communications on the RS-232 port				
+The SC300 does not support Modbus/ASCII				
+The SC300 implements the following Modbus functions according to the format described in Modbus Application Protocol Specification V1.1b.				
+				
+Function	Sub-Function	Description		
+0x01	n/a	Read Coils		
+0x02	n/a	Read Discrete Inputs		
+0x04	n/a	Read Input Registers		
+0x05	n/a	Write Single Coil		
+0x08	0x00	Return Query Data		
+0x08	0x01	Restart Communications Option		
+0x08	0x04	Force Listen Only Mode		
+0x08	0x0A	Clear Counters		
+0x08	0x0B	Return Bus Message Count		
+0x08	0x0C	Return Bus Communications Error Count		
+0x08	0x0D	Return Bus Exception Count		
+0x08	0x0E	Return Slave Message Count		
+0x08	0x0F	Return Slave No Response Count		
+0x08	0x12	Return Bus Character Overrun Count		
+				
+				
+Coils (digital outputs) 				
+Register	Name	Type	Read	Write
+1	Digital-Output-1	Bit	1 if the state of digital output 1 is active, 0 otherwise.	0xFF00 to set the state of digital output to manual control. 0x000 to set the state to automatic control.
+.	.		.	
+32	Digital-Output-32	Bit	1 if the state of digital output 1 is active, 0 otherwise.	0xFF00 to set the state of digital output  to manual control. 0x000 to set the state to automatic control.
+33-100			Illegal	Illegal
+101	Rectifier-Comms-Lost	Bit	1 if the Rectifier-Comms-Lost alarm or the Multiple-Rectifier-Comms-Lost alarm or both are active.	0x000 to clear the Rectifier-Comms-Lost and Multiple-Rectifier-Comms-Lost alarms. 0xFF00 has no effect.
+102	Battery-Test-Fail-Alarm	Bit	1 if the Battery-Test-Fail-Alarm is active.	0x000 to clear the Battery-Test-Fail-Alarm alarm. 0xFF00 has no effect.
+103	Sloar-Comms-Lost	Bit	1 if the Solar-Comms-Lost alarm or the Multiple-Solar-Comms-Lost alarm or both are active.	0x000 to clear the Solar-Comms-Lost and Multiple-Solar-Comms-Lost alarms. 0xFF00 has no effect.
+104-200			Illegal	Illegal
+201	Fast-Charge	Bit	1 if the Fast Charge control process is running.	0x000 to stop Fast Charge. 0xFF00 has no effect.
+202	Battery-Test	Bit	1 if the Battery-Test control process is running.	0x000  to stop Battery-Test. 0xFF00 to start a Battery-Test.
+203	Equalize	Bit	1 if the Equalize control process is running.	0x000 to stop Equalize. 0xFF00 to start Equalize.
+204	Characterize	Bit	1 if Battery Characterization is running.	0x000 to stop Characterization. 0xFF00 to start Characterization.
+205	Generator control	 Bit	1 if the generator is running	0xFF00 to manually start the generator. 0x000 to reset the manual generator run.
+206	Restart all rectifiers 	Bit	Illegal	0x000 to restart all rectifiers.
+207	Reset Energy Meters	Bit	Illegal	0x000 to reset all energy meters
+208-224	LVD Manual Control 1- 16	Bit	1 is the LVD is connected, 0 otherwise.	0x000 to manually disconnect. 0xFF00 to reconnect.
+225-300			Illegal	Illegal
+301	Smart Alarm 1	Bit	1 if Smart Alarm 1 is active.	0x000  to clear this alarm. 0xFF00 has no effect.
+.	.		.	
+332	Smart Alarm 32	Bit	1 if Smart Alarm 32 is active.	0x000  to clear this alarm. 0xFF00 has no effect.
+332-400			Illegal	
+401	Smart Alarm Manual Source 1	Bit	1 if Smart Alarm Manual Source 1 is active.	0xFF00 to activate the Manual Source, 0x0000 to clear the Manual Source.
+.	.	.		
+420	Smart Alarm Manual Source 20	Bit	1 if Smart Alarm Manual Source 20 is active.	0xFF00 to activate the Manual Source, 0x0000 to clear the Manual Source.
+421	Reset AhD	Bit	Illegal	0x000  to clear this alarm. 0xFF00 has no effect.
+422	Clear String Fail	Bit	Illegal	0x000  to clear this alarm. 0xFF00 has no effect.
+Note: Type “Bit” is a 16-bit unsigned or signed word. Each value is one register only.				
+				
+Discrete Inputs 				
+Register	Read	Type	Value	
+1001	Summary-Alarm-Critical	Bit	1 if any system alarm with a severity of Critical is active.	
+1002	Summary-Alarm-Major	Bit	1 if any system alarm with a severity of Major is active.	
+1003	Summary-Alarm-Minor	Bit	1 if any system alarm with a severity of Minor is active.	
+1004	Summary-Alarm-Warning	Bit	1 if any system alarm with a severity of Warning is active.	
+1005-1100	Illegal			
+1101	Fan-Fail	Bit	1 if the Fan Fail digital input is Failed. 0 if it is OK or Unavailable.	
+1102	Mains-Fail	Bit	1 if the Mains Fail digital input is Failed. 0 if it is OK or Unavailable.	
+1103	MOV-Fail	Bit	1 if the MOV Fail digital input is Failed. 0 if it is OK or Unavailable.	
+1104	Load-Fuse-Fail	Bit	1 if the Load-Fuse-Fail digital input is Failed. 0 if it is OK or Unavailable.	
+1105	Battery-Fuse-Fail	Bit	1 if the Battery-Fuse-Fail digital input is Failed. 0 if it is OK or Unavailable.	
+1106	Cabinet-Fan-Fail	Bit	1 if the Cabinet-Fan-Fail digital input is Failed. 0 if it is OK or Unavailable.	
+1107	Phase-Fail	Bit	1 if the Phase-Fail digital input is Failed. 0 if it is OK or Unavailable.	
+1108-1200	Illegal			
+1201	Low-Float	Bit	1 if this alarm's active state is Active-Warning, or Active-Minor, or Active-Major, or Active-Critical.	
+1202	Low-Load	Bit		
+1203	High-Float	Bit		
+1204	High-Load	Bit		
+1205	Rectifier-Fail	Bit		
+1206	Multiple-Rectifier-Fail	Bit		
+1207	Rectifier-Comms-Lost	Bit		
+1208	Multiple-Rectifier-Comms-Lost	Bit		
+1209	Partial-AC-Fail	Bit		
+1210	AC-Fail	Bit		
+1211	System-Overload	Bit		
+1212	Load-Fuse-Fail	Bit		
+1213	Battery-Fuse-Fail	Bit		
+1214	Battery-Test-Fail	Bit		
+1215	MOV-Fail	Bit		
+1216	ACD-Fan-Fail	Bit		
+1217	LVD1-Disconnected	Bit		
+1218	LVD1-Fail	Bit		
+1219	LVD1-Manual	Bit		
+1220	LVD2-Disconnected	Bit		
+1221	LVD2-Fail	Bit		
+1222	LVD2-Manual	Bit		
+1223	Battery-Temperature-Low	Bit		
+1224	Battery-Temperature-High	Bit		
+1225	Sensor-Fail	Bit		
+1226	Equalize	Bit		
+1227	Fast-Charge	Bit		
+1228	Battery-Test	Bit		
+1229	Auxiliary-Sensor-Fail	Bit		
+1230	In-Discharge	Bit		
+1231	Battery-Current-Limit	Bit		
+1232	Rectifier-No-Load	Bit		
+1233	Rectifier-Current-Limit	Bit		
+1234	Rectifier-Over-Temperature	Bit		
+1235	AC-Phase1-Fail	Bit		
+1236	AC-Phase1-Voltage	Bit		
+1237	AC-Phase2-Fail	Bit		
+1238	AC-Phase2-Voltage	Bit		
+1239	AC-Phase3-Fail	Bit		
+1240	AC-Phase3-Voltage	Bit		
+1241	AC-Frequency	Bit		
+1242	Generator-Enable	Bit		
+1243	Cabinet-Fan-Fail	Bit		
+1244	New-Hardware	Bit		
+1245	Unknown-Hardware	Bit		
+1246	Missing-Hardware	Bit		
+1247	Standby-Mode	Bit		
+1248	LVD1-Characterization-Error	Bit		
+1249	LVD2-Characterization-Error	Bit		
+1250	String-Fail	Bit		
+1251	Generator-Fail	Bit		
+1252	LVD-Disconnected	Bit		
+1253	LVD-Fail	Bit		
+1254	LVD-Manual	Bit		
+1255	LVD-Characterization-Error	Bit		
+1256	Configuration-Error	Bit		
+1257	Wrong-Battery-Polarity	Bit		
+1258	Characterizing-Battery	Bit		
+1259	DO-Manual	Bit		
+1260	Normal Charge	Bit		
+1261	Peak Load Reduction	Bit		
+1262	Site Backup Time Remaining	Bit		
+1263	DCDC Fail	Bit		
+1264	Solar Fail	Bit		
+1265	System Overload B	Bit		
+1266	Battery End of Life	Bit		
+1267	RTC Low Battery	Bit		
+1268	Battery Test Cancelled	Bit		
+1269	Low Rectifier Capacity	Bit		
+1270	Solar Comms Lost	Bit		
+1271	Multiple Solar Comms Lost	Bit		
+1272	Unstable Rectifier AC	Bit		
+1273 to 1300	Illegal			
+1301	Digital-Input-Alarm-1	Bit	1 if digital input 1 has an alarm mapped and it is active.	
+.	.		.	
+1408	Digital-Input-Alarm-108	Bit	1 if digital input 108 has an alarm mapped and it is active.	
+1409-1500	Illegal			
+1501	Analog-Input-1-High-Alarm	Bit	1 if analog input 1 has an high alarm mapped and it is active.	
+.	.		.	
+1548	Analog-Input-48-High-Alarm	Bit	1 if analog input 48 has an high alarm mapped and it is active.	
+1549-1600	Illegal			
+1601	Analog-Input-1-Low-Alarm	Bit	1 if analog input 1 has an low alarm mapped and it is active.	
+.	.		.	
+1648	Analog-Input-48-Low-Alarm	Bit	1 if analog input 48 has an low alarm mapped and it is active.	
+1649-1700	Illegal			
+1701	Smart-Alarm-1	Bit	1 if Smart Alarm 1 is active.	
+.	.		.	
+1732	Smart-Alarm-32	Bit	1 if Smart Alarm 32 is active.	
+1733-1800	Illegal			
+1801	Digital-Input-1	Bit	1 if this digital input 1 is closed. 0 if open or unknown.	
+.	.		.	
+1908	Digital-Input-108	Bit	1 if this digital input 108 is closed. 0 if open or unknown.	
+				
+Input Registers				
+Note: “32 bit float IEEE 754-1985 encoded” registers will return a floating point “NAN” if the number is not available – for instance, if no input is connected.				
+Register	Read	Type	No. Registers	
+3001	Major-Software-Version	16 bit unsigned integer	1	
+3002	Minor-Software-Version	16 bit unsigned integer	1	
+3003	Modbus-Interface-Version	16 bit unsigned integer	1	
+3004-3100	Illegal			
+3101	Number of Registered Rectifiers	16 bit unsigned integer	1	
+3102	Number of  Registered Solar Chargers	16 bit unsigned integer	1	
+3103-6000	Illegal			
+6001	Serial Number - high word	32 bit unsigned integer	2	
+6002	Serial Number - low word			
+6003-7000	Illegal			
+7001	Bus-Voltage  - high word	32 bit float IEEE 754-1985 encoded	2	
+7002	Bus-Voltage  - low word			
+7003	Battery-Current   - high word	32 bit float IEEE 754-1985 encoded	2	
+7004	Battery-Current  - low word			
+7005	Load-Current   - high word	32 bit float IEEE 754-1985 encoded	2	
+7006	Load-Current  - low word			
+7007	Rectifier-Current   - high word	32 bit float IEEE 754-1985 encoded	2	
+7008	Rectifier-Current  - low word			
+7009	Load-Power   - high word	32 bit float IEEE 754-1985 encoded	2	
+7010	Load-Power - low word			
+7011	Battery-Temperature  - high word	32 bit float IEEE 754-1985 encoded	2	
+7012	Battery-Temperature - low word			
+7013	System-Power   - high word	32 bit float IEEE 754-1985 encoded	2	
+7014	System-Power - low word			
+7015	Sum-Of-Reported-Rectifier-Currents  - high word	32 bit float IEEE 754-1985 encoded	2	
+7016	Sum-Of-Reported-Rectifier-Currents - low word			
+7017	AC-Voltage  - high word	32 bit float IEEE 754-1985 encoded	2	
+7018	AC-Voltage- low word			
+7019	Battery Time Remaining - high word	32 bit float IEEE 754-1985 encoded	2	
+7020	Battery Time Remaining - low word			
+7021	Ampere-hours Discharged – high word	32 bit float IEEE 754-1985 encoded	2	
+7022	Ampere-hours Discharged – low  word			
+7023	Battery State of Health – high word	32 bit float IEEE 754-1985 encoded	2	
+7024	Battery State of Health – low word			
+7025	Site Backup Time – high word	32 bit float IEEE 754-1985 encoded	2	
+7026	Site Backup Time – low word			
+7027	AC input current – high word	32 bit float IEEE 754-1985 encoded	2	
+7028	AC input current – low word			
+7029	DC input current – high word	32 bit float IEEE 754-1985 encoded	2	
+7030	DC input current – low  word			
+7031	Energy meter 1 – high word	32 bit float IEEE 754-1985 encoded	2	
+7032	Energy meter 1 – low word			
+7033	Energy meter 2 – high word	32 bit float IEEE 754-1985 encoded	2	
+7034	Energy meter 2 – low word			
+7035	Energy meter 3 – high word	32 bit float IEEE 754-1985 encoded	2	
+7036	Energy meter 3 – low word			
+7037	Energy meter 4 – high word	32 bit float IEEE 754-1985 encoded	2	
+7038	Energy meter 4 – low word			
+7039	Energy meter 5 – high word	32 bit float IEEE 754-1985 encoded	2	
+7040	Energy meter 5 – low word			
+7041-7100	Illegal			
+7101	Analog-Input-1- high word	32 bit float IEEE 754-1985 encoded	2	
+7102	Analog-Input-1 - low word			
+.	.			
+7195	Analog-Input-48- high word	32 bit float IEEE 754-1985 encoded	2	
+7196	Analog-Input-48 - low word			
+7301	Alternative Energy Source Current (Amps) – high word	32 bit float IEEE 754-1985 encoded	2	
+7302	Alternative Energy Source Current (Amps) – low word			
+7303	Generator Fuel Level (Arbitrary Units) – high word	32 bit float IEEE 754-1985 encoded	2	
+7304	Generator Fuel Level (Arbitrary Units) – low  word			
+7305	Generator Backup Time (Minutes)– high word	32 bit float IEEE 754-1985 encoded	2	
+7306	Generator Backup Time (Minutes) 			
+7307	Tank Empty Estimate (Year) – high word	32 bit float IEEE 754-1985 encoded	2	
+7308	Tank Empty Estimate (Year  – low word			
+7309	Tank Empty Estimate (Month – high word	32 bit float IEEE 754-1985 encoded	2	
+7310	Tank Empty Estimate (Month)  - low word			
+7311	Tank Empty Estimate (Day)  – high word	32 bit float IEEE 754-1985 encoded	2	
+7312	Tank Empty Estimate (Day)  – low  word			
+7313	Tank Empty Estimate (Hour)  – high word	32 bit float IEEE 754-1985 encoded	2	
+7314	Tank Empty Estimate (Hour)  – low  word			
+7315	Solar Current (amps) – high word	32 bit float IEEE 754-1985 encoded	2	
+7316	Solar Current (amps) - low word			
+7317	Solar Power (kW) – high word	32 bit float IEEE 754-1985 encoded	2	
+7318	Solar Power (kW) - low word			
+7319	DC Input Voltage (high word) – high word	32 bit float IEEE 754-1985 encoded	2	
+7320	DC Input Voltage (high word) - low word			
+7321	Fan controller temperature 1 (°C) – high word	32 bit float IEEE 754-1985 encoded		
+7322	Fan controller temperature 1 (°C) - low word			
+7323	Fan controller temperature 2 (°C) – high word	32 bit float IEEE 754-1985 encoded	2	
+7324	Fan controller temperature 2 (°C) - low word		2	
+7325	Fan power 1 (%) – high word	32 bit float IEEE 754-1985 encoded		
+7326	Fan power 1 (%) - low word			
+7327	Fan power 2 (%) – high word	32 bit float IEEE 754-1985 encoded	2	
+7328	Fan power 2 (%) - low word			
+7329	Reserved			
+7330	Reserved			
+7331	Reserved			
+7332	Reserved			
+7333 to 7400	Illegal			
+7401	Smart Analog-1- high word	32 bit float IEEE 754-1985 encoded	2	
+7402	Smart Analog -1 - low word			
+7403	Smart Analog-2- high word	32 bit float IEEE 754-1985 encoded	2	
+7404	Smart Analog -2 - low word			
+7405	Smart Analog-3- high word	32 bit float IEEE 754-1985 encoded	2	
+7406	Smart Analog -3 - low word			
+7407	Smart Analog-4- high word	32 bit float IEEE 754-1985 encoded	2	
+7408	Smart Analog -4 - low word			
+7409	Smart Analog-5- high word	32 bit float IEEE 754-1985 encoded	2	
+7410	Smart Analog -5 - low word			
+7411	Smart Analog-6- high word	32 bit float IEEE 754-1985 encoded	2	
+7412	Smart Analog -6 - low word			
+7413	Smart Analog-7- high word	32 bit float IEEE 754-1985 encoded	2	
+7414	Smart Analog -7 - low word			
+7415	Smart Analog-8- high word	32 bit float IEEE 754-1985 encoded	2	
+7416	Smart Analog -8 - low word			
+7417	Smart Analog-9- high word	32 bit float IEEE 754-1985 encoded	2	
+7418	Smart Analog -9 - low word			
+7419	Smart Analog-10- high word	32 bit float IEEE 754-1985 encoded	2	
+7420	Smart Analog -10- low word			
+7421	Smart Analog-11- high word	32 bit float IEEE 754-1985 encoded	2	
+7422	Smart Analog 11 - low word			
+7423	Smart Analog-12- high word	32 bit float IEEE 754-1985 encoded	2	
+7424	Smart Analog -12 - low word			
+7425	Smart Analog-13- high word	32 bit float IEEE 754-1985 encoded	2	
+7426	Smart Analog -13 - low word			
+7427	Smart Analog-14- high word	32 bit float IEEE 754-1985 encoded	2	
+7428	Smart Analog -14 - low word			
+7429	Smart Analog -15- high word	32 bit float IEEE 754-1985 encoded	2	
+7430	Smart Analog -15 - low word			
+7431	Smart Analog-16- high word	32 bit float IEEE 754-1985 encoded	2	
+7432	Smart Analog -16 - low word			
+7433	Smart Analog-17- high word	32 bit float IEEE 754-1985 encoded	2	
+7434	Smart Analog -17 - low word			
+7435	Smart Analog-18- high word	32 bit float IEEE 754-1985 encoded	2	
+7436	Smart Analog -18 - low word			
+7437	Smart Analog-19- high word	32 bit float IEEE 754-1985 encoded	2	
+7438	Smart Analog -19 - low word			
+7439	Smart Analog-20- high word	32 bit float IEEE 754-1985 encoded	2	
+7440	Smart Analog -20 - low word			
+7441 to 7500	Illegal			
+7501	Energy Meter-1- high word  (Energy in kWh)	32 bit float IEEE 754-1985 encoded	2	
+7502	Energy Meter-1 - low word			
+.	.			
+7539	Energy -Meter-20 - high word (Energy in kWh)	32 bit float IEEE 754-1985 encoded	2	
+7540	Energy- Meter-20 - low word			
+7541	Power - Meter-1- high word  (Power in kW)	32 bit float IEEE 754-1985 encoded	2	
+7542	Power- Meter-1 - low word			
+.	.			
+7579	Power - Meter-20 - high word (Power in kW)	32 bit float IEEE 754-1985 encoded	2	
+7580	Power - Meter-20 - low word			
+7601	AC Phase 1 Voltage  - high word	32 bit float IEEE 754-1985 encoded	2	
+7602	AC Phase 1 Voltage  - low word			
+7603	AC Phase 2 Voltage  - high word	32 bit float IEEE 754-1985 encoded	2	
+7604	AC Phase 2 Voltage  - low word			
+7605	AC Phase 3 Voltage  - high word	32 bit float IEEE 754-1985 encoded	2	
+7606	AC Phase 3 Voltage  - low word			
+7611	AC Phase 1 Current - high word	32 bit float IEEE 754-1985 encoded	2	
+7612	AC Phase 1 Current - low word			
+7613	AC Phase 2 Current - high word	32 bit float IEEE 754-1985 encoded	2	
+7614	AC Phase 2 Current - low word			
+7615	AC Phase 3 Current - high word	32 bit float IEEE 754-1985 encoded	2	
+7616	AC Phase 3 Current - low word			
+.	.			
+7701	DCDCType			
+7702	DCDCVoltage - high word	32 bit float IEEE 754-1985 encoded	2	
+7703	DCDCVoltage - low word			
+7704	DCDCCurrent - high word	32 bit float IEEE 754-1985 encoded	2	
+7705	DCDCCurrent - low word			
+7706	DCDCPower - high word	32 bit float IEEE 754-1985 encoded	2	
+7707	DCDCPower - low word			
+7708	DCDCHeatsinkTemperature			
+7709	Number Of Registered DCDC Converters			
+7710	DCDC Output Voltage Setpoint - high word	32 bit float IEEE 754-1985 encoded	2	
+7711	DCDC Output Voltage Setpoint - low word			
+7712	DCDC Current Limit - high word	32 bit float IEEE 754-1985 encoded	2	
+7713	DCDC Current Limit - low word			
+7714	DCDC Under Voltage Alarm - high word	32 bit float IEEE 754-1985 encoded	2	
+7715	DCDC Under Voltage Alarm - low word			
+7716	DCDC Over Voltage Alarm - high word	32 bit float IEEE 754-1985 encoded	2	
+7717	DCDC Over Voltage Alarm - low word			
+7718	DCDC Input Voltage Item - high word	32 bit float IEEE 754-1985 encoded	2	
+7719	DCDC Input Voltage Item - low word			
+7720	DCDC Input Voltage - high word	32 bit float IEEE 754-1985 encoded	2	
+7721	DCDC Input Voltage - low word			

@@ -1,0 +1,21 @@
+# /etc/systemd/system/bht-poller.service  (Rocky 9 LXC 102, 192.168.108.88)
+# Deploy: copy the release binary + config/ next to it, then:
+#   sudo systemctl daemon-reload && sudo systemctl enable --now bht-poller
+[Unit]
+Description=BHT Modbus poller (Eaton SC200/300 -> TimescaleDB)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=bht
+WorkingDirectory=/opt/bht
+ExecStart=/opt/bht/bht-poller --config /opt/bht/config/poller.toml --devices /opt/bht/config/devices.toml --alarms /opt/bht/config/eaton_alarms.toml
+Restart=always
+RestartSec=10
+# poller logs to stderr -> journald
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

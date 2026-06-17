@@ -1,0 +1,5 @@
+# bht-api config. DSN can also come from $DATABASE_URL (env wins only if dsn empty).
+bind = "0.0.0.0:8080"
+
+[database]
+dsn = "host=localhost port=5432 user=bht password=bht_dev_pw dbname=alarms"

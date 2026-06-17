@@ -1,0 +1,18 @@
+# /etc/systemd/system/bht-api.service  (Rocky 9 LXC 102, 192.168.108.88)
+[Unit]
+Description=BHT alarm API (Axum ingest/query over TimescaleDB)
+After=network-online.target postgresql-16.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=bht
+WorkingDirectory=/opt/bht
+ExecStart=/opt/bht/bht-api --config /opt/bht/config/api.toml
+Restart=always
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
