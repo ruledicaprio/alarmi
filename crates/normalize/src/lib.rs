@@ -6,13 +6,15 @@
 //! [`AlarmClass`] taxonomy. The Modbus poller (later stage) emits the same
 //! [`CanonicalEvent`] type via the `Source::ModbusEaton` variant.
 
+pub mod chinese;
 pub mod classify;
 pub mod html;
 pub mod parse;
 pub mod types;
 
+pub use chinese::translate as translate_zh;
 pub use classify::{classify, norm_severity, norm_transition};
-pub use html::parse_oos_table;
+pub use html::{parse_oos_table, parse_smetnje_html};
 pub use parse::{normalize_line, parse_ts, site_key};
 pub use types::{
     AlarmClass, CanonicalEvent, DropReason, Severity, Source, Transition,

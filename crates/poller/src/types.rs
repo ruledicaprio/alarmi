@@ -70,3 +70,18 @@ pub struct AlarmDef {
 #[derive(Debug, Clone, Deserialize)]
 #[allow(dead_code)]
 pub struct SummaryBit { pub addr: u16, pub label: String }
+
+// Huawei SmartLogger 3000 alarm bitmap entry (register, bit).
+#[derive(Debug, Clone, Deserialize)]
+pub struct SlAlarmDef {
+    pub addr: u16,
+    pub bit:  u8,
+    pub name: String,
+    pub class: AlarmClass,
+    pub severity: Severity,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+pub struct SlAlarmFile {
+    #[serde(default)] pub alarm: Vec<SlAlarmDef>,
+}

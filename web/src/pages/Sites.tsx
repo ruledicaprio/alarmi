@@ -1,26 +1,69 @@
-import { useEffect, useState } from 'react'
-import { Card, Table, Tag, Input, message } from 'antd'
+import { useEffect, useRef, useState } from 'react'
+import { ProTable, type ActionType, type ProColumns } from '@ant-design/pro-components'
+import { Tag } from 'antd'
 import { Link } from 'react-router-dom'
-import { api } from '../api'
+import { api, qs, type Site } from '../api'
+import { formatTs } from '../utils'
 
 export default function Sites() {
-  const [rows, setRows] = useState<any[]>([])
-  const [q, setQ] = useState('')
-  const [loading, setLoading] = useState(true)
+  const ref = useRef<ActionType>()
+  const [regions, setRegions] = useState<string[]>([])
   useEffect(() => {
-    api(`/api/sites`).then((d)=>setRows(d.items||[])).catch((e)=>message.error(String(e))).finally(()=>setLoading(false))
+    api<{items: string[]}>('/api/regions').then(d => setRegions(d.items || [])).catch(() => setRegions([]))
   }, [])
-  const filtered = q ? rows.filter(r => (r.site_key||'').toLowerCase().includes(q.toLowerCase())) : rows
+
+  const columns: ProColumns<Site>[] = [
+    {
+      title: 'Site key', dataIndex: 'site_key', width: 240,
+      render: (_, r) => <Link to={`/sites/${encodeURIComponent(r.site_key)}`}>{r.site_key}</Link>,
+      fieldProps: { placeholder: 'search site_key or name…' },
+    },
+    { title: 'Name', dataIndex: 'name', hideInSearch: true, ellipsis: true },
+    {
+      title: 'Region', dataIndex: 'region', width: 140,
+      valueType: 'select',
+      valueEnum: Object.fromEntries(regions.map(r => [r, { text: r }])),
+      render: v => v ? <Tag>{v as string}</Tag> : '—',
+    },
+    { title: 'Municipality', dataIndex: 'municipality', hideInSearch: true, ellipsis: true, width: 160 },
+    {
+      title: 'Open alarms', dataIndex: 'open_alarms', width: 130, sorter: true, align: 'right',
+      hideInSearch: true,
+      render: v => {
+        const n = v as number
+        return n > 0 ? <Tag color="red">{n}</Tag> : <Tag color="green">0</Tag>
+      },
+    },
+    {
+      title: 'Min open', dataIndex: 'min_open', hideInTable: true,
+      valueType: 'digit', fieldProps: { min: 0 },
+    },
+    { title: 'Last event', dataIndex: 'last_event', width: 180, hideInSearch: true,
+      render: v => v ? formatTs(v as string) : '—' },
+  ]
+
   return (
-    <Card title={`Sites (${rows.length})`} extra={<Input.Search placeholder="filter" onChange={(e)=>setQ(e.target.value)} style={{ width: 220 }} />}>
-      <Table size="small" loading={loading} dataSource={filtered} rowKey="site_key" pagination={{ pageSize: 20 }}
-        columns={[
-          { title: 'Site', dataIndex: 'site_key', render:(v:string)=><Link to={`/sites/${encodeURIComponent(v)}`}>{v}</Link>, sorter:(a:any,b:any)=>a.site_key.localeCompare(b.site_key) },
-          { title: 'Name', dataIndex: 'name' },
-          { title: 'Region', dataIndex: 'region', render:(v:string)=>v?<Tag>{v}</Tag>:null },
-          { title: 'Open alarms', dataIndex: 'open_alarms', sorter:(a:any,b:any)=>a.open_alarms-b.open_alarms, defaultSortOrder:'descend',
-            render:(v:number)=>v>0?<Tag color="red">{v}</Tag>:<Tag color="green">0</Tag> },
-        ]} />
-    </Card>
+    <ProTable<Site>
+      actionRef={ref}
+      columns={columns}
+      rowKey="site_key"
+      request={async (params) => {
+        const offset = ((params.current ?? 1) - 1) * (params.pageSize ?? 50)
+        const d = await api<{items: Site[]; total: number}>(
+          `/api/sites${qs({
+            limit: params.pageSize ?? 50,
+            offset,
+            q: params.site_key,
+            region: params.region,
+            min_open: params.min_open ?? 0,
+          })}`)
+        return { data: d.items, success: true, total: d.total }
+      }}
+      pagination={{ defaultPageSize: 50, pageSizeOptions: ['20','50','100','200'], showSizeChanger: true }}
+      search={{ labelWidth: 'auto', filterType: 'light' }}
+      headerTitle="Sites"
+      scroll={{ x: 1000 }}
+      sticky
+    />
   )
 }

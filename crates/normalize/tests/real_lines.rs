@@ -1,7 +1,9 @@
 //! Tests use verbatim lines from the real master_alarms.log so the Rust
 //! parser stays in lock-step with the validated Python oracle.
 
-use bht_normalize::{normalize_line, parse_oos_table, AlarmClass, Severity, Source, Transition};
+use bht_normalize::{
+    normalize_line, parse_oos_table, parse_smetnje_html, AlarmClass, Severity, Source, Transition,
+};
 
 #[test]
 fn ignition_critical_is_raise() {
@@ -116,6 +118,86 @@ fn oos_table_sections_and_rows() {
     assert_eq!(evs[0].site_key, "POTOCARI_MUZEJ");
     assert_eq!(evs[0].region, "TUZLA");
     assert_eq!(evs[2].raw_alarm, "OUT_OF_SERVICE:MPLS");
+}
+
+#[test]
+fn smetnje_html_real_sample() {
+    // verbatim capture of 192.168.108.77/smetnje.html (2026-06-19 01:45 UTC)
+    let html = r#"<table border="1">
+<tr>
+<td>19.06.2026 01:45</td>
+</tr>
+<tr>
+<td>-----------------------PRISTUP----------------------------</td>
+<td>--------------------------------</td>
+<td>-------------------------------</td>
+<td>----------------------------</td>
+</tr>
+<tr>
+<td>INTERINVEST</td>
+<td>10.100.60.3</td>
+<td>2026-06-18 20:43:00</td>
+<td>Sarajevo</td>
+</tr>
+<tr>
+<td>NOVI_OSENIK_1</td>
+<td>10.100.60.50</td>
+<td>2026-03-30 10:17:00</td>
+<td>Sarajevo</td>
+</tr>
+<tr>
+<td>-------------------------BTS------------------------------</td>
+<td>--------------------------------</td>
+<td>-------------------------------</td>
+<td>----------------------------</td>
+</tr>
+<tr>
+<td>BTS_GORNJA_PRACA</td>
+<td>10.37.117.142</td>
+<td>2026-06-19 00:33:00</td>
+<td>Gorazde</td>
+</tr>
+<tr>
+<td>-------------------------MPLS-----------------------------</td>
+<td>--------------------------------</td>
+<td>-------------------------------</td>
+<td>----------------------------</td>
+</tr>
+<tr>
+</tr>
+</table>"#;
+
+    let evs = parse_smetnje_html(html);
+    assert_eq!(evs.len(), 3, "expected 3 data rows (page header + dividers + empty rows skipped)");
+
+    // PRISTUP / INTERINVEST
+    assert_eq!(evs[0].source, Source::HtmlOos);
+    assert_eq!(evs[0].alarm_class, AlarmClass::ServiceOutage);
+    assert_eq!(evs[0].severity, Severity::Major);
+    assert_eq!(evs[0].transition, Transition::Raise);
+    assert_eq!(evs[0].raw_alarm, "OUT_OF_SERVICE:PRISTUP");
+    assert_eq!(evs[0].raw_site, "INTERINVEST");
+    assert_eq!(evs[0].site_key, "INTERINVEST");
+    assert_eq!(evs[0].region, "SARAJEVO");
+    assert_eq!(evs[0].device_ip.as_deref(), Some("10.100.60.3"));
+
+    // PRISTUP / NOVI_OSENIK_1
+    assert_eq!(evs[1].raw_site, "NOVI_OSENIK_1");
+    assert_eq!(evs[1].raw_alarm, "OUT_OF_SERVICE:PRISTUP");
+    assert_eq!(evs[1].device_ip.as_deref(), Some("10.100.60.50"));
+
+    // BTS / BTS_GORNJA_PRACA  (BTS_ prefix stripped by site_key())
+    assert_eq!(evs[2].raw_site, "BTS_GORNJA_PRACA");
+    assert_eq!(evs[2].site_key, "GORNJA_PRACA");
+    assert_eq!(evs[2].raw_alarm, "OUT_OF_SERVICE:BTS");
+    assert_eq!(evs[2].region, "GORAZDE");
+    assert_eq!(evs[2].device_ip.as_deref(), Some("10.37.117.142"));
+}
+
+#[test]
+fn smetnje_html_empty_table_yields_no_events() {
+    let html = r#"<table><tr><td>19.06.2026 01:45</td></tr><tr></tr></table>"#;
+    assert!(parse_smetnje_html(html).is_empty());
 }
 
 #[test]

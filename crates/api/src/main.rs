@@ -5,6 +5,7 @@ mod db;
 mod ingest;
 mod query;
 
+use axum::extract::DefaultBodyLimit;
 use axum::http::StatusCode;
 use axum::response::{IntoResponse, Response};
 use axum::routing::{get, post};
@@ -76,20 +77,73 @@ async fn main() -> anyhow::Result<()> {
     let _ = pool.get().await.map_err(|e| anyhow::anyhow!("DB connect failed: {e}"))?;
     let state = AppState { pool };
 
+    // Background: keep fact_alarm_episode current. On startup do a full rebuild
+    // (catches up any events that landed before this version of the API), then
+    // re-window every 60s to capture recent transitions.
+    {
+        let pool = state.pool.clone();
+        tokio::spawn(async move {
+            match pool.get().await {
+                Ok(c) => {
+                    if let Err(e) = c.execute("SELECT rebuild_episodes('-infinity')", &[]).await {
+                        eprintln!("[episode-rebuild] startup full rebuild: {e}");
+                    } else {
+                        eprintln!("[episode-rebuild] startup full rebuild OK");
+                    }
+                }
+                Err(e) => eprintln!("[episode-rebuild] startup db pool: {e}"),
+            }
+            let mut tick = tokio::time::interval(std::time::Duration::from_secs(60));
+            tick.tick().await; // skip immediate fire (we just rebuilt)
+            loop {
+                tick.tick().await;
+                match pool.get().await {
+                    Ok(c) => {
+                        if let Err(e) = c.execute(
+                            "SELECT rebuild_episodes(now() - INTERVAL '15 minutes')", &[]).await {
+                            eprintln!("[episode-rebuild] {e}");
+                        }
+                    }
+                    Err(e) => eprintln!("[episode-rebuild] db pool: {e}"),
+                }
+            }
+        });
+    }
+
     let cors = CorsLayer::new().allow_origin(Any).allow_methods(Any).allow_headers(Any);
     let app = Router::new()
         .route("/api/health", get(query::health))
         .route("/api/sites", get(query::sites))
+        .route("/api/regions", get(query::regions))
         .route("/api/alarms/active", get(query::active_alarms))
         .route("/api/alarms/recent", get(query::recent_alarms))
-        .route("/api/sites/:site_key/reliability", get(query::site_reliability))
+        .route("/api/sites/:site_key/reliability",  get(query::site_reliability))
         .route("/api/sites/:site_key/measurements", get(query::site_measurements))
-        .route("/api/measurements/latest", get(query::latest_measurements))
-        .route("/api/stats/by-class", get(query::stats_by_class))
-        .route("/api/stats/by-region", get(query::stats_by_region))
+        .route("/api/sites/:site_key/timeline",     get(query::site_timeline))
+        .route("/api/sites/:site_key/episodes",     get(query::site_episodes))
+        .route("/api/measurements/latest",  get(query::latest_measurements))
+        .route("/api/stats/by-class",       get(query::stats_by_class))
+        .route("/api/stats/by-region",      get(query::stats_by_region))
+        .route("/api/stats/sources",        get(query::stats_sources))
+        .route("/api/stats/timeseries",     get(query::stats_timeseries))
+        .route("/api/inventory/orphans",    get(query::inventory_orphans))
+        .route("/api/inventory/stale",      get(query::inventory_stale))
+        .route("/api/inventory/coverage",   get(query::inventory_coverage))
+        .route("/api/measurements/metrics", get(query::measurement_metrics))
+        .route("/api/solar/summary",        get(query::solar_summary))
+        .route("/api/solar/sites",          get(query::solar_sites))
+        .route("/api/sites/:site_key/ips",     get(query::site_ips))
+        .route("/api/sites/:site_key/related", get(query::site_related))
+        .route("/api/sites/:site_key/verification",         get(query::site_verification))
+        .route("/api/sites/:site_key/verification/summary", get(query::site_verification_summary))
+        .route("/api/sites/:site_key/verify",              post(ingest::site_verify))
         .route("/ingest/raw/ispadnap", post(ingest::ingest_raw_ispadnap))
+        .route("/ingest/raw/smetnje", post(ingest::ingest_raw_smetnje))
         .route("/ingest/events", post(ingest::ingest_events))
         .route("/ingest/measurements", post(ingest::ingest_measurements))
+        // raw log feeds (napajanjeranW.log etc.) can exceed Axum's 2 MB default.
+        // 32 MB headroom covers years of append-only growth.
+        .layer(DefaultBodyLimit::max(32 * 1024 * 1024))
         .with_state(state);
 
     let app = if std::path::Path::new(&cfg.static_dir).exists() {

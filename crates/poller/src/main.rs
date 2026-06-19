@@ -13,6 +13,7 @@ mod decode;
 mod poll;
 mod profile;
 mod sink;
+mod smartlogger;
 mod state;
 mod types;
 
@@ -20,6 +21,7 @@ use anyhow::{Context, Result};
 use breaker::Breaker;
 use profile::Profile;
 use sink::{MeasRow, Sink};
+use smartlogger::SmartloggerProfile;
 use state::AlarmStore;
 use std::collections::HashMap;
 use std::sync::Arc;
@@ -27,13 +29,15 @@ use std::time::{Duration, Instant};
 use tokio::sync::Semaphore;
 use tokio::task::JoinSet;
 use tokio::time::sleep;
-use types::{AlarmFile, DeviceCfg, DevicesFile, PollerConfig};
+use types::{AlarmFile, DeviceCfg, DevicesFile, PollerConfig, SlAlarmFile};
+use bht_normalize::Source;
 
 #[tokio::main]
 async fn main() -> Result<()> {
     let mut cfg_path = "config/poller.toml".to_string();
     let mut dev_path = "config/devices.toml".to_string();
     let mut alarm_path = "config/eaton_alarms.toml".to_string();
+    let mut sl_alarm_path = "config/smartlogger_alarms.toml".to_string();
     let (mut dry_run, mut once) = (false, false);
     let mut args = std::env::args().skip(1);
     while let Some(a) = args.next() {
@@ -41,6 +45,7 @@ async fn main() -> Result<()> {
             "--config"  => cfg_path = args.next().unwrap_or(cfg_path),
             "--devices" => dev_path = args.next().unwrap_or(dev_path),
             "--alarms"  => alarm_path = args.next().unwrap_or(alarm_path),
+            "--smartlogger-alarms" => sl_alarm_path = args.next().unwrap_or(sl_alarm_path),
             "--dry-run" => dry_run = true,
             "--once"    => once = true,
             other => eprintln!("[poller] ignoring arg: {other}"),
@@ -53,11 +58,16 @@ async fn main() -> Result<()> {
         &std::fs::read_to_string(&dev_path).with_context(|| format!("read {dev_path}"))?)?;
     let alarms: AlarmFile = toml::from_str(
         &std::fs::read_to_string(&alarm_path).with_context(|| format!("read {alarm_path}"))?)?;
+    let sl_alarms: SlAlarmFile = std::fs::read_to_string(&sl_alarm_path)
+        .ok()
+        .and_then(|s| toml::from_str(&s).ok())
+        .unwrap_or(SlAlarmFile { alarm: vec![] });
 
     let mut cfg = cfg;
     if let Ok(url) = std::env::var("DATABASE_URL") { cfg.database.dsn = url; } // container override
     let cfg = Arc::new(cfg);
     let profile = Arc::new(Profile::from_file(alarms));
+    let sl_profile = Arc::new(SmartloggerProfile::from_file(sl_alarms));
 
     let sink = if dry_run || cfg.database.dsn.is_empty() {
         eprintln!("[poller] sink = DRY-RUN");
@@ -68,17 +78,21 @@ async fn main() -> Result<()> {
     };
 
     let mut active_devs: Vec<DeviceCfg> = Vec::new();
+    let mut by_type: HashMap<String, usize> = HashMap::new();
     let mut skipped = 0;
     for d in devices.device {
         if !d.enabled { continue; }
-        if d.dev_type != "eaton" { skipped += 1; continue; }
-        active_devs.push(d);
+        match d.dev_type.as_str() {
+            "eaton" | "smartlogger" => {
+                *by_type.entry(d.dev_type.clone()).or_insert(0) += 1;
+                active_devs.push(d);
+            }
+            _ => skipped += 1,
+        }
     }
-    if skipped > 0 {
-        eprintln!("[poller] skipping {skipped} non-eaton devices (smartlogger = later stage)");
-    }
-    eprintln!("[poller] {} eaton devices, interval={}s, max_concurrent={}",
-              active_devs.len(), cfg.poll_interval_secs, cfg.max_concurrent);
+    if skipped > 0 { eprintln!("[poller] skipping {skipped} unknown-type devices"); }
+    eprintln!("[poller] {} devices total ({:?}), interval={}s, max_concurrent={}",
+              active_devs.len(), by_type, cfg.poll_interval_secs, cfg.max_concurrent);
 
     let mut breakers: HashMap<String, Breaker> = HashMap::new();
     let mut store = AlarmStore::default();
@@ -92,7 +106,7 @@ async fn main() -> Result<()> {
                          else { (cfg.poll_interval_secs * 1000) / active_devs.len() as u64 };
         let stagger_cap = cfg.poll_interval_secs * 900; // ms (90% of interval)
         let sem = Arc::new(Semaphore::new(cfg.max_concurrent.max(1)));
-        let mut set: JoinSet<(String, Result<poll::PollResult>)> = JoinSet::new();
+        let mut set: JoinSet<(String, Result<poll::PollResult>, Source)> = JoinSet::new();
 
         let now = Instant::now();
         let mut open_skipped = 0;
@@ -100,20 +114,47 @@ async fn main() -> Result<()> {
             let br = breakers.entry(dev.ip.clone()).or_insert_with(|| Breaker::new(thr, cooldown));
             if !br.allow(now) { open_skipped += 1; continue; }
             let delay = Duration::from_millis(((i as u64) * stagger_ms).min(stagger_cap));
-            let (cfg2, prof2, sem2, dev2, ip) =
-                (cfg.clone(), profile.clone(), sem.clone(), dev.clone(), dev.ip.clone());
-            set.spawn(async move {
-                sleep(delay).await;
-                let _permit = sem2.acquire_owned().await.unwrap();
-                (ip, poll::poll_device(dev2, cfg2, prof2).await)
-            });
+            let cfg2 = cfg.clone();
+            let sem2 = sem.clone();
+            let dev2 = dev.clone();
+            let ip   = dev.ip.clone();
+            match dev.dev_type.as_str() {
+                "eaton" => {
+                    let prof2 = profile.clone();
+                    set.spawn(async move {
+                        sleep(delay).await;
+                        let _permit = sem2.acquire_owned().await.unwrap();
+                        let res = poll::poll_device(dev2, cfg2, prof2).await
+                            .map(|pr| poll::PollResult {
+                                ip: pr.ip, site_key: pr.site_key,
+                                status: pr.status, active: pr.active, measurements: pr.measurements,
+                            });
+                        (ip, res, Source::ModbusEaton)
+                    });
+                }
+                "smartlogger" => {
+                    let prof2 = sl_profile.clone();
+                    set.spawn(async move {
+                        sleep(delay).await;
+                        let _permit = sem2.acquire_owned().await.unwrap();
+                        let res = smartlogger::poll_smartlogger(dev2, cfg2, prof2).await
+                            .map(|pr| poll::PollResult {
+                                ip: pr.ip, site_key: pr.site_key,
+                                status: Default::default(),
+                                active: pr.active, measurements: pr.measurements,
+                            });
+                        (ip, res, Source::SmartloggerHuawei)
+                    });
+                }
+                _ => continue,
+            }
         }
 
         let mut all_meas: Vec<MeasRow> = Vec::new();
         let mut all_events = Vec::new();
         let (mut ok, mut fail) = (0u32, 0u32);
         while let Some(joined) = set.join_next().await {
-            let (ip, res) = match joined {
+            let (ip, res, src) = match joined {
                 Ok(v) => v,
                 Err(e) => { eprintln!("[poller] task panic: {e}"); continue; }
             };
@@ -128,7 +169,7 @@ async fn main() -> Result<()> {
                             metric: metric.clone(), value: *value,
                         });
                     }
-                    all_events.extend(store.diff(&ip, &pr.site_key, pr.active));
+                    all_events.extend(store.diff(&ip, &pr.site_key, src, pr.active));
                 }
                 Err(e) => {
                     fail += 1;

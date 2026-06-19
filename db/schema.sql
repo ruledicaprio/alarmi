@@ -85,6 +85,15 @@ CREATE INDEX IF NOT EXISTS ix_event_site_time  ON fact_event (site_key, event_ti
 CREATE INDEX IF NOT EXISTS ix_event_class_time ON fact_event (alarm_class, event_time DESC);
 CREATE INDEX IF NOT EXISTS ix_event_src_time   ON fact_event (source, event_time DESC);
 
+-- Dedup constraint: same (instant, system, site, raw_alarm, transition) is
+-- the same event. raw_alarm is required in the key because the alarm_class
+-- bucket is lossy (e.g. DO-Alarm-1 and DO-Alarm-2 both classify as
+-- GENERIC_ERROR but are distinct events). Lets us re-POST whole log feeds
+-- without growing the table. Hypertable requires the partition column
+-- (event_time) in any unique index.
+CREATE UNIQUE INDEX IF NOT EXISTS ux_event_dedup
+    ON fact_event (event_time, source, site_key, raw_alarm, transition);
+
 ALTER TABLE fact_event SET (
     timescaledb.compress,
     timescaledb.compress_segmentby = 'site_key, source, alarm_class',

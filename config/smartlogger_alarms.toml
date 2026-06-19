@@ -1,0 +1,228 @@
+# Huawei SmartLogger 3000 alarm bitmap definitions, per
+# "SmartLogger ModBus Interface Definitions" Issue 35 (2020-02-20), section 2.2.
+# Alarm bitmaps are at register addresses 50000 / 50001 / 50002 (NOT the
+# 32008-range — that's the *power meter*, not the SmartLogger).
+# class/severity must match the bht-normalize canonical enums.
+
+# ===== Register 50000 =====
+
+[[alarm]]
+addr = 50000
+bit  = 3
+name = "Abnormal Active Schedule (Alarm 1100)"
+class = "GENERIC_ERROR"
+severity = "major"
+
+[[alarm]]
+addr = 50000
+bit  = 11
+name = "Abnormal Reactive Schedule (Alarm 1101)"
+class = "GENERIC_ERROR"
+severity = "major"
+
+# ===== Register 50001 =====
+
+[[alarm]]
+addr = 50001
+bit  = 1
+name = "MCB Disconnect (Alarm 1103)"
+class = "MAINS_FAILURE"
+severity = "major"
+
+[[alarm]]
+addr = 50001
+bit  = 2
+name = "Abnormal Cubicle (Alarm 1104)"
+class = "GENERIC_ERROR"
+severity = "major"
+
+[[alarm]]
+addr = 50001
+bit  = 3
+name = "Device Address Conflict (Alarm 1105)"
+class = "GENERIC_ERROR"
+severity = "major"
+
+[[alarm]]
+addr = 50001
+bit  = 4
+name = "AC SPD fault (Alarm 1106)"
+class = "GENERIC_ERROR"
+severity = "major"
+
+[[alarm]]
+addr = 50001
+bit  = 5
+name = "DI1 custom alarm (Alarm 1107)"
+class = "GENERIC_ERROR"
+severity = "warning"
+
+[[alarm]]
+addr = 50001
+bit  = 6
+name = "DI2 custom alarm (Alarm 1108)"
+class = "GENERIC_ERROR"
+severity = "warning"
+
+[[alarm]]
+addr = 50001
+bit  = 7
+name = "DI3 custom alarm (Alarm 1109)"
+class = "GENERIC_ERROR"
+severity = "warning"
+
+[[alarm]]
+addr = 50001
+bit  = 8
+name = "DI4 custom alarm (Alarm 1110)"
+class = "GENERIC_ERROR"
+severity = "warning"
+
+[[alarm]]
+addr = 50001
+bit  = 9
+name = "DI5 custom alarm (Alarm 1111)"
+class = "GENERIC_ERROR"
+severity = "warning"
+
+[[alarm]]
+addr = 50001
+bit  = 10
+name = "DI6 custom alarm (Alarm 1112)"
+class = "GENERIC_ERROR"
+severity = "warning"
+
+[[alarm]]
+addr = 50001
+bit  = 11
+name = "DI7 custom alarm (Alarm 1113)"
+class = "GENERIC_ERROR"
+severity = "warning"
+
+[[alarm]]
+addr = 50001
+bit  = 12
+name = "DI8 custom alarm (Alarm 1114)"
+class = "GENERIC_ERROR"
+severity = "warning"
+
+[[alarm]]
+addr = 50001
+bit  = 13
+name = "24V power failure (Alarm 1115)"
+class = "RECTIFIER_FAILURE"
+severity = "major"
+
+[[alarm]]
+addr = 50001
+bit  = 14
+name = "License Expired (Alarm 1119)"
+class = "GENERIC_ERROR"
+severity = "warning"
+
+# ===== Register 50002 — certificate / management lifecycle alarms =====
+
+[[alarm]]
+addr = 50002
+bit  = 0
+name = "WebUI server certificate invalid (Alarm 1116)"
+class = "GENERIC_ERROR"
+severity = "warning"
+
+[[alarm]]
+addr = 50002
+bit  = 1
+name = "WebUI server certificate to expire (Alarm 1117)"
+class = "GENERIC_ERROR"
+severity = "warning"
+
+[[alarm]]
+addr = 50002
+bit  = 2
+name = "WebUI server certificate expired (Alarm 1118)"
+class = "GENERIC_ERROR"
+severity = "major"
+
+[[alarm]]
+addr = 50002
+bit  = 3
+name = "Management system certificate invalid (Alarm 1120)"
+class = "GENERIC_ERROR"
+severity = "warning"
+
+[[alarm]]
+addr = 50002
+bit  = 4
+name = "Management system certificate to expire (Alarm 1121)"
+class = "GENERIC_ERROR"
+severity = "warning"
+
+[[alarm]]
+addr = 50002
+bit  = 5
+name = "Management system certificate expired (Alarm 1122)"
+class = "GENERIC_ERROR"
+severity = "major"
+
+[[alarm]]
+addr = 50002
+bit  = 6
+name = "Remote Control certificate invalid (Alarm 1123)"
+class = "GENERIC_ERROR"
+severity = "warning"
+
+[[alarm]]
+addr = 50002
+bit  = 7
+name = "Remote Control certificate to expire (Alarm 1124)"
+class = "GENERIC_ERROR"
+severity = "warning"
+
+[[alarm]]
+addr = 50002
+bit  = 8
+name = "Remote Control certificate expired (Alarm 1125)"
+class = "GENERIC_ERROR"
+severity = "major"
+
+[[alarm]]
+addr = 50002
+bit  = 9
+name = "ESGCC certificate invalid (Alarm 1126)"
+class = "GENERIC_ERROR"
+severity = "warning"
+
+[[alarm]]
+addr = 50002
+bit  = 10
+name = "ESGCC certificate to expire (Alarm 1127)"
+class = "GENERIC_ERROR"
+severity = "warning"
+
+[[alarm]]
+addr = 50002
+bit  = 11
+name = "ESGCC certificate expired (Alarm 1128)"
+class = "GENERIC_ERROR"
+severity = "major"
+
+[[alarm]]
+addr = 50002
+bit  = 12
+name = "SmartLogger certificate invalid (Alarm 1129)"
+class = "GENERIC_ERROR"
+severity = "warning"
+
+[[alarm]]
+addr = 50002
+bit  = 13
+name = "SmartLogger certificate about to expire (Alarm 1130)"
+class = "GENERIC_ERROR"
+severity = "warning"
+
+[[alarm]]
+addr = 50002
+bit  = 14
+name = "SmartLogger certificate expired (Alarm 1131)"
+class = "GENERIC_ERROR"
+severity = "major"

@@ -21,8 +21,12 @@ pub fn i32_be(hi: u16, lo: u16) -> i32 {
 
 /// Eaton summary status from the first four discrete inputs (1001..1004):
 /// Critical / Major / Minor / Warning, else OK. Too few bits => comm error.
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub enum DeviceStatus { Critical, Major, Minor, Warning, Ok, CommError }
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+pub enum DeviceStatus {
+    Critical, Major, Minor, Warning,
+    #[default] Ok,
+    CommError,
+}
 
 pub fn status_from_summary(bits: &[bool]) -> DeviceStatus {
     if bits.len() < 4 { return DeviceStatus::CommError; }

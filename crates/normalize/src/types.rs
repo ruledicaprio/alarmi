@@ -9,7 +9,7 @@ use chrono::{DateTime, Utc};
 use serde::{Deserialize, Serialize};
 
 /// Originating collector / upstream system.
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub enum Source {
     Ignition,   // IgnitionSCADA  — severity feed, count-only
@@ -22,6 +22,7 @@ pub enum Source {
     Baran,      // BARAN FCS cooling controller  — stateful
     ModbusEaton,// Direct Modbus poll of SC200/300 (future stage) — stateful
     HtmlOos,    // /alarmi/ out-of-service table  — stateful service outage
+    SmartloggerHuawei, // Huawei SmartLogger 3000 PV inverter poll — stateful
 }
 
 impl Source {
@@ -31,7 +32,7 @@ impl Source {
             self,
             Source::U2020 | Source::RpsSc200 | Source::RpsSc300
                 | Source::Dse74xx | Source::Benning | Source::Baran
-                | Source::ModbusEaton | Source::HtmlOos
+                | Source::ModbusEaton | Source::HtmlOos | Source::SmartloggerHuawei
         )
     }
 }

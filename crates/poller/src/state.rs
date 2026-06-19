@@ -1,5 +1,5 @@
 //! Edge detection: convert per-poll active-alarm snapshots into RAISE/CLEAR
-//! transitions, so Modbus alarms pair into episodes exactly like the other
+//! transitions, so device alarms pair into episodes exactly like the other
 //! stateful sources (see Stage-1 rebuild_episodes()).
 
 use crate::types::AlarmDef;
@@ -15,43 +15,46 @@ pub struct Active {
     pub def: AlarmDef,
 }
 
-/// Remembers the last active set per device ip.
+/// Remembers the last active set per device ip + source (so the same IP
+/// served by two device types doesn't cross-contaminate state).
 #[derive(Default)]
 pub struct AlarmStore {
-    per_device: HashMap<String, HashMap<String, AlarmDef>>,
+    per_device: HashMap<(String, Source), HashMap<String, AlarmDef>>,
 }
 
 impl AlarmStore {
     /// Diff a fresh snapshot against the prior one; emit RAISE for new alarms,
     /// CLEAR for ones that disappeared. Updates stored state.
-    pub fn diff(&mut self, ip: &str, site_key: &str, now_active: Vec<Active>) -> Vec<CanonicalEvent> {
+    pub fn diff(&mut self, ip: &str, site_key: &str, source: Source,
+                now_active: Vec<Active>) -> Vec<CanonicalEvent> {
         let ts = Utc::now();
         let new_map: HashMap<String, AlarmDef> =
             now_active.into_iter().map(|a| (a.key, a.def)).collect();
-        let prev = self.per_device.remove(ip).unwrap_or_default();
+        let prev = self.per_device.remove(&(ip.to_string(), source)).unwrap_or_default();
         let mut events = Vec::new();
 
         for (k, def) in &new_map {
             if !prev.contains_key(k) {
-                events.push(make_event(ts, site_key, ip, def, Transition::Raise));
+                events.push(make_event(ts, site_key, ip, source, def, Transition::Raise));
             }
         }
         for (k, def) in &prev {
             if !new_map.contains_key(k) {
-                events.push(make_event(ts, site_key, ip, def, Transition::Clear));
+                events.push(make_event(ts, site_key, ip, source, def, Transition::Clear));
             }
         }
-        self.per_device.insert(ip.to_string(), new_map);
+        self.per_device.insert((ip.to_string(), source), new_map);
         events
     }
 }
 
 fn make_event(
-    ts: chrono::DateTime<Utc>, site_key: &str, ip: &str, def: &AlarmDef, transition: Transition,
+    ts: chrono::DateTime<Utc>, site_key: &str, ip: &str, source: Source,
+    def: &AlarmDef, transition: Transition,
 ) -> CanonicalEvent {
     CanonicalEvent {
         event_time: ts,
-        source: Source::ModbusEaton,
+        source,
         raw_site: site_key.to_string(),
         site_key: site_key.to_string(),
         region: String::new(),
@@ -76,16 +79,14 @@ mod tests {
     #[test]
     fn raise_then_clear() {
         let mut s = AlarmStore::default();
-        let e1 = s.diff("10.10.1.1", "SITE", vec![act(1210, "AC-Fail")]);
+        let e1 = s.diff("10.10.1.1", "SITE", Source::ModbusEaton, vec![act(1210, "AC-Fail")]);
         assert_eq!(e1.len(), 1);
         assert_eq!(e1[0].transition, Transition::Raise);
 
-        // same alarm still active next poll -> no event
-        let e2 = s.diff("10.10.1.1", "SITE", vec![act(1210, "AC-Fail")]);
+        let e2 = s.diff("10.10.1.1", "SITE", Source::ModbusEaton, vec![act(1210, "AC-Fail")]);
         assert!(e2.is_empty());
 
-        // alarm gone -> CLEAR
-        let e3 = s.diff("10.10.1.1", "SITE", vec![]);
+        let e3 = s.diff("10.10.1.1", "SITE", Source::ModbusEaton, vec![]);
         assert_eq!(e3.len(), 1);
         assert_eq!(e3[0].transition, Transition::Clear);
     }

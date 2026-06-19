@@ -45,7 +45,8 @@ pub async fn insert_events(pool: &Pool, evs: &[CanonicalEvent]) -> Result<u64> {
         "INSERT INTO fact_event(event_time,source,site_key,region,alarm_class,severity,transition,raw_site,raw_alarm,device_ip) \
          SELECT t::timestamptz, s::source_t, sk, rg, ac::alarm_class_t, sv::severity_t, tr::transition_t, rs, ra, NULLIF(i,'')::inet \
          FROM UNNEST($1::text[],$2::text[],$3::text[],$4::text[],$5::text[],$6::text[],$7::text[],$8::text[],$9::text[],$10::text[]) \
-           AS u(t,s,sk,rg,ac,sv,tr,rs,ra,i)",
+           AS u(t,s,sk,rg,ac,sv,tr,rs,ra,i) \
+         ON CONFLICT (event_time, source, site_key, raw_alarm, transition) DO NOTHING",
         &[&t,&s,&sk,&rg,&ac,&sv,&tr,&rs,&ra,&ip],
     ).await?;
     Ok(n)
