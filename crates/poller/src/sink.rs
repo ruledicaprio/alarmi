@@ -3,6 +3,7 @@
 //! parameters (one round-trip each). Enum values render to their Stage-1
 //! serde labels and are cast to the DB enum types.
 
+use crate::types::DeviceCfg;
 use anyhow::Result;
 use bht_normalize::CanonicalEvent;
 use serde::Serialize;
@@ -85,6 +86,58 @@ impl Sink {
                 Ok(n)
             }
         }
+    }
+
+    /// Load all enabled devices from dim_device (DB mode) or return empty vec (dry-run).
+    pub async fn load_devices(&self) -> Result<Vec<DeviceCfg>> {
+        let c = match self { Sink::Db(c) => c, Sink::DryRun => return Ok(Vec::new()) };
+        let rows = c.query(
+            "SELECT host(ip)::text, port, unit_id, site_key, name, dev_type, base0, fne \
+             FROM dim_device WHERE enabled = true ORDER BY id",
+            &[],
+        ).await?;
+        Ok(rows.iter().map(|r| DeviceCfg {
+            ip:       r.get(0),
+            port:     r.get::<_, i32>(1) as u16,
+            unit:     r.get::<_, i16>(2) as u8,
+            site_key: r.get(3),
+            name:     r.get(4),
+            dev_type: r.get(5),
+            base0:    r.get(6),
+            fne:      r.get(7),
+            enabled:  true,
+        }).collect())
+    }
+
+    /// Batch-update dim_device health columns after a poll cycle.
+    /// ok:   [(ip, unit_id)] — successful polls → last_ok=now, fail_streak=0
+    /// fail: [(ip, unit_id)] — failed polls      → fail_streak+1
+    /// Devices skipped by open circuit breakers are not in either slice.
+    pub async fn write_health(&self, ok: &[(String, i16)], fail: &[(String, i16)]) -> Result<()> {
+        let c = match self { Sink::Db(c) => c, Sink::DryRun => return Ok(()) };
+        if !ok.is_empty() {
+            let ips:  Vec<&str> = ok.iter().map(|(ip, _)| ip.as_str()).collect();
+            let uids: Vec<i16>  = ok.iter().map(|(_, u)| *u).collect();
+            c.execute(
+                "UPDATE dim_device d \
+                 SET last_polled = now(), last_ok = now(), fail_streak = 0, updated_at = now() \
+                 FROM UNNEST($1::text[], $2::smallint[]) AS u(ip, uid) \
+                 WHERE d.ip::text = u.ip AND d.unit_id = u.uid",
+                &[&ips, &uids],
+            ).await?;
+        }
+        if !fail.is_empty() {
+            let ips:  Vec<&str> = fail.iter().map(|(ip, _)| ip.as_str()).collect();
+            let uids: Vec<i16>  = fail.iter().map(|(_, u)| *u).collect();
+            c.execute(
+                "UPDATE dim_device d \
+                 SET last_polled = now(), fail_streak = d.fail_streak + 1, updated_at = now() \
+                 FROM UNNEST($1::text[], $2::smallint[]) AS u(ip, uid) \
+                 WHERE d.ip::text = u.ip AND d.unit_id = u.uid",
+                &[&ips, &uids],
+            ).await?;
+        }
+        Ok(())
     }
 }
 

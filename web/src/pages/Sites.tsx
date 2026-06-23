@@ -3,13 +3,13 @@ import { ProTable, type ActionType, type ProColumns } from '@ant-design/pro-comp
 import { Tag } from 'antd'
 import { Link } from 'react-router-dom'
 import { api, qs, type Site } from '../api'
-import { formatTs } from '../utils'
+import { formatTs, tsSorter } from '../utils'
 
 export default function Sites() {
   const ref = useRef<ActionType>()
-  const [regions, setRegions] = useState<string[]>([])
+  const [regions, setRegions] = useState<{region: string; label: string}[]>([])
   useEffect(() => {
-    api<{items: string[]}>('/api/regions').then(d => setRegions(d.items || [])).catch(() => setRegions([]))
+    api<{items: {region: string; label: string}[]}>('/api/regions').then(d => setRegions(d.items || [])).catch(() => setRegions([]))
   }, [])
 
   const columns: ProColumns<Site>[] = [
@@ -22,7 +22,7 @@ export default function Sites() {
     {
       title: 'Region', dataIndex: 'region', width: 140,
       valueType: 'select',
-      valueEnum: Object.fromEntries(regions.map(r => [r, { text: r }])),
+      valueEnum: Object.fromEntries(regions.map(r => [r.region, { text: r.label || r.region }])),
       render: v => v ? <Tag>{v as string}</Tag> : '—',
     },
     { title: 'Municipality', dataIndex: 'municipality', hideInSearch: true, ellipsis: true, width: 160 },
@@ -39,6 +39,7 @@ export default function Sites() {
       valueType: 'digit', fieldProps: { min: 0 },
     },
     { title: 'Last event', dataIndex: 'last_event', width: 180, hideInSearch: true,
+      sorter: tsSorter<Site>('last_event'), defaultSortOrder: 'descend',
       render: v => v ? formatTs(v as string) : '—' },
   ]
 

@@ -8,7 +8,7 @@ mod query;
 use axum::extract::DefaultBodyLimit;
 use axum::http::StatusCode;
 use axum::response::{IntoResponse, Response};
-use axum::routing::{get, post};
+use axum::routing::{delete, get, patch, post};
 use axum::{Json, Router};
 use deadpool_postgres::Pool;
 use serde::Deserialize;
@@ -126,17 +126,37 @@ async fn main() -> anyhow::Result<()> {
         .route("/api/stats/by-region",      get(query::stats_by_region))
         .route("/api/stats/sources",        get(query::stats_sources))
         .route("/api/stats/timeseries",     get(query::stats_timeseries))
+        .route("/api/map/sites",            get(query::map_sites))
         .route("/api/inventory/orphans",    get(query::inventory_orphans))
         .route("/api/inventory/stale",      get(query::inventory_stale))
         .route("/api/inventory/coverage",   get(query::inventory_coverage))
+        // v8 inventory management
+        .route("/api/inventory/devices",
+               get(query::inventory_devices).post(ingest::device_upsert))
+        .route("/api/inventory/devices/:id",
+               patch(ingest::device_patch).delete(ingest::device_delete))
+        .route("/api/inventory/device-orphans",
+               get(query::inventory_device_orphans))
+        .route("/api/inventory/device-orphans/claim",
+               post(ingest::claim_orphan))
+        .route("/api/inventory/stubs",      get(query::inventory_stubs))
+        .route("/api/sites/:site_key",      patch(ingest::site_patch))
         .route("/api/measurements/metrics", get(query::measurement_metrics))
-        .route("/api/solar/summary",        get(query::solar_summary))
-        .route("/api/solar/sites",          get(query::solar_sites))
         .route("/api/sites/:site_key/ips",     get(query::site_ips))
         .route("/api/sites/:site_key/related", get(query::site_related))
         .route("/api/sites/:site_key/verification",         get(query::site_verification))
         .route("/api/sites/:site_key/verification/summary", get(query::site_verification_summary))
         .route("/api/sites/:site_key/verify",              post(ingest::site_verify))
+        // v7 admin / system / inventory
+        .route("/api/admin/users",          get(query::admin_users).post(ingest::admin_user_upsert))
+        .route("/api/admin/users/:id",      delete(ingest::admin_user_delete))
+        .route("/api/admin/regions",        get(query::admin_regions))
+        .route("/api/inventory/verified",   get(query::inventory_verified))
+        .route("/api/system/status",        get(query::system_status))
+        .route("/api/system/journal",       get(query::system_journal))
+        // v7 solar (per-source stacked + family-tagged sites)
+        .route("/api/solar/summary",        get(query::solar_summary_v7))
+        .route("/api/solar/sites",          get(query::solar_sites_v7))
         .route("/ingest/raw/ispadnap", post(ingest::ingest_raw_ispadnap))
         .route("/ingest/raw/smetnje", post(ingest::ingest_raw_smetnje))
         .route("/ingest/events", post(ingest::ingest_events))

@@ -376,14 +376,379 @@ pub async fn stats_timeseries(State(st): State<AppState>, Query(q): Query<HashMa
     Ok(Json(json!({ "bucket": bucket, "hours": hours, "items": items })))
 }
 
-// ---- /api/regions — distinct region list for filter UI
+// ---- /api/regions — canonical region list from v7 migrate (sorted) + ad-hoc seen
 pub async fn regions(State(st): State<AppState>) -> ApiResult {
     let c = st.pool.get().await?;
+    // canonical 7 from dim_region_canonical
+    let canonical = c.query(
+        "SELECT region, label FROM dim_region_canonical ORDER BY sort_idx", &[]).await?;
+    let items: Vec<Value> = canonical.iter().map(|r| json!({
+        "region": r.get::<_, String>("region"),
+        "label":  r.get::<_, String>("label"),
+        "canonical": true,
+    })).collect();
+    // plus any region that's shown up in dim_site but isn't in canonical (e.g. TUZLAHASE typo)
+    let extra = c.query(
+        "SELECT DISTINCT region FROM dim_site \
+         WHERE region IS NOT NULL AND region <> '' \
+           AND region NOT IN (SELECT region FROM dim_region_canonical) \
+         ORDER BY region", &[]).await?;
+    let mut all = items;
+    for r in extra.iter() {
+        let region: String = r.get("region");
+        all.push(json!({ "region": region.clone(), "label": region, "canonical": false }));
+    }
+    Ok(Json(json!({ "items": all })))
+}
+
+// ============================================================ v7 ENDPOINTS
+
+// ---- /api/admin/users — list all users
+pub async fn admin_users(State(st): State<AppState>) -> ApiResult {
+    let c = st.pool.get().await?;
     let rows = c.query(
-        "SELECT DISTINCT region FROM dim_site WHERE region IS NOT NULL AND region <> '' ORDER BY region",
-        &[]).await?;
-    let items: Vec<String> = rows.iter().map(|r| r.get::<_, String>("region")).collect();
+        "SELECT id, username, full_name, role::text role, COALESCE(region,'') region, \
+                created_at::text created_at, COALESCE(last_seen::text,'') last_seen, disabled \
+         FROM dim_user ORDER BY id", &[]).await?;
+    let items: Vec<Value> = rows.iter().map(|r| json!({
+        "id":         r.get::<_, i64>("id"),
+        "username":   r.get::<_, String>("username"),
+        "full_name":  r.get::<_, String>("full_name"),
+        "role":       r.get::<_, String>("role"),
+        "region":     r.get::<_, String>("region"),
+        "created_at": r.get::<_, String>("created_at"),
+        "last_seen":  r.get::<_, String>("last_seen"),
+        "disabled":   r.get::<_, bool>("disabled"),
+    })).collect();
+    Ok(Json(json!({ "count": items.len(), "items": items })))
+}
+
+// ---- /api/admin/regions — canonical regions + per-region site counts
+pub async fn admin_regions(State(st): State<AppState>) -> ApiResult {
+    let c = st.pool.get().await?;
+    let rows = c.query(
+        "SELECT r.region, r.label, r.sort_idx, \
+                (SELECT count(*)::int8 FROM dim_site s WHERE s.region = r.region) sites, \
+                (SELECT count(*)::int8 FROM dim_user u WHERE u.region = r.region) users \
+         FROM dim_region_canonical r ORDER BY r.sort_idx", &[]).await?;
+    let items: Vec<Value> = rows.iter().map(|r| json!({
+        "region":   r.get::<_, String>("region"),
+        "label":    r.get::<_, String>("label"),
+        "sort_idx": r.get::<_, i32>("sort_idx"),
+        "sites":    r.get::<_, i64>("sites"),
+        "users":    r.get::<_, i64>("users"),
+    })).collect();
     Ok(Json(json!({ "items": items })))
+}
+
+// ---- /api/inventory/verified — verified-inventory view
+pub async fn inventory_verified(State(st): State<AppState>, Query(q): Query<HashMap<String, String>>) -> ApiResult {
+    let only_verified = q.get("only").map(|v| v == "verified").unwrap_or(false);
+    let only_unverified = q.get("only").map(|v| v == "unverified").unwrap_or(false);
+    let region = str_of(&q, "region");
+    let c = st.pool.get().await?;
+    let rows = c.query(
+        "SELECT site_key, display_name, region, municipality, \
+                COALESCE(last_verified::text,'') last_verified, \
+                COALESCE(last_verified_by,'')    last_verified_by, \
+                COALESCE(events_through::text,'') events_through, \
+                is_verified, has_unverified_events \
+         FROM v_verified_inventory \
+         WHERE ($1 = '' OR region = $1) \
+           AND ($2 = false OR is_verified) \
+           AND ($3 = false OR NOT is_verified) \
+         ORDER BY region, site_key LIMIT 5000",
+        &[&region, &only_verified, &only_unverified]).await?;
+    let items: Vec<Value> = rows.iter().map(|r| json!({
+        "site_key":             r.get::<_, String>("site_key"),
+        "display_name":         r.get::<_, String>("display_name"),
+        "region":               r.get::<_, String>("region"),
+        "municipality":         r.get::<_, String>("municipality"),
+        "last_verified":        r.get::<_, String>("last_verified"),
+        "last_verified_by":     r.get::<_, String>("last_verified_by"),
+        "events_through":       r.get::<_, String>("events_through"),
+        "is_verified":          r.get::<_, bool>("is_verified"),
+        "has_unverified_events":r.get::<_, bool>("has_unverified_events"),
+    })).collect();
+    Ok(Json(json!({ "count": items.len(), "items": items })))
+}
+
+// ---- /api/solar/summary — v7: per-source stacked timeseries
+pub async fn solar_summary_v7(State(st): State<AppState>, Query(q): Query<HashMap<String, String>>) -> ApiResult {
+    let hours = hours_of(&q, 24);
+    let c = st.pool.get().await?;
+
+    // current-power head, per source so dashboard can show split
+    // Uses 24h window so sites stay visible at night (value may be 0)
+    // Classifies by dim_device.dev_type (set via Inventory), not event source
+    let head = c.query(
+        "WITH latest AS ( \
+           SELECT DISTINCT ON (m.site_key) m.site_key, m.value, \
+                  COALESCE(d.dev_type, 'unknown') src \
+           FROM fact_measurement m \
+           LEFT JOIN dim_device d ON d.site_key = m.site_key \
+           WHERE m.metric = 'p_solar_kw' AND m.ts >= now() - INTERVAL '24 hours' \
+           ORDER BY m.site_key, m.ts DESC) \
+         SELECT src, count(*)::int8 sites, COALESCE(SUM(value),0)::float8 kw_now \
+         FROM latest GROUP BY src", &[]).await?;
+    let mut sites_active = 0i64;
+    let mut total_kw = 0.0f64;
+    let mut by_source: Vec<Value> = Vec::new();
+    for r in head.iter() {
+        let n: i64 = r.get("sites");
+        let kw: f64 = r.get("kw_now");
+        sites_active += n;
+        total_kw += kw;
+        by_source.push(json!({ "source": r.get::<_, String>("src"), "sites": n, "kw_now": kw }));
+    }
+
+    // hourly stacked timeseries: per-bucket sum split by device family (dim_device.dev_type)
+    let series = c.query(
+        "SELECT time_bucket(INTERVAL '1 hour', m.ts)::text bucket, \
+                COALESCE(d.dev_type, 'eaton') family, \
+                AVG(m.value)::float8 avg_kw, \
+                MAX(m.value)::float8 max_kw, \
+                count(DISTINCT m.site_key)::int8 sites \
+         FROM fact_measurement m \
+         LEFT JOIN dim_device d ON d.site_key = m.site_key \
+         WHERE m.metric = 'p_solar_kw' AND m.ts >= now() - make_interval(hours => $1) \
+         GROUP BY bucket, family ORDER BY bucket",
+        &[&hours]).await?;
+    let series_items: Vec<Value> = series.iter().map(|r| json!({
+        "bucket": r.get::<_, String>("bucket"),
+        "family": r.get::<_, String>("family"),
+        "avg_kw": r.get::<_, f64>("avg_kw"),
+        "max_kw": r.get::<_, f64>("max_kw"),
+        "sites":  r.get::<_, i64>("sites"),
+    })).collect();
+
+    // consumption (p_load_kw) timeseries — same buckets, aggregated across all FNE sites
+    let load_series = c.query(
+        "SELECT time_bucket(INTERVAL '1 hour', m.ts)::text bucket, \
+                AVG(m.value)::float8 avg_kw, \
+                MAX(m.value)::float8 max_kw, \
+                count(DISTINCT m.site_key)::int8 sites \
+         FROM fact_measurement m \
+         JOIN dim_device d ON d.site_key = m.site_key AND d.fne = true \
+         WHERE m.metric = 'p_load_kw' AND m.ts >= now() - make_interval(hours => $1) \
+         GROUP BY bucket ORDER BY bucket",
+        &[&hours]).await?;
+    let load_items: Vec<Value> = load_series.iter().map(|r| json!({
+        "bucket": r.get::<_, String>("bucket"),
+        "avg_kw": r.get::<_, f64>("avg_kw"),
+        "max_kw": r.get::<_, f64>("max_kw"),
+        "sites":  r.get::<_, i64>("sites"),
+    })).collect();
+
+    // top 10 producers right now (includes 0 kW so list is always populated)
+    let top = c.query(
+        "WITH latest AS ( \
+           SELECT DISTINCT ON (site_key) site_key, value FROM fact_measurement \
+           WHERE metric = 'p_solar_kw' AND ts >= now() - INTERVAL '24 hours' \
+           ORDER BY site_key, ts DESC) \
+         SELECT l.site_key, l.value::float8 power_kw, \
+                COALESCE(s.region,'') region, COALESCE(s.display_name,'') name, \
+                COALESCE(d.dev_type, 'eaton') family \
+         FROM latest l \
+         LEFT JOIN dim_site s USING (site_key) \
+         LEFT JOIN dim_device d ON d.site_key = l.site_key \
+         ORDER BY l.value DESC LIMIT 10", &[]).await?;
+    let top_items: Vec<Value> = top.iter().map(|r| json!({
+        "site_key": r.get::<_, String>("site_key"),
+        "name":     r.get::<_, String>("name"),
+        "region":   r.get::<_, String>("region"),
+        "power_kw": r.get::<_, f64>("power_kw"),
+        "family":   r.get::<_, String>("family"),
+    })).collect();
+
+    Ok(Json(json!({
+        "hours":              hours,
+        "sites_active_now":   sites_active,
+        "total_power_kw_now": total_kw,
+        "by_source":          by_source,
+        "timeseries":         series_items,
+        "load_timeseries":    load_items,
+        "top_producers":      top_items,
+    })))
+}
+
+// ---- /api/solar/sites — v7: tag each row with family
+pub async fn solar_sites_v7(State(st): State<AppState>, Query(q): Query<HashMap<String, String>>) -> ApiResult {
+    let hours = hours_of(&q, 24);
+    let c = st.pool.get().await?;
+    let rows = c.query(
+        "WITH latest_p AS ( \
+           SELECT DISTINCT ON (site_key) site_key, value p, ts \
+           FROM fact_measurement \
+           WHERE metric = 'p_solar_kw' AND ts >= now() - INTERVAL '24 hours' \
+           ORDER BY site_key, ts DESC), \
+         latest_load AS ( \
+           SELECT DISTINCT ON (m.site_key) m.site_key, m.value load_kw \
+           FROM fact_measurement m \
+           JOIN dim_device d ON d.site_key = m.site_key AND d.fne = true \
+           WHERE m.metric = 'p_load_kw' AND m.ts >= now() - INTERVAL '24 hours' \
+           ORDER BY m.site_key, m.ts DESC), \
+         energy AS ( \
+           SELECT site_key, GREATEST((MAX(value) - MIN(value))::float8, 0) dkwh \
+           FROM fact_measurement \
+           WHERE metric = 'e_total_kwh' AND ts >= now() - make_interval(hours => $1) \
+           GROUP BY site_key) \
+         SELECT lp.site_key, lp.p::float8 power_kw, lp.ts::text last_ts, \
+                COALESCE(ll.load_kw, 0)::float8 load_kw, \
+                COALESCE(e.dkwh, 0)::float8 energy_kwh, \
+                COALESCE(s.region,'') region, COALESCE(s.display_name,'') name, \
+                COALESCE(d.dev_type, 'eaton') family \
+         FROM latest_p lp \
+         LEFT JOIN latest_load ll USING (site_key) \
+         LEFT JOIN energy   e USING (site_key) \
+         LEFT JOIN dim_site s USING (site_key) \
+         LEFT JOIN dim_device d ON d.site_key = lp.site_key \
+         ORDER BY lp.p DESC",
+        &[&hours]).await?;
+    let items: Vec<Value> = rows.iter().map(|r| json!({
+        "site_key":  r.get::<_, String>("site_key"),
+        "name":      r.get::<_, String>("name"),
+        "region":    r.get::<_, String>("region"),
+        "power_kw":  r.get::<_, f64>("power_kw"),
+        "load_kw":   r.get::<_, f64>("load_kw"),
+        "energy_kwh":r.get::<_, f64>("energy_kwh"),
+        "last_ts":   r.get::<_, String>("last_ts"),
+        "family":    r.get::<_, String>("family"),
+    })).collect();
+    Ok(Json(json!({ "hours": hours, "count": items.len(), "items": items })))
+}
+
+// ---- /api/system/status — read-only box health for the System page
+pub async fn system_status(State(st): State<AppState>) -> ApiResult {
+    use std::process::Command;
+    let c = st.pool.get().await?;
+
+    // DB stats
+    let db_row = c.query_one(
+        "SELECT pg_database_size(current_database())::int8 db_bytes, \
+                (SELECT count(*)::int8 FROM fact_event) events, \
+                (SELECT count(*)::int8 FROM fact_measurement) meas, \
+                (SELECT count(*)::int8 FROM fact_alarm_episode WHERE is_open) open_episodes, \
+                version() pg_version", &[]).await?;
+
+    // services
+    fn unit_status(name: &str) -> Value {
+        let out = Command::new("systemctl")
+            .args(["show", "--no-page", "--property=ActiveState,SubState,ActiveEnterTimestamp,MemoryCurrent", name])
+            .output();
+        let mut active = "unknown".to_string();
+        let mut sub = "unknown".to_string();
+        let mut since = "".to_string();
+        let mut memory_mb: i64 = -1;
+        if let Ok(o) = out {
+            for line in String::from_utf8_lossy(&o.stdout).lines() {
+                if let Some(v) = line.strip_prefix("ActiveState=") { active = v.into() }
+                else if let Some(v) = line.strip_prefix("SubState=") { sub = v.into() }
+                else if let Some(v) = line.strip_prefix("ActiveEnterTimestamp=") { since = v.into() }
+                else if let Some(v) = line.strip_prefix("MemoryCurrent=") {
+                    memory_mb = v.parse::<i64>().unwrap_or(0) / (1024 * 1024);
+                }
+            }
+        }
+        json!({ "active": active, "sub": sub, "active_since": since, "memory_mb": memory_mb })
+    }
+
+    // disk usage of /opt/bht
+    let df_out = Command::new("df").args(["-BM", "--output=size,used,avail,pcent", "/opt"]).output();
+    let disk = if let Ok(o) = df_out {
+        let s = String::from_utf8_lossy(&o.stdout);
+        let lines: Vec<&str> = s.lines().collect();
+        if lines.len() >= 2 {
+            let parts: Vec<&str> = lines[1].split_whitespace().collect();
+            if parts.len() >= 4 {
+                json!({ "size": parts[0], "used": parts[1], "avail": parts[2], "use_pct": parts[3] })
+            } else { json!(null) }
+        } else { json!(null) }
+    } else { json!(null) };
+
+    Ok(Json(json!({
+        "db": {
+            "size_bytes":      db_row.get::<_, i64>("db_bytes"),
+            "events":          db_row.get::<_, i64>("events"),
+            "measurements":    db_row.get::<_, i64>("meas"),
+            "open_episodes":   db_row.get::<_, i64>("open_episodes"),
+            "pg_version":      db_row.get::<_, String>("pg_version"),
+        },
+        "services": {
+            "bht-api":        unit_status("bht-api"),
+            "bht-poller":     unit_status("bht-poller"),
+            "postgresql-16":  unit_status("postgresql-16"),
+        },
+        "disk_opt": disk,
+        "api_version": env!("CARGO_PKG_VERSION"),
+    })))
+}
+
+// ---- /api/system/journal?service=bht-api&lines=100 — read-only journalctl tail
+pub async fn system_journal(Query(q): Query<HashMap<String, String>>) -> ApiResult {
+    use std::process::Command;
+    let svc = str_of(&q, "service");
+    // strict whitelist — never pass arbitrary strings to a subprocess
+    if !matches!(svc.as_str(), "bht-api" | "bht-poller" | "postgresql-16" | "crond") {
+        return Ok(Json(json!({ "error": "unknown service",
+            "allowed": ["bht-api","bht-poller","postgresql-16","crond"] })));
+    }
+    let n: i64 = i64_of(&q, "lines", 100).clamp(10, 1000);
+    let out = Command::new("journalctl")
+        .args(["-u", &svc, "-n", &n.to_string(), "--no-pager", "-o", "short-iso"])
+        .output()
+        .map_err(|e| crate::ApiError::from(anyhow::anyhow!("journalctl failed: {e}")))?;
+    let text = String::from_utf8_lossy(&out.stdout).to_string();
+    Ok(Json(json!({ "service": svc, "lines": n, "text": text })))
+}
+
+// ---- /api/map/sites — all GIS-enriched sites + live alarm overlay
+pub async fn map_sites(State(st): State<AppState>) -> ApiResult {
+    let c = st.pool.get().await?;
+    let rows = c.query(
+        "SELECT \
+             s.site_key, \
+             COALESCE(s.display_name,'') display_name, \
+             s.latitude::float8  lat, \
+             s.longitude::float8 lon, \
+             COALESCE(s.region,'')       region, \
+             COALESCE(s.municipality,'') municipality, \
+             COALESCE(s.technologies,'{}') technologies, \
+             COALESCE(s.has_genset,  false) has_genset, \
+             COALESCE(s.has_battery, false) has_battery, \
+             COALESCE(s.has_solar,   false) has_solar, \
+             COUNT(a.site_key)::int8 open_alarms, \
+             CASE \
+                 WHEN COUNT(a.site_key) = 0                   THEN NULL \
+                 WHEN bool_or(a.severity::text = 'critical')  THEN 'critical' \
+                 WHEN bool_or(a.severity::text = 'major')     THEN 'major' \
+                 WHEN bool_or(a.severity::text = 'minor')     THEN 'minor' \
+                 WHEN bool_or(a.severity::text = 'warning')   THEN 'warning' \
+                 ELSE 'info' \
+             END worst_severity \
+         FROM v_site_gis s \
+         LEFT JOIN v_active_alarms a ON a.site_key = s.site_key \
+         WHERE s.latitude IS NOT NULL \
+         GROUP BY s.site_key, s.display_name, s.latitude, s.longitude, \
+                  s.region, s.municipality, s.technologies, \
+                  s.has_genset, s.has_battery, s.has_solar \
+         ORDER BY open_alarms DESC, s.site_key",
+        &[]).await?;
+    let items: Vec<Value> = rows.iter().map(|r| json!({
+        "site_key":       r.get::<_, String>("site_key"),
+        "display_name":   r.get::<_, String>("display_name"),
+        "lat":            r.get::<_, f64>("lat"),
+        "lon":            r.get::<_, f64>("lon"),
+        "region":         r.get::<_, String>("region"),
+        "municipality":   r.get::<_, String>("municipality"),
+        "technologies":   r.get::<_, Vec<String>>("technologies"),
+        "has_genset":     r.get::<_, bool>("has_genset"),
+        "has_battery":    r.get::<_, bool>("has_battery"),
+        "has_solar":      r.get::<_, bool>("has_solar"),
+        "open_alarms":    r.get::<_, i64>("open_alarms"),
+        "worst_severity": r.get::<_, Option<String>>("worst_severity"),
+    })).collect();
+    Ok(Json(json!(items)))
 }
 
 // ---- /api/measurements/metrics — distinct metrics with coverage info
@@ -400,99 +765,6 @@ pub async fn measurement_metrics(State(st): State<AppState>) -> ApiResult {
         "last_seen": r.get::<_, String>("last_seen"),
     })).collect();
     Ok(Json(json!({ "items": items })))
-}
-
-// ---- /api/solar/summary?hours=  — aggregated solar PV stats
-pub async fn solar_summary(State(st): State<AppState>, Query(q): Query<HashMap<String, String>>) -> ApiResult {
-    let hours = hours_of(&q, 24);
-    let c = st.pool.get().await?;
-
-    let head = c.query_one(
-        "WITH latest AS ( \
-           SELECT DISTINCT ON (site_key) site_key, value \
-           FROM fact_measurement \
-           WHERE metric = 'p_solar_kw' AND ts >= now() - INTERVAL '1 hour' \
-           ORDER BY site_key, ts DESC) \
-         SELECT count(*)::int8 sites_active, \
-                COALESCE(SUM(value),0)::float8 total_power_kw_now \
-         FROM latest WHERE value > 0", &[]).await?;
-    let sites_active:  i64 = head.get("sites_active");
-    let total_power:   f64 = head.get("total_power_kw_now");
-
-    let top = c.query(
-        "WITH latest AS ( \
-           SELECT DISTINCT ON (site_key) site_key, value, ts \
-           FROM fact_measurement \
-           WHERE metric = 'p_solar_kw' AND ts >= now() - INTERVAL '1 hour' \
-           ORDER BY site_key, ts DESC) \
-         SELECT latest.site_key, latest.value::float8 power_kw, \
-                COALESCE(s.region,'') region, COALESCE(s.display_name,'') name \
-         FROM latest LEFT JOIN dim_site s USING (site_key) \
-         WHERE latest.value > 0 ORDER BY latest.value DESC LIMIT 10", &[]).await?;
-    let top_items: Vec<Value> = top.iter().map(|r| json!({
-        "site_key": r.get::<_, String>("site_key"),
-        "name":     r.get::<_, String>("name"),
-        "region":   r.get::<_, String>("region"),
-        "power_kw": r.get::<_, f64>("power_kw"),
-    })).collect();
-
-    let series = c.query(
-        "SELECT time_bucket(INTERVAL '1 hour', ts)::text bucket, \
-                AVG(value)::float8 avg_kw, MAX(value)::float8 max_kw, \
-                count(DISTINCT site_key)::int8 sites \
-         FROM fact_measurement \
-         WHERE metric = 'p_solar_kw' AND ts >= now() - make_interval(hours => $1) \
-         GROUP BY bucket ORDER BY bucket",
-        &[&hours]).await?;
-    let series_items: Vec<Value> = series.iter().map(|r| json!({
-        "bucket": r.get::<_, String>("bucket"),
-        "avg_kw": r.get::<_, f64>("avg_kw"),
-        "max_kw": r.get::<_, f64>("max_kw"),
-        "sites":  r.get::<_, i64>("sites"),
-    })).collect();
-
-    Ok(Json(json!({
-        "hours": hours,
-        "sites_active_now":     sites_active,
-        "total_power_kw_now":   total_power,
-        "top_producers":        top_items,
-        "timeseries":           series_items,
-    })))
-}
-
-// ---- /api/solar/sites?hours= — per-site solar latest + delta energy
-pub async fn solar_sites(State(st): State<AppState>, Query(q): Query<HashMap<String, String>>) -> ApiResult {
-    let hours = hours_of(&q, 24);
-    let c = st.pool.get().await?;
-    let rows = c.query(
-        "WITH latest_p AS ( \
-           SELECT DISTINCT ON (site_key) site_key, value p, ts \
-           FROM fact_measurement \
-           WHERE metric = 'p_solar_kw' AND ts >= now() - INTERVAL '24 hours' \
-           ORDER BY site_key, ts DESC), \
-         energy AS ( \
-           SELECT site_key, GREATEST((MAX(value) - MIN(value))::float8, 0) dkwh \
-           FROM fact_measurement \
-           WHERE metric = 'e_total_kwh' AND ts >= now() - make_interval(hours => $1) \
-           GROUP BY site_key) \
-         SELECT lp.site_key, lp.p::float8 power_kw, lp.ts::text last_ts, \
-                COALESCE(e.dkwh, 0)::float8 energy_kwh, \
-                COALESCE(s.region,'') region, COALESCE(s.display_name,'') name \
-         FROM latest_p lp \
-         LEFT JOIN energy   e USING (site_key) \
-         LEFT JOIN dim_site s USING (site_key) \
-         WHERE lp.p > 0 \
-         ORDER BY lp.p DESC",
-        &[&hours]).await?;
-    let items: Vec<Value> = rows.iter().map(|r| json!({
-        "site_key":  r.get::<_, String>("site_key"),
-        "name":      r.get::<_, String>("name"),
-        "region":    r.get::<_, String>("region"),
-        "power_kw":  r.get::<_, f64>("power_kw"),
-        "energy_kwh":r.get::<_, f64>("energy_kwh"),
-        "last_ts":   r.get::<_, String>("last_ts"),
-    })).collect();
-    Ok(Json(json!({ "hours": hours, "count": items.len(), "items": items })))
 }
 
 // ---- /api/sites/:site_key/ips — distinct device_ips ever seen at this site
@@ -577,6 +849,154 @@ pub async fn site_verification_summary(State(st): State<AppState>, Path(site_key
         "new_ips":          new_ips,
         "region_confirmed": region,
     })))
+}
+
+// ============================================================ v8 INVENTORY
+
+// ---- /api/inventory/devices — device registry with live health
+// Filters: region, health (ok|degraded|dead|stale|never), dev_type, enabled (true|false),
+//          fne (true|false), q (search site_key/name). Paginated. Includes fleet summary.
+pub async fn inventory_devices(
+    State(st): State<AppState>,
+    Query(q): Query<HashMap<String, String>>,
+) -> ApiResult {
+    let region   = str_of(&q, "region");
+    let health   = str_of(&q, "health");
+    let dev_type = str_of(&q, "dev_type");
+    let enabled  = str_of(&q, "enabled");   // "true" | "false" | "" (all)
+    let fne      = str_of(&q, "fne");       // "true" | "false" | ""
+    let search   = str_of(&q, "q");
+    let limit:  i64 = i64_of(&q, "limit",  100).clamp(1, 2000);
+    let offset: i64 = i64_of(&q, "offset",   0).max(0);
+    let c = st.pool.get().await?;
+
+    // Fleet-wide health summary (cheap: 301 rows, no JOIN needed for counts)
+    let sum = c.query_one(
+        "SELECT count(*)::int8                                               total, \
+                count(*) FILTER (WHERE health = 'ok')::int8                 ok, \
+                count(*) FILTER (WHERE health = 'degraded')::int8           degraded, \
+                count(*) FILTER (WHERE health = 'dead')::int8               dead, \
+                count(*) FILTER (WHERE health = 'stale')::int8              stale, \
+                count(*) FILTER (WHERE health = 'never')::int8              never, \
+                count(*) FILTER (WHERE NOT enabled)::int8                   disabled \
+         FROM v_device_health", &[]).await?;
+
+    // Filtered count + page
+    let whr = "WHERE ($1 = '' OR region   = $1) \
+                 AND ($2 = '' OR health   = $2) \
+                 AND ($3 = '' OR dev_type = $3) \
+                 AND ($4 = '' OR enabled  = ($4 = 'true')) \
+                 AND ($5 = '' OR fne      = ($5 = 'true')) \
+                 AND ($6 = '' OR site_key ILIKE '%'||$6||'%' OR name ILIKE '%'||$6||'%')";
+
+    let total: i64 = c.query_one(
+        &format!("SELECT count(*)::int8 n FROM v_device_health {whr}"),
+        &[&region, &health, &dev_type, &enabled, &fne, &search]).await?.get("n");
+
+    let rows = c.query(
+        &format!("SELECT id, ip, port, unit_id, site_key, site_name, region, dev_type, \
+                         fne, enabled, name, fail_streak, health, added_by, \
+                         COALESCE(last_polled, '') last_polled, \
+                         COALESCE(last_ok,     '') last_ok, \
+                         updated_at \
+                  FROM v_device_health {whr} \
+                  ORDER BY region, site_key, ip, unit_id \
+                  LIMIT $7 OFFSET $8"),
+        &[&region, &health, &dev_type, &enabled, &fne, &search, &limit, &offset]).await?;
+
+    let items: Vec<Value> = rows.iter().map(|r| json!({
+        "id":          r.get::<_, i64>("id"),
+        "ip":          r.get::<_, String>("ip"),
+        "port":        r.get::<_, i32>("port"),
+        "unit_id":     r.get::<_, i16>("unit_id"),
+        "site_key":    r.get::<_, String>("site_key"),
+        "site_name":   r.get::<_, String>("site_name"),
+        "region":      r.get::<_, String>("region"),
+        "dev_type":    r.get::<_, String>("dev_type"),
+        "fne":         r.get::<_, bool>("fne"),
+        "enabled":     r.get::<_, bool>("enabled"),
+        "name":        r.get::<_, String>("name"),
+        "fail_streak": r.get::<_, i32>("fail_streak"),
+        "health":      r.get::<_, String>("health"),
+        "last_polled": r.get::<_, String>("last_polled"),
+        "last_ok":     r.get::<_, String>("last_ok"),
+        "added_by":    r.get::<_, String>("added_by"),
+        "updated_at":  r.get::<_, String>("updated_at"),
+    })).collect();
+
+    Ok(Json(json!({
+        "summary": {
+            "total":    sum.get::<_, i64>("total"),
+            "ok":       sum.get::<_, i64>("ok"),
+            "degraded": sum.get::<_, i64>("degraded"),
+            "dead":     sum.get::<_, i64>("dead"),
+            "stale":    sum.get::<_, i64>("stale"),
+            "never":    sum.get::<_, i64>("never"),
+            "disabled": sum.get::<_, i64>("disabled"),
+        },
+        "total":  total,
+        "count":  items.len(),
+        "items":  items,
+    })))
+}
+
+// ---- /api/inventory/device-orphans — IPs in events with no dim_device row
+// These are candidates to claim via POST /api/inventory/device-orphans/claim.
+pub async fn inventory_device_orphans(State(st): State<AppState>) -> ApiResult {
+    let c = st.pool.get().await?;
+    let rows = c.query(
+        "SELECT ip, site_key, event_count::int8, last_seen::text, source \
+         FROM v_device_orphans LIMIT 500", &[]).await?;
+    let items: Vec<Value> = rows.iter().map(|r| json!({
+        "ip":          r.get::<_, String>("ip"),
+        "site_key":    r.get::<_, String>("site_key"),
+        "event_count": r.get::<_, i64>("event_count"),
+        "last_seen":   r.get::<_, String>("last_seen"),
+        "source":      r.get::<_, String>("source"),
+    })).collect();
+    Ok(Json(json!({ "count": items.len(), "items": items })))
+}
+
+// ---- /api/inventory/stubs?region=&limit=&offset=
+// dim_site rows created automatically by event ingestion, sorted by event activity
+// (busiest stubs first so operators prioritise the most impactful enrichments).
+pub async fn inventory_stubs(
+    State(st): State<AppState>,
+    Query(q): Query<HashMap<String, String>>,
+) -> ApiResult {
+    let region = str_of(&q, "region");
+    let limit:  i64 = i64_of(&q, "limit",  100).clamp(1, 1000);
+    let offset: i64 = i64_of(&q, "offset",   0).max(0);
+    let c = st.pool.get().await?;
+
+    let total: i64 = c.query_one(
+        "SELECT count(*)::int8 n FROM dim_site \
+         WHERE is_stub AND ($1 = '' OR region = $1)",
+        &[&region]).await?.get("n");
+
+    let rows = c.query(
+        "SELECT s.site_key, \
+                COALESCE(s.display_name,'') display_name, \
+                COALESCE(s.region,'')       region, \
+                COALESCE((SELECT count(*)::int8    FROM fact_event   e WHERE e.site_key = s.site_key), 0) event_count, \
+                COALESCE((SELECT max(event_time)::text FROM fact_event e WHERE e.site_key = s.site_key), '') last_event, \
+                (SELECT count(*)::int8 FROM dim_device d WHERE d.site_key = s.site_key)                    device_count \
+         FROM dim_site s \
+         WHERE s.is_stub AND ($1 = '' OR s.region = $1) \
+         ORDER BY event_count DESC, s.site_key \
+         LIMIT $2 OFFSET $3",
+        &[&region, &limit, &offset]).await?;
+
+    let items: Vec<Value> = rows.iter().map(|r| json!({
+        "site_key":     r.get::<_, String>("site_key"),
+        "display_name": r.get::<_, String>("display_name"),
+        "region":       r.get::<_, String>("region"),
+        "event_count":  r.get::<_, i64>("event_count"),
+        "last_event":   r.get::<_, String>("last_event"),
+        "device_count": r.get::<_, i64>("device_count"),
+    })).collect();
+
+    Ok(Json(json!({ "total": total, "count": items.len(), "items": items })))
 }
 
 // ---- /api/sites/:site_key/related — sites sharing a /24 subnet (via IP overlap)

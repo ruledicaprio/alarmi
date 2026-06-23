@@ -41,6 +41,16 @@ pub async fn insert_events(pool: &Pool, evs: &[CanonicalEvent]) -> Result<u64> {
     let rs: Vec<&str>   = evs.iter().map(|e| e.raw_site.as_str()).collect();
     let ra: Vec<&str>   = evs.iter().map(|e| e.raw_alarm.as_str()).collect();
     let ip: Vec<String> = evs.iter().map(|e| e.device_ip.clone().unwrap_or_default()).collect();
+    // Auto-register a dim_site stub for every site_key not yet in the table.
+    // ON CONFLICT = zero-cost no-op for the ~99% of calls where sites already exist.
+    // is_stub=true flags the row for operator enrichment (region, geo, technologies).
+    client.execute(
+        "INSERT INTO dim_site (site_key, display_name, is_stub) \
+         SELECT sk, sk, true FROM UNNEST($1::text[]) AS u(sk) \
+         ON CONFLICT (site_key) DO NOTHING",
+        &[&sk],
+    ).await?;
+
     let n = client.execute(
         "INSERT INTO fact_event(event_time,source,site_key,region,alarm_class,severity,transition,raw_site,raw_alarm,device_ip) \
          SELECT t::timestamptz, s::source_t, sk, rg, ac::alarm_class_t, sv::severity_t, tr::transition_t, rs, ra, NULLIF(i,'')::inet \

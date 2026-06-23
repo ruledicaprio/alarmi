@@ -5,13 +5,25 @@ import { Button, Space, Tag, message } from 'antd'
 import { ReloadOutlined, DownloadOutlined } from '@ant-design/icons'
 import dayjs from 'dayjs'
 import { api, qs, ALL_SOURCES, ALL_CLASSES, type RecentEvent, type Severity, type Transition } from '../api'
-import { formatTs } from '../utils'
+import { formatTs, tsSorter } from '../utils'
 import { SeverityTag, TransitionTag, SourceTag, ClassTag } from '../components/Tags'
 import AlarmDrawer from '../components/AlarmDrawer'
 
 const SEVERITIES: Severity[]   = ['critical','major','minor','warning','info']
 const TRANSITIONS: Transition[] = ['raise','clear','instant']
 const POLL_MS = 30_000
+
+function rowStyle(r: RecentEvent): React.CSSProperties {
+  // Cleared events are dimmed; active raises get a severity tint.
+  if (r.transition === 'clear') return { opacity: 0.55 }
+  switch (r.severity) {
+    case 'critical': return { background: '#fff1f0' }
+    case 'major':    return { background: '#fff7e6' }
+    case 'minor':    return { background: '#feffe6' }
+    case 'warning':  return { background: '#f6ffed' }
+    default:         return {}
+  }
+}
 
 // Filter fields we sync to URL (ProTable's search form). Keep the keys mirror
 // the column dataIndex so ProTable initialValues + URL stay 1:1.
@@ -58,11 +70,17 @@ export default function Alarms() {
 
   const columns: ProColumns<RecentEvent>[] = [
     { title: 'Time', dataIndex: 'event_time', width: 175, hideInSearch: true, copyable: true,
-      render: (v) => formatTs(v as string) },
+      sorter: (a, b) => tsSorter<RecentEvent>('event_time')(a, b),
+      defaultSortOrder: 'descend',
+      render: (_, r) => formatTs(r.event_time) },
     {
       title: 'Site', dataIndex: 'site_key', width: 180,
       render: (_, r) => <Link to={`/sites/${encodeURIComponent(r.site_key)}`} onClick={e => e.stopPropagation()}>{r.site_key}</Link>,
-      fieldProps: { placeholder: 'site_key exact' },
+      fieldProps: { placeholder: 'Search site…' },
+    },
+    {
+      title: 'Raw alarm', dataIndex: 'raw_alarm', width: 220, ellipsis: true,
+      fieldProps: { placeholder: 'contains…' },
     },
     {
       title: 'Class', dataIndex: 'alarm_class', width: 180,
@@ -70,12 +88,12 @@ export default function Alarms() {
       valueType: 'select', valueEnum: Object.fromEntries(ALL_CLASSES.map(c => [c, { text: c }])),
     },
     {
-      title: 'Sev', dataIndex: 'severity', width: 100,
+      title: 'Severity', dataIndex: 'severity', width: 100,
       render: v => <SeverityTag v={v as Severity} />,
       valueType: 'select', valueEnum: Object.fromEntries(SEVERITIES.map(s => [s, { text: s }])),
     },
     {
-      title: 'Trans', dataIndex: 'transition', width: 100,
+      title: 'Transition', dataIndex: 'transition', width: 110,
       render: v => <TransitionTag v={v as Transition} />,
       valueType: 'select', valueEnum: Object.fromEntries(TRANSITIONS.map(t => [t, { text: t }])),
     },
@@ -86,10 +104,6 @@ export default function Alarms() {
     },
     { title: 'Region', dataIndex: 'region', width: 100, hideInSearch: true,
       render: v => v ? <Tag>{v as string}</Tag> : '—' },
-    {
-      title: 'Raw alarm', dataIndex: 'raw_alarm', ellipsis: true,
-      fieldProps: { placeholder: 'contains…' },
-    },
     { title: 'IP', dataIndex: 'device_ip', width: 130, hideInSearch: true, copyable: true },
   ]
 
@@ -148,7 +162,7 @@ export default function Alarms() {
         }}
         onRow={(record) => ({
           onClick: () => { setSelected(record); setDrawerOpen(true) },
-          style: { cursor: 'pointer' },
+          style: { cursor: 'pointer', ...rowStyle(record) },
         })}
         pagination={{ defaultPageSize: 50, pageSizeOptions: ['20','50','100','200'], showSizeChanger: true, showTotal: (t) => `${t} events match` }}
         search={{ labelWidth: 'auto', filterType: 'light', collapsed: false }}

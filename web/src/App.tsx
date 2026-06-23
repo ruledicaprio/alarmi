@@ -1,7 +1,7 @@
 import { ProLayout } from '@ant-design/pro-components'
 import { Routes, Route, Navigate, useNavigate, useLocation, Link } from 'react-router-dom'
 import { Button, Space, Tooltip } from 'antd'
-import { SunOutlined, MoonOutlined, DashboardOutlined, AlertOutlined, ClusterOutlined, AuditOutlined, ThunderboltOutlined } from '@ant-design/icons'
+import { SunOutlined, MoonOutlined, DashboardOutlined, AlertOutlined, ClusterOutlined, AuditOutlined, ThunderboltOutlined, DesktopOutlined, TeamOutlined, GlobalOutlined } from '@ant-design/icons'
 import BhLogo from './components/BhLogo'
 import Dashboard from './pages/Dashboard'
 import Alarms from './pages/Alarms'
@@ -9,6 +9,9 @@ import Sites from './pages/Sites'
 import SiteDetail from './pages/SiteDetail'
 import Inventory from './pages/Inventory'
 import Solar from './pages/Solar'
+import System from './pages/System'
+import Admin from './pages/Admin'
+import MapPage from './pages/Map'
 
 const ROUTES = {
   path: '/',
@@ -16,8 +19,11 @@ const ROUTES = {
     { path: '/dashboard', name: 'Dashboard', icon: <DashboardOutlined /> },
     { path: '/alarms',    name: 'Alarms',    icon: <AlertOutlined /> },
     { path: '/sites',     name: 'Sites',     icon: <ClusterOutlined /> },
+    { path: '/map',       name: 'Map',       icon: <GlobalOutlined /> },
     { path: '/solar',     name: 'Solar PV',  icon: <ThunderboltOutlined /> },
     { path: '/inventory', name: 'Inventory', icon: <AuditOutlined /> },
+    { path: '/system',    name: 'System',    icon: <DesktopOutlined /> },
+    { path: '/admin',     name: 'Admin',     icon: <TeamOutlined /> },
   ],
 }
 
@@ -65,8 +71,11 @@ export default function App({ dark, setDark }: { dark: boolean; setDark: (b: boo
         <Route path="/alarms" element={<Alarms />} />
         <Route path="/sites" element={<Sites />} />
         <Route path="/sites/:siteKey" element={<SiteDetail />} />
+        <Route path="/map" element={<MapPage />} />
         <Route path="/solar" element={<Solar />} />
         <Route path="/inventory" element={<Inventory />} />
+        <Route path="/system" element={<System />} />
+        <Route path="/admin" element={<Admin />} />
       </Routes>
     </ProLayout>
   )

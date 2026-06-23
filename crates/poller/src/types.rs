@@ -13,12 +13,14 @@ pub struct PollerConfig {
     #[serde(default = "d_read_to")]    pub read_timeout_ms: u64,
     #[serde(default = "d_retries")]    pub retries: u32,
     #[serde(default = "d_backoff")]    pub retry_backoff_ms: u64,
-    #[serde(default = "d_block")]      pub discrete_block_size: u16,
-    #[serde(default)]                  pub circuit_breaker: BreakerCfg,
-    #[serde(default)]                  pub database: DbCfg,
+    #[serde(default = "d_block")]          pub discrete_block_size: u16,
+    #[serde(default = "d_reload_cycles")] pub reload_interval_cycles: u64,
+    #[serde(default)]                     pub circuit_breaker: BreakerCfg,
+    #[serde(default)]                     pub database: DbCfg,
 }
 fn d_interval()->u64{120} fn d_concurrent()->usize{8} fn d_conn_to()->u64{3500}
 fn d_read_to()->u64{3500} fn d_retries()->u32{2} fn d_backoff()->u64{200} fn d_block()->u16{8}
+fn d_reload_cycles()->u64{10}
 
 #[derive(Debug, Clone, Deserialize)]
 pub struct BreakerCfg {

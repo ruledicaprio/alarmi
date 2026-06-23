@@ -30,6 +30,7 @@ use tokio::sync::Semaphore;
 use tokio::task::JoinSet;
 use tokio::time::sleep;
 use types::{AlarmFile, DeviceCfg, DevicesFile, PollerConfig, SlAlarmFile};
+// DevicesFile is retained for --dry-run TOML fallback only; DB mode loads from dim_device.
 use bht_normalize::Source;
 
 #[tokio::main]
@@ -54,8 +55,6 @@ async fn main() -> Result<()> {
 
     let cfg: PollerConfig = toml::from_str(
         &std::fs::read_to_string(&cfg_path).with_context(|| format!("read {cfg_path}"))?)?;
-    let devices: DevicesFile = toml::from_str(
-        &std::fs::read_to_string(&dev_path).with_context(|| format!("read {dev_path}"))?)?;
     let alarms: AlarmFile = toml::from_str(
         &std::fs::read_to_string(&alarm_path).with_context(|| format!("read {alarm_path}"))?)?;
     let sl_alarms: SlAlarmFile = std::fs::read_to_string(&sl_alarm_path)
@@ -77,22 +76,18 @@ async fn main() -> Result<()> {
         Sink::connect(&cfg.database.dsn).await.context("db connect")?
     };
 
-    let mut active_devs: Vec<DeviceCfg> = Vec::new();
-    let mut by_type: HashMap<String, usize> = HashMap::new();
-    let mut skipped = 0;
-    for d in devices.device {
-        if !d.enabled { continue; }
-        match d.dev_type.as_str() {
-            "eaton" | "smartlogger" => {
-                *by_type.entry(d.dev_type.clone()).or_insert(0) += 1;
-                active_devs.push(d);
-            }
-            _ => skipped += 1,
-        }
-    }
-    if skipped > 0 { eprintln!("[poller] skipping {skipped} unknown-type devices"); }
-    eprintln!("[poller] {} devices total ({:?}), interval={}s, max_concurrent={}",
-              active_devs.len(), by_type, cfg.poll_interval_secs, cfg.max_concurrent);
+    // Load initial device list: DB when connected, TOML file when dry-run.
+    let mut active_devs: Vec<DeviceCfg> = if matches!(sink, Sink::Db(_)) {
+        sink.load_devices().await.context("initial device load from DB")?
+    } else {
+        let devices: DevicesFile = toml::from_str(
+            &std::fs::read_to_string(&dev_path).with_context(|| format!("read {dev_path}"))?)?;
+        devices.device.into_iter().filter(|d| d.enabled).filter(|d| {
+            matches!(d.dev_type.as_str(), "eaton" | "smartlogger")
+        }).collect()
+    };
+    log_device_summary(&active_devs, cfg.poll_interval_secs, cfg.max_concurrent);
+    let mut cycle_count: u64 = 0;
 
     let mut breakers: HashMap<String, Breaker> = HashMap::new();
     let mut store = AlarmStore::default();
@@ -106,18 +101,19 @@ async fn main() -> Result<()> {
                          else { (cfg.poll_interval_secs * 1000) / active_devs.len() as u64 };
         let stagger_cap = cfg.poll_interval_secs * 900; // ms (90% of interval)
         let sem = Arc::new(Semaphore::new(cfg.max_concurrent.max(1)));
-        let mut set: JoinSet<(String, Result<poll::PollResult>, Source)> = JoinSet::new();
+        let mut set: JoinSet<(String, i16, Result<poll::PollResult>, Source)> = JoinSet::new();
 
         let now = Instant::now();
         let mut open_skipped = 0;
         for (i, dev) in active_devs.iter().enumerate() {
             let br = breakers.entry(dev.ip.clone()).or_insert_with(|| Breaker::new(thr, cooldown));
             if !br.allow(now) { open_skipped += 1; continue; }
-            let delay = Duration::from_millis(((i as u64) * stagger_ms).min(stagger_cap));
-            let cfg2 = cfg.clone();
-            let sem2 = sem.clone();
-            let dev2 = dev.clone();
-            let ip   = dev.ip.clone();
+            let delay   = Duration::from_millis(((i as u64) * stagger_ms).min(stagger_cap));
+            let cfg2    = cfg.clone();
+            let sem2    = sem.clone();
+            let dev2    = dev.clone();
+            let ip      = dev.ip.clone();
+            let unit_id = dev.unit as i16;
             match dev.dev_type.as_str() {
                 "eaton" => {
                     let prof2 = profile.clone();
@@ -129,7 +125,7 @@ async fn main() -> Result<()> {
                                 ip: pr.ip, site_key: pr.site_key,
                                 status: pr.status, active: pr.active, measurements: pr.measurements,
                             });
-                        (ip, res, Source::ModbusEaton)
+                        (ip, unit_id, res, Source::ModbusEaton)
                     });
                 }
                 "smartlogger" => {
@@ -143,7 +139,7 @@ async fn main() -> Result<()> {
                                 status: Default::default(),
                                 active: pr.active, measurements: pr.measurements,
                             });
-                        (ip, res, Source::SmartloggerHuawei)
+                        (ip, unit_id, res, Source::SmartloggerHuawei)
                     });
                 }
                 _ => continue,
@@ -153,14 +149,17 @@ async fn main() -> Result<()> {
         let mut all_meas: Vec<MeasRow> = Vec::new();
         let mut all_events = Vec::new();
         let (mut ok, mut fail) = (0u32, 0u32);
+        let mut ok_pairs:   Vec<(String, i16)> = Vec::new();
+        let mut fail_pairs: Vec<(String, i16)> = Vec::new();
         while let Some(joined) = set.join_next().await {
-            let (ip, res, src) = match joined {
+            let (ip, uid, res, src) = match joined {
                 Ok(v) => v,
                 Err(e) => { eprintln!("[poller] task panic: {e}"); continue; }
             };
             match res {
                 Ok(pr) => {
                     ok += 1;
+                    ok_pairs.push((ip.clone(), uid));
                     if let Some(br) = breakers.get_mut(&ip) { br.on_success(); }
                     let ts = chrono::Utc::now();
                     for (metric, value) in &pr.measurements {
@@ -173,6 +172,7 @@ async fn main() -> Result<()> {
                 }
                 Err(e) => {
                     fail += 1;
+                    fail_pairs.push((ip.clone(), uid));
                     if let Some(br) = breakers.get_mut(&ip) { br.on_failure(Instant::now()); }
                     eprintln!("[poller] {ip} poll failed: {e}");
                 }
@@ -183,10 +183,31 @@ async fn main() -> Result<()> {
             .unwrap_or_else(|e| { eprintln!("[poller] meas write: {e}"); 0 });
         let ev = sink.write_events(&all_events).await
             .unwrap_or_else(|e| { eprintln!("[poller] event write: {e}"); 0 });
+
+        // Write per-device health back to dim_device (makes v_device_health live).
+        sink.write_health(&ok_pairs, &fail_pairs).await
+            .unwrap_or_else(|e| eprintln!("[poller] health write: {e}"));
+
         eprintln!("[poller] cycle ok={ok} fail={fail} breaker_open={open_skipped} meas={m} events={ev} took={:?}",
                   cycle_start.elapsed());
 
         if once { break; }
+
+        // Hot-reload device list from dim_device every N cycles.
+        cycle_count += 1;
+        if matches!(sink, Sink::Db(_)) && cycle_count % cfg.reload_interval_cycles == 0 {
+            match sink.load_devices().await {
+                Ok(new_devs) => {
+                    if new_devs.len() != active_devs.len() {
+                        eprintln!("[poller] hot-reload: {} → {} devices", active_devs.len(), new_devs.len());
+                        log_device_summary(&new_devs, cfg.poll_interval_secs, cfg.max_concurrent);
+                    }
+                    active_devs = new_devs;
+                }
+                Err(e) => eprintln!("[poller] hot-reload failed, keeping current list: {e}"),
+            }
+        }
+
         let wait = interval.checked_sub(cycle_start.elapsed()).unwrap_or(Duration::ZERO);
         tokio::select! {
             _ = sleep(wait) => {},
@@ -194,4 +215,18 @@ async fn main() -> Result<()> {
         }
     }
     Ok(())
+}
+
+fn log_device_summary(devs: &[DeviceCfg], interval_secs: u64, max_concurrent: usize) {
+    let mut by_type: HashMap<String, usize> = HashMap::new();
+    let mut skipped = 0;
+    for d in devs {
+        match d.dev_type.as_str() {
+            "eaton" | "smartlogger" => *by_type.entry(d.dev_type.clone()).or_insert(0) += 1,
+            _ => skipped += 1,
+        }
+    }
+    if skipped > 0 { eprintln!("[poller] {skipped} unknown-type devices skipped"); }
+    eprintln!("[poller] {} devices ({:?}), interval={interval_secs}s, max_concurrent={max_concurrent}",
+              devs.len(), by_type);
 }

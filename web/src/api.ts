@@ -45,6 +45,21 @@ export interface Site {
   last_event: string
 }
 
+export interface SiteGeo {
+  site_key: string
+  display_name: string
+  lat: number
+  lon: number
+  region: string
+  municipality: string
+  technologies: string[]
+  has_genset: boolean
+  has_battery: boolean
+  has_solar: boolean
+  open_alarms: number
+  worst_severity: Severity | null
+}
+
 export interface Episode {
   raised_at: string
   cleared_at: string
