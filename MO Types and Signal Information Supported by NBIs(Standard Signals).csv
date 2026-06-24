@@ -1,0 +1,1651 @@
+﻿Standard Type Name,Standard Type ID,Standard Signal Name,Standard Signal ID,Signal Attribute,Unit,Enumerated Value,Value Type,Signal Type
+Controller,51016,ICCID,10001,Sampling,,,STRING,AI
+Controller,51016,Signal Strength,10003,Sampling,,,INT,AI
+Controller,51016,Netstat,12412,Sampling,,[0: Offline]/[1: Online]/[other: N/A],ENUM,DI
+Controller,51016,Software Version,12413,Sampling,,,STRING,AI
+Controller,51016,SN,19100,Sampling,,,STRING,AI
+Controller,51016,Power Supply Mode,25001,Config,,[0: Single Power Supply]/[1: Dual Power Supply]/[other: N/A],ENUM,DO
+Controller,51016,Installation Mode,25002,Config,,[0: Install on a Floor]/[1: Install in the U Space at the Front]/[2: Install on a Wall]/[3: Install on a Ceiling]/[4: Install Vertically on the Cabinet Side]/[5: Install in the U Space at the Rear]/[6: Install on the Front Door]/[other: N/A],ENUM,DO
+Controller,51016,Factory Serial Number,25003,Config,,,STRING,AO
+Controller,51016,Height,25006,Config,m,,FLOAT,AO
+Controller,51016,Total Cabinet U,25007,Config,,,UBYTE,AO
+Controller,51016,Start Time,25010,Config,,,DATE_TIME,AO
+Controller,51016,Width,25011,Config,m,,FLOAT,AO
+Controller,51016,Enable Time,25018,Config,,,DATE_TIME,AO
+Controller,51016,Ventilation Channel,25019,Config,,[0: Front In Rear Out]/[1: Bottom In Top Out]/[2: Left In Right Out]/[3: Right In Left Out]/[4: Front In Top Out]/[other: N/A],ENUM,DO
+Controller,51016,Last Maintenance Time,25020,Config,,,DATE_TIME,AO
+Controller,51016,Device Id,25021,Config,,,STRING,AO
+Controller,51016,Device Model,25023,Config,,,STRING,AO
+Controller,51016,Device Weight,25024,Config,kg,,FLOAT,AO
+Controller,51016,Life Cycle (Months),25026,Config,,,FLOAT,AO
+Controller,51016,Dept.,25030,Config,,,STRING,AO
+Controller,51016,Occupied U Space,25031,Config,,,UBYTE,AO
+Controller,51016,Maintenance Owner,25035,Config,,,STRING,AO
+Controller,51016,Maintenance Period (Months),25036,Config,,,FLOAT,AO
+Controller,51016,Location Description,25037,Config,,,STRING,AO
+Controller,51016,Temperature Range,25038,Config,℃,,STRING,AO
+Controller,51016,Length,25043,Config,m,,FLOAT,AO
+Controller,51016,Manufacturer,25044,Config,,,STRING,AO
+Controller,51016,Asset Status,25045,Config,,[2: Off]/[1: On]/[0: Enabled]/[3: Idle]/[4: Offline]/[other: N/A],ENUM,DO
+Controller,51016,Cable Routing,25046,Config,,[0: Top Cabling]/[1: Bottom Cabling]/[2: Underfloor Cabling]/[other: N/A],ENUM,DO
+Controller,51016,Network Mode,25058,Config,,[7: Unknown]/[0: Bsc]/[1: Nodeb/Enodeb]/[2: Gprs]/[3: Enhanced Gprs]/[4: Sms]/[5: Ip Channel]/[6: Sms Gateway]/[8: Ip Strap In-Band]/[other: N/A],ENUM,DO
+Controller,51016,Scenario,25059,Config,,[0: Solar Power System]/[1: Solar + Wind Hybrid Power System]/[2: Solar + Wind + D.G. Hybrid Power System]/[3: Solar + D.G. Hybrid Power System]/[4: D.G. + Battery Hybrid Power System]/[5: Solar + Mains Hybrid Power System]/[6: Solar + D.G. + Mains Hybrid Power System]/[7: Mains Power System]/[8: Green Site]/[9: Hybrid Power]/[10: Smart Site Management System]/[11: Microgrid System]/[12: Others]/[other: N/A],ENUM,DO
+Controller,51016,Esn,25060,Config,,,STRING,AO
+Controller,51016,Authentication Mode,25061,Config,,[0: One-Way Authentication]/[1: Two-Way Authentication]/[other: N/A],ENUM,DO
+Controller,51016,Authentication Password,25062,Config,,,STRING,AO
+Controller,51016,Channel Ip Address,25063,Config,,,IPV4,AO
+Controller,51016,Protocol Version,25064,Config,,[0: Bin23]/[1: Bin3]/[2: Bin35]/[4: Bin4]/[other: N/A],ENUM,DO
+Controller,51016,Local Ip Address,25065,Config,,,IPV4,AO
+Controller,51016,Controller Reset,25066,Config,,[1: Yes]/[other: N/A],ENUM,DO
+Controller,51016,Real-time data collection period,25100,Config,,[0: 3 seconds]/[1: 5 seconds]/[2: 10 seconds]/[3: 30 seconds]/[4: 1  minute]/[5: 5  minutes]/[6: 15  minutes]/[7: 30  minutes]/[8: 1 hour]/[9: 24 hours]/[other: N/A],ENUM,DO
+Controller,51016,Device model,29100,Config,,,STRING,AO
+Controller,51016,,29101,Config,,,STRING,AO
+Controller,51016,SN,50012,Config,,,STRING,AO
+Controller,51016,Runtime per Hour,30100,Statistic,s,,UINT,OTHER
+Controller,51016,Offline Time per Hour,30101,Statistic,s,,UINT,OTHER
+Controller,51016,Netstat,32412,Statistic,,[0: Offline]/[1: Online]/[other: N/A],ENUM,OTHER
+Controller,51016,Total Runtime,32756,Statistic,h,,FLOAT,OTHER
+Controller,51016,Total Offline Time,32757,Statistic,h,,FLOAT,OTHER
+Controller,51016,Total electrical energy of system IT load output,32758,Statistic,kWh,,FLOAT,OTHER
+Controller,51016,Total system input electrical energy (hour),32759,Statistic,kWh,,FLOAT,OTHER
+Controller,51016,Aircon electric by hour,32760,Statistic,kWh,,FLOAT,OTHER
+Subnet,59985,Subnet Name,20001,Config,,,STRING,AO
+Subnet,59985,Longitude,20002,Config,,,STRING,AO
+Subnet,59985,Latitude,20003,Config,,,STRING,AO
+Subnet,59985,Description,20004,Config,,,STRING,AO
+Site,59991,Site Type,20001,Config,,[1: Indoor]/[2: Outdoor]/[3: Mix]/[0: Undefined]/[4: Pole]/[other: N/A],ENUM,DO
+Site,59991,Site Name,20002,Config,,,STRING,AO
+Site,59991,Site ID,20003,Config,,,STRING,AO
+Site,59991,Site Address,20004,Config,,,STRING,AO
+Site,59991,Longitude,20005,Config,,,STRING,AO
+Site,59991,Latitude,20006,Config,,,STRING,AO
+Site,59991,Altitude,20007,Config, m,,FLOAT,AO
+Site,59991,Site Level,20008,Config,,[1: Gold]/[2: Silver]/[3: Bronze]/[4: Iron]/[0: Undefined]/[other: N/A],ENUM,DO
+Site,59991,Designed Backup Time,20009,Config,h,,FLOAT,AO
+Site,59991,Load Work Mode,20010,Config,,[1: UMTS]/[2: GSM]/[3: LTE]/[0: Undefined]/[4: NR]/[other: N/A],ENUM,DO
+Site,59991,Description,20011,Config,,,STRING,AO
+Site,59991,Backup Time Insufficiency Warning Threshold,20012,Config,h,,FLOAT,AO
+Site,59991,Site Category,20013,Config,,[1: Core Site]/[2: Hub Site]/[3: End Site]/[0: Undefined]/[other: N/A],ENUM,DO
+Site,59991,Grid Meter ID,20014,Config,,,STRING,AO
+Site,59991,Acceptance State,20015,Config,,[0: Undefined]/[1: Not Accepted]/[2: Approving]/[3: Accepted]/[other: N/A],ENUM,AO
+Site,59991,Maintenance Mode,20016,Config,,[0: Undefined]/[1: Normal]/[2: Installation]/[3: Test]/[4: Upgrade]/[5: Expansion]/[other: N/A],ENUM,AO
+Site,59991,Mains CEF,20017,Config,,,FLOAT,AO
+Site,59991,Genset CEF,20018,Config,,,FLOAT,AO
+Site,59991,GSM Energy Consumption,30001,Statistic,kWh,,FLOAT,OTHER
+Site,59991,UMTS Energy Consumption,30002,Statistic,kWh,,FLOAT,OTHER
+Site,59991,LTE Energy Consumption,30003,Statistic,kWh,,FLOAT,OTHER
+Site,59991,GSM Energy Consumption per Hour,30004,Statistic,kWh,,FLOAT,OTHER
+Site,59991,UMTS Energy Consumption per Hour,30005,Statistic,kWh,,FLOAT,OTHER
+Site,59991,LTE Energy Consumption per Hour,30006,Statistic,kWh,,FLOAT,OTHER
+Site,59991,NR Energy Consumption,30007,Statistic,kWh,,FLOAT,OTHER
+Site,59991,NR Energy Consumption per Hour,30008,Statistic,kWh,,FLOAT,OTHER
+Site,59991,CS Traffic,30009,Statistic,Erl,,FLOAT,OTHER
+Site,59991,PS Traffic,30010,Statistic,kbit,,FLOAT,OTHER
+Site,59991,Total Traffic,30011,Statistic,kbit,,FLOAT,OTHER
+Site,59991,CS Traffic per Hour,30012,Statistic,Erl,,FLOAT,OTHER
+Site,59991,PS Traffic per Hour,30013,Statistic,kbit,,FLOAT,OTHER
+Site,59991,Total Traffic per Hour,30014,Statistic,kbit,,FLOAT,OTHER
+Mains,60001,Mains State,10001,Sampling,,[0: Mains Off]/[1: Mains On]/[other: N/A],ENUM,DI
+Mains,60001,AC Voltage,10002,Sampling,V,,FLOAT,AI
+Mains,60001,Phase L1 Voltage,10003,Sampling,V,,FLOAT,AI
+Mains,60001,Phase L2 Voltage,10004,Sampling,V,,FLOAT,AI
+Mains,60001,Phase L3 Voltage,10005,Sampling,V,,FLOAT,AI
+Mains,60001,AC Current,10006,Sampling,A,,FLOAT,AI
+Mains,60001,Phase L1 Current,10007,Sampling,A,,FLOAT,AI
+Mains,60001,Phase L2 Current,10008,Sampling,A,,FLOAT,AI
+Mains,60001,Phase L3 Current,10009,Sampling,A,,FLOAT,AI
+Mains,60001,Active Power,10010,Sampling,kW,,FLOAT,AI
+Mains,60001,AC Frequency,10011,Sampling,Hz,,FLOAT,AI
+Mains,60001,Total Energy Consumption,10016,Sampling,kWh,,FLOAT,AI
+Mains,60001,Line L1-L2 Voltage,10017,Sampling,V,,FLOAT,AI
+Mains,60001,Line L2-L3 Voltage,10018,Sampling,V,,FLOAT,AI
+Mains,60001,Line L3-L1 Voltage,10019,Sampling,V,,FLOAT,AI
+Mains,60001,Grid Quality Grade,10020,Sampling,,[0: Unknown]/[1: First]/[2: Second]/[3: Third]/[4: Fourth]/[other: N/A],ENUM,AI
+Mains,60001,Power Factor,10021,Sampling,,,FLOAT,AI
+Mains,60001,Phase L1 Power Factor,10022,Sampling,,,FLOAT,AI
+Mains,60001,Phase L2 Power Factor,10023,Sampling,,,FLOAT,AI
+Mains,60001,Phase L3 Power Factor,10024,Sampling,,,FLOAT,AI
+Mains,60001,Mains Power Without Peak Shaving,10025,Sampling,kW,,FLOAT,AI
+Mains,60001,AC Mode,20001,Config,,[0: 2-phase 2-wire]/[1: 1-phase]/[2: 3-phase 4-wire]/[3: 3-phase 3-wire]/[other: N/A],ENUM,DO
+Mains,60001,Rated AC Voltage,20002,Config,V,,FLOAT,AO
+Mains,60001,Mains Capacity for Peak Shaving,20006,Config,kW,,FLOAT,OTHER
+Mains,60001,Enable Mains Peak Shaving,20007,Config,,[1: Yes]/[0: No]/[other: N/A],ENUM,DO
+Mains,60001,Mains State,30001,Statistic,,[0: Mains Off]/[1: Mains On]/[other: N/A],ENUM,OTHER
+Mains,60001,AC Voltage,30002,Statistic,V,,FLOAT,OTHER
+Mains,60001,Phase L1 Voltage,30003,Statistic,V,,FLOAT,OTHER
+Mains,60001,Phase L2 Voltage,30004,Statistic,V,,FLOAT,OTHER
+Mains,60001,Phase L3 Voltage,30005,Statistic,V,,FLOAT,OTHER
+Mains,60001,AC Current,30006,Statistic,A,,FLOAT,OTHER
+Mains,60001,Phase L1 Current,30007,Statistic,A,,FLOAT,OTHER
+Mains,60001,Phase L2 Current,30008,Statistic,A,,FLOAT,OTHER
+Mains,60001,Phase L3 Current,30009,Statistic,A,,FLOAT,OTHER
+Mains,60001,Active Power,30010,Statistic,kW,,FLOAT,OTHER
+Mains,60001,AC Frequency,30011,Statistic,Hz,,FLOAT,OTHER
+Mains,60001,Total Energy Consumption,30012,Statistic,kWh,,FLOAT,OTHER
+Mains,60001,Energy Consumption per Hour,30013,Statistic,kWh,,FLOAT,OTHER
+Mains,60001,Outage Times per Day,30016,Statistic,times,,UINT,OTHER
+Mains,60001,Outage Duration per Day,30017,Statistic,h,,FLOAT,OTHER
+Mains,60001,Supply Duration per Day,30018,Statistic,h,,FLOAT,OTHER
+Mains,60001,Energy Consumption per Day,30021,Statistic,kWh,,FLOAT,OTHER
+Mains,60001,Staggering Energy Consumption per Day,30022,Statistic,kWh,,FLOAT,OTHER
+Mains,60001,Non-Staggering Mode Estimate Electricity Charge per Day,30023,Statistic,,,FLOAT,OTHER
+Mains,60001,Staggering Mode Estimate Electricity Charge per Day,30024,Statistic,,,FLOAT,OTHER
+Mains,60001,Staggering Mode Estimate Electricity Charge Saving per Day,30025,Statistic,,,FLOAT,OTHER
+Mains,60001,Supply Duration per Hour,30026,Statistic,h,,FLOAT,OTHER
+Mains,60001,Longest Outage Duration per Day,30027,Statistic,h,,FLOAT,OTHER
+Mains,60001,Fault Duration per Day,30028,Statistic,h,,FLOAT,OTHER
+Mains,60001,Line L1-L2 Voltage,30029,Statistic,V,,FLOAT,OTHER
+Mains,60001,Line L2-L3 Voltage,30030,Statistic,V,,FLOAT,OTHER
+Mains,60001,Line L3-L1 Voltage,30031,Statistic,V,,FLOAT,OTHER
+Mains,60001,Outage Duration per Hour,30032,Statistic,h,,FLOAT,OTHER
+Mains,60001,Power Factor,30033,Statistic,,,FLOAT,OTHER
+Mains,60001,Phase L1 Power Factor,30034,Statistic,,,FLOAT,OTHER
+Mains,60001,Phase L2 Power Factor,30035,Statistic,,,FLOAT,OTHER
+Mains,60001,Phase L3 Power Factor,30036,Statistic,,,FLOAT,OTHER
+Mains,60001,Mains Power Without Peak Shaving,30037,Statistic,kW,,FLOAT,OTHER
+Mains,60001,Remaining Capacity for Peak Shaving ,30038,Statistic,kW,,FLOAT,OTHER
+Mains,60001,Active Power,30039,Statistic,kW,,FLOAT,OTHER
+Mains,60001,Active Power (Dumped from NMS),30040,Statistic,kW,,FLOAT,OTHER
+Genset Group,60002,Total Energy Yield,10001,Sampling,kWh,,FLOAT,AI
+Genset Group,60002,Configuration Mode,20001,Config,,[0: Active/Standby]/[1: Mutual Backup]/[other: N/A],ENUM,DO
+Genset Group,60002,Schedule Mode,20002,Config,,[0: No Control Mode]/[1: Traditional Mode]/[2: Cycle Mode]/[other: N/A],ENUM,DO
+Genset Group,60002,Control Mode,20003,Config,,[0: Automatic]/[1: Manual]/[other: N/A],ENUM,DO
+Genset Group,60002,DOD to Start,20004,Config,%,,UINT,DO
+Genset Group,60002,Maximum Charge Time,20005,Config,min,,UINT,DO
+Genset Group,60002,Energy Yield per Hour,30001,Statistic,kWh,,FLOAT,OTHER
+Genset Group,60002,Total Energy Yield,30002,Statistic,kWh,,FLOAT,OTHER
+Genset,60003,Software Version,10001,Sampling,,,STRING,AI
+Genset,60003,Hardware Version,10002,Sampling,,,STRING,AI
+Genset,60003,Running State,10003,Sampling,,[0: Unknown]/[1: Stopped]/[2: Running]/[other: N/A],ENUM,DI
+Genset,60003,Total Runtime,10004,Sampling,h,,FLOAT,AI
+Genset,60003,Total Fuel Consumption,10005,Sampling,L,,FLOAT,AI
+Genset,60003,Load Rate,10007,Sampling,%,,FLOAT,AI
+Genset,60003,Cabin Temperature,10008,Sampling,°C,,FLOAT,AI
+Genset,60003,Next Maintenance Time,10009,Sampling,,,DATE_TIME,AI
+Genset,60003,Total Energy Yield,10010,Sampling,kWh,,FLOAT,AI
+Genset,60003,Rotation Speed,10011,Sampling,RPM,,UINT,AI
+Genset,60003,Genset Battery Voltage,10013,Sampling,V,,FLOAT,AI
+Genset,60003,Oil Pressure,10014,Sampling,bar,,FLOAT,AI
+Genset,60003,Oil Level,10015,Sampling,%,,UINT,AI
+Genset,60003,Air Filter Intake Pressure,10016,Sampling,Kpa,,FLOAT,AI
+Genset,60003,Coolant Temperature,10017,Sampling,°C,,FLOAT,AI
+Genset,60003,Output Power,10018,Sampling,kW,,FLOAT,AI
+Genset,60003,AC Frequency,10019,Sampling,Hz,,FLOAT,AI
+Genset,60003,Phase L1 Voltage,10020,Sampling,V,,FLOAT,AI
+Genset,60003,Phase L2 Voltage,10021,Sampling,V,,FLOAT,AI
+Genset,60003,Phase L3 Voltage,10022,Sampling,V,,FLOAT,AI
+Genset,60003,Phase L1 Current,10023,Sampling,A,,FLOAT,AI
+Genset,60003,Phase L2 Current,10024,Sampling,A,,FLOAT,AI
+Genset,60003,Phase L3 Current,10025,Sampling,A,,FLOAT,AI
+Genset,60003,AC Voltage,10029,Sampling,V,,FLOAT,AI
+Genset,60003,AC Current,10030,Sampling,A,,FLOAT,AI
+Genset,60003,DG Type,10032,Sampling,,[0: DG]/[1: Smart DG]/[2: Portable Genset]/[other: N/A],ENUM,DI
+Genset,60003,Last Maintenance Time,10033,Sampling,,,DATE_TIME,AI
+Genset,60003,DG Start System,10034,Sampling,%,,UINT,AI
+Genset,60003,DG Cooling System,10035,Sampling,%,,UINT,AI
+Genset,60003,DG Lubrication System,10036,Sampling,%,,UINT,AI
+Genset,60003,DG Frequency Band Steady Rate,10037,Sampling,%,,UINT,AI
+Genset,60003,DG Voltage Steady Rate,10038,Sampling,%,,UINT,AI
+Genset,60003,DG Frequency Drop Steady Rate,10039,Sampling,%,,UINT,AI
+Genset,60003,Estimated Runtime with Remaining Fuel,10040,Sampling,h,,FLOAT,AI
+Genset,60003,Power Factor,10041,Sampling,,,FLOAT,AI
+Genset,60003,Phase L1 Power Factor,10042,Sampling,,,FLOAT,AI
+Genset,60003,Phase L2 Power Factor,10043,Sampling,,,FLOAT,AI
+Genset,60003,Phase L3 Power Factor,10044,Sampling,,,FLOAT,AI
+Genset,60003,DG No.,10045,Sampling,,,UINT,AI
+Genset,60003,Apparent Power,10046,Sampling,kVA,,FLOAT,AI
+Genset,60003,Phase L1 Active Power,10047,Sampling,kW,,FLOAT,AI
+Genset,60003,Phase L2 Active Power,10048,Sampling,kW,,FLOAT,AI
+Genset,60003,Phase L3 Active Power,10049,Sampling,kW,,FLOAT,AI
+Genset,60003,Phase L1 Apparent Power,10050,Sampling,kVA,,FLOAT,AI
+Genset,60003,Phase L2 Apparent Power,10051,Sampling,kVA,,FLOAT,AI
+Genset,60003,Phase L3 Apparent Power,10052,Sampling,kVA,,FLOAT,AI
+Genset,60003,Total Start Times,10054,Sampling,times,,UINT,AI
+Genset,60003,Switch Reason,10055,Sampling,,[510: Off@Amb High Temp]/[511: Off@Amb Low Temp]/[512: Off@EndOfTimdMainsOn]/[513: Off By Over Time]/[514: Off@EndOf EqulzdChrg]/[515: Off@DisconProtRecvry]/[516: Off By ACB Normal]/[517: Off By DTS To Main]/[518: Off@Mains Recovery]/[519: Off@EndOf TimedMaint]/[10: TimedEqualizedCharge]/[11: Long-Time Discharge]/[12: Power Off Protection]/[13: Charge Abnormal]/[14: Timed Maintenance]/[15: ]/[16: ACB Abnormal]/[0: None]/[1: AC Load]/[2: MainsFail@TradnMode]/[3: Manual]/[520: Off@BattTempRecovery]/[4: Battery Abnormal]/[521: Off@BattTempRecovery]/[5: IO]/[522: Off by Water Alarm]/[6: Ambient High Temp]/[523: Off@SolarSmartPredic]/[7: Ambient Low Temp]/[524: Off@ FunctionDisable]/[8: Battery Voltage]/[525: Off@Abnormal Backup]/[9: Timed Genset Stop]/[526: Low Load DG Off]/[527: Off@ParallelCommFail]/[528: Off By Timed Start]/[529: Off@Bypass Fault]/[21: DTS To Backup]/[22: Battery High Temp]/[23: Battery Low Temp]/[24: DOD]/[25: Low Capacity]/[26: Low Backup Capacity]/[27: Timed Start]/[29: DC Load]/[535: Off@ BatteryTransfer]/[536: Off@BatteryAvailable]/[36: NoBattery Available]/[540: Off@EndOf TimedCharg]/[541: Off@iDG Volt Recovry]/[542: Off by Load Adaptive]/[543: Off@ForbidnStrtGSTim]/[544: Off@Inverter Fault]/[500: Off By Mode Switch]/[501: Manual Off]/[502: Off by Invalid Data]/[503: Off By Rotation]/[504: Off@EndOfFirstPowOn]/[505: Off@Battery Normal]/[506: Off@Running Timeout]/[40: Timed Charging]/[507: Off By Battery Full]/[41: On@ iDG Low Voltage]/[508: Off@SuffctSolarEnerg]/[42: High Load ]/[509: Off By IO]/[43: On@Inverter Fault]/[other: N/A],ENUM,DI
+Genset,60003,Manufacturer,20002,Config,,,STRING,AO
+Genset,60003,Model,20003,Config,,,STRING,AO
+Genset,60003,Production Date,20004,Config,,,DATE_TIME,AO
+Genset,60003,Activation Date,20006,Config,,,DATE_TIME,AO
+Genset,60003,Rated Capacity,20007,Config,kVA,,FLOAT,AO
+Genset,60003,Optimal Load Rate,20008,Config,%,,FLOAT,AO
+Genset,60003,Routine Maintenance Interval,20009,Config,h,,UINT,AO
+Genset,60003,Scheduled Maintenance Interval,20010,Config,h,,UINT,AO
+Genset,60003,First Maintenance Remind,20011,Config,h,,UINT,AO
+Genset,60003,Start/Stop,20012,Config,,[1: Start]/[0: Stop]/[other: N/A],ENUM,DO
+Genset,60003,Fault Reset,20013,Config,,[1: Yes]/[other: N/A],ENUM,DO
+Genset,60003,Maintenance Confirm,20014,Config,,[1: Yes]/[other: N/A],ENUM,DO
+Genset,60003,Rated Rotation Speed,20015,Config,RPM,,UINT,AO
+Genset,60003,Rated Current,20016,Config,A,,UINT,AO
+Genset,60003,Rated Frequency,20017,Config,Hz,,UINT,AO
+Genset,60003,Output Mode,20018,Config,,[0: 3-phase 4-wire]/[1: 3-phase 3-wire]/[2: 2-phase 2-wire]/[3: 1-phase]/[other: N/A],ENUM,DO
+Genset,60003,Rated Phase Voltage,20019,Config,V,,UINT,AO
+Genset,60003,Relevant Supply Tank,20020,Config,,[0: None]/[1: Tank 1]/[2: Tank 2]/[3: Tank 3]/[4: Tank 4]/[other: N/A],ENUM,AO
+Genset,60003,Brand,20021,Config,,,STRING,AO
+Genset,60003,Rated Power,20022,Config,kW,,FLOAT,AO
+Genset,60003,DG No.,29001,Config,,,UINT,AO
+Genset,60003,Load Rate,30001,Statistic,%,,FLOAT,OTHER
+Genset,60003,Energy Yield per Hour,30002,Statistic,kWh,,FLOAT,OTHER
+Genset,60003,Fuel Consumption per Hour,30003,Statistic,L,,FLOAT,OTHER
+Genset,60003,Start Times per Day,30004,Statistic,times,,UINT,OTHER
+Genset,60003,Runtime per Day,30005,Statistic,h,,FLOAT,OTHER
+Genset,60003,Energy Yield per Time,30006,Statistic,kWh,,FLOAT,OTHER
+Genset,60003,Supply Duration per Day,30008,Statistic,h,,FLOAT,OTHER
+Genset,60003,Abnormal Runtime per Day,30009,Statistic,h,,FLOAT,OTHER
+Genset,60003,Total Energy Yield,30010,Statistic,kWh,,FLOAT,OTHER
+Genset,60003,Total Fuel Consumption,30011,Statistic,L,,FLOAT,OTHER
+Genset,60003,Running State,30012,Statistic,,[0: Unknown]/[1: Stopped]/[2: Running]/[other: N/A],ENUM,OTHER
+Genset,60003,AC Frequency,30014,Statistic,Hz,,FLOAT,OTHER
+Genset,60003,Phase L1 Voltage,30015,Statistic,V,,FLOAT,OTHER
+Genset,60003,Phase L2 Voltage,30016,Statistic,V,,FLOAT,OTHER
+Genset,60003,Phase L3 Voltage,30017,Statistic,V,,FLOAT,OTHER
+Genset,60003,AC Voltage,30018,Statistic,V,,FLOAT,OTHER
+Genset,60003,Oil Pressure,30019,Statistic,bar,,FLOAT,OTHER
+Genset,60003,Coolant Temperature,30020,Statistic,°C,,FLOAT,OTHER
+Genset,60003,Genset Battery Voltage,30021,Statistic,V,,FLOAT,OTHER
+Genset,60003,Genset Battery Current,30022,Statistic,A,,FLOAT,OTHER
+Genset,60003,Genset Battery SOC,30023,Statistic,%,,UINT,OTHER
+Genset,60003,Genset Battery SOH,30024,Statistic,%,,UINT,OTHER
+Genset,60003,Total Runtime,30025,Statistic,h,,FLOAT,OTHER
+Genset,60003,Runtime per Hour,30026,Statistic,h,,FLOAT,OTHER
+Genset,60003,Output Power,30027,Statistic,kW,,FLOAT,OTHER
+Genset,60003,Phase L1 Current,30028,Statistic,A,,FLOAT,OTHER
+Genset,60003,Phase L2 Current,30029,Statistic,A,,FLOAT,OTHER
+Genset,60003,Phase L3 Current,30030,Statistic,A,,FLOAT,OTHER
+Genset,60003,AC Current,30031,Statistic,A,,FLOAT,OTHER
+Genset,60003,Total Start Times,30032,Statistic,times,,UINT,OTHER
+Genset,60003,Total Energy Supply Duration,30033,Statistic,h,,FLOAT,OTHER
+Genset,60003,Total Abnormal Runtime,30034,Statistic,h,,FLOAT,OTHER
+Genset,60003,Max Output Power per Day,30035,Statistic,kW,,FLOAT,OTHER
+Genset,60003,Manual Runtime per Day,30036,Statistic,h,,FLOAT,OTHER
+Genset,60003,Start Times per Hour,30037,Statistic,times,,UINT,OTHER
+Genset,60003,Power Factor,30038,Statistic,,,FLOAT,OTHER
+Genset,60003,Phase L1 Power Factor,30039,Statistic,,,FLOAT,OTHER
+Genset,60003,Phase L2 Power Factor,30040,Statistic,,,FLOAT,OTHER
+Genset,60003,Phase L3 Power Factor,30041,Statistic,,,FLOAT,OTHER
+Genset,60003,Longest Runtime per Day,30042,Statistic,h,,FLOAT,OTHER
+Genset,60003,Apparent Power,30043,Statistic,kVA,,FLOAT,OTHER
+Fuel Tank,60004,Remaining Fuel,10001,Sampling,L,,FLOAT,AI
+Fuel Tank,60004,Fuel Level,10002,Sampling,cm,,FLOAT,AI
+Fuel Tank,60004,Fuel Viscosity,10003,Sampling,mPa-s,,FLOAT,AI
+Fuel Tank,60004,Fuel Density,10004,Sampling,gm/cc,,FLOAT,AI
+Fuel Tank,60004,Fuel Dielectric Constant,10005,Sampling,,,FLOAT,AI
+Fuel Tank,60004,Fuel Temperature,10006,Sampling,°C,,FLOAT,AI
+Fuel Tank,60004,Refuel Amount of Last Time,10007,Sampling,L,,FLOAT,AI
+Fuel Tank,60004,Less Than Low Fuel Level,10008,Sampling,,[0: No]/[1: Yes]/[other: N/A],ENUM,AI
+Fuel Tank,60004,Less Than Low Fuel Volume,10009,Sampling,,[0: No]/[1: Yes]/[other: N/A],ENUM,AI
+Fuel Tank,60004,Remaining Fuel Percent,10010,Sampling,%,,FLOAT,AI
+Fuel Tank,60004,Total Fuel Consumption,10011,Sampling,L,,FLOAT,AI
+Fuel Tank,60004,Total Refueling Volume,10012,Sampling,L,,FLOAT,AI
+Fuel Tank,60004,Fuel Tank Shape,20001,Config,,[0: Vertical Cylinder]/[1: Horizontal Cylinder]/[2: Cuboid]/[3: Irregular Body]/[other: N/A],ENUM,DO
+Fuel Tank,60004,Fuel Tank Capacity,20002,Config,L,,FLOAT,AO
+Fuel Tank,60004,Fuel Tank Height,20003,Config,m,,FLOAT,AO
+Fuel Tank,60004,Manufacturer,20004,Config,,,STRING,AO
+Fuel Tank,60004,Model,20005,Config,,,STRING,AO
+Fuel Tank,60004,Production Date,20006,Config,,,TIME,AO
+Fuel Tank,60004,Reminder Fuel Level for Refueling,20008,Config,%,,FLOAT,AO
+Fuel Tank,60004,Is Refuel Tank,20009,Config,,[0: No]/[1: Yes]/[other: N/A],ENUM,DO
+Fuel Tank,60004,Tank ID,20010,Config,,,UBYTE,AO
+Fuel Tank,60004,Remaining Fuel,30002,Statistic,L,,FLOAT,OTHER
+Fuel Tank,60004,Fuel Level,30003,Statistic,cm,,FLOAT,OTHER
+Fuel Tank,60004,Fuel Consumption per Hour,30004,Statistic,L,,FLOAT,OTHER
+Fuel Tank,60004,Total Refueling Volume,30005,Statistic,L,,FLOAT,OTHER
+Fuel Tank,60004,Refuel Volume,30006,Statistic,L,,FLOAT,OTHER
+Fuel Tank,60004,Total Abnormally Fuel Consumption,30007,Statistic,L,,FLOAT,OTHER
+DC Output Distribution,60009,DC Output Voltage,10001,Sampling,V,,FLOAT,AI
+DC Output Distribution,60009,Total DC Load Current,10002,Sampling,A,,FLOAT,AI
+DC Output Distribution,60009,Total DC Load Power,10003,Sampling,kW,,FLOAT,AI
+DC Output Distribution,60009,Total DC Load Energy Consumption,10004,Sampling,kWh,,FLOAT,AI
+DC Output Distribution,60009,Other Power Input Current,10005,Sampling,A,,FLOAT,AI
+DC Output Distribution,60009,Number of LLVD,10006,Sampling,,,USHORT,AI
+DC Output Distribution,60009,Number of Load Shunt,20001,Config,,,USHORT,AO
+DC Output Distribution,60009,Other Power Input Type,20003,Config,,[0: Other Power]/[1: Solar]/[2: DC D.G.]/[other: N/A],ENUM,DO
+DC Output Distribution,60009,Is Public Load Exist,20006,Config,,[0: Yes]/[1: No]/[other: N/A],ENUM,DO
+DC Output Distribution,60009,SOC Hysteresis for LLVD Reconnection on Peak Shaving,20007,Config,%,,FLOAT,AO
+DC Output Distribution,60009,Enable LLVD for Peak Shaving,20008,Config,,[1: Enable]/[0: Disable]/[other: N/A],ENUM,DO
+DC Output Distribution,60009,Enable LLVD2 for Peak Shaving,20009,Config,,[1: Enable]/[0: Disable]/[other: N/A],ENUM,DO
+DC Output Distribution,60009,Enable LLVD3 for Peak Shaving,20010,Config,,[1: Enable]/[0: Disable]/[other: N/A],ENUM,DO
+DC Output Distribution,60009,Enable LLVD4 for Peak Shaving,20011,Config,,[1: Enable]/[0: Disable]/[other: N/A],ENUM,DO
+DC Output Distribution,60009,LLVD Voltage,20013,Config,V,,FLOAT,AO
+DC Output Distribution,60009,LLVD2 Voltage,20014,Config,V,,FLOAT,AO
+DC Output Distribution,60009,LLVD3 Voltage,20015,Config,V,,FLOAT,AO
+DC Output Distribution,60009,LLVD4 Voltage,20016,Config,V,,FLOAT,AO
+DC Output Distribution,60009,LLVD Mode,20020,Config,,[0: Voltage Mode]/[1: Time Mode]/[2: Capacity Mode]/[other: N/A],ENUM,DO
+DC Output Distribution,60009,LLVD Time,20021,Config,min,,FLOAT,AO
+DC Output Distribution,60009,LLVD Capacity,20022,Config,%,,FLOAT,AO
+DC Output Distribution,60009,Enable Load Disconnect,20023,Config,,[0: Yes]/[1: No]/[other: N/A],ENUM,DO
+DC Output Distribution,60009,Enable Load Plan Disconnect,20024,Config,,[0: Yes]/[1: No]/[other: N/A],ENUM,DO
+DC Output Distribution,60009,Load Plan Disconnect Time,20025,Config,,,TIME,AO
+DC Output Distribution,60009,Load Plan Disconnect Duration,20026,Config,min,,UINT,AO
+DC Output Distribution,60009,Load Reconnect Voltage,20027,Config,V,,FLOAT,AO
+DC Output Distribution,60009,Branch1 Usage Configure,20028,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other Non-green 48V Input]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[13: Wind Energy]/[14: Fuel Cell]/[15: Other Green 48V Input]/[16: 3dPrtyPw ParalConPrt]/[other: N/A],ENUM,DO
+DC Output Distribution,60009,Branch2 Usage Configure,20029,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other Non-green 48V Input]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[13: Wind Energy]/[14: Fuel Cell]/[15: Other Green 48V Input]/[16: 3dPrtyPw ParalConPrt]/[other: N/A],ENUM,DO
+DC Output Distribution,60009,Branch3 Usage Configure,20030,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other Non-green 48V Input]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[13: Wind Energy]/[14: Fuel Cell]/[15: Other Green 48V Input]/[16: 3dPrtyPw ParalConPrt]/[other: N/A],ENUM,DO
+DC Output Distribution,60009,Branch4 Usage Configure,20031,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other Non-green 48V Input]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[13: Wind Energy]/[14: Fuel Cell]/[15: Other Green 48V Input]/[16: 3dPrtyPw ParalConPrt]/[other: N/A],ENUM,DO
+DC Output Distribution,60009,Branch5 Usage Configure,20032,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other Non-green 48V Input]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[13: Wind Energy]/[14: Fuel Cell]/[15: Other Green 48V Input]/[16: 3dPrtyPw ParalConPrt]/[other: N/A],ENUM,DO
+DC Output Distribution,60009,Branch6 Usage Configure,20033,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other Non-green 48V Input]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[13: Wind Energy]/[14: Fuel Cell]/[15: Other Green 48V Input]/[16: 3dPrtyPw ParalConPrt]/[other: N/A],ENUM,DO
+DC Output Distribution,60009,Branch7 Usage Configure,20034,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other Non-green 48V Input]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[13: Wind Energy]/[14: Fuel Cell]/[15: Other Green 48V Input]/[16: 3dPrtyPw ParalConPrt]/[other: N/A],ENUM,DO
+DC Output Distribution,60009,Branch8 Usage Configure,20035,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other Non-green 48V Input]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[13: Wind Energy]/[14: Fuel Cell]/[15: Other Green 48V Input]/[16: 3dPrtyPw ParalConPrt]/[other: N/A],ENUM,DO
+DC Output Distribution,60009,Branch9 Usage Configure,20036,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other Non-green 48V Input]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[13: Wind Energy]/[14: Fuel Cell]/[15: Other Green 48V Input]/[16: 3dPrtyPw ParalConPrt]/[other: N/A],ENUM,DO
+DC Output Distribution,60009,Branch10 Usage Configure,20037,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other Non-green 48V Input]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[13: Wind Energy]/[14: Fuel Cell]/[15: Other Green 48V Input]/[16: 3dPrtyPw ParalConPrt]/[other: N/A],ENUM,DO
+DC Output Distribution,60009,Branch11 Usage Configure,20038,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other Non-green 48V Input]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[13: Wind Energy]/[14: Fuel Cell]/[15: Other Green 48V Input]/[16: 3dPrtyPw ParalConPrt]/[other: N/A],ENUM,DO
+DC Output Distribution,60009,Branch12 Usage Configure,20039,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other Non-green 48V Input]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[13: Wind Energy]/[14: Fuel Cell]/[15: Other Green 48V Input]/[16: 3dPrtyPw ParalConPrt]/[other: N/A],ENUM,DO
+DC Output Distribution,60009,Branch13 Usage Configure,20040,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other Non-green 48V Input]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[13: Wind Energy]/[14: Fuel Cell]/[15: Other Green 48V Input]/[16: 3dPrtyPw ParalConPrt]/[other: N/A],ENUM,DO
+DC Output Distribution,60009,Branch14 Usage Configure,20041,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other Non-green 48V Input]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[13: Wind Energy]/[14: Fuel Cell]/[15: Other Green 48V Input]/[16: 3dPrtyPw ParalConPrt]/[other: N/A],ENUM,DO
+DC Output Distribution,60009,Branch15 Usage Configure,20042,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other Non-green 48V Input]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[13: Wind Energy]/[14: Fuel Cell]/[15: Other Green 48V Input]/[16: 3dPrtyPw ParalConPrt]/[other: N/A],ENUM,DO
+DC Output Distribution,60009,Branch16 Usage Configure,20043,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other Non-green 48V Input]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[13: Wind Energy]/[14: Fuel Cell]/[15: Other Green 48V Input]/[16: 3dPrtyPw ParalConPrt]/[other: N/A],ENUM,DO
+DC Output Distribution,60009,Branch17 Usage Configure,20044,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other Non-green 48V Input]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[13: Wind Energy]/[14: Fuel Cell]/[15: Other Green 48V Input]/[16: 3dPrtyPw ParalConPrt]/[other: N/A],ENUM,DO
+DC Output Distribution,60009,Branch18 Usage Configure,20045,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other Non-green 48V Input]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[13: Wind Energy]/[14: Fuel Cell]/[15: Other Green 48V Input]/[16: 3dPrtyPw ParalConPrt]/[other: N/A],ENUM,DO
+DC Output Distribution,60009,Branch19 Usage Configure,20046,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other Non-green 48V Input]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[13: Wind Energy]/[14: Fuel Cell]/[15: Other Green 48V Input]/[16: 3dPrtyPw ParalConPrt]/[other: N/A],ENUM,DO
+DC Output Distribution,60009,Branch20 Usage Configure,20047,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other Non-green 48V Input]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[13: Wind Energy]/[14: Fuel Cell]/[15: Other Green 48V Input]/[16: 3dPrtyPw ParalConPrt]/[other: N/A],ENUM,DO
+DC Output Distribution,60009,Branch21 Usage Configure,20048,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other Non-green 48V Input]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[13: Wind Energy]/[14: Fuel Cell]/[15: Other Green 48V Input]/[16: 3dPrtyPw ParalConPrt]/[other: N/A],ENUM,DO
+DC Output Distribution,60009,Branch22 Usage Configure,20049,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other Non-green 48V Input]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[13: Wind Energy]/[14: Fuel Cell]/[15: Other Green 48V Input]/[16: 3dPrtyPw ParalConPrt]/[other: N/A],ENUM,DO
+DC Output Distribution,60009,Branch23 Usage Configure,20050,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other Non-green 48V Input]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[13: Wind Energy]/[14: Fuel Cell]/[15: Other Green 48V Input]/[16: 3dPrtyPw ParalConPrt]/[other: N/A],ENUM,DO
+DC Output Distribution,60009,Branch24 Usage Configure,20051,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other Non-green 48V Input]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[13: Wind Energy]/[14: Fuel Cell]/[15: Other Green 48V Input]/[16: 3dPrtyPw ParalConPrt]/[other: N/A],ENUM,DO
+DC Output Distribution,60009,Branch25 Usage Configure,20052,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other Non-green 48V Input]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[13: Wind Energy]/[14: Fuel Cell]/[15: Other Green 48V Input]/[16: 3dPrtyPw ParalConPrt]/[other: N/A],ENUM,DO
+DC Output Distribution,60009,Branch26 Usage Configure,20053,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other Non-green 48V Input]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[13: Wind Energy]/[14: Fuel Cell]/[15: Other Green 48V Input]/[16: 3dPrtyPw ParalConPrt]/[other: N/A],ENUM,DO
+DC Output Distribution,60009,Branch27 Usage Configure,20054,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other Non-green 48V Input]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[13: Wind Energy]/[14: Fuel Cell]/[15: Other Green 48V Input]/[16: 3dPrtyPw ParalConPrt]/[other: N/A],ENUM,DO
+DC Output Distribution,60009,Branch28 Usage Configure,20055,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other Non-green 48V Input]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[13: Wind Energy]/[14: Fuel Cell]/[15: Other Green 48V Input]/[16: 3dPrtyPw ParalConPrt]/[other: N/A],ENUM,DO
+DC Output Distribution,60009,Branch29 Usage Configure,20056,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other Non-green 48V Input]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[13: Wind Energy]/[14: Fuel Cell]/[15: Other Green 48V Input]/[16: 3dPrtyPw ParalConPrt]/[other: N/A],ENUM,DO
+DC Output Distribution,60009,Branch30 Usage Configure,20057,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other Non-green 48V Input]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[13: Wind Energy]/[14: Fuel Cell]/[15: Other Green 48V Input]/[16: 3dPrtyPw ParalConPrt]/[other: N/A],ENUM,DO
+DC Output Distribution,60009,Branch31 Usage Configure,20058,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other Non-green 48V Input]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[13: Wind Energy]/[14: Fuel Cell]/[15: Other Green 48V Input]/[16: 3dPrtyPw ParalConPrt]/[other: N/A],ENUM,DO
+DC Output Distribution,60009,Branch32 Usage Configure,20059,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other Non-green 48V Input]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[13: Wind Energy]/[14: Fuel Cell]/[15: Other Green 48V Input]/[16: 3dPrtyPw ParalConPrt]/[other: N/A],ENUM,DO
+DC Output Distribution,60009,Branch33 Usage Configure,20060,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other Non-green 48V Input]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[13: Wind Energy]/[14: Fuel Cell]/[15: Other Green 48V Input]/[16: 3dPrtyPw ParalConPrt]/[other: N/A],ENUM,DO
+DC Output Distribution,60009,Branch34 Usage Configure,20061,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other Non-green 48V Input]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[13: Wind Energy]/[14: Fuel Cell]/[15: Other Green 48V Input]/[16: 3dPrtyPw ParalConPrt]/[other: N/A],ENUM,DO
+DC Output Distribution,60009,Branch35 Usage Configure,20062,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other Non-green 48V Input]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[13: Wind Energy]/[14: Fuel Cell]/[15: Other Green 48V Input]/[16: 3dPrtyPw ParalConPrt]/[other: N/A],ENUM,DO
+DC Output Distribution,60009,Branch36 Usage Configure,20063,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other Non-green 48V Input]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[13: Wind Energy]/[14: Fuel Cell]/[15: Other Green 48V Input]/[16: 3dPrtyPw ParalConPrt]/[other: N/A],ENUM,DO
+DC Output Distribution,60009,Branch37 Usage Configure,20064,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other Non-green 48V Input]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[13: Wind Energy]/[14: Fuel Cell]/[15: Other Green 48V Input]/[16: 3dPrtyPw ParalConPrt]/[other: N/A],ENUM,DO
+DC Output Distribution,60009,Branch38 Usage Configure,20065,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other Non-green 48V Input]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[13: Wind Energy]/[14: Fuel Cell]/[15: Other Green 48V Input]/[16: 3dPrtyPw ParalConPrt]/[other: N/A],ENUM,DO
+DC Output Distribution,60009,Branch39 Usage Configure,20066,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other Non-green 48V Input]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[13: Wind Energy]/[14: Fuel Cell]/[15: Other Green 48V Input]/[16: 3dPrtyPw ParalConPrt]/[other: N/A],ENUM,DO
+DC Output Distribution,60009,Branch40 Usage Configure,20067,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other Non-green 48V Input]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[13: Wind Energy]/[14: Fuel Cell]/[15: Other Green 48V Input]/[16: 3dPrtyPw ParalConPrt]/[other: N/A],ENUM,DO
+DC Output Distribution,60009,Branch41 Usage Configure,20068,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other Non-green 48V Input]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[13: Wind Energy]/[14: Fuel Cell]/[15: Other Green 48V Input]/[16: 3dPrtyPw ParalConPrt]/[other: N/A],ENUM,DO
+DC Output Distribution,60009,Branch42 Usage Configure,20069,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other Non-green 48V Input]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[13: Wind Energy]/[14: Fuel Cell]/[15: Other Green 48V Input]/[16: 3dPrtyPw ParalConPrt]/[other: N/A],ENUM,DO
+DC Output Distribution,60009,Branch43 Usage Configure,20070,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other Non-green 48V Input]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[13: Wind Energy]/[14: Fuel Cell]/[15: Other Green 48V Input]/[16: 3dPrtyPw ParalConPrt]/[other: N/A],ENUM,DO
+DC Output Distribution,60009,Branch44 Usage Configure,20071,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other Non-green 48V Input]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[13: Wind Energy]/[14: Fuel Cell]/[15: Other Green 48V Input]/[16: 3dPrtyPw ParalConPrt]/[other: N/A],ENUM,DO
+DC Output Distribution,60009,Branch45 Usage Configure,20072,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other Non-green 48V Input]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[13: Wind Energy]/[14: Fuel Cell]/[15: Other Green 48V Input]/[16: 3dPrtyPw ParalConPrt]/[other: N/A],ENUM,DO
+DC Output Distribution,60009,Branch46 Usage Configure,20073,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other Non-green 48V Input]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[13: Wind Energy]/[14: Fuel Cell]/[15: Other Green 48V Input]/[16: 3dPrtyPw ParalConPrt]/[other: N/A],ENUM,DO
+DC Output Distribution,60009,Branch47 Usage Configure,20074,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other Non-green 48V Input]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[13: Wind Energy]/[14: Fuel Cell]/[15: Other Green 48V Input]/[16: 3dPrtyPw ParalConPrt]/[other: N/A],ENUM,DO
+DC Output Distribution,60009,Branch48 Usage Configure,20075,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other Non-green 48V Input]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[13: Wind Energy]/[14: Fuel Cell]/[15: Other Green 48V Input]/[16: 3dPrtyPw ParalConPrt]/[other: N/A],ENUM,DO
+DC Output Distribution,60009,Branch49 Usage Configure,20076,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other Non-green 48V Input]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[13: Wind Energy]/[14: Fuel Cell]/[15: Other Green 48V Input]/[16: 3dPrtyPw ParalConPrt]/[other: N/A],ENUM,DO
+DC Output Distribution,60009,Branch50 Usage Configure,20077,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other Non-green 48V Input]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[13: Wind Energy]/[14: Fuel Cell]/[15: Other Green 48V Input]/[16: 3dPrtyPw ParalConPrt]/[other: N/A],ENUM,DO
+DC Output Distribution,60009,Branch51 Usage Configure,20078,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other Non-green 48V Input]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[13: Wind Energy]/[14: Fuel Cell]/[15: Other Green 48V Input]/[16: 3dPrtyPw ParalConPrt]/[other: N/A],ENUM,DO
+DC Output Distribution,60009,Branch52 Usage Configure,20079,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other Non-green 48V Input]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[13: Wind Energy]/[14: Fuel Cell]/[15: Other Green 48V Input]/[16: 3dPrtyPw ParalConPrt]/[other: N/A],ENUM,DO
+DC Output Distribution,60009,Branch53 Usage Configure,20080,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other Non-green 48V Input]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[13: Wind Energy]/[14: Fuel Cell]/[15: Other Green 48V Input]/[16: 3dPrtyPw ParalConPrt]/[other: N/A],ENUM,DO
+DC Output Distribution,60009,Branch54 Usage Configure,20081,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other Non-green 48V Input]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[13: Wind Energy]/[14: Fuel Cell]/[15: Other Green 48V Input]/[16: 3dPrtyPw ParalConPrt]/[other: N/A],ENUM,DO
+DC Output Distribution,60009,Branch55 Usage Configure,20082,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other Non-green 48V Input]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[13: Wind Energy]/[14: Fuel Cell]/[15: Other Green 48V Input]/[16: 3dPrtyPw ParalConPrt]/[other: N/A],ENUM,DO
+DC Output Distribution,60009,Branch56 Usage Configure,20083,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other Non-green 48V Input]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[13: Wind Energy]/[14: Fuel Cell]/[15: Other Green 48V Input]/[16: 3dPrtyPw ParalConPrt]/[other: N/A],ENUM,DO
+DC Output Distribution,60009,Branch57 Usage Configure,20084,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other Non-green 48V Input]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[13: Wind Energy]/[14: Fuel Cell]/[15: Other Green 48V Input]/[16: 3dPrtyPw ParalConPrt]/[other: N/A],ENUM,DO
+DC Output Distribution,60009,Branch58 Usage Configure,20085,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other Non-green 48V Input]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[13: Wind Energy]/[14: Fuel Cell]/[15: Other Green 48V Input]/[16: 3dPrtyPw ParalConPrt]/[other: N/A],ENUM,DO
+DC Output Distribution,60009,Branch59 Usage Configure,20086,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other Non-green 48V Input]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[13: Wind Energy]/[14: Fuel Cell]/[15: Other Green 48V Input]/[16: 3dPrtyPw ParalConPrt]/[other: N/A],ENUM,DO
+DC Output Distribution,60009,Branch60 Usage Configure,20087,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other Non-green 48V Input]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[13: Wind Energy]/[14: Fuel Cell]/[15: Other Green 48V Input]/[16: 3dPrtyPw ParalConPrt]/[other: N/A],ENUM,DO
+DC Output Distribution,60009,Branch61 Usage Configure,20088,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other Non-green 48V Input]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[13: Wind Energy]/[14: Fuel Cell]/[15: Other Green 48V Input]/[16: 3dPrtyPw ParalConPrt]/[other: N/A],ENUM,DO
+DC Output Distribution,60009,Branch62 Usage Configure,20089,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other Non-green 48V Input]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[13: Wind Energy]/[14: Fuel Cell]/[15: Other Green 48V Input]/[16: 3dPrtyPw ParalConPrt]/[other: N/A],ENUM,DO
+DC Output Distribution,60009,Device model,29100,Config,,,STRING,AO
+DC Output Distribution,60009,Total DC Load Current,30002,Statistic,A,,FLOAT,OTHER
+DC Output Distribution,60009,Total DC Load Power,30003,Statistic,kW,,FLOAT,OTHER
+DC Output Distribution,60009,Total DC Load Energy Consumption,30004,Statistic,kWh,,FLOAT,OTHER
+DC Output Distribution,60009,DC Output Voltage,30005,Statistic,V,,FLOAT,OTHER
+DC Output Distribution,60009,Total Telecom Equipment Energy Consumption,30006,Statistic,kWh,,FLOAT,OTHER
+DC Output Distribution,60009,Other Power Input Current,30008,Statistic,A,,FLOAT,OTHER
+DC Output Distribution,60009,Energy from Other Power per Hour,30009,Statistic,kWh,,FLOAT,OTHER
+DC Output Distribution,60009,Other Power Supply Duration per Day,30010,Statistic,h,,FLOAT,OTHER
+DC Output Distribution,60009,Total Energy from Other Power,30011,Statistic,kWh,,FLOAT,OTHER
+DC Output Distribution,60009,DC Load Energy Consumption per Hour,30013,Statistic,kWh,,FLOAT,OTHER
+DC Output Distribution,60009,DC Load Energy Consumption per Day,30014,Statistic,kWh,,FLOAT,OTHER
+DC Output Distribution,60009,Telecom Equipment Energy Consumption per Hour,30015,Statistic,kWh,,FLOAT,OTHER
+DC Output Distribution,60009,Telecom Equipment Energy Consumption per Day,30016,Statistic,kWh,,FLOAT,OTHER
+DC Output Distribution,60009,Energy from Other Power per Day,30017,Statistic,kWh,,FLOAT,OTHER
+DC Output Distribution,60009,LLVD Duration per Day,30018,Statistic,h,,FLOAT,OTHER
+DC Output Distribution,60009,Max Output Power per Day,30019,Statistic,kW,,FLOAT,OTHER
+DC Output Distribution,60009,Min Output Power per Day,30020,Statistic,kW,,FLOAT,OTHER
+DC Output Distribution,60009,Other Power Supply State,30021,Statistic,,[0: Off]/[1: On]/[other: N/A],ENUM,OTHER
+DC Output Distribution,60009,Total DC Load Power,30022,Statistic,kW,,FLOAT,OTHER
+AC Output Distribution,60010,Phase L1 Voltage,10001,Sampling,V,,FLOAT,AI
+AC Output Distribution,60010,Phase L2 Voltage,10002,Sampling,V,,FLOAT,AI
+AC Output Distribution,60010,Phase L3 Voltage,10003,Sampling,V,,FLOAT,AI
+AC Output Distribution,60010,Phase L1 Current,10004,Sampling,A,,FLOAT,AI
+AC Output Distribution,60010,Phase L2 Current,10005,Sampling,A,,FLOAT,AI
+AC Output Distribution,60010,Phase L3 Current,10006,Sampling,A,,FLOAT,AI
+AC Output Distribution,60010,Total Load Active Power,10007,Sampling,kW,,FLOAT,AI
+AC Output Distribution,60010,Total Load Apparent Power,10008,Sampling,kVA,,FLOAT,AI
+AC Output Distribution,60010,Line L1-L2 Voltage,10009,Sampling,V,,FLOAT,AI
+AC Output Distribution,60010,Line L2-L3 Voltage,10010,Sampling,V,,FLOAT,AI
+AC Output Distribution,60010,Line L3-L1 Voltage,10011,Sampling,V,,FLOAT,AI
+AC Output Distribution,60010,AC Frequency,10012,Sampling,Hz,,FLOAT,AI
+AC Output Distribution,60010,Phase L1 Active Power,10013,Sampling,kW,,FLOAT,AI
+AC Output Distribution,60010,Phase L2 Active Power,10014,Sampling,kW,,FLOAT,AI
+AC Output Distribution,60010,Phase L3 Active Power,10015,Sampling,kW,,FLOAT,AI
+AC Output Distribution,60010,Phase L1 Apparent Power,10016,Sampling,kVA,,FLOAT,AI
+AC Output Distribution,60010,Phase L2 Apparent Power,10017,Sampling,kVA,,FLOAT,AI
+AC Output Distribution,60010,Phase L3 Apparent Power,10018,Sampling,kVA,,FLOAT,AI
+AC Output Distribution,60010,Total Load Energy Consumption,10019,Sampling,kWh,,FLOAT,AI
+AC Output Distribution,60010,Active Power,10020,Sampling,kW,,FLOAT,AI
+AC Output Distribution,60010,AC Current,10021,Sampling,A,,FLOAT,AI
+AC Output Distribution,60010,SN,19100,Sampling,,,STRING,AI
+AC Output Distribution,60010,Load Connection/Disconnect Control,20010,Config,,[0: Power Off]/[1: Power On]/[other: N/A],ENUM,DI
+AC Output Distribution,60010,Device model,29100,Config,,,STRING,AO
+AC Output Distribution,60010,,29101,Config,,,STRING,AO
+AC Output Distribution,60010,SN,50012,Config,,,STRING,AO
+AC Output Distribution,60010,Total Load Energy Consumption,30001,Statistic,kWh,,FLOAT,OTHER
+AC Output Distribution,60010,Phase L1 Voltage,30002,Statistic,V,,FLOAT,OTHER
+AC Output Distribution,60010,Phase L2 Voltage,30003,Statistic,V,,FLOAT,OTHER
+AC Output Distribution,60010,Phase L3 Voltage,30004,Statistic,V,,FLOAT,OTHER
+AC Output Distribution,60010,Phase L1 Current,30005,Statistic,A,,FLOAT,OTHER
+AC Output Distribution,60010,Phase L2 Current,30006,Statistic,A,,FLOAT,OTHER
+AC Output Distribution,60010,Phase L3 Current,30007,Statistic,A,,FLOAT,OTHER
+AC Output Distribution,60010,Total Load Active Power,30008,Statistic,kW,,FLOAT,OTHER
+AC Output Distribution,60010,Total Load Apparent Power,30009,Statistic,kVA,,FLOAT,OTHER
+AC Output Distribution,60010,Line L1-L2 Voltage,30010,Statistic,V,,FLOAT,OTHER
+AC Output Distribution,60010,Line L2-L3 Voltage,30011,Statistic,V,,FLOAT,OTHER
+AC Output Distribution,60010,Line L3-L1 Voltage,30012,Statistic,V,,FLOAT,OTHER
+AC Output Distribution,60010,AC Frequency,30013,Statistic,Hz,,FLOAT,OTHER
+AC Output Distribution,60010,Phase L1 Active Power,30014,Statistic,kW,,FLOAT,OTHER
+AC Output Distribution,60010,Phase L2 Active Power,30015,Statistic,kW,,FLOAT,OTHER
+AC Output Distribution,60010,Phase L3 Active Power,30016,Statistic,kW,,FLOAT,OTHER
+AC Output Distribution,60010,Phase L1 Apparent Power,30017,Statistic,kVA,,FLOAT,OTHER
+AC Output Distribution,60010,Phase L2 Apparent Power,30018,Statistic,kVA,,FLOAT,OTHER
+AC Output Distribution,60010,Phase L3 Apparent Power,30019,Statistic,kVA,,FLOAT,OTHER
+AC Output Distribution,60010,Total Load Max Active Power per Day,30020,Statistic,kW,,FLOAT,OTHER
+AC Output Distribution,60010,Total Load Average Active Power per Hour,30021,Statistic,kW,,FLOAT,OTHER
+AC Output Distribution,60010,AC Load Energy Consumption per Hour,30022,Statistic,kWh,,FLOAT,OTHER
+AC Output Distribution,60010,AC Load Energy Consumption per Day,30023,Statistic,kWh,,FLOAT,OTHER
+Load Branch,60011,Voltage,10001,Sampling,V,,FLOAT,AI
+Load Branch,60011,Current,10002,Sampling,A,,FLOAT,AI
+Load Branch,60011,Power,10003,Sampling,kW,,FLOAT,AI
+Load Branch,60011,Total Energy Consumption,10004,Sampling,kWh,,FLOAT,AI
+Load Branch,60011,Branch No.,10005,Sampling,,,UINT,AI
+Load Branch,60011,Rated Capacity,10006,Sampling,A,,FLOAT,AI
+Load Branch,60011,Branch Usage,10007,Sampling,,[0: BLVD Load]/[11: LLVD4 Load]/[1: Customized Load]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[other: N/A],ENUM,DI
+Load Branch,60011,Disconnect Reason,10008,Sampling,,[0: Connect]/[3: Timed Disconnect]/[4: No Backup in Exempt Period]/[5: Precise Backup Disconnect]/[other: N/A],ENUM,DI
+Load Branch,60011,On/Off Control,20001,Config,,[1: On]/[0: Off]/[other: N/A],ENUM,DO
+Load Branch,60011,Enable Auto Poweroff,20002,Config,,[1: Enable]/[0: Disable]/[other: N/A],ENUM,DO
+Load Branch,60011,Load Disconnect Voltage,20003,Config,V,,FLOAT,AO
+Load Branch,60011,Load Disconnect Mode,20006,Config,,[0: Voltage Mode]/[1: Time Mode]/[2: Capacity Mode]/[3: Energy Consump Mode]/[other: N/A],ENUM,DO
+Load Branch,60011,Load Disconnect Time,20008,Config,min,,FLOAT,AO
+Load Branch,60011,Load Disconnect Capacity,20009,Config,%,,FLOAT,AO
+Load Branch,60011,Enable Load Disconnect,20010,Config,,[1: Enable]/[0: Disable]/[other: N/A],ENUM,DO
+Load Branch,60011,Enable Plan Disconnect,20011,Config,,[1: Enable]/[0: Disable]/[other: N/A],ENUM,DO
+Load Branch,60011,Load Plan Disconnect Time,20012,Config,,,TIME,AO
+Load Branch,60011,Load Plan Disconnect Duration,20013,Config,min,,UINT,AO
+Load Branch,60011,Load Reconnect Voltage,20014,Config,V,,FLOAT,AO
+Load Branch,60011,Enable Load Branch Measurement,20015,Config,,[1: Enable]/[0: Disable]/[other: N/A],ENUM,DO
+Load Branch,60011,Enable Precise Backup,20016,Config,,[1: Enable]/[0: Disable]/[other: N/A],ENUM,DO
+Load Branch,60011,Slot No.,20017,Config,,,UINT,AI
+Load Branch,60011,Plan 1 Disconnect Start Time,20018,Config,,,TIME,AO
+Load Branch,60011,Plan 1 Disconnect Duration,20019,Config,min,,UINT,AO
+Load Branch,60011,Plan 2 Disconnect Start Time,20020,Config,,,TIME,AO
+Load Branch,60011,Plan 2 Disconnect Duration,20021,Config,min,,UINT,AO
+Load Branch,60011,Plan 3 Disconnect Start Time,20022,Config,,,TIME,AO
+Load Branch,60011,Plan 3 Disconnect Duration,20023,Config,min,,UINT,AO
+Load Branch,60011,Plan 4 Disconnect Start Time,20024,Config,,,TIME,AO
+Load Branch,60011,Plan 4 Disconnect Duration,20025,Config,min,,UINT,AO
+Load Branch,60011,Plan 5 Disconnect Start Time,20026,Config,,,TIME,AO
+Load Branch,60011,Plan 5 Disconnect Duration,20027,Config,min,,UINT,AO
+Load Branch,60011,Exempt Period 1 Start Time,20028,Config,,,TIME,AO
+Load Branch,60011,Exempt Period 1 Duration,20029,Config,min,,UINT,AO
+Load Branch,60011,Exempt Period 2 Start Time,20030,Config,,,TIME,AO
+Load Branch,60011,Exempt Period 2 Duration,20031,Config,min,,UINT,AO
+Load Branch,60011,Exempt Period 3 Start Time,20032,Config,,,TIME,AO
+Load Branch,60011,Exempt Period 3 Duration,20033,Config,min,,UINT,AO
+Load Branch,60011,Exempt Period 4 Start Time,20034,Config,,,TIME,AO
+Load Branch,60011,Exempt Period 4 Duration,20035,Config,min,,UINT,AO
+Load Branch,60011,Exempt Period 5 Start Time,20036,Config,,,TIME,AO
+Load Branch,60011,Exempt Period 5 Duration,20037,Config,min,,UINT,AO
+Load Branch,60011,No Backup on Exempt Period,20038,Config,,[1: Enable]/[0: Disable]/[other: N/A],ENUM,DO
+Load Branch,60011,Load Disconnect Energy Consumption,20039,Config,kWh,,FLOAT,AO
+Load Branch,60011,Enable On/Off Control,20040,Config,,[1: Enable]/[0: Disable]/[other: N/A],ENUM,DO
+Load Branch,60011,Branch Group,20041,Config,,[0: None]/[1: Branch Group 1]/[2: Branch Group 2]/[3: Branch Group 3]/[4: Branch Group 4]/[5: Branch Group 5]/[6: Branch Group 6]/[7: Branch Group 7]/[8: Branch Group 8]/[9: Branch Group 9]/[10: Branch Group 10]/[11: Branch Group 11]/[12: Branch Group 12]/[13: Branch Group 13]/[14: Branch Group 14]/[15: Branch Group 15]/[16: Branch Group 16]/[17: Branch Group 17]/[18: Branch Group 18]/[19: Branch Group 19]/[20: Branch Group 20]/[21: Branch Group 21]/[22: Branch Group 22]/[23: Branch Group 23]/[24: Branch Group 24]/[25: Branch Group 25]/[26: Branch Group 26]/[27: Branch Group 27]/[28: Branch Group 28]/[29: Branch Group 29]/[30: Branch Group 30]/[other: N/A],ENUM,DO
+Load Branch,60011,Customized Breaker Capacity,20042,Config,A,,FLOAT,AO
+Load Branch,60011,Enable Disconnect Peak Shaving,20043,Config,,[0: NO]/[1: YES]/[other: N/A],ENUM,DO
+Load Branch,60011,Power Backup Duration,20044,Config,min,,UINT,AO
+Load Branch,60011,Power Backup Priority,20045,Config,,,UINT,AO
+Load Branch,60011,Plan 1 Disconnect End Time,20046,Config,,,TIME,AO
+Load Branch,60011,Plan 2 Disconnect End Time,20047,Config,,,TIME,AO
+Load Branch,60011,Plan 3 Disconnect End Time,20048,Config,,,TIME,AO
+Load Branch,60011,Plan 4 Disconnect End Time,20049,Config,,,TIME,AO
+Load Branch,60011,Plan 5 Disconnect End Time,20050,Config,,,TIME,AO
+Load Branch,60011,Exempt Period 1 End Time,20051,Config,,,TIME,AO
+Load Branch,60011,Exempt Period 2 End Time,20052,Config,,,TIME,AO
+Load Branch,60011,Exempt Period 3 End Time,20053,Config,,,TIME,AO
+Load Branch,60011,Exempt Period 4 End Time,20054,Config,,,TIME,AO
+Load Branch,60011,Exempt Period 5 End Time,20055,Config,,,TIME,AO
+Load Branch,60011,No Backup on Exempt Period 2,20056,Config,,[1: Enable]/[0: Disable]/[other: N/A],ENUM,DO
+Load Branch,60011,No Backup on Exempt Period 3,20057,Config,,[1: Enable]/[0: Disable]/[other: N/A],ENUM,DO
+Load Branch,60011,No Backup on Exempt Period 4,20058,Config,,[1: Enable]/[0: Disable]/[other: N/A],ENUM,DO
+Load Branch,60011,No Backup on Exempt Period 5,20059,Config,,[1: Enable]/[0: Disable]/[other: N/A],ENUM,DO
+Load Branch,60011,Enable Plan 2 Disconnect,20060,Config,,[1: Enable]/[0: Disable]/[other: N/A],ENUM,DO
+Load Branch,60011,Enable Plan 3 Disconnect,20061,Config,,[1: Enable]/[0: Disable]/[other: N/A],ENUM,DO
+Load Branch,60011,Enable Plan 4 Disconnect,20062,Config,,[1: Enable]/[0: Disable]/[other: N/A],ENUM,DO
+Load Branch,60011,Enable Plan 5 Disconnect,20063,Config,,[1: Enable]/[0: Disable]/[other: N/A],ENUM,DO
+Load Branch,60011,Precise Backup On/Off Control,20064,Config,,[1: On]/[0: Off]/[other: N/A],ENUM,DO
+Load Branch,60011,Control Mode,20065,Config,,[0: Plan 2 Disconnect Start Time]/[1: Plan 2 Disconnect Duration]/[2: Plan 3 Disconnect Start Time]/[other: N/A],ENUM,DO
+Load Branch,60011,Enable Load Branch Software Define Breaker,20066,Config,,[1: Enable]/[0: Disable]/[other: N/A],ENUM,DO
+Load Branch,60011,Load Branch,20067,Config,,,STRING,AO
+Load Branch,60011,Load Cluster,20068,Config,,,STRING,AO
+Load Branch,60011,Load Branch Type,29999,Config,,[1: Shared]/[0: User]/[other: N/A],ENUM,DO
+Load Branch,60011,Voltage,30001,Statistic,V,,FLOAT,OTHER
+Load Branch,60011,Current,30002,Statistic,A,,FLOAT,OTHER
+Load Branch,60011,Power,30003,Statistic,kW,,FLOAT,OTHER
+Load Branch,60011,Total Energy Consumption,30004,Statistic,kWh,,FLOAT,OTHER
+Load Branch,60011,Energy Consumption per Hour,30005,Statistic,kWh,,FLOAT,OTHER
+Load Branch,60011,Energy Consumption per Day,30006,Statistic,kWh,,FLOAT,OTHER
+Load Branch,60011,LLVD Duration per Day,30007,Statistic,h,,FLOAT,OTHER
+AC Input Distribution,60013,Phase L1 Voltage,10001,Sampling,V,,FLOAT,AI
+AC Input Distribution,60013,Phase L2 Voltage,10002,Sampling,V,,FLOAT,AI
+AC Input Distribution,60013,Phase L3 Voltage,10003,Sampling,V,,FLOAT,AI
+AC Input Distribution,60013,Phase L1 Current,10004,Sampling,A,,FLOAT,AI
+AC Input Distribution,60013,Phase L2 Current,10005,Sampling,A,,FLOAT,AI
+AC Input Distribution,60013,Phase L3 Current,10006,Sampling,A,,FLOAT,AI
+AC Input Distribution,60013,AC Frequency,10007,Sampling,Hz,,FLOAT,AI
+AC Input Distribution,60013,Active Power,10008,Sampling,kW,,FLOAT,AI
+AC Input Distribution,60013,Line L1-L2 Voltage,10009,Sampling,V,,FLOAT,AI
+AC Input Distribution,60013,Line L2-L3 Voltage,10010,Sampling,V,,FLOAT,AI
+AC Input Distribution,60013,Line L3-L1 Voltage,10011,Sampling,V,,FLOAT,AI
+AC Input Distribution,60013,Total AC Energy Consumption,10012,Sampling,kWh,,FLOAT,AI
+AC Input Distribution,60013,AC Input State,10013,Sampling,,[0: Failure]/[1: Normal]/[other: N/A],ENUM,DI
+AC Input Distribution,60013,AC Voltage,10014,Sampling,V,,FLOAT,AI
+AC Input Distribution,60013,AC Current,10015,Sampling,A,,FLOAT,AI
+AC Input Distribution,60013,Power Factor,10016,Sampling,,,FLOAT,AI
+AC Input Distribution,60013,Phase L1 Power Factor,10017,Sampling,,,FLOAT,AI
+AC Input Distribution,60013,Phase L2 Power Factor,10018,Sampling,,,FLOAT,AI
+AC Input Distribution,60013,Phase L3 Power Factor,10019,Sampling,,,FLOAT,AI
+AC Input Distribution,60013,Apparent Power,10020,Sampling,kVA,,FLOAT,AI
+AC Input Distribution,60013,Agregat u radu,60001,Sampling,,,TIME,DI
+AC Input Distribution,60013,AC Mode,20001,Config,,[0: 2-phase 2-wire]/[1: 1-phase]/[2: 3-phase 4-wire]/[3: 3-phase 3-wire]/[other: N/A],ENUM,AO
+AC Input Distribution,60013,Rated AC Phase Voltage,20004,Config,V,,FLOAT,AO
+AC Input Distribution,60013,AC Breaker Rated Current,20005,Config,A,,FLOAT,AO
+AC Input Distribution,60013,AC Derating Coefficient,20008,Config,,,FLOAT,AO
+AC Input Distribution,60013,Rated AC Line Voltage,20009,Config,V,,FLOAT,AO
+AC Input Distribution,60013,Peak Shaving Independent Setting Enable,20010,Config,,[1: Enable]/[0: Disable]/[other: N/A],ENUM,AO
+AC Input Distribution,60013,Phase L1 Breaker Rated Current,20011,Config,A,,FLOAT,AO
+AC Input Distribution,60013,Phase L2 Breaker Rated Current,20012,Config,A,,FLOAT,AO
+AC Input Distribution,60013,Phase L3 Breaker Rated Current,20013,Config,A,,FLOAT,AO
+AC Input Distribution,60013,Phase L1 Voltage,30001,Statistic,V,,FLOAT,OTHER
+AC Input Distribution,60013,Phase L2 Voltage,30002,Statistic,V,,FLOAT,OTHER
+AC Input Distribution,60013,Phase L3 Voltage,30003,Statistic,V,,FLOAT,OTHER
+AC Input Distribution,60013,Phase L1 Current,30004,Statistic,A,,FLOAT,OTHER
+AC Input Distribution,60013,Phase L2 Current,30005,Statistic,A,,FLOAT,OTHER
+AC Input Distribution,60013,Phase L3 Current,30006,Statistic,A,,FLOAT,OTHER
+AC Input Distribution,60013,AC Frequency,30007,Statistic,Hz,,FLOAT,OTHER
+AC Input Distribution,60013,Active Power,30008,Statistic,kW,,FLOAT,OTHER
+AC Input Distribution,60013,Line L1-L2 Voltage,30009,Statistic,V,,FLOAT,OTHER
+AC Input Distribution,60013,Line L2-L3 Voltage,30010,Statistic,V,,FLOAT,OTHER
+AC Input Distribution,60013,Line L3-L1 Voltage,30011,Statistic,V,,FLOAT,OTHER
+AC Input Distribution,60013,Total AC Energy Consumption,30012,Statistic,kWh,,FLOAT,OTHER
+AC Input Distribution,60013,AC Input State,30013,Statistic,,[0: Failure]/[1: Normal]/[other: N/A],ENUM,OTHER
+AC Input Distribution,60013,AC Voltage,30014,Statistic,V,,FLOAT,OTHER
+AC Input Distribution,60013,AC Current,30015,Statistic,A,,FLOAT,OTHER
+AC Input Distribution,60013,Outage Times per Day,30016,Statistic,times,,UINT,OTHER
+AC Input Distribution,60013,Outage Duration per Day,30017,Statistic,h,,FLOAT,OTHER
+AC Input Distribution,60013,Runtime per Day,30018,Statistic,h,,FLOAT,OTHER
+AC Input Distribution,60013,AC Energy Consumption per Day,30019,Statistic,kWh,,FLOAT,OTHER
+AC Input Distribution,60013,AC Energy Consumption per Hour,30020,Statistic,kWh,,FLOAT,OTHER
+AC Input Distribution,60013,Longest Outage Duration per Day,30021,Statistic,h,,FLOAT,OTHER
+Lithium Battery Group,60014,Battery State,10001,Sampling,,[0: First On]/[1: Disconnect]/[2: Float Charging]/[3: Boost Charging]/[4: Discharging]/[5: Charging]/[6: Test]/[7: Hibernating]/[8: Standby]/[other: N/A],ENUM,AI
+Lithium Battery Group,60014,Voltage,10002,Sampling,V,,FLOAT,AI
+Lithium Battery Group,60014,Current,10003,Sampling,A,,FLOAT,AI
+Lithium Battery Group,60014,Average Temperature,10004,Sampling,°C,,FLOAT,AI
+Lithium Battery Group,60014,SOC,10005,Sampling,%,,FLOAT,AI
+Lithium Battery Group,60014,Remaining Capacity,10006,Sampling,Ah,,FLOAT,AI
+Lithium Battery Group,60014,Remaining Backup Time,10007,Sampling,h,,FLOAT,AI
+Lithium Battery Group,60014,Total Cycle Times,10008,Sampling,times,,UINT,OTHER
+Lithium Battery Group,60014,Total discharge,10009,Sampling,kWh,,FLOAT,OTHER
+Lithium Battery Group,60014,Test State,10010,Sampling,,[0: Idle]/[1: Testing]/[2: Pre-boost Charging]/[other: N/A],ENUM,AI
+Lithium Battery Group,60014,Test Mode,10011,Sampling,,[0: Idle]/[1: Planned Test]/[2: Scheduled Test]/[3: Manual Standard Test]/[4: Short Test]/[5: AC Outage Test]/[6: Simplified Test]/[7: Checking Test]/[other: N/A],ENUM,AI
+Lithium Battery Group,60014,Rated capacity,10012,Sampling,Ah,,FLOAT,AI
+Lithium Battery Group,60014,SOH,10013,Sampling,%,,UINT,AI
+Lithium Battery Group,60014,Battery String Quantity,10014,Sampling,,,UINT,AI
+Lithium Battery Group,60014,Total Discharge Times,10015,Sampling,times,,UINT,OTHER
+Lithium Battery Group,60014,Charge/Discharge Power,10023,Sampling,kW,,FLOAT,AI
+Lithium Battery Group,60014,Remaining Backup Time (AI),10024,Sampling,h,,FLOAT,AI
+Lithium Battery Group,60014,Backup Time (AI),10025,Sampling,h,,FLOAT,AI
+Lithium Battery Group,60014,Remaining Capacity Percent (AI),10026,Sampling,%,,UINT,AI
+Lithium Battery Group,60014,Remaining Capacity (AI),10027,Sampling,Ah,,FLOAT,AI
+Lithium Battery Group,60014,Device status,10028,Sampling,,[0: Standby]/[770: Shutdown: No power-on authorization]/[1: Operating]/[2: Hibernating]/[772: Shutdown: EPO shutdown]/[256: Starting]/[3: Charging]/[4: Discharging]/[5: Shut Down]/[6: Faulty]/[7: Offline]/[8: ]/[768: Shutdown: Abnormal shutdown]/[9: Invalid]/[769: Shutdown: Command power-off]/[517: Running: Battery current limiting]/[519: Running: The energy storage system is derated]/[49152: Loading]/[other: N/A],ENUM,AI
+Lithium Battery Group,60014,Quantity of working BMUs,10029,Sampling,,,USHORT,AI
+Lithium Battery Group,60014,SOE,10030,Sampling,%,,USHORT,AI
+Lithium Battery Group,60014,Total charge,10031,Sampling,kWh,,FLOAT,OTHER
+Lithium Battery Group,60014,DOD,10032,Sampling,%,,USHORT,AI
+Lithium Battery Group,60014,Chargeable capacity,10033,Sampling,kWh,,FLOAT,AI
+Lithium Battery Group,60014,Dischargeable capacity,10034,Sampling,kWh,,FLOAT,AI
+Lithium Battery Group,60014,Module with the highest temperature,10035,Sampling,°C,,FLOAT,AI
+Lithium Battery Group,60014,Position of the module with the highest temperature,10036,Sampling,,,USHORT,AI
+Lithium Battery Group,60014,Module with the lowest temperature,10037,Sampling,°C,,FLOAT,AI
+Lithium Battery Group,60014,Position of the module with the lowest temperature,10038,Sampling,,,USHORT,AI
+Lithium Battery Group,60014,Lowest battery pack voltage,10039,Sampling,V,,FLOAT,AI
+Lithium Battery Group,60014,Position where the lowest battery pack voltage was detected,10040,Sampling,,,USHORT,AI
+Lithium Battery Group,60014,Highest battery pack voltage,10041,Sampling,V,,FLOAT,AI
+Lithium Battery Group,60014,Position where the highest battery pack voltage was detected,10042,Sampling,,,USHORT,AI
+Lithium Battery Group,60014,Daily charge energy,10043,Sampling,kWh,,FLOAT,AI
+Lithium Battery Group,60014,Daily discharge energy,10044,Sampling,kWh,,FLOAT,AI
+Lithium Battery Group,60014,Largest temperature difference between modules,10045,Sampling,°C,,FLOAT,AI
+Lithium Battery Group,60014,Battery Test Start Failure Cause,10046,Sampling,,[0: None]/[1: Battery Test Started]/[101: AC Input Failure]/[201: DC Input Failure]/[102: AC Input Overvoltage]/[202: DC Input Overvoltage]/[103: AC Input Undervoltage]/[1004: System Not in Auto Control Mode]/[301: PSU Communication Failure]/[203: DC Input Undervoltage]/[401: DCDC Communication Failure]/[104: AC Input Phase Failure]/[1003: Battery Not Fully Charged]/[302: PSU Protection]/[402: DCDC Protection]/[1002: Lower Than Test End Capacity]/[303: PSU Fault]/[501: SSU Communication Failure]/[403: DCDC Fault]/[601: PV Optimizer Communication Failure]/[1001: Lower Than Test End Voltage]/[304: All PSUs No Output]/[404: All DCDCs No Output]/[602: All PV Optimizers No Output]/[701: Lithium Battery Communication Failure]/[603: PV Optimizer Disconnected]/[801: Battery Fuse Broken]/[504: All SSUs No Output]/[702: Lithium Battery Module Alarm]/[901: Lead-Acid Battery Not in Float Charging]/[802: Battery Reversely Connected]/[703: Lithium Battery Cell Alarm]/[704: Lithium Battery MOS Off]/[902: Power System Paralleling]/[803: Power System Paralleling Abnormal]/[903: Enable Mains Peak Shaving]/[904: Test Not Supported by Power Module]/[905: Battery First On]/[906: LiBat1.0 2.0Hybrid]/[other: N/A],ENUM,AI
+Lithium Battery Group,60014,SOC calibration status,10047,Sampling,,[0: Idle]/[1: Ongoing]/[other: N/A],ENUM,DI
+Lithium Battery Group,60014,Maximum charge power,10048,Sampling,kW,,FLOAT,AI
+Lithium Battery Group,60014,Maximum discharge power,10049,Sampling,kW,,FLOAT,AI
+Lithium Battery Group,60014,SOH calibration status,10050,Sampling,,[0: Idle]/[1: Ongoing]/[2: ]/[3: ]/[4: Request for forced calibration]/[other: N/A],ENUM,AI
+Lithium Battery Group,60014,Maximum Charge Power,10060,Sampling,kW,,FLOAT,AI
+Lithium Battery Group,60014,Total Chargeable Capacity,10061,Sampling,kWh,,FLOAT,AI
+Lithium Battery Group,60014,Maximum Discharge Power,10062,Sampling,kW,,FLOAT,AI
+Lithium Battery Group,60014,Total Dischargeable Capacity,10063,Sampling,kWh,,FLOAT,AI
+Lithium Battery Group,60014,Peak/Frequency Regulation Abnormal Reason,10064,Sampling,,[0: None]/[1: All Li Batt Communication Failure]/[100: Other]/[2: Lithium Battery Fault]/[3: No Mains Detection]/[4: Mains Undervoltage]/[5: Mains Overvoltage]/[6: Mains Phase Failure]/[7: Mains Outage]/[8: Power System Scheduling]/[9: Third-Party Battery Not Fully Charged]/[other: N/A],ENUM,AI
+Lithium Battery Group,60014,Leakage current,10065,Sampling,mA,,SHORT,AI
+Lithium Battery Group,60014,ISO insulation resistance,10066,Sampling,MΩ,,FLOAT,AI
+Lithium Battery Group,60014,Charge/Discharge Power (Peak/Frequency-Regulated Li Batteries),10067,Sampling,kW,,FLOAT,AI
+Lithium Battery Group,60014,Slot ID,11999,Sampling,,,USHORT,AI
+Lithium Battery Group,60014,Supported stable charge power,12000,Sampling,kW,,FLOAT,AI
+Lithium Battery Group,60014,Supported stable discharge power,12001,Sampling,kW,,FLOAT,AI
+Lithium Battery Group,60014,ESN,13617,Sampling,,,STRING,AI
+Lithium Battery Group,60014,,13618,Sampling,,[0: ]/[1: ]/[other: N/A],ENUM,DI
+Lithium Battery Group,60014,SN,19100,Sampling,,,STRING,AI
+Lithium Battery Group,60014,Device connection status,19999,Sampling,,[45057: Online]/[45056: Offline]/[45059: Faulty]/[45058: Standby]/[45060: Loading]/[other: N/A],ENUM,AI
+Lithium Battery Group,60014,Enable iLock,20004,Config,,[0: Disable]/[1: Enable]/[other: N/A],ENUM,DO
+Lithium Battery Group,60014,iLock Verify Timeout,20005,Config,h,,UINT,AO
+Lithium Battery Group,60014,Standard Test Control,20006,Config,,[0: Stop Test]/[1: Start Test]/[other: N/A],ENUM,DO
+Lithium Battery Group,60014,SOH Subhealth Threshold,20007,Config,%,,UINT,AO
+Lithium Battery Group,60014,SOH Aging Threshold,20008,Config,%,,UINT,AO
+Lithium Battery Group,60014,Discharge Mode,20011,Config,,[0: Automatic]/[1: Constant-voltage discharge]/[other: N/A],ENUM,DO
+Lithium Battery Group,60014,Preferential Charge,20012,Config,,[0: Disable]/[1: Allow]/[other: N/A],ENUM,DO
+Lithium Battery Group,60014,Cycle Mode,20013,Config,,[0: Cycle of Lithium and Lead-acid Batteries]/[1: Active Lithium and Standby Lead-acid Batteries]/[2: Active Lead-acid and Standby Lithium batteries]/[other: N/A],ENUM,AO
+Lithium Battery Group,60014,Charge Current-limiting Coefficient,20014,Config,C10,,UINT,AO
+Lithium Battery Group,60014,Battery Type,20015,Config,,[0: Lithium Iron]/[1: Ternary Lithium Battery]/[2: Lithium Battery 2.0]/[3: DBU20B]/[4: ESM-4810A1]/[other: N/A],ENUM,AO
+Lithium Battery Group,60014,Model,20016,Config,,,STRING,AO
+Lithium Battery Group,60014,Manufacturer,20017,Config,,,STRING,AO
+Lithium Battery Group,60014,Production Date,20018,Config,,,TIME,AO
+Lithium Battery Group,60014,Installation Date,20019,Config,,,TIME,AO
+Lithium Battery Group,60014,BLVD Voltage,20020,Config,V,,FLOAT,AO
+Lithium Battery Group,60014,Float Charge Voltage,20021,Config,V,,FLOAT,AO
+Lithium Battery Group,60014,Boost Charge Voltage,20022,Config,V,,FLOAT,AO
+Lithium Battery Group,60014,Battery String Quantity,20023,Config,,,UINT,AO
+Lithium Battery Group,60014,Standard Test End Voltage,20024,Config,V,,FLOAT,AO
+Lithium Battery Group,60014,Standard Test End Capacity,20025,Config,%,,FLOAT,AO
+Lithium Battery Group,60014,Standard Test End Temperature,20026,Config,°C,,FLOAT,AO
+Lithium Battery Group,60014,Standard Test End Time,20027,Config,min,,UINT,AO
+Lithium Battery Group,60014,Time Test Mode,20028,Config,,[1: Planned Test]/[2: Scheduled Test]/[0: Disable]/[other: N/A],ENUM,AO
+Lithium Battery Group,60014,Battery Test Times/year,20029,Config,,,UINT,AO
+Lithium Battery Group,60014,Planned Test Time 1,20030,Config,,,TIME,AO
+Lithium Battery Group,60014,Planned Test Time 2,20031,Config,,,TIME,AO
+Lithium Battery Group,60014,Planned Test Time 3,20032,Config,,,TIME,AO
+Lithium Battery Group,60014,Planned Test Time 4,20033,Config,,,TIME,AO
+Lithium Battery Group,60014,Planned Test Time 5,20034,Config,,,TIME,AO
+Lithium Battery Group,60014,Planned Test Time 6,20035,Config,,,TIME,AO
+Lithium Battery Group,60014,Scheduled Test Start Time,20036,Config,,,TIME,AO
+Lithium Battery Group,60014,Scheduled Test Interval,20037,Config,day,,UINT,AO
+Lithium Battery Group,60014,Enable AC Outage Test,20038,Config,,[0: Disable]/[1: Enable]/[other: N/A],ENUM,DO
+Lithium Battery Group,60014,Total Applied Discharge Quota,20041,Config,kWh,,FLOAT,AO
+Lithium Battery Group,60014,iLock Verify Timeout,20042,Config,min,,UINT,AO
+Lithium Battery Group,60014,Peak Shaving SOC,20043,Config,%,,FLOAT,AO
+Lithium Battery Group,60014,Peak Shaving SOC (Mix),20044,Config,%,,FLOAT,AO
+Lithium Battery Group,60014,Peak Shaving Li-Battery as Backup Battery,20045,Config,,[0: Disable]/[1: Enable]/[other: N/A],ENUM,DO
+Lithium Battery Group,60014,Rated capacity,20046,Config,Ah,,FLOAT,AO
+Lithium Battery Group,60014,Cycle Factor,20047,Config,,,UINT,AO
+Lithium Battery Group,60014,iLock Verify Timeout Dimension,20048,Config,,[0: Hour]/[1: Minute]/[other: N/A],ENUM,DO
+Lithium Battery Group,60014,Lock Battery,20049,Config,,[1: Lock]/[0: Unlock]/[other: N/A],ENUM,DO
+Lithium Battery Group,60014,iLock Unlock Mode,20050,Config,,[0: Local Unlock Mode]/[1: NetEco Unlock Mode]/[other: N/A],ENUM,DO
+Lithium Battery Group,60014,Enable Unlock Mode,20051,Config,,[0: Disable]/[1: Enable]/[other: N/A],ENUM,DO
+Lithium Battery Group,60014,BLVD contactor,20052,Config,,[0: No]/[1: Yes]/[other: N/A],ENUM,AO
+Lithium Battery Group,60014,Lithium Battery Self-Management Capability Negotiation,20053,Config,,,UINT,AO
+Lithium Battery Group,60014,Backup Time,20054,Config,h,,UINT,AO
+Lithium Battery Group,60014,Disconnection Duration,20055,Config,h,,UINT,AO
+Lithium Battery Group,60014,,20056,Config,,[0: ]/[1: ]/[2: ]/[3: ]/[other: N/A],ENUM,AO
+Lithium Battery Group,60014,Auto Battery Test Start Failure Request Flag,20057,Config,,,UINT,AO
+Lithium Battery Group,60014,Support Peak/Frequency Regulation,20058,Config,,[0: No]/[1: Yes]/[other: N/A],ENUM,AO
+Lithium Battery Group,60014,Enable Peak/Frequency Regulation,20059,Config,,[0: No]/[1: Yes]/[other: N/A],ENUM,DO
+Lithium Battery Group,60014,Peak/Frequency Regulation Mode,20060,Config,,,UINT,AO
+Lithium Battery Group,60014,Peak/Frequency Regulation Duration,20061,Config,,,FLOAT,AO
+Lithium Battery Group,60014,Peak/Frequency Regulation Power,20062,Config,kW,,FLOAT,AO
+Lithium Battery Group,60014,Closed-Loop Control,20063,Config,,[0: No]/[1: Yes]/[other: N/A],ENUM,DO
+Lithium Battery Group,60014,Target SOC preparation policy upper limit,20064,Config,%,,UINT,AO
+Lithium Battery Group,60014,System logic dependency signal 2,20065,Config,,,UINT,AO
+Lithium Battery Group,60014,Allow SOH calibration,20066,Config,,[0: No]/[1: Yes]/[2: To be selected]/[other: N/A],ENUM,AO
+Lithium Battery Group,60014,End-of-life protection,20067,Config,,[0: Faulty]/[1: Offline]/[other: N/A],ENUM,AO
+Lithium Battery Group,60014,Target SOC preparation policy lower limit,20068,Config,%,,UINT,AO
+Lithium Battery Group,60014,Peak/Frequency Regulation Type,20069,Config,,[0: Target]/[1: Delta]/[other: N/A],ENUM,AO
+Lithium Battery Group,60014,Backup Time,20070,Config,h,,FLOAT,AO
+Lithium Battery Group,60014,Lithium Battery Simultaneous Charging and Discharging,20071,Config,h,[0: Faulty]/[1: Offline]/[other: N/A],ENUM,AO
+Lithium Battery Group,60014,Self Hybrid,20072,Config,,[0: Faulty]/[1: Offline]/[other: N/A],ENUM,AO
+Lithium Battery Group,60014,Discharge Test Mode,20073,Config,,[0: Group Discharge]/[1: Alternate Discharge]/[other: N/A],ENUM,DO
+Lithium Battery Group,60014,Discharge Current Limit Coefficient,20074,Config,C10,,FLOAT,AO
+Lithium Battery Group,60014,Enable Peak/Frequency Regulation,20075,Config,,[0: No]/[1: Yes]/[other: N/A],ENUM,DO
+Lithium Battery Group,60014,Enable Peak Regulation,20076,Config,,[0: No]/[1: Yes]/[other: N/A],ENUM,DO
+Lithium Battery Group,60014,Enable Frequency Regulation,20077,Config,,[0: No]/[1: Yes]/[other: N/A],ENUM,DO
+Lithium Battery Group,60014,Peak/Frequency Regulation Form,20078,Config,,[0: DC]/[1: AC]/[other: N/A],ENUM,DO
+Lithium Battery Group,60014,,24001,Config,,,USHORT,AO
+Lithium Battery Group,60014,,24002,Config,,,UINT,AO
+Lithium Battery Group,60014,Device model,29100,Config,,,STRING,AO
+Lithium Battery Group,60014,,29101,Config,,,STRING,AO
+Lithium Battery Group,60014,SN,50012,Config,,,STRING,AO
+Lithium Battery Group,60014,Battery State,30001,Statistic,,[0: First On]/[1: Disconnect]/[2: Float Charging]/[3: Boost Charging]/[4: Discharging]/[5: Charging]/[6: Test]/[7: Hibernating]/[8: Standby]/[other: N/A],ENUM,OTHER
+Lithium Battery Group,60014,Voltage,30002,Statistic,V,,FLOAT,OTHER
+Lithium Battery Group,60014,Current,30003,Statistic,A,,FLOAT,OTHER
+Lithium Battery Group,60014,Average Temperature,30004,Statistic,°C,,FLOAT,OTHER
+Lithium Battery Group,60014,Total discharge,30005,Statistic,kWh,,FLOAT,OTHER
+Lithium Battery Group,60014,Total Cycle Times,30006,Statistic,times,,UINT,OTHER
+Lithium Battery Group,60014,Test Mode,30007,Statistic,,[0: Idle]/[1: Planned Test]/[2: Scheduled Test]/[3: Manual Standard Test]/[4: Short Test]/[5: AC Outage Test]/[6: Simplified Test]/[7: Checking Test]/[other: N/A],ENUM,OTHER
+Lithium Battery Group,60014,Discharge Duration per Day,30009,Statistic,h,,FLOAT,OTHER
+Lithium Battery Group,60014,Charge Times per Day,30010,Statistic,times,,UINT,OTHER
+Lithium Battery Group,60014,Discharge Times per Day,30011,Statistic,times,,UINT,OTHER
+Lithium Battery Group,60014,Daily discharge energy,30012,Statistic,kWh,,FLOAT,OTHER
+Lithium Battery Group,60014,SOH,30013,Statistic,%,,UINT,OTHER
+Lithium Battery Group,60014,Longest Discharge Duration per Day,30014,Statistic,h,,FLOAT,OTHER
+Lithium Battery Group,60014,High Temp Runtime per Day,30015,Statistic,h,,FLOAT,OTHER
+Lithium Battery Group,60014,Low Temp Runtime per Day,30016,Statistic,h,,FLOAT,OTHER
+Lithium Battery Group,60014,SOC,30017,Statistic,%,,FLOAT,OTHER
+Lithium Battery Group,60014,Total Discharge Times,30018,Statistic,times,,UINT,OTHER
+Lithium Battery Group,60014,Total Discharge Duration,30019,Statistic,h,,FLOAT,OTHER
+Lithium Battery Group,60014,Charge/Discharge Power,30024,Statistic,kW,,FLOAT,OTHER
+Lithium Battery Group,60014,Module with the highest temperature,30025,Statistic,°C,,FLOAT,OTHER
+Lithium Battery Group,60014,Module with the lowest temperature,30026,Statistic,°C,,FLOAT,OTHER
+Lithium Battery Group,60014,Total charge,30027,Statistic,kWh,,FLOAT,OTHER
+Lithium Battery Group,60014,Battery Cell Pack Voltage,30028,Statistic,V,,FLOAT,OTHER
+Lithium Battery Group,60014,Device status,30029,Statistic,,[0: Standby]/[770: Shutdown: No power-on authorization]/[1: Operating]/[2: Hibernating]/[772: Shutdown: EPO shutdown]/[256: Starting]/[3: Charging]/[4: Discharging]/[5: Shut Down]/[6: Faulty]/[7: Offline]/[8: ]/[768: Shutdown: Abnormal shutdown]/[9: Invalid]/[769: Shutdown: Command power-off]/[517: Running: Battery current limiting]/[519: Running: The energy storage system is derated]/[49152: Loading]/[other: N/A],ENUM,OTHER
+Lithium Battery Group,60014,Daily charge energy,30043,Statistic,kWh,,FLOAT,OTHER
+Lithium Battery Group,60014,Maximum charge power,30048,Statistic,kW,,FLOAT,OTHER
+Lithium Battery Group,60014,Maximum discharge power,30049,Statistic,kW,,FLOAT,OTHER
+Lithium Battery Group,60014,Current,30050,Statistic,A,,FLOAT,OTHER
+Lithium Battery Group,60014,Total Charge Capacity,30052,Statistic,kWh,,FLOAT,OTHER
+Lithium Battery Group,60014,Total Discharge Capacity,30053,Statistic,kWh,,FLOAT,OTHER
+Lithium Battery Group,60014,,30054,Statistic,h,,FLOAT,OTHER
+Lithium Battery Group,60014,Charge/Discharge Power (Peak/Frequency-Regulated Li Batteries),30055,Statistic,kW,,FLOAT,OTHER
+Lithium Battery Group,60014,Voltage,30056,Statistic,V,,FLOAT,OTHER
+Lithium Battery Group,60014,ISO insulation resistance,30066,Statistic,MΩ,,FLOAT,OTHER
+Lithium Battery Group,60014,SOE,31132,Statistic,%,,USHORT,OTHER
+Lithium Battery Group,60014,DOD,31134,Statistic,%,,USHORT,OTHER
+Lithium Battery Group,60014,Chargeable capacity,31135,Statistic,kWh,,FLOAT,OTHER
+Lithium Battery Group,60014,Dischargeable capacity,31136,Statistic,kWh,,FLOAT,OTHER
+Lithium Battery Group,60014,Position of the module with the highest temperature,31138,Statistic,,,USHORT,OTHER
+Lithium Battery Group,60014,Position of the module with the lowest temperature,31140,Statistic,,,USHORT,OTHER
+Lithium Battery Group,60014,Lowest battery pack voltage,31141,Statistic,V,,FLOAT,OTHER
+Lithium Battery Group,60014,Position where the lowest battery pack voltage was detected,31142,Statistic,,,USHORT,OTHER
+Lithium Battery Group,60014,Highest battery pack voltage,31143,Statistic,V,,FLOAT,OTHER
+Lithium Battery Group,60014,Position where the highest battery pack voltage was detected,31144,Statistic,,,USHORT,OTHER
+Lithium Battery Group,60014,SOC,31145,Statistic,%,,FLOAT,OTHER
+Lithium Battery Group,60014,Supported stable charge power,32000,Statistic,kW,,FLOAT,OTHER
+Lithium Battery Group,60014,Supported stable discharge power,32001,Statistic,kW,,FLOAT,OTHER
+Lithium Battery,60015,Voltage,10001,Sampling,V,,FLOAT,AI
+Lithium Battery,60015,Current,10002,Sampling,A,,FLOAT,AI
+Lithium Battery,60015,Device Address,10003,Sampling,,,UINT,AI
+Lithium Battery,60015,Software version,10004,Sampling,,,STRING,AI
+Lithium Battery,60015,Battery State,10005,Sampling,,[0: Online]/[1: Offline]/[2: Hibernating]/[3: Disconnected]/[4: Charging]/[5: Discharging]/[6: Standby]/[7: Low Power Consumption]/[other: N/A],ENUM,AI
+Lithium Battery,60015,SOH,10006,Sampling,%,,UINT,AI
+Lithium Battery,60015,Rated capacity,10007,Sampling,Ah,,FLOAT,AI
+Lithium Battery,60015,Hardware Version,10009,Sampling,,,STRING,AI
+Lithium Battery,60015,SOC,10010,Sampling,%,,UINT,AI
+Lithium Battery,60015,Working status,10011,Sampling,,[0: Automatic Running]/[1: Manual Shutdown]/[other: N/A],ENUM,AI
+Lithium Battery,60015,Request iLock Verification Code,10012,Sampling,,,UINT,AI
+Lithium Battery,60015,Monitor ESN,10013,Sampling,,,STRING,AI
+Lithium Battery,60015,Remaining Capacity,10015,Sampling,Ah,,FLOAT,AI
+Lithium Battery,60015,In Position,10016,Sampling,,[0: Present]/[1: Absent]/[other: N/A],ENUM,DI
+Lithium Battery,60015,Longitude,10017,Sampling,°,,DOUBLE,AI
+Lithium Battery,60015,Latitude,10018,Sampling,°,,DOUBLE,AI
+Lithium Battery,60015,Lock State,10019,Sampling,,[0: Unlock]/[1: Lock]/[other: N/A],ENUM,DI
+Lithium Battery,60015,SOC（AI）,10020,Sampling,%,,UINT,AI
+Lithium Battery,60015,SOH (AI),10021,Sampling,%,,UINT,AI
+Lithium Battery,60015,Remaining Capacity (AI),10022,Sampling,Ah,,FLOAT,AI
+Lithium Battery,60015,Electricity Bill During Self Staggering,10023,Sampling,,,FLOAT,AI
+Lithium Battery,60015,Cell Resistance AbNormal,10024,Sampling,,,UINT,AI
+Lithium Battery,60015,Average Discharge Power During Load Detection,10025,Sampling,kW,,FLOAT,AI
+Lithium Battery,60015,Running status,10026,Sampling,,[0: Standby]/[1: Operating]/[2: Hibernating]/[3: Offline]/[4: Invalid]/[5: Faulty]/[49152: Loading]/[10: EOL]/[other: N/A],ENUM,DI
+Lithium Battery,60015,Highest Temperature,10027,Sampling,°C,,FLOAT,AI
+Lithium Battery,60015,Position where the highest temperature was detected,10028,Sampling,,,USHORT,AI
+Lithium Battery,60015,Lowest Temperature,10029,Sampling,°C,,FLOAT,AI
+Lithium Battery,60015,Position where the lowest temperature was detected,10030,Sampling,,,USHORT,AI
+Lithium Battery,60015,Total charge,10031,Sampling,Wh,,UINT,OTHER
+Lithium Battery,60015,Total discharge,10032,Sampling,Wh,,UINT,OTHER
+Lithium Battery,60015,Number of discharges,10033,Sampling,,,UINT,AI
+Lithium Battery,60015,Highest cell voltage,10034,Sampling,mV,,USHORT,AI
+Lithium Battery,60015,Position where the highest cell voltage was detected,10035,Sampling,,,USHORT,AI
+Lithium Battery,60015,Lowest cell voltage,10036,Sampling,mV,,USHORT,AI
+Lithium Battery,60015,Position where the lowest cell voltage was detected,10037,Sampling,,,USHORT,AI
+Lithium Battery,60015,Highest cell SOC,10038,Sampling,%,,USHORT,AI
+Lithium Battery,60015,Position where the highest cell SOC was detected,10039,Sampling,,,USHORT,AI
+Lithium Battery,60015,Lowest cell SOC,10040,Sampling,%,,USHORT,AI
+Lithium Battery,60015,Position where the lowest cell SOC was detected,10041,Sampling,,,USHORT,AI
+Lithium Battery,60015,Optimization unit status,10042,Sampling,,[0: Disconnected]/[1: Normal]/[2: Bypass]/[other: N/A],ENUM,AI
+Lithium Battery,60015,Location,10043,Sampling,,,USHORT,AI
+Lithium Battery,60015,Charge/Discharge power,10044,Sampling,W,,INT,AI
+Lithium Battery,60015,Average temperature of battery modules,10045,Sampling,°C,,FLOAT,AI
+Lithium Battery,60015,SN,10046,Sampling,,,STRING,AI
+Lithium Battery,60015,Model,10047,Sampling,,,STRING,AI
+Lithium Battery,60015,Largest temperature difference in the module,10048,Sampling,°C,,FLOAT,AI
+Lithium Battery,60015,Number of cycles,10049,Sampling,,,UINT,AI
+Lithium Battery,60015,,10050,Sampling,,,USHORT,AI
+Lithium Battery,60015,Battery Feature2,10051,Sampling,,,UINT,AI
+Lithium Battery,60015,Accumulated Charge Watt-hours On The Lithium Battery Busbar Side,10052,Sampling,Wh,,UINT,AI
+Lithium Battery,60015,Accumulated Discharge  Watt-hours On The Lithium Battery Busbar Side,10053,Sampling,Wh,,UINT,AI
+Lithium Battery,60015,SOE,10054,Sampling,%,,USHORT,AI
+Lithium Battery,60015,,10055,Sampling,,,UINT,AI
+Lithium Battery,60015,Highest Cell SOH,10060,Sampling,%,,USHORT,AI
+Lithium Battery,60015,Cell with Highest SOH,10061,Sampling,,,USHORT,AI
+Lithium Battery,60015,Lowest Cell SOH,10062,Sampling,%,,USHORT,AI
+Lithium Battery,60015,Cell with Lowest SOH,10063,Sampling,,,USHORT,AI
+Lithium Battery,60015,SOH Calibration Status,10064,Sampling,,[0: Idle]/[1: Requesting Calibration]/[2: Calibrating]/[3: Calibrated]/[other: N/A],ENUM,AI
+Lithium Battery,60015,Slot ID,11999,Sampling,,,USHORT,AI
+Lithium Battery,60015,Total Charging Capacity,13619,Sampling,Ah,,FLOAT,OTHER
+Lithium Battery,60015,Total Discharge Capacity,13620,Sampling,Ah,,FLOAT,OTHER
+Lithium Battery,60015,Balance status of all cells,13621,Sampling,,,USHORT,AI
+Lithium Battery,60015,Battery Type,13622,Sampling,,,USHORT,AI
+Lithium Battery,60015,,13623,Sampling,,,USHORT,AI
+Lithium Battery,60015,,13624,Sampling,,,USHORT,AI
+Lithium Battery,60015,,13625,Sampling,,,USHORT,AI
+Lithium Battery,60015,,13626,Sampling,,,STRING,AI
+Lithium Battery,60015,SIM Card Network Signal Quality,13627,Sampling,,,UINT,AI
+Lithium Battery,60015,Module Working Status,13628,Sampling,,,UINT,AI
+Lithium Battery,60015,SN,19100,Sampling,,,STRING,AI
+Lithium Battery,60015,Device connection status,19999,Sampling,,[45057: Online]/[45056: Offline]/[45059: Faulty]/[45058: Standby]/[45060: Loading]/[other: N/A],ENUM,AI
+Lithium Battery,60015,Battery Type,20001,Config,,[0: Lithium Iron]/[1: Ternary Lithium Battery]/[2: Lithium Battery 2.0]/[other: N/A],ENUM,AO
+Lithium Battery,60015,Model,20002,Config,,,STRING,AO
+Lithium Battery,60015,Manufacturer,20003,Config,,,STRING,AO
+Lithium Battery,60015,Production Date,20004,Config,,,TIME,AO
+Lithium Battery,60015,Installation Date,20005,Config,,,TIME,AO
+Lithium Battery,60015,iLock Verification Code,20008,Config,,,STRING,AO
+Lithium Battery,60015,iLock Verification Code Sent Flag,20009,Config,,,UINT,AO
+Lithium Battery,60015,SOH Subhealth Threshold,20010,Config,%,,UINT,AO
+Lithium Battery,60015,SOH Aging Threshold,20011,Config,%,,UINT,AO
+Lithium Battery,60015,Lock Battery Output,20012,Config,,[1: Lock]/[0: Unlock]/[other: N/A],ENUM,DO
+Lithium Battery,60015,Certificate Replacement,20013,Config,,[0: Allow Replacement]/[1: Not Allow Replacement]/[other: N/A],ENUM,AO
+Lithium Battery,60015,Is Displacement Lock Supported,20014,Config,,[1: Support]/[0: Not Support]/[other: N/A],ENUM,AO
+Lithium Battery,60015,Location Info Reporting,20015,Config,,[1: Support]/[0: Not Support]/[other: N/A],ENUM,AO
+Lithium Battery,60015,Enable Displacement Lock,20016,Config,,[0: Disable]/[1: Enable]/[other: N/A],ENUM,DO
+Lithium Battery,60015,Enable Displacement Lock License,20017,Config,,[0: Disable]/[1: Enable]/[other: N/A],ENUM,DO
+Lithium Battery,60015,Lithium Battery ESN,20018,Config,,,STRING,AO
+Lithium Battery,60015,Monitor ESN,20019,Config,,,STRING,AO
+Lithium Battery,60015,Lithium Battery Capability Negotiation,20020,Config,,,UINT,AO
+Lithium Battery,60015,Load Model Detection Duration,20021,Config,h,,UINT,AO
+Lithium Battery,60015,Self Staggering DOD,20022,Config,%,,UINT,AO
+Lithium Battery,60015,Self Boosting Voltage,20023,Config,V,,FLOAT,AO
+Lithium Battery,60015,AI Battery String SOH,20024,Config,%,,UINT,AO
+Lithium Battery,60015,AI Remaining Battery Capacity Percent,20025,Config,%,,UINT,AO
+Lithium Battery,60015,Customer Code,20026,Config,,,STRING,AO
+Lithium Battery,60015,Gyroscope Guard Deployment,20027,Config,,[0: Disable]/[1: Enable]/[other: N/A],ENUM,DO
+Lithium Battery,60015,Gyroscope Withdrawal,20028,Config,,,STRING,AO
+Lithium Battery,60015,Indicates Whether to Support Gyroscope Withdrawal Enhancement,20029,Config,,[0: NO]/[1: YES]/[other: N/A],ENUM,DO
+Lithium Battery,60015,Active/StandBy Mode,20030,Config,,[0: Active]/[1: StandBy]/[other: N/A],ENUM,DO
+Lithium Battery,60015,Set Hybrid Scenario,20031,Config,,[0: exit]/[21845: enter]/[other: N/A],ENUM,AO
+Lithium Battery,60015,Unique Attribute ID,20032,Config,,,UINT,AO
+Lithium Battery,60015,,20033,Config,,,UINT,AO
+Lithium Battery,60015,Self Hybrid DOD,20034,Config,%,,UINT,AO
+Lithium Battery,60015,Support Peak/Frequency Regulation,20035,Config,,,UINT,AO
+Lithium Battery,60015,,24001,Config,,,USHORT,AO
+Lithium Battery,60015,,24002,Config,,,UINT,AO
+Lithium Battery,60015,Device model,29100,Config,,,STRING,AO
+Lithium Battery,60015,,29101,Config,,,STRING,AO
+Lithium Battery,60015,SN,50012,Config,,,STRING,AO
+Lithium Battery,60015,Battery State,30001,Statistic,,[0: Online]/[1: Offline]/[2: Hibernating]/[3: Disconnected]/[4: Charging]/[5: Discharging]/[6: Standby]/[other: N/A],ENUM,OTHER
+Lithium Battery,60015,Voltage,30002,Statistic,V,,FLOAT,OTHER
+Lithium Battery,60015,Current,30003,Statistic,A,,FLOAT,OTHER
+Lithium Battery,60015,SOH,30004,Statistic,%,,UINT,OTHER
+Lithium Battery,60015,In Position,30005,Statistic,,[0: Present]/[1: Absent]/[other: N/A],ENUM,OTHER
+Lithium Battery,60015,Longitude,30006,Statistic,°,,DOUBLE,OTHER
+Lithium Battery,60015,Latitude,30007,Statistic,°,,DOUBLE,OTHER
+Lithium Battery,60015,Lock State,30008,Statistic,,[0: Unlock]/[1: Lock]/[other: N/A],ENUM,OTHER
+Lithium Battery,60015,SOH (AI),30009,Statistic,%,,UINT,OTHER
+Lithium Battery,60015,Electricity Bill During Self Staggering,30010,Statistic,,,FLOAT,OTHER
+Lithium Battery,60015,SOC,30011,Statistic,%,,UINT,OTHER
+Lithium Battery,60015,Running status,30026,Statistic,,[0: Standby]/[1: Operating]/[2: Hibernating]/[3: Offline]/[4: Invalid]/[5: Faulty]/[49152: Loading]/[10: EOL]/[other: N/A],ENUM,OTHER
+Lithium Battery,60015,Highest Temperature,30027,Statistic,°C,,FLOAT,OTHER
+Lithium Battery,60015,Position where the highest temperature was detected,30028,Statistic,,,USHORT,OTHER
+Lithium Battery,60015,Lowest Temperature,30029,Statistic,°C,,FLOAT,OTHER
+Lithium Battery,60015,Position where the lowest temperature was detected,30030,Statistic,,,USHORT,OTHER
+Lithium Battery,60015,Total charge,30031,Statistic,Wh,,UINT,OTHER
+Lithium Battery,60015,Total discharge,30032,Statistic,Wh,,UINT,OTHER
+Lithium Battery,60015,Number of discharges,30033,Statistic,,,UINT,OTHER
+Lithium Battery,60015,Highest cell voltage,30034,Statistic,mV,,USHORT,OTHER
+Lithium Battery,60015,Position where the highest cell voltage was detected,30035,Statistic,,,USHORT,OTHER
+Lithium Battery,60015,Lowest cell voltage,30036,Statistic,mV,,USHORT,OTHER
+Lithium Battery,60015,Position where the lowest cell voltage was detected,30037,Statistic,,,USHORT,OTHER
+Lithium Battery,60015,Highest cell SOC,30038,Statistic,%,,USHORT,OTHER
+Lithium Battery,60015,Position where the highest cell SOC was detected,30039,Statistic,,,USHORT,OTHER
+Lithium Battery,60015,Lowest cell SOC,30040,Statistic,%,,USHORT,OTHER
+Lithium Battery,60015,Position where the lowest cell SOC was detected,30041,Statistic,,,USHORT,OTHER
+Lithium Battery,60015,Optimization unit status,30042,Statistic,,[0: Disconnected]/[1: Normal]/[2: Bypass]/[other: N/A],ENUM,OTHER
+Lithium Battery,60015,Charge/Discharge power,30044,Statistic,W,,INT,OTHER
+Lithium Battery,60015,Average temperature of battery modules,30045,Statistic,°C,,FLOAT,OTHER
+Lithium Battery,60015,Number of cycles,30047,Statistic,,,UINT,OTHER
+Lithium Battery,60015,Accumulated Charge Watt-hours On The Lithium Battery Busbar Side,30048,Statistic,Wh,,UINT,OTHER
+Lithium Battery,60015,Accumulated Discharge  Watt-hours On The Lithium Battery Busbar Side,30049,Statistic,Wh,,UINT,OTHER
+Lithium Battery,60015,Accumulated Discharge  Watt-hours On The Lithium Battery Busbar Side,30050,Statistic,Wh,,UINT,OTHER
+Lithium Battery,60015,SOE,30054,Statistic,%,,USHORT,OTHER
+Lithium Battery,60015,Max Temperature Per Day,30055,Statistic,°C,,FLOAT,OTHER
+Lithium Battery,60015,Min Temperature Per Day,30056,Statistic,°C,,FLOAT,OTHER
+Lithium Battery,60015,Avg Temperature Per Day,30057,Statistic,°C,,FLOAT,OTHER
+Lithium Battery,60015,Highest Cell SOH,30060,Statistic,%,,USHORT,OTHER
+Lithium Battery,60015,Cell with Highest SOH,30061,Statistic,,,USHORT,OTHER
+Lithium Battery,60015,Lowest Cell SOH,30062,Statistic,%,,USHORT,OTHER
+Lithium Battery,60015,Cell with Lowest SOH,30063,Statistic,,,USHORT,OTHER
+Lithium Battery,60015,Electricity Bill During Self Staggering,30064,Statistic,,,FLOAT,OTHER
+Lithium Battery,60015,Total Charging Capacity,33619,Statistic,Ah,,FLOAT,OTHER
+Lithium Battery,60015,Total Discharge Capacity,33620,Statistic,Ah,,FLOAT,OTHER
+Lithium Battery,60015,Balance status of all cells,33621,Statistic,,,USHORT,OTHER
+Battery Group,60016,Battery State,10001,Sampling,,[0: Float Charging]/[1: Boost Charging]/[2: Discharging]/[3: Hibernating]/[4: Charging]/[5: Offline]/[other: N/A],ENUM,DI
+Battery Group,60016,Voltage,10002,Sampling,V,,FLOAT,AI
+Battery Group,60016,Current,10003,Sampling,A,,FLOAT,AI
+Battery Group,60016,Remaining Capacity Percent,10004,Sampling,%,,FLOAT,AI
+Battery Group,60016,Temperature,10005,Sampling,°C,,FLOAT,AI
+Battery Group,60016,Total Discharged Capacity,10006,Sampling,kWh,,FLOAT,AI
+Battery Group,60016,Remaining Backup Time,10007,Sampling,h,,FLOAT,AI
+Battery Group,60016,Total Cycle Times,10008,Sampling,times,,UINT,AI
+Battery Group,60016,Current Limiting State,10009,Sampling,,[0: No Current Limiting]/[1: Current Limiting]/[other: N/A],ENUM,DI
+Battery Group,60016,Test State,10010,Sampling,,[0: Idle]/[1: Testing]/[2: Pre-boost Charging]/[other: N/A],ENUM,DI
+Battery Group,60016,On/Off State,10011,Sampling,,[0: Low Voltage Off]/[1: Scheduled Off]/[2: Capacity Off]/[3: High Temperature Off]/[4: Manual Off]/[5: Forced Off]/[6: On]/[7: Low Temperature Off]/[8: Maintenance Off]/[other: N/A],ENUM,DI
+Battery Group,60016,Test Mode,10012,Sampling,,[0: Idle]/[1: Planned Test]/[2: Scheduled Test]/[3: Manual Standard Test]/[4: Short Test]/[5: AC Outage Test]/[6: Simplified Test]/[7: Checking Test]/[other: N/A],ENUM,DI
+Battery Group,60016,Total Rated Capacity,10013,Sampling,Ah,,UINT,AI
+Battery Group,60016,Remaining Capacity,10014,Sampling,Ah,,UINT,AI
+Battery Group,60016,Battery Type,10015,Sampling,,[22: ESM-A]/[23: TCB-A1]/[24: TCB-C1]/[10: TCB-B]/[11: TCB-C]/[12: BBS 4840Z]/[13: ESM-BX]/[14: ESU-A]/[15: ESU-H]/[16: FLOOD]/[17: Rebak-F4899T]/[18: 12V AGM]/[19: Lithium]/[0: Common Lead-acid Battery]/[1: DCB-A]/[2: DCB-A1]/[3: DCB-B]/[4: DCB-Y]/[5: SCB]/[6: SCB-A1]/[7: FCB-A]/[8: FCB-B]/[9: TCB-A]/[20: Sodium-ion Battery]/[21: FCB-B1]/[other: N/A],ENUM,DI
+Battery Group,60016,SOH,10016,Sampling,%,,UINT,AI
+Battery Group,60016,Model,10018,Sampling,,,STRING,AI
+Battery Group,60016,Brand,10019,Sampling,,,STRING,AI
+Battery Group,60016,Model,10020,Sampling,,[22: Agisson SCB-A1]/[23: Agisson TCB-A]/[24: Agisson TCB-C]/[25: Agisson TCB-A1]/[26: Agisson TCB-C1]/[255: Other]/[214: Agisson BERU-TCB-B]/[215: Agisson DCB-A]/[10: Northstar Blue]/[11: Northstar Red]/[12: Leoch LPF12]/[13: Exide M12V FT]/[14: 12V Shoto AGM]/[15: 12V Narada AGM]/[16: Agisson DCB-A1]/[17: Agisson DCB-B]/[18: Agisson DCB-Y]/[19: Agisson FCB]/[0: Shoto 6-FMX]/[100: VRLA]/[2: Shoto 6-XFMJ]/[3: Shoto GFM]/[4: Coslight 6-GFM-X]/[5: Narada 6-GFM-F]/[6: Narada 12NDF]/[7: Dengta 6-GFMF]/[8: Enersys 12TD-F]/[9: Enersys SBS-F]/[20: Agisson FCB-B]/[21: Agisson SCB]/[other: N/A],ENUM,DI
+Battery Group,60016,Battery String Quantity,10021,Sampling,,,UINT,AI
+Battery Group,60016,Production Date,10022,Sampling,,,TIME,AI
+Battery Group,60016,Installation Date,10023,Sampling,,,TIME,AI
+Battery Group,60016,Temperature 2,10024,Sampling,°C,,FLOAT,AI
+Battery Group,60016,Temperature 3,10025,Sampling,°C,,FLOAT,AI
+Battery Group,60016,Charge/Discharge Power,10026,Sampling,kW,,FLOAT,AI
+Battery Group,60016,Total Discharge Times,10027,Sampling,times,,UINT,AI
+Battery Group,60016,Remaining Backup Time (AI),10028,Sampling,h,,FLOAT,AI
+Battery Group,60016,Backup Time (AI),10029,Sampling,h,,FLOAT,AI
+Battery Group,60016,Remaining Capacity Percent (AI),10030,Sampling,%,,UINT,AI
+Battery Group,60016,Total Installed Capacity,10031,Sampling,kWh,,FLOAT,AI
+Battery Group,60016,Remaining Capacity (AI),10032,Sampling,Ah,,UINT,AI
+Battery Group,60016,Battery Test Start Failure Cause,10033,Sampling,,[0: None]/[1: Battery Test Started]/[101: AC Input Failure]/[102: AC Input Overvoltage]/[103: AC Input Undervoltage]/[301: PSU Communication Failure]/[401: DCDC Communication Failure]/[104: AC Input Phase Failure]/[1003: System Not in Auto Control Mode]/[302: PSU Protection]/[402: DCDC Protection]/[1002: Lower Than Test End Capacity]/[303: PSU Fault]/[501: SSU Communication Failure]/[403: DCDC Fault]/[1001: Lower Than Test End Temperature]/[304: All PSUs No Output]/[404: All DCDCs No Output]/[701: Battery High Temperature]/[603: PV Optimizer Disconnected]/[801: Battery Circuit Broken]/[504: All SSUs No Output]/[702: Battery Temperature Protection]/[901: Lithium Battery Testing]/[802: Battery Reversely Connected]/[703: Low Busbar Voltage]/[704: BLVD Disconnected]/[902: Power System Paralleling]/[803: Power System Paralleling Abnormal]/[705: Battery Overcurrent]/[903: Enable Mains Peak Shaving]/[804: Abnormal Current Detected]/[706: Battery Missing]/[904: Test Stopped by DI]/[805: Abnormal Voltage Detected]/[707: Zero Battery String]/[905: Battery Not in Float or Equalized Charging]/[806: Monitoring Module Fault]/[708: Battery Abnormal]/[906: Battery Not in Float Charging]/[other: N/A],ENUM,AI
+Battery Group,60016,ESN,19100,Sampling,,,STRING,AI
+Battery Group,60016,Standard Test Control,20002,Config,,[0: Stop]/[1: Start]/[other: N/A],ENUM,DO
+Battery Group,60016,Charge Current-limiting Coefficient,20003,Config,C10,,FLOAT,AO
+Battery Group,60016,Enable Short Test,20004,Config,,[0: Disable]/[1: Enable]/[other: N/A],ENUM,DO
+Battery Group,60016,Short Test Interval,20005,Config,day,,UINT,AO
+Battery Group,60016,Short Test Time,20006,Config,min,,UINT,AO
+Battery Group,60016,Short Test End Voltage,20007,Config,V,,FLOAT,AO
+Battery Group,60016,Standard Test End Voltage,20008,Config,V,,FLOAT,AO
+Battery Group,60016,Standard Test End Capacity,20009,Config,%,,FLOAT,AO
+Battery Group,60016,Standard Test End Temperature,20010,Config,°C,,FLOAT,AO
+Battery Group,60016,Standard Test End Time,20011,Config,min,,UINT,AO
+Battery Group,60016,Time Test Mode,20012,Config,,[1: Planned Test]/[2: Scheduled Test]/[0: Disable]/[other: N/A],ENUM,DO
+Battery Group,60016,Battery Test Times/year,20013,Config,times,,UINT,AO
+Battery Group,60016,Planned Test Time 1,20014,Config,,,TIME,AO
+Battery Group,60016,Planned Test Time 2,20015,Config,,,TIME,AO
+Battery Group,60016,Planned Test Time 3,20016,Config,,,TIME,AO
+Battery Group,60016,Planned Test Time 4,20017,Config,,,TIME,AO
+Battery Group,60016,Planned Test Time 5,20018,Config,,,TIME,AO
+Battery Group,60016,Planned Test Time 6,20019,Config,,,TIME,AO
+Battery Group,60016,Scheduled Test Start Time,20020,Config,,,TIME,AO
+Battery Group,60016,Scheduled Test Interval,20021,Config,day,,UINT,AO
+Battery Group,60016,Enable AC Outage Test,20022,Config,,[0: Disable]/[1: Enable]/[other: N/A],ENUM,DO
+Battery Group,60016,Short Test Control,20023,Config,,[0: Stop]/[1: Start]/[other: N/A],ENUM,DO
+Battery Group,60016,SOH Subhealth Threshold,20024,Config,%,,FLOAT,AO
+Battery Group,60016,SOH Aging Threshold,20025,Config,%,,FLOAT,AO
+Battery Group,60016,Battery Type,20026,Config,,[0: Common Lead-acid Battery]/[1: DCB-A]/[2: DCB-A1]/[3: DCB-B]/[4: DCB-Y]/[5: SCB]/[6: SCB-A1]/[7: FCB-A]/[8: FCB-B]/[9: TCB-A]/[10: TCB-B]/[11: TCB-C]/[12: BBS 4840Z]/[13: ESM-BX]/[14: ESU-A]/[15: ESU-H]/[16: FLOOD]/[17: Rebak-F4899T]/[18: 12V AGM]/[19: Lithium]/[20: Sodium-ion Battery]/[21: FCB-B1]/[22: ESM-A]/[23: TCB-A1]/[24: TCB-C1]/[other: N/A],ENUM,DO
+Battery Group,60016,Installation Date,20027,Config,,,TIME,AO
+Battery Group,60016,Manufacturer,20028,Config,,[0: Shoto]/[1: Narada]/[2: Coslight]/[3: Dengta]/[4: Enersys]/[5: Northstar]/[6: Leoch]/[7: Exide]/[8: Agisson]/[255: Other]/[9: Eltek]/[other: N/A],ENUM,DO
+Battery Group,60016,BLVD Voltage,20029,Config,V,,FLOAT,AO
+Battery Group,60016,Float Charge Voltage,20030,Config,V,,FLOAT,AO
+Battery Group,60016,Boost Charge Voltage,20031,Config,V,,FLOAT,AO
+Battery Group,60016,Battery String Quantity,20032,Config,pcs,,UBYTE,AO
+Battery Group,60016,Model,20033,Config,,[255: Other]/[0: Shoto 6-FMX]/[2: Shoto 6-XFMJ]/[3: Shoto GFM]/[4: Coslight 6-GFM-X]/[5: Narada 6-GFM-F]/[6: Narada 12NDF]/[7: Dengta 6-GFMF]/[8: Enersys 12TD-F]/[9: Enersys SBS-F]/[10: Northstar Blue]/[11: Northstar Red]/[12: Leoch LPF12]/[13: Exide M12V FT]/[100: VRLA]/[14: 12V Shoto AGM]/[15: 12V Narada AGM]/[214: Agisson BERU-TCB-B]/[215: Agisson DCB-A]/[16: Agisson DCB-A1]/[17: Agisson DCB-B]/[18: Agisson DCB-Y]/[19: Agisson FCB]/[20: Agisson FCB-B]/[21: Agisson SCB]/[22: Agisson SCB-A1]/[23: Agisson TCB-A]/[24: Agisson TCB-C]/[25: Agisson TCB-A1]/[26: Agisson TCB-C1]/[other: N/A],ENUM,DO
+Battery Group,60016,Production Date,20034,Config,,,TIME,AO
+Battery Group,60016,Single-string Rated Capacity,20035,Config,Ah,,FLOAT,AO
+Battery Group,60016,Enable Smart Hibernation,20036,Config,,[0: Disable]/[1: Enable]/[other: N/A],ENUM,DO
+Battery Group,60016,Total Rated Capacity,20037,Config,Ah,,FLOAT,AO
+Battery Group,60016,Model,20038,Config,,,STRING,AO
+Battery Group,60016,Brand,20039,Config,,,STRING,AO
+Battery Group,60016,Manufacturer,20042,Config,,,STRING,AO
+Battery Group,60016,Enable iLock,20043,Config,,[0: Disable]/[1: Enable]/[other: N/A],ENUM,DO
+Battery Group,60016,iLock Verify Timeout Interval,20044,Config,h,,UINT,AO
+Battery Group,60016,iLock Verify Timeout Interval,20045,Config,min,,UINT,AO
+Battery Group,60016,BLVD contactor,20046,Config,,[0: NO]/[1: YES]/[other: N/A],ENUM,AO
+Battery Group,60016,Data Reset Clear,20047,Config,,[1: YES]/[other: N/A],ENUM,AO
+Battery Group,60016,Auto Battery Test Start Failure Request Flag,20057,Config,,,UINT,AO
+Battery Group,60016,Device model,29100,Config,,,STRING,AO
+Battery Group,60016,ESN,50012,Config,,,STRING,AO
+Battery Group,60016,Battery State,30001,Statistic,,[0: Float Charging]/[1: Boost Charging]/[2: Discharging]/[3: Hibernating]/[4: Charging]/[5: Offline]/[other: N/A],ENUM,OTHER
+Battery Group,60016,Voltage,30002,Statistic,V,,FLOAT,OTHER
+Battery Group,60016,Current,30003,Statistic,A,,FLOAT,OTHER
+Battery Group,60016,Temperature,30004,Statistic,°C,,FLOAT,OTHER
+Battery Group,60016,On/Off State,30005,Statistic,,[0: Low Voltage Off]/[1: Scheduled Off]/[2: Capacity Off]/[3: High Temperature Off]/[4: Manual Off]/[5: Forced Off]/[6: On]/[7: Low Temperature Off]/[8: Maintenance Off]/[other: N/A],ENUM,OTHER
+Battery Group,60016,Charge Times per Day,30007,Statistic,times,,UINT,OTHER
+Battery Group,60016,Discharge Times per Day,30008,Statistic,times,,UINT,OTHER
+Battery Group,60016,Discharge Duration per Day,30009,Statistic,h,,FLOAT,OTHER
+Battery Group,60016,Total Discharged Capacity,30010,Statistic,kWh,,FLOAT,OTHER
+Battery Group,60016,Total Cycle Times,30011,Statistic,times,,UINT,OTHER
+Battery Group,60016,SOH,30012,Statistic,%,,UINT,OTHER
+Battery Group,60016,Longest Discharge Duration per Day,30013,Statistic,h,,FLOAT,OTHER
+Battery Group,60016,Discharged Capacity per Day,30014,Statistic,kWh,,FLOAT,OTHER
+Battery Group,60016,Temperature 2,30015,Statistic,°C,,FLOAT,OTHER
+Battery Group,60016,Temperature 3,30016,Statistic,°C,,FLOAT,OTHER
+Battery Group,60016,Remaining Capacity Percent,30017,Statistic,%,,FLOAT,OTHER
+Battery Group,60016,Total Charge Times,30018,Statistic,times,,UINT,OTHER
+Battery Group,60016,Total Discharge Times,30019,Statistic,times,,UINT,OTHER
+Battery Group,60016,Total Runtime,30020,Statistic,h,,FLOAT,OTHER
+Battery Group,60016,Discharged Capacity per Hour,30021,Statistic,kWh,,FLOAT,OTHER
+Battery Group,60016,High Temp Runtime per Day,30022,Statistic,h,,FLOAT,OTHER
+Battery Group,60016,Low Temp Runtime per Day,30023,Statistic,h,,FLOAT,OTHER
+Battery Group,60016,Charge/Discharge Power,30024,Statistic,kW,,FLOAT,OTHER
+Battery String,60017,Voltage,10001,Sampling,V,,FLOAT,AI
+Battery String,60017,Current,10002,Sampling,A,,FLOAT,AI
+Battery String,60017,SOH,10003,Sampling,%,,UINT,AI
+Battery String,60017,Remaining Capacity Percent,10004,Sampling,%,,UINT,AI
+Battery String,60017,Middle Voltage,10005,Sampling,V,,FLOAT,AI
+Battery String,60017,Rated Capacity,10006,Sampling,Ah,,FLOAT,AI
+Battery String,60017,Remaining Capacity,10007,Sampling,Ah,,FLOAT,AI
+Battery String,60017,Battery Type,10008,Sampling,,[11: TCB-C]/[12: BBS 4840Z]/[13: ESM-BX]/[14: ESU-A]/[15: ESU-H]/[16: FLOOD]/[17: Rebak-F4899T]/[18: 12V AGM]/[19: Lithium]/[0: Common Lead-acid Battery]/[1: DCB-A]/[2: DCB-A1]/[3: DCB-B]/[4: DCB-Y]/[5: SCB]/[6: SCB-A1]/[7: FCB-A]/[8: FCB-B]/[9: TCB-A]/[20: Sodium-ion Battery]/[10: TCB-B]/[21: FCB-B1]/[other: N/A],ENUM,DI
+Battery String,60017,Manufacturer,10009,Sampling,,,STRING,AI
+Battery String,60017,Installation Date,10010,Sampling,,,TIME,AI
+Battery String,60017,Model,10011,Sampling,,,STRING,AI
+Battery String,60017,Production Date,10012,Sampling,,,TIME,AI
+Battery String,60017,Model,10014,Sampling,,[11: Northstar Red]/[12: Leoch LPF12]/[13: Exide M12V FT]/[14: 12V Shoto AGM]/[15: 12V Narada AGM]/[0: Shoto 6-FMX]/[100: VRLA]/[2: Shoto 6-XFMJ]/[3: Shoto GFM]/[4: Coslight 6-GFM-X]/[5: Narada 6-GFM-F]/[6: Narada 12NDF]/[7: Dengta 6-GFMF]/[8: Enersys 12TD-F]/[9: Enersys SBS-F]/[10: Northstar Blue]/[other: N/A],ENUM,DI
+Battery String,60017,Remaining Capacity Percent (AI),10015,Sampling,%,,UINT,AI
+Battery String,60017,SOH (AI),10016,Sampling,%,,UINT,AI
+Battery String,60017,Remaining Capacity (AI),10017,Sampling,Ah,,FLOAT,AI
+Battery String,60017,Battery Type,20001,Config,,[0: Common Lead-acid Battery]/[1: DCB-A]/[2: DCB-A1]/[3: DCB-B]/[4: DCB-Y]/[5: SCB]/[6: SCB-A1]/[7: FCB-A]/[8: FCB-B]/[9: TCB-A]/[10: TCB-B]/[11: TCB-C]/[12: BBS 4840Z]/[13: ESM-BX]/[14: ESU-A]/[15: ESU-H]/[16: FLOOD]/[17: Rebak-F4899T]/[18: 12V AGM]/[19: Lithium]/[20: Sodium-ion Battery]/[21: FCB-B1]/[other: N/A],ENUM,DI
+Battery String,60017,Manufacturer,20002,Config,,,STRING,AI
+Battery String,60017,Installation Date,20003,Config,,,TIME,AI
+Battery String,60017,Model,20004,Config,,[0: Shoto 6-FMX]/[2: Shoto 6-XFMJ]/[3: Shoto GFM]/[4: Coslight 6-GFM-X]/[5: Narada 6-GFM-F]/[6: Narada 12NDF]/[7: Dengta 6-GFMF]/[8: Enersys 12TD-F]/[9: Enersys SBS-F]/[10: Northstar Blue]/[11: Northstar Red]/[12: Leoch LPF12]/[13: Exide M12V FT]/[100: VRLA]/[14: 12V Shoto AGM]/[15: 12V Narada AGM]/[other: N/A],ENUM,DI
+Battery String,60017,Production Date,20005,Config,,,TIME,AI
+Battery String,60017,Battery String No.,20008,Config,,,UINT,AI
+Battery String,60017,AI Battery String SOH,20009,Config,%,,UINT,AO
+Battery String,60017,AI Remaining Battery Capacity Percent,20010,Config,%,,UINT,AO
+Battery String,60017,Voltage,30001,Statistic,V,,FLOAT,OTHER
+Battery String,60017,Current,30002,Statistic,A,,FLOAT,OTHER
+Battery String,60017,SOH,30003,Statistic,%,,UINT,OTHER
+Battery String,60017,SOH (AI),30004,Statistic,%,,UINT,OTHER
+Air Conditioner,60022,Return Air Temperature,10002,Sampling,°C,,FLOAT,AI
+Air Conditioner,60022,Air Conditioner Total Runtime,10005,Sampling,h,,FLOAT,AI
+Air Conditioner,60022,Model,10006,Sampling,,[770: PC2000H-2]/[771: SP4D-1]/[772: PC300D(Black)]/[750: PC700D]/[773: PC1500H-3]/[774: PC2500D]/[752: AH3000-1]/[775: PC1000D-1]/[753: PC3000D]/[776: PC3000D-1]/[754: PC5D]/[777: PC1500D-1]/[755: PC300D]/[778: HC5012]/[756: AH2000]/[779: PC300D-1]/[757: PC1500]/[758: SP5D]/[737: AH1500]/[759: PC1500H-1]/[738: AH3000]/[739: PC500D]/[780: PC300D-2]/[781: PC3000D-2]/[760: PC2000H]/[761: PC2300H]/[740: AH1500D]/[762: PC2300]/[741: AH3000D]/[763: ACM-2]/[786: PC6H]/[742: PC500]/[764: PC1500H-2]/[787: PC3000D-3]/[743: PC1000D]/[765: PC2000H-1]/[744: SP4D]/[766: AH1500-1]/[745: PC300 ]/[767: SP3D]/[768: SP3D-1]/[746: PC300-1]/[769: PC5000]/[747: PC1000H]/[748: PC1500H]/[749: PC1500D]/[other: N/A],ENUM,DI
+Air Conditioner,60022,Running State,10007,Sampling,,[0: Power Off]/[1: Standby]/[2: Operating]/[3: Air Supply ]/[4: Cooling]/[5: Faulty]/[6: Automatic]/[7: Heating]/[8: Dehumidification]/[other: N/A],ENUM,DI
+Air Conditioner,60022,Compressor Work State,10008,Sampling,,[0: Standby]/[1: Operating]/[2: Faulty]/[3: Power Off]/[other: N/A],ENUM,DI
+Air Conditioner,60022,Compressor Total Runtime,10009,Sampling,h,,FLOAT,AI
+Air Conditioner,60022,Internal Fan Total Runtime,10012,Sampling,h,,FLOAT,AI
+Air Conditioner,60022,External Fan Total Runtime,10013,Sampling,h,,FLOAT,AI
+Air Conditioner,60022,Total Energy Consumption,10014,Sampling,kWh,,FLOAT,AI
+Air Conditioner,60022,Manufacturer,10015,Sampling,,,STRING,AI
+Air Conditioner,60022,Production Date,10016,Sampling,,,TIME,AI
+Air Conditioner,60022,Installation Date,10017,Sampling,,,TIME,AI
+Air Conditioner,60022,Brand,10018,Sampling,,,STRING,AI
+Air Conditioner,60022,AC Current,10019,Sampling,A,,FLOAT,AI
+Air Conditioner,60022,Phase L1 Current,10020,Sampling,A,,FLOAT,AI
+Air Conditioner,60022,Phase L2 Current,10021,Sampling,A,,FLOAT,AI
+Air Conditioner,60022,Phase L3 Current,10022,Sampling,A,,FLOAT,AI
+Air Conditioner,60022,DC Current,10023,Sampling,A,,FLOAT,AI
+Air Conditioner,60022,AC Voltage,10024,Sampling,V,,FLOAT,AI
+Air Conditioner,60022,Phase L1 Voltage,10025,Sampling,V,,FLOAT,AI
+Air Conditioner,60022,Phase L2 Voltage,10026,Sampling,V,,FLOAT,AI
+Air Conditioner,60022,Phase L3 Voltage,10027,Sampling,V,,FLOAT,AI
+Air Conditioner,60022,Line L1-L2 Voltage,10028,Sampling,V,,FLOAT,AI
+Air Conditioner,60022,Line L2-L3 Voltage,10029,Sampling,V,,FLOAT,AI
+Air Conditioner,60022,Line L3-L1 Voltage,10030,Sampling,V,,FLOAT,AI
+Air Conditioner,60022,DC Voltage,10031,Sampling,V,,FLOAT,AI
+Air Conditioner,60022,Active power,10032,Sampling,kW,,FLOAT,AI
+Air Conditioner,60022,DC Power,10033,Sampling,kW,,FLOAT,AI
+Air Conditioner,60022,Supply Air Temperature,10034,Sampling,°C,,FLOAT,AI
+Air Conditioner,60022,Vendor name,10035,Sampling,,[22: EV]/[23: QT]/[24: DN]/[25: BS]/[26: IT]/[21: HR]/[other: N/A],ENUM,DI
+Air Conditioner,60022,Internal circulation fan status,10036,Sampling,,[1: Power Off]/[2: Operating]/[3: Faulty]/[other: N/A],ENUM,DI
+Air Conditioner,60022,External circulation fan status,10037,Sampling,,[1: Power Off]/[2: Operating]/[3: Faulty]/[other: N/A],ENUM,DI
+Air Conditioner,60022,Temperature outside the cabinet,10038,Sampling,°C,,FLOAT,AI
+Air Conditioner,60022,Heating function,10039,Sampling,,[0: None]/[1: Available]/[other: N/A],ENUM,DI
+Air Conditioner,60022,Software version,10040,Sampling,,,STRING,AI
+Air Conditioner,60022,SN,10041,Sampling,,,STRING,AI
+Air Conditioner,60022,Active alarm SN,10198,Sampling,,,UINT,AI
+Air Conditioner,60022,Historical alarm SN,10199,Sampling,,,UINT,AI
+Air Conditioner,60022,Slot ID,11999,Sampling,,,USHORT,AI
+Air Conditioner,60022,Device connection status,19999,Sampling,,[45057: Online]/[45056: Offline]/[other: N/A],ENUM,DI
+Air Conditioner,60022,Brand,29001,Config,,,STRING,AO
+Air Conditioner,60022,Model,29002,Config,,,STRING,AO
+Air Conditioner,60022,Manufacturer,29003,Config,,,STRING,AO
+Air Conditioner,60022,Production Date,29004,Config,,,TIME,AO
+Air Conditioner,60022,Installation Date,29005,Config,,,TIME,AO
+Air Conditioner,60022,On/Off Control,29006,Config,,[0: Off]/[1: On]/[other: N/A],ENUM,DO
+Air Conditioner,60022,AC Mode,29007,Config,,[0: Single-phase]/[1: 2-phase 2-wire]/[2: 3-phase 4-wire]/[3: 3-phase 3-wire]/[other: N/A],ENUM,DO
+Air Conditioner,60022,Device model,29100,Config,,,STRING,AO
+Air Conditioner,60022,Compressor Total Runtime,30003,Statistic,h,,FLOAT,OTHER
+Air Conditioner,60022,Air Conditioner Total Runtime,30004,Statistic,h,,FLOAT,OTHER
+Air Conditioner,60022,Compressor Runtime per Day,30005,Statistic,h,,FLOAT,OTHER
+Air Conditioner,60022,Return Air Temperature,30006,Statistic,°C,,FLOAT,OTHER
+Air Conditioner,60022,Energy Consumption per Day,30007,Statistic,kWh,,FLOAT,OTHER
+Air Conditioner,60022,Total Energy Consumption,30008,Statistic,kWh,,FLOAT,OTHER
+Air Conditioner,60022,Running State,30009,Statistic,,[0: Power Off]/[1: Standby]/[2: Operating]/[3: Air Supply ]/[4: Cooling]/[5: Faulty]/[6: Automatic]/[7: Heating]/[8: Dehumidification]/[other: N/A],ENUM,OTHER
+Air Conditioner,60022,Air Conditioner Runtime per Day,30010,Statistic,h,,FLOAT,OTHER
+Air Conditioner,60022,Air Conditioner Runtime per Hour,30011,Statistic,h,,FLOAT,OTHER
+Air Conditioner,60022,Energy Consumption per Hour,30012,Statistic,kWh,,FLOAT,OTHER
+Air Conditioner,60022,Compressor Runtime per Hour,30013,Statistic,h,,FLOAT,OTHER
+Air Conditioner,60022,Compressor Work State,30014,Statistic,,[0: Standby]/[1: Operating]/[2: Faulty]/[3: Power Off]/[other: N/A],ENUM,OTHER
+Air Conditioner,60022,AC Current,30015,Statistic,A,,FLOAT,OTHER
+Air Conditioner,60022,Phase L1 Current,30016,Statistic,A,,FLOAT,OTHER
+Air Conditioner,60022,Phase L2 Current,30017,Statistic,A,,FLOAT,OTHER
+Air Conditioner,60022,Phase L3 Current,30018,Statistic,A,,FLOAT,OTHER
+Air Conditioner,60022,DC Current,30019,Statistic,A,,FLOAT,OTHER
+Air Conditioner,60022,AC Voltage,30020,Statistic,V,,FLOAT,OTHER
+Air Conditioner,60022,Phase L1 Voltage,30021,Statistic,V,,FLOAT,OTHER
+Air Conditioner,60022,Phase L2 Voltage,30022,Statistic,V,,FLOAT,OTHER
+Air Conditioner,60022,Phase L3 Voltage,30023,Statistic,V,,FLOAT,OTHER
+Air Conditioner,60022,Line L1-L2 Voltage,30024,Statistic,V,,FLOAT,OTHER
+Air Conditioner,60022,Line L2-L3 Voltage,30025,Statistic,V,,FLOAT,OTHER
+Air Conditioner,60022,Line L3-L1 Voltage,30026,Statistic,V,,FLOAT,OTHER
+Air Conditioner,60022,DC Voltage,30027,Statistic,V,,FLOAT,OTHER
+Air Conditioner,60022,Active power,30028,Statistic,kW,,FLOAT,OTHER
+Air Conditioner,60022,DC Power,30029,Statistic,kW,,FLOAT,OTHER
+Air Conditioner,60022,Supply Air Temperature,30030,Statistic,°C,,FLOAT,OTHER
+Air Conditioner,60022,Internal circulation fan status,31125,Statistic,,[1: Power Off]/[2: Operating]/[3: Faulty]/[other: N/A],ENUM,OTHER
+Air Conditioner,60022,External circulation fan status,31126,Statistic,,[1: Power Off]/[2: Operating]/[3: Faulty]/[other: N/A],ENUM,OTHER
+Air Conditioner,60022,Temperature outside the cabinet,31127,Statistic,°C,,FLOAT,OTHER
+Controller,60026,Hardware Version,10001,Sampling,,,STRING,AI
+Controller,60026,Software Version,10002,Sampling,,,STRING,AI
+Controller,60026,BSP Version,10003,Sampling,,,STRING,AI
+Controller,60026,Wireless Signal Strength,10004,Sampling,,[0: No Signal]/[1: Weak]/[2: Medium]/[3: Strong]/[4: Very Strong]/[5: Unknown]/[other: N/A],ENUM,AI
+Controller,60026,Current Working SIM,10005,Sampling,,,UINT,AI
+Controller,60026,SIM1 Status,10006,Sampling,,[0: Unknown]/[1: Present]/[2: Absent]/[other: N/A],ENUM,DI
+Controller,60026,SIM2 Status,10007,Sampling,,[0: Unknown]/[1: Present]/[2: Absent]/[other: N/A],ENUM,DI
+Controller,60026,Current Day Traffic of SIM1,10008,Sampling,MB,,FLOAT,AI
+Controller,60026,Current Day Traffic of SIM2,10009,Sampling,MB,,FLOAT,AI
+Controller,60026,Controller Model,10010,Sampling,,[11: SMU02C1]/[22: PVPU]/[12: IPOWERFULL_M]/[14: SMU11C]/[16: DPS]/[18: SMU11D]/[29: iIoT]/[19: ACB_IOT]/[0: SMU02B]/[1: SMU02C]/[2: SMU02S]/[3: SMU02D]/[4: SMU11B]/[5: WCU01]/[6: SMU02C_X]/[7: SCC800_S1]/[8: E_IOT]/[9: SMU06T2]/[30: PVPU_S]/[20: IBREAKER]/[10: SMU02X_E]/[21: SMU02C2]/[other: N/A],ENUM,AI
+Controller,60026,Mobile Network Mode,10011,Sampling,,,STRING,AI
+Controller,60026,Current PMS Connection Type,10012,Sampling,,[0: No Connection]/[1: IP]/[2: GPRS/3G/4G]/[3: In-band]/[other: N/A],ENUM,AI
+Controller,60026,IP Network Status,10013,Sampling,,[0: No]/[1: Yes]/[other: N/A],ENUM,AI
+Controller,60026,Wireless Network Status,10014,Sampling,,[0: No]/[1: Yes]/[other: N/A],ENUM,AI
+Controller,60026,In-band Network Status,10015,Sampling,,[0: No]/[1: Yes]/[other: N/A],ENUM,AI
+Controller,60026,System Type,10017,Sampling,,,STRING,AI
+Controller,60026,Longitude,10018,Sampling,°,,STRING,AI
+Controller,60026,Latitude,10019,Sampling,°,,STRING,AI
+Controller,60026,Altitude,10020,Sampling,m,,FLOAT,AI
+Controller,60026,Longitude,10021,Sampling,°,,STRING,AI
+Controller,60026,Latitude,10022,Sampling,°,,STRING,AI
+Controller,60026,Altitude,10023,Sampling,m,,FLOAT,AI
+Controller,60026,SN,19100,Sampling,,,STRING,AI
+Controller,60026,Manufacturer,20001,Config,,,STRING,AO
+Controller,60026,Controller Model,20002,Config,,,STRING,AO
+Controller,60026,Production Date,20003,Config,,,TIME,AO
+Controller,60026,Primary IP,20005,Config,,,IPV4,AO
+Controller,60026,Port Number,20006,Config,,,UINT,AO
+Controller,60026,Local IP Address,20007,Config,,,IPV4,AO
+Controller,60026,Local Subnet Mask,20008,Config,,,IPV4,AO
+Controller,60026,Local Default Gateway,20009,Config,,,IPV4,AO
+Controller,60026,Controller Reset,20010,Config,,[1: Yes]/[other: N/A],ENUM,AO
+Controller,60026,SIM1 IMSI,20011,Config,,,STRING,AO
+Controller,60026,SIM2 IMSI,20012,Config,,,STRING,AO
+Controller,60026,SIM1 Number,20013,Config,,,STRING,AO
+Controller,60026,SIM2 Number,20014,Config,,,STRING,AO
+Controller,60026,Network Mode,20015,Config,,[7: Unknown]/[0: BSC]/[1: NodeB/eNodeB]/[2: GPRS]/[3: Enhanced GPRS]/[4: SMS]/[5: IP Channel]/[6: SMS Gateway]/[8: IP Strap In-band]/[other: N/A],ENUM,DO
+Controller,60026,Scenario,20017,Config,,[0: Solar]/[1: Solar + Wind Hybrid]/[2: Solar + Wind + D.G. Hybrid]/[3: Solar + D.G. Hybrid]/[4: D.G. + Battery Hybrid]/[5: Solar + Mains Hybrid]/[6: Solar + D.G. + Mains Hybrid]/[7: Mains]/[8: Green Site]/[9: Hybrid Power]/[10: Smart Site Management System]/[11: Microgrid System]/[12: Others]/[other: N/A],ENUM,DO
+Controller,60026,Is Load Rate Dynamic State Supported,20018,Config,,[1: Support]/[0: Not Support]/[other: N/A],ENUM,DO
+Controller,60026,Enable Load Rate Dynamic State,20019,Config,,[1: Enable]/[0: Disable]/[other: N/A],ENUM,DO
+Controller,60026,Is D.G. SOH Supported,20020,Config,,[1: Support]/[0: Not Support]/[other: N/A],ENUM,DO
+Controller,60026,Enable D.G. SOH,20021,Config,,[1: Enable]/[0: Disable]/[other: N/A],ENUM,DO
+Controller,60026,Enable Battery SOH,20022,Config,,[1: Enable]/[0: Disable]/[other: N/A],ENUM,DO
+Controller,60026,Enable Optimal Solar Usage,20023,Config,,[1: Enable]/[0: Disable]/[other: N/A],ENUM,DO
+Controller,60026,Secondary IP,20024,Config,,,IPV4,AO
+Controller,60026,Longitude,20025,Config,,,STRING,AO
+Controller,60026,Latitude,20026,Config,,,STRING,AO
+Controller,60026,Altitude,20027,Config,m,,FLOAT,AO
+Controller,60026,Site ID,20028,Config,,,STRING,AO
+Controller,60026,ESN,20029,Config,,,STRING,AO
+Controller,60026,Enable iMix License,20030,Config,,[1: Enable]/[0: Disable]/[other: N/A],ENUM,DO
+Controller,60026,Enable iLock License,20031,Config,,[1: Enable]/[0: Disable]/[other: N/A],ENUM,DO
+Controller,60026,Enable Staggering Electricity License,20032,Config,,[1: Enable]/[0: Disable]/[other: N/A],ENUM,DO
+Controller,60026,Authentication Mode,20033,Config,,[0: One-way Authentication ]/[1: Two-way Authentication]/[other: N/A],ENUM,AO
+Controller,60026,Authentication Password,20034,Config,,,STRING,AO
+Controller,60026,Is iMix Supported,20035,Config,,[1: Support]/[0: Not Support]/[other: N/A],ENUM,DO
+Controller,60026,Channel IP Address,20036,Config,,,IPV4,AO
+Controller,60026,Battery Discharge Mode,20037,Config,,[0: Original Property Ctrl Mode]/[1: RTU Property Ctrl Mode]/[other: N/A],ENUM,DO
+Controller,60026,Is Battery SOH Supported,20038,Config,,[1: Support]/[0: Not Support]/[other: N/A],ENUM,DO
+Controller,60026,Protocol Version,20039,Config,,[0: BIN23]/[1: BIN3]/[2: BIN35]/[4: BIN4]/[other: N/A],ENUM,DO
+Controller,60026,Is Peak Shaving Supported,20040,Config,,[1: Support]/[0: Not Support]/[other: N/A],ENUM,DO
+Controller,60026,Active Peak Shaving License ,20041,Config,,[1: Active]/[0: Deactive]/[other: N/A],ENUM,DO
+Controller,60026,Is Optimal Solar Usage Supported,20042,Config,,[1: Support]/[0: Not Support]/[other: N/A],ENUM,DO
+Controller,60026,Controller Type,20043,Config,,[0: Equipment Controller]/[1: Site Controller]/[other: N/A],ENUM,DO
+Controller,60026,Networking Node Identification,20044,Config,,[0: Independent Networking]/[1: Gateway Controller]/[2: Passed Through Controller]/[other: N/A],ENUM,DO
+Controller,60026,Gateway Controller ESN,20045,Config,,,STRING,AO
+Controller,60026,Is PV iLock Supported,20046,Config,,[1: Support]/[0: Not Support]/[other: N/A],ENUM,DO
+Controller,60026,Enable PV iLock,20047,Config,,[1: Enable]/[0: Disable]/[other: N/A],ENUM,DO
+Controller,60026,Is Grid MPPT Supported,20048,Config,,[1: Support]/[0: Not Support]/[other: N/A],ENUM,DO
+Controller,60026,Enable Grid MPPT,20049,Config,,[1: Enable]/[0: Disable]/[other: N/A],ENUM,DO
+Controller,60026,Is AC Consumption High Precision Measurement Supported,20050,Config,,[1: Support]/[0: Not Support]/[other: N/A],ENUM,DO
+Controller,60026,Enable AC Consumption High Precision Measurement,20051,Config,,[1: Enable]/[0: Disable]/[other: N/A],ENUM,DO
+Controller,60026,Is Rectifier Lock Supported,20052,Config,,[1: Support]/[0: Not Support]/[other: N/A],ENUM,DO
+Controller,60026,Enable Rectifier iLock License,20053,Config,,[1: Enable]/[0: Disable]/[other: N/A],ENUM,DO
+Controller,60026,Is Lithium Battery iLock Supported,20054,Config,,[1: Support]/[0: Not Support]/[other: N/A],ENUM,DO
+Controller,60026,NeESN,20055,Config,,,STRING,DO
+Controller,60026,Intelligent Peak Staggering,20056,Config,,,UINT,DO
+Controller,60026,Enable Hybrid Power Optimization Dashboard License,20057,Config,,[1: Enable]/[0: Disable]/[other: N/A],ENUM,DO
+Controller,60026,Northbound Interconnection Platform,20060,Config,,[0: PMS]/[1: Energy Scheduling Platform]/[2: PMS + Energy Scheduling Platform]/[other: N/A],ENUM,DO
+Controller,60026,device log export time,20061,Config,,,UINT,AO
+Controller,60026,Longitude,20062,Config,,,STRING,AO
+Controller,60026,Latitude,20063,Config,,,STRING,AO
+Controller,60026,Altitude,20064,Config,m,,FLOAT,AO
+Controller,60026,SIM1 Traffic per Day,30001,Statistic,MB,,FLOAT,OTHER
+Controller,60026,SIM2 Traffic per Day,30002,Statistic,MB,,FLOAT,OTHER
+Controller,60026,Wireless Signal Strength,30003,Statistic,,[0: No Signal]/[1: Weak]/[2: Medium]/[3: Strong]/[4: Very Strong]/[5: Unknown]/[other: N/A],ENUM,OTHER
+Controller,60026,SIM1 Runtime per Day,30004,Statistic,h,,FLOAT,OTHER
+Controller,60026,SIM2 Runtime per Day,30005,Statistic,h,,FLOAT,OTHER
+Controller,60026,SIM1 Switch to SIM2 Times per Day,30006,Statistic,times,,UINT,OTHER
+Controller,60026,SIM2 Switch to SIM1 Times per Day,30007,Statistic,times,,UINT,OTHER
+Controller,60026,Controller Model,30010,Statistic,,[11: SMU02C1]/[22: PVPU]/[0: SMU02B]/[1: SMU02C]/[2: SMU02S]/[3: SMU02D]/[4: SMU11B]/[5: WCU01]/[6: SMU02C_X]/[7: SCC800_S1]/[8: E_IOT]/[9: SMU06T2]/[10: SMU02X_E]/[other: N/A],ENUM,OTHER
+Controller,60026,小时运行时间,30100,Statistic,s,,UINT,OTHER
+Controller,60026,小时离线时间,30101,Statistic,s,,UINT,OTHER
+Water Sensor,60030,Watering State,10001,Sampling,,[0: Normal]/[1: Alarm]/[other: N/A],ENUM,DI
+Water Sensor,60030,Manufacturer,10002,Sampling,,,STRING,DI
+Water Sensor,60030,Model,10003,Sampling,,,STRING,AI
+Water Sensor,60030,Production Date,10004,Sampling,,,TIME,AI
+Water Sensor,60030,Installation Date,10005,Sampling,,,TIME,AI
+Water Sensor,60030,Water Alarm Times per Day,30001,Statistic,times,,UINT,OTHER
+Rectifier Group,60039,Quantity of Rectifiers,10001,Sampling,pcs,,UINT,AI
+Rectifier Group,60039,Total DC Output Current,10002,Sampling,A,,FLOAT,AI
+Rectifier Group,60039,Total Input Energy,10003,Sampling,kWh,,FLOAT,AI
+Rectifier Group,60039,Model,10004,Sampling,,,STRING,AI
+Rectifier Group,60039,Brand,10005,Sampling,,,STRING,AI
+Rectifier Group,60039,Total DC Output Power,10009,Sampling,kW,,FLOAT,AI
+Rectifier Group,60039,Load Usage Rate,10010,Sampling,%,,FLOAT,AI
+Rectifier Group,60039,Output Voltage,10011,Sampling,V,,FLOAT,AI
+Rectifier Group,60039,Total Input Power,10012,Sampling,kW,,FLOAT,AI
+Rectifier Group,60039,SN,19100,Sampling,,,STRING,AI
+Rectifier Group,60039,Enable Hibernation,20001,Config,,[0: Disable]/[1: Enable]/[other: N/A],ENUM,DO
+Rectifier Group,60039,Model,20002,Config,,,STRING,AO
+Rectifier Group,60039,Brand,20003,Config,,,STRING,AO
+Rectifier Group,60039,Rated Output Power,20004,Config,kW,,FLOAT,AO
+Rectifier Group,60039,Rated Output Current,20005,Config,A,,FLOAT,AO
+Rectifier Group,60039,Single Rectifier Rated Power,20006,Config,kW,,FLOAT,AO
+Rectifier Group,60039,Single Rectifier Rated Current,20007,Config,A,,FLOAT,AO
+Rectifier Group,60039,Enable Rectifier iLock,20008,Config,,[0: Disable]/[1: Enable]/[other: N/A],ENUM,DO
+Rectifier Group,60039,Rectifier iLock Verify Timeout,20009,Config,min,,UINT,AO
+Rectifier Group,60039,Turn On All Modules,20010,Config,,[1: On]/[0: Off]/[other: N/A],ENUM,DO
+Rectifier Group,60039,Clear Module Lost Alarm,20011,Config,,[1: Yes]/[other: N/A],ENUM,DO
+Rectifier Group,60039,Delete Device with Communications Failure,20012,Config,,[1: Yes]/[other: N/A],ENUM,DO
+Rectifier Group,60039,Device model,29100,Config,,,STRING,AO
+Rectifier Group,60039,SN,50012,Config,,,STRING,AO
+Rectifier Group,60039,Total DC Output Current,30004,Statistic,A,,FLOAT,OTHER
+Rectifier Group,60039,Total Input Energy,30005,Statistic,kWh,,FLOAT,OTHER
+Rectifier Group,60039,Energy Input per Day,30006,Statistic,kWh,,FLOAT,OTHER
+Rectifier Group,60039,Energy Input per Hour,30007,Statistic,kWh,,FLOAT,OTHER
+Rectifier Group,60039,Total DC Output Power,30009,Statistic,kW,,FLOAT,OTHER
+Rectifier Group,60039,Total Output Energy,30010,Statistic,kWh,,FLOAT,OTHER
+Rectifier Group,60039,Energy Output per Hour,30011,Statistic,kWh,,FLOAT,OTHER
+Rectifier,60040,Running State,10002,Sampling,,[0: Normal]/[1: Fault]/[2: Protected]/[3: Communication Failure]/[4: Power Off]/[5: Invalid]/[6: Not Configured]/[7: Power Outage]/[8: Hibernating]/[other: N/A],ENUM,DI
+Rectifier,60040,DC Output Voltage,10003,Sampling,V,,FLOAT,AI
+Rectifier,60040,DC Output Current,10004,Sampling,A,,FLOAT,AI
+Rectifier,60040,AC Input Voltage,10005,Sampling,V,,FLOAT,AI
+Rectifier,60040,Line L1-L2 Voltage,10006,Sampling,V,,FLOAT,AI
+Rectifier,60040,Line L2-L3 Voltage,10007,Sampling,V,,FLOAT,AI
+Rectifier,60040,Line L3-L1 Voltage,10008,Sampling,V,,FLOAT,AI
+Rectifier,60040,Hardware Version,10009,Sampling,,,STRING,AI
+Rectifier,60040,Software Version,10010,Sampling,,,STRING,AI
+Rectifier,60040,Rated Output Current,10011,Sampling,A,,FLOAT,AI
+Rectifier,60040,Total Runtime,10012,Sampling,h,,FLOAT,AI
+Rectifier,60040,Rated Output Power,10013,Sampling,kW,,FLOAT,AI
+Rectifier,60040,Model,10014,Sampling,,,STRING,AI
+Rectifier,60040,Brand,10015,Sampling,,,STRING,AI
+Rectifier,60040,Manufacturer,10016,Sampling,,,STRING,AI
+Rectifier,60040,Production Date,10017,Sampling,,,TIME,AI
+Rectifier,60040,Temperature,10019,Sampling,°C,,FLOAT,AI
+Rectifier,60040,DC Output Power,10020,Sampling,kW,,FLOAT,AI
+Rectifier,60040,Request iLock Verification Code,10021,Sampling,,,UINT,AI
+Rectifier,60040,Rectifier failure,10022,Sampling,,[0: Normal]/[1: Alarm]/[other: N/A],ENUM,DI
+Rectifier,60040,Rectifier protection,10023,Sampling,,[0: Normal]/[1: Alarm]/[other: N/A],ENUM,DI
+Rectifier,60040,Rectifier communication failure,10024,Sampling,,[0: Normal]/[1: Alarm]/[other: N/A],ENUM,DI
+Rectifier,60040,Rectifier power failure,10025,Sampling,,[0: Normal]/[1: Alarm]/[other: N/A],ENUM,DI
+Rectifier,60040,Rectifier output overvoltage,10026,Sampling,,[0: Normal]/[1: Alarm]/[other: N/A],ENUM,DI
+Rectifier,60040,Phase L1 Current,10027,Sampling,A,,FLOAT,AI
+Rectifier,60040,Phase L2 Current,10028,Sampling,A,,FLOAT,AI
+Rectifier,60040,Phase L3 Current,10029,Sampling,A,,FLOAT,AI
+Rectifier,60040,SN,10030,Sampling,,,STRING,AI
+Rectifier,60040,SN,19100,Sampling,,,STRING,AI
+Rectifier,60040,On/Off Control,20001,Config,,[1: On]/[0: Off]/[other: N/A],ENUM,DO
+Rectifier,60040,Model,20002,Config,,,STRING,AO
+Rectifier,60040,Brand,20003,Config,,,STRING,AO
+Rectifier,60040,Rated Output Power,20004,Config,kW,,FLOAT,AO
+Rectifier,60040,Manufacturer,20005,Config,,,STRING,AO
+Rectifier,60040,Production Date,20006,Config,,,TIME,AO
+Rectifier,60040,Rated Output Current,20008,Config,kW,,FLOAT,AO
+Rectifier,60040,iLock Verification Code,20009,Config,,,STRING,AO
+Rectifier,60040,iLock Verification Code Sent Flag,20010,Config,,,UINT,AO
+Rectifier,60040,Monitor ESN,20011,Config,,,STRING,AO
+Rectifier,60040,Device model,29100,Config,,,STRING,AO
+Rectifier,60040,SN,50012,Config,,,STRING,AO
+Rectifier,60040,Real-time Efficiency,30001,Statistic,%,,FLOAT,OTHER
+PV Module Group,60043,Total Output Current,10001,Sampling,A,,FLOAT,AI
+PV Module Group,60043,Total Input Current,10002,Sampling,A,,FLOAT,AI
+PV Module Group,60043,Total Output Energy,10003,Sampling,kWh,,FLOAT,AI
+PV Module Group,60043,Total PV Power,10004,Sampling,kW,,FLOAT,AI
+PV Module Group,60043,Module Qty,10005,Sampling,pcs,,UINT,AI
+PV Module Group,60043,IV Scanning Progress,10006,Sampling,%,,UINT,AI
+PV Module Group,60043,IV Scanning Status,10007,Sampling,,[0: Idle]/[1: Running]/[other: N/A],ENUM,AI
+PV Module Group,60043,Total output power,10008,Sampling,kW,,FLOAT,AI
+PV Module Group,60043,On/Off Control,20001,Config,,[0: All Turn On]/[1: All Turn Off]/[other: N/A],ENUM,DO
+PV Module Group,60043,All Reset,20002,Config,,[1: All Reset]/[other: N/A],ENUM,DO
+PV Module Group,60043,Is PV Scanning Supported,20003,Config,,[1: Supported]/[0: Not Supported]/[other: N/A],ENUM,DO
+PV Module Group,60043,IV Scanning Control,20004,Config,,[0: Start]/[1: Stop]/[other: N/A],ENUM,DO
+PV Module Group,60043,PV iLock Verify Timeout,20005,Config,min,,UINT,AO
+PV Module Group,60043,PV iLock Unlock Mode,20006,Config,,[0: Local Unlock Mode]/[1: NetEco Unlock Mode]/[other: N/A],ENUM,DO
+PV Module Group,60043,Enable PV iLock,20007,Config,,[0: Disable]/[1: Enable]/[other: N/A],ENUM,DO
+PV Module Group,60043,Power output mode,20008,Config,,[0: Busway]/[1: SSU]/[other: N/A],ENUM,DO
+PV Module Group,60043,Total Output Current,30001,Statistic,A,,FLOAT,OTHER
+PV Module Group,60043,Energy Output per Hour,30002,Statistic,kWh,,FLOAT,OTHER
+PV Module Group,60043,Energy Output per Day,30003,Statistic,kWh,,FLOAT,OTHER
+PV Module Group,60043,Total Output Energy,30004,Statistic,kWh,,FLOAT,OTHER
+PV Module Group,60043,Energy Input per Hour,30005,Statistic,kWh,,FLOAT,OTHER
+PV Module Group,60043,Energy Input per Day,30006,Statistic,kWh,,FLOAT,OTHER
+PV Module Group,60043,Total Input Energy,30007,Statistic,kWh,,FLOAT,OTHER
+PV Module Group,60043,Total Input Current,30008,Statistic,A,,FLOAT,OTHER
+PV Module Group,60043,Total Supply Duration,30009,Statistic,h,,FLOAT,OTHER
+PV Module Group,60043,Supply Duration per Day,30010,Statistic,h,,FLOAT,OTHER
+PV Module Group,60043,Max Input Voltage per Day,30011,Statistic,V,,FLOAT,OTHER
+PV Module Group,60043,Power State,30012,Statistic,,[0: Failure]/[1: Normal]/[other: N/A],ENUM,OTHER
+PV Module Group,60043,Total output power,30013,Statistic,kW,,FLOAT,OTHER
+PV Module,60044,Input Voltage,10001,Sampling,V,,FLOAT,AI
+PV Module,60044,Output Voltage,10002,Sampling,V,,FLOAT,AI
+PV Module,60044,Output Current,10003,Sampling,A,,FLOAT,AI
+PV Module,60044,On/Off State,10004,Sampling,,[0: On]/[1: Off]/[other: N/A],ENUM,DI
+PV Module,60044,Module No.,10005,Sampling,,,UINT,AI
+PV Module,60044,Software Version,10006,Sampling,,,STRING,AI
+PV Module,60044,Hardware Version,10007,Sampling,,,STRING,AI
+PV Module,60044,Input Current,10008,Sampling,A,,FLOAT,AI
+PV Module,60044,Input Power,10009,Sampling,kW,,FLOAT,AI
+PV Module,60044,Monitor ESN,10010,Sampling,,,STRING,AI
+PV Module,60044,Request iLock Verification Code,10011,Sampling,,,UINT,AI
+PV Module,60044,On/Off Control,20001,Config,,[0: On]/[1: Off]/[other: N/A],ENUM,DO
+PV Module,60044,Reset,20002,Config,,[1: Reset]/[other: N/A],ENUM,DO
+PV Module,60044,iLock Verification Code,20003,Config,,,STRING,AO
+PV Module,60044,iLock Verification Code Sent Flag,20004,Config,,,UINT,AO
+PV Module,60044,Monitor ESN,20005,Config,,,STRING,AO
+PV Module,60044,Input Voltage,30001,Statistic,V,,FLOAT,OTHER
+PV Module,60044,Output Voltage,30002,Statistic,V,,FLOAT,OTHER
+PV Module,60044,Output Current,30003,Statistic,A,,FLOAT,OTHER
+PV Module,60044,Input Current,30004,Statistic,A,,FLOAT,OTHER
+DC Load,60058,Voltage,10001,Sampling,V,,FLOAT,AI
+DC Load,60058,Current,10002,Sampling,A,,FLOAT,AI
+DC Load,60058,Total Energy Consumption,10003,Sampling,kWh,,FLOAT,AI
+DC Load,60058,Power,10004,Sampling,kW,,FLOAT,AI
+DC Load,60058,Load Connect Type,20001,Config,,[0: BLVD]/[1: LLVD]/[2: LLVD1]/[3: LLVD2]/[4: LLVD3]/[5: LLVD4]/[other: N/A],ENUM,DO
+DC Load,60058,Load Name,20002,Config,,,STRING,AO
+DC Load,60058,Voltage,30001,Statistic,V,,FLOAT,OTHER
+DC Load,60058,Current,30002,Statistic,A,,FLOAT,OTHER
+DC Load,60058,Total Energy Consumption,30003,Statistic,kWh,,FLOAT,OTHER
+DC Load,60058,Energy Consumption per Hour,30004,Statistic,kWh,,FLOAT,OTHER
+DC Load,60058,Power,30005,Statistic,kW,,FLOAT,OTHER
+Fan Group,60064,Fan Quantity,10001,Sampling,pcs,,USHORT,AI
+Fan,60065,Fan Speed,10001,Sampling,RPM,,UINT,AI
+Fan,60065,Runtime per Day,30001,Statistic,h,,FLOAT,OTHER
+Fan,60065,Total Runtime,30002,Statistic,h,,FLOAT,OTHER
+DCDC,60066,57V Port Voltage,10001,Sampling,V,,FLOAT,AI
+DCDC,60066,57V Port Current,10002,Sampling,A,,FLOAT,AI
+DCDC,60066,57V Port Power ,10003,Sampling,W,,FLOAT,AI
+DCDC,60066,48V Port Voltage,10004,Sampling,V,,FLOAT,AI
+DCDC,60066,48V Port Current,10005,Sampling,A,,FLOAT,AI
+DCDC,60066,48V Port Power ,10006,Sampling,W,,FLOAT,AI
+DCDC,60066,SN,10007,Sampling,,,STRING,AI
+DCDC,60066,Software version,10008,Sampling,,,STRING,AI
+DCDC,60066,Model Name,10009,Sampling,,,STRING,AI
+DCDC,60066,Device status,10010,Sampling,,[0: Standby]/[1: Operating]/[2: Hibernating]/[3: Shutdown]/[other: N/A],ENUM,AI
+DCDC,60066,Internal temperature,10011,Sampling,°C,,FLOAT,AI
+DCDC,60066,Busbar-side voltage,10012,Sampling,V,,FLOAT,AI
+DCDC,60066,Busbar-side current,10013,Sampling,A,,FLOAT,AI
+DCDC,60066,Battery-side voltage,10014,Sampling,V,,FLOAT,AI
+DCDC,60066,Battery-side current,10015,Sampling,A,,FLOAT,AI
+DCDC,60066,ISO insulation resistance,10016,Sampling,MΩ,,FLOAT,AI
+DCDC,60066,Busbar-side voltage 1,10017,Sampling,V,,FLOAT,AI
+DCDC,60066,Busbar-side current 1,10018,Sampling,A,,FLOAT,AI
+DCDC,60066,Busbar-side voltage 2,10019,Sampling,V,,FLOAT,AI
+DCDC,60066,Busbar-side current 2,10020,Sampling,A,,FLOAT,AI
+DCDC,60066,Battery-side voltage 1,10021,Sampling,V,,FLOAT,AI
+DCDC,60066,Battery-side current 1,10022,Sampling,A,,FLOAT,AI
+DCDC,60066,ISO insulation resistance 1,10023,Sampling,MΩ,,FLOAT,AI
+DCDC,60066,Battery-side voltage 2,10024,Sampling,V,,FLOAT,AI
+DCDC,60066,Battery-side current 2,10025,Sampling,V,,FLOAT,AI
+DCDC,60066,ISO insulation resistance 2,10026,Sampling,MΩ,,FLOAT,AI
+DCDC,60066,Running status,10027,Sampling,,[45056: Offline]/[3072: Loading]/[0: Standby]/[770: Emergency Power Off]/[1: Standby: safe mode]/[771: Charge/Discharge disabled]/[2: Standby: cable connection detection]/[772: Battery pack rapid shutdown]/[256: Soft start]/[512: Operating]/[513: Running: power limited]/[514: Operating: self-derating]/[768: abnormal shutdown]/[769: commanded shutdown]/[516: Running: cold standby]/[other: N/A],ENUM,AI
+DCDC,60066,Running state 1,10028,Sampling,,[45056: Offline]/[3072: Loading]/[0: Standby]/[770: Emergency Power Off]/[1: Standby: safe mode]/[771: Charge/Discharge disabled]/[2: Standby: cable connection detection]/[772: Battery pack rapid shutdown]/[256: Soft start]/[512: Operating]/[513: Running: power limited]/[514: Operating: self-derating]/[768: abnormal shutdown]/[769: commanded shutdown]/[516: Running: cold standby]/[other: N/A],ENUM,AI
+DCDC,60066,Running state 2,10029,Sampling,,[45056: Offline]/[3072: Loading]/[0: Standby]/[770: Emergency Power Off]/[1: Standby: safe mode]/[771: Charge/Discharge disabled]/[2: Standby: cable connection detection]/[772: Battery pack rapid shutdown]/[256: Soft start]/[512: Operating]/[513: Running: power limited]/[514: Operating: self-derating]/[768: abnormal shutdown]/[769: commanded shutdown]/[516: Running: cold standby]/[other: N/A],ENUM,AI
+DCDC,60066,Hardware Version,10030,Sampling,,,STRING,AI
+DCDC,60066,Total Runtime,10031,Sampling,h,,UINT,OTHER
+DCDC,60066,DC Output Power,10032,Sampling,kW,,FLOAT,AI
+DCDC,60066,DC Output Voltage,10033,Sampling,V,,FLOAT,AI
+DCDC,60066,DC Output Current,10034,Sampling,A,,FLOAT,AI
+DCDC,60066,Slot ID,11999,Sampling,,,USHORT,AI
+DCDC,60066,SN,19100,Sampling,,,STRING,AI
+DCDC,60066,Device connection status,19999,Sampling,,[45057: Online]/[45056: Offline]/[45059: Faulty]/[45058: Standby]/[45060: Loading]/[other: N/A],ENUM,AI
+DCDC,60066,Device model,29100,Config,,,STRING,AO
+DCDC,60066,,29101,Config,,,STRING,AO
+DCDC,60066,SN,50012,Config,,,STRING,AO
+DCDC,60066,Internal temperature,30011,Statistic,°C,,FLOAT,OTHER
+DCDC,60066,Busbar-side voltage,30012,Statistic,V,,FLOAT,OTHER
+DCDC,60066,Busbar-side current,30013,Statistic,A,,FLOAT,OTHER
+DCDC,60066,Battery-side voltage,30014,Statistic,V,,FLOAT,OTHER
+DCDC,60066,Battery-side current,30015,Statistic,A,,FLOAT,OTHER
+DCDC,60066,ISO insulation resistance,30016,Statistic,MΩ,,FLOAT,OTHER
+DCDC,60066,Busbar-side voltage 1,30017,Statistic,V,,FLOAT,OTHER
+DCDC,60066,Busbar-side current 1,30018,Statistic,A,,FLOAT,OTHER
+DCDC,60066,Busbar-side voltage 2,30019,Statistic,V,,FLOAT,OTHER
+DCDC,60066,Busbar-side current 2,30020,Statistic,A,,FLOAT,OTHER
+DCDC,60066,Battery-side voltage 1,30021,Statistic,V,,FLOAT,OTHER
+DCDC,60066,Battery-side current 1,30022,Statistic,A,,FLOAT,OTHER
+DCDC,60066,ISO insulation resistance 1,30023,Statistic,MΩ,,FLOAT,OTHER
+DCDC,60066,Battery-side voltage 2,30024,Statistic,V,,FLOAT,OTHER
+DCDC,60066,Battery-side current 2,30025,Statistic,V,,FLOAT,OTHER
+DCDC,60066,ISO insulation resistance 2,30026,Statistic,MΩ,,FLOAT,OTHER
+DCDC,60066,Running status,30027,Statistic,,[45056: Offline]/[3072: Loading]/[0: Standby]/[770: Emergency Power Off]/[1: Standby: safe mode]/[771: Charge/Discharge disabled]/[2: Standby: cable connection detection]/[772: Battery pack rapid shutdown]/[256: Soft start]/[512: Operating]/[513: Running: power limited]/[514: Operating: self-derating]/[768: abnormal shutdown]/[769: commanded shutdown]/[516: Running: cold standby]/[other: N/A],ENUM,OTHER
+DCDC,60066,Running state 1,30028,Statistic,,[45056: Offline]/[3072: Loading]/[0: Standby]/[770: Emergency Power Off]/[1: Standby: safe mode]/[771: Charge/Discharge disabled]/[2: Standby: cable connection detection]/[772: Battery pack rapid shutdown]/[256: Soft start]/[512: Operating]/[513: Running: power limited]/[514: Operating: self-derating]/[768: abnormal shutdown]/[769: commanded shutdown]/[516: Running: cold standby]/[other: N/A],ENUM,OTHER
+DCDC,60066,Running state 2,30029,Statistic,,[45056: Offline]/[3072: Loading]/[0: Standby]/[770: Emergency Power Off]/[1: Standby: safe mode]/[771: Charge/Discharge disabled]/[2: Standby: cable connection detection]/[772: Battery pack rapid shutdown]/[256: Soft start]/[512: Operating]/[513: Running: power limited]/[514: Operating: self-derating]/[768: abnormal shutdown]/[769: commanded shutdown]/[516: Running: cold standby]/[other: N/A],ENUM,OTHER
+Site Unit,60067,Indoor Temperature,10002,Sampling,°C,,FLOAT,AI
+Site Unit,60067,Outdoor Temperature,10003,Sampling,°C,,FLOAT,AI
+Site Unit,60067,Indoor Humidity,10004,Sampling,%RH,,FLOAT,AI
+Site Unit,60067,Total AC Input Energy Consumption,10005,Sampling,kWh,,FLOAT,AI
+Site Unit,60067,Total DC Output Energy Consumption,10006,Sampling,kWh,,FLOAT,AI
+Site Unit,60067,AC Input Power,10007,Sampling,kW,,FLOAT,AI
+Site Unit,60067,DC Output Power,10008,Sampling,kW,,FLOAT,AI
+Site Unit,60067,Max BBU Temperature,10009,Sampling,°C,,FLOAT,AI
+Site Unit,60067,Staggering Exception Cause,10010,Sampling,,[709: The number of battery strings is zero.]/[710: Battery abnormality alarm]/[711: Battery High Temperature]/[0: None]/[101: AC input power failure]/[102: AC input overvoltage]/[103: AC input undervoltage]/[301: All PSUs communication failure]/[401: All DCDCs module communication failure]/[104: AC input phase loss]/[1003: Manual Control Mode]/[302: PSU protection]/[402: DC-DC module protection]/[303: The PSU module is faulty.]/[403: The DCDC module is faulty.]/[304: All PSUs have no output.]/[404: All DC-DC modules have no output.]/[701: All Batteries Communication Failure]/[801: The battery loop is disconnected.]/[702: All Batteries Offline]/[802: Reversed Battery Polarity]/[703: Battery First Power On]/[704: All Batteries MOS Off]/[803: The parallel system of the power supply is abnormal.]/[705: Low busbar voltage]/[804: The system detects that the current is abnormal.]/[706: BLVD Disconnected]/[805: The system detects that the voltage is abnormal.]/[707: Battery overcurrent]/[806: The monitoring module is faulty.]/[708: The battery is missing.]/[807: Genset Running]/[other: N/A],ENUM,DO
+Site Unit,60067,AC Onput Power,10011,Sampling,kW,,FLOAT,AI
+Site Unit,60067,Enable Turn-off Aircon for Peak Shaving,20001,Config,,[1: Enable]/[0: Disable]/[other: N/A],ENUM,DO
+Site Unit,60067,Is Parallelled with other DC Power,20002,Config,,[1: Enable]/[0: Disable]/[other: N/A],ENUM,DO
+Site Unit,60067,Schedule Mode,20003,Config,,[0: Fixed Staggering]/[1: Debug Staggering]/[2: Dynamic Staggering]/[other: N/A],ENUM,DO
+Site Unit,60067,Backup Time,20004,Config,min,,UINT,AO
+Site Unit,60067,CRAN Room Temp Control Enabled,20005,Config,,[0: No]/[1: Yes]/[other: N/A],ENUM,DO
+Site Unit,60067,Max BBU Temperature,20006,Config,°C,,FLOAT,AI
+Site Unit,60067,Consumption of BBUs per Hour,20007,Config,kWh,,FLOAT,AI
+Site Unit,60067,Is CRAN Temperature Control Supported,20008,Config,,[0: No]/[1: Yes]/[other: N/A],ENUM,DO
+Site Unit,60067,Enable Synergistic Cooling with RAN,20009,Config,,[1: Enable]/[0: Disable]/[other: N/A],ENUM,DO
+Site Unit,60067,Battery Discharging Mode,20010,Config,,[0: Batt. Life Priority]/[1: Staggering Priority]/[other: N/A],ENUM,DO
+Site Unit,60067,Max. Disc Times Per Day,20011,Config,,,UINT,DO
+Site Unit,60067,Battery Abnormal Disable Staggering Electricity ,20012,Config,,[1: Enable]/[0: Disable]/[other: N/A],ENUM,DO
+Site Unit,60067,End Volt of Staggering Electricity,20013,Config,V,,FLOAT,DO
+Site Unit,60067,End SOH of Staggering Electricity,20014,Config,%,,FLOAT,DO
+Site Unit,60067,Evaluate Times of Disable Staggering,20015,Config,,,UINT,DO
+Site Unit,60067,Discharing Duration of Disable Staggering,20016,Config,min,,UINT,DO
+Site Unit,60067,Battery Discharge Start Time,20017,Config,,,DATE_TIME,DO
+Site Unit,60067,Battery Discharge End Time,20018,Config,,,DATE_TIME,DO
+Site Unit,60067,Min. DOD,20019,Config,%,,FLOAT,DO
+Site Unit,60067,Max. DOD Each Time,20020,Config,%,,FLOAT,DO
+Site Unit,60067,Is Precise Power Backup Supported,20021,Config,,[0: No]/[1: Yes]/[other: N/A],ENUM,DO
+Site Unit,60067,Enable Precise Power Backup License,20022,Config,,[1: Enable]/[0: Disable]/[other: N/A],ENUM,DO
+Site Unit,60067,Enable Precise Power Backup,20023,Config,,[1: Enable]/[0: Disable]/[other: N/A],ENUM,DO
+Site Unit,60067,Precise Power Backup Strategy,20024,Config,,[0: Backup duration Priority]/[1: Customization Priority]/[other: N/A],ENUM,DO
+Site Unit,60067,The margin fluctuates with the power grid quality,20025,Config,%,,UINT,DO
+Site Unit,60067,Client Code,20026,Config,,,STRING,AO
+Site Unit,60067,Max. DOD Each Day,20027,Config,%,,FLOAT,DO
+Site Unit,60067,Optimal Solar Usage Cutoff SOC,20028,Config,%,,UINT,DO
+Site Unit,60067,System Categories,20029,Config,,,STRING,DO
+Site Unit,60067,NeESN,20030,Config,,,STRING,DO
+Site Unit,60067,Power Conversion Efficiency,20031,Config,%,,UINT,DO
+Site Unit,60067,Upper Limit of Total PSU Output,20032,Config,kW,,FLOAT,DO
+Site Unit,60067,Is AFCI Supported,20033,Config,,[0: No]/[1: Yes]/[other: N/A],ENUM,DO
+Site Unit,60067,AFCI License,20034,Config,,[0: Deactive]/[1: Active]/[other: N/A],ENUM,DO
+Site Unit,60067,Enable AFCI,20035,Config,,[1: Enable]/[0: Disable]/[other: N/A],ENUM,DO
+Site Unit,60067,Enable Solar Adaptation (AC）,20036,Config,,[1: Enable]/[0: Disable]/[other: N/A],ENUM,DO
+Site Unit,60067,Support  Solar Adaptation (AC）,20037,Config,,[0: No]/[1: Yes]/[other: N/A],ENUM,DO
+Site Unit,60067,Low Electricity Price Start Time 1,20080,Config,,,DATE_TIME,DO
+Site Unit,60067,Low Electricity Price End Time 1,20081,Config,,,DATE_TIME,DO
+Site Unit,60067,Low Electricity Price Start Time 2,20082,Config,,,DATE_TIME,DO
+Site Unit,60067,Low Electricity Price End Time 2,20083,Config,,,DATE_TIME,DO
+Site Unit,60067,Low Electricity Price Start Time 3,20084,Config,,,DATE_TIME,DO
+Site Unit,60067,Low Electricity Price End Time 3,20085,Config,,,DATE_TIME,DO
+Site Unit,60067,High Electricity Price Start Time 1,20086,Config,,,DATE_TIME,DO
+Site Unit,60067,High Electricity Price End Time 1,20087,Config,,,DATE_TIME,DO
+Site Unit,60067,High Electricity Price Start Time 2,20088,Config,,,DATE_TIME,DO
+Site Unit,60067,High Electricity Price End Time 2,20089,Config,,,DATE_TIME,DO
+Site Unit,60067,High Electricity Price Start Time 3,20090,Config,,,DATE_TIME,DO
+Site Unit,60067,High Electricity Price End Time 3,20091,Config,,,DATE_TIME,DO
+Site Unit,60067,Staggering Electricity Enabled,20099,Config,,[0: No]/[1: Yes]/[other: N/A],ENUM,DO
+Site Unit,60067,Peak Shaving Insufficient Battery Capacity,30001,Statistic,Ah,,FLOAT,OTHER
+Site Unit,60067,Indoor Temperature,30002,Statistic,°C,,FLOAT,OTHER
+Site Unit,60067,Outdoor Temperature,30003,Statistic,°C,,FLOAT,OTHER
+Site Unit,60067,Indoor Humidity,30004,Statistic,%RH,,FLOAT,OTHER
+Site Unit,60067,Total AC Input Energy Consumption,30005,Statistic,kWh,,FLOAT,OTHER
+Site Unit,60067,Total DC Output Energy Consumption,30006,Statistic,kWh,,FLOAT,OTHER
+Site Unit,60067,AC Input Power,30007,Statistic,kW,,FLOAT,OTHER
+Site Unit,60067,DC Output Power,30008,Statistic,kW,,FLOAT,OTHER
+Site Unit,60067,High Indoor Temp Runtime per Day,30009,Statistic,h,,FLOAT,OTHER
+Site Unit,60067,Low Indoor Temp Runtime per Day,30010,Statistic,h,,FLOAT,OTHER
+Site Unit,60067,Max BBU Temperature,30011,Statistic,°C,,FLOAT,OTHER
+Site Unit,60067,Consumption of BBUs per Hour,30012,Statistic,kWh,,FLOAT,OTHER
+Site Unit,60067,Staggering Exception Cause,30013,Statistic,,[709: The number of battery strings is zero.]/[710: Battery abnormality alarm]/[711: Battery High Temperature]/[0: None]/[101: AC input power failure]/[102: AC input overvoltage]/[103: AC input undervoltage]/[301: All PSUs communication failure]/[401: All DCDCs module communication failure]/[104: AC input phase loss]/[1003: Manual Control Mode]/[302: PSU protection]/[402: DC-DC module protection]/[303: The PSU module is faulty.]/[403: The DCDC module is faulty.]/[304: All PSUs have no output.]/[404: All DC-DC modules have no output.]/[701: All Batteries Communication Failure]/[801: The battery loop is disconnected.]/[702: All Batteries Offline]/[802: Reversed Battery Polarity]/[703: Battery First Power On]/[704: All Batteries MOS Off]/[803: The parallel system of the power supply is abnormal.]/[705: Low busbar voltage]/[804: The system detects that the current is abnormal.]/[706: BLVD Disconnected]/[805: The system detects that the voltage is abnormal.]/[707: Battery overcurrent]/[806: The monitoring module is faulty.]/[708: The battery is missing.]/[807: Genset Running]/[other: N/A],ENUM,OTHER
+Site Unit,60067,Total DC Load Power,30014,Statistic,kW,,FLOAT,OTHER
+Site Unit,60067,Energy Consumption,30015,Statistic,kWh,,FLOAT,OTHER
+DC Distribution Unit,60069,Total DC Load Current,10001,Sampling,A,,FLOAT,AI
+DC Distribution Unit,60069,Load Setting Mode,20001,Config,,[0: All Load Branch]/[1: Single Load Branch]/[other: N/A],ENUM,DO
+DC Distribution Unit,60069,Load Disconnect Mode,20002,Config,,[0: Voltage Mode]/[1: Time Mode]/[2: Capacity Mode]/[other: N/A],ENUM,DO
+DC Distribution Unit,60069,Slot No.,20003,Config,,,UINT,DO
+DC Distribution Unit,60069,Load Disconnect Voltage,20004,Config,V,,FLOAT,AO
+DC Distribution Unit,60069,Load Disconnect Time,20005,Config,min,,FLOAT,AO
+DC Distribution Unit,60069,Load Disconnect Capacity,20006,Config,%,,FLOAT,AO
+DC Distribution Unit,60069,Enable Load Disconnect,20007,Config,,[1: Enable]/[0: Disable]/[other: N/A],ENUM,DO
+DC Distribution Unit,60069,Enable Plan Load Disconnect,20008,Config,,[1: Enable]/[0: Disable]/[other: N/A],ENUM,DO
+DC Distribution Unit,60069,Load Plan Disconnect Time,20009,Config,,,TIME,AO
+DC Distribution Unit,60069,Load Plan Disconnect Duration,20010,Config,min,,UINT,AO
+DC Distribution Unit,60069,Load Reconnect Voltage,20011,Config,V,,FLOAT,AO
+DC Distribution Unit,60069,Power Supply Source,20012,Config,,[0: Bus]/[1: LLVD1]/[2: LLVD2]/[3: LLVD3]/[4: LLVD4]/[5: LLVD5]/[6: LLVD6]/[7: LLVD7]/[8: LLVD8]/[9: LLVD9]/[10: LLVD10]/[other: N/A],ENUM,DO
+DC Distribution Unit,60069,Branch1 Usage Configure,20013,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[other: N/A],ENUM,DO
+DC Distribution Unit,60069,Branch2 Usage Configure,20014,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[other: N/A],ENUM,DO
+DC Distribution Unit,60069,Branch3 Usage Configure,20015,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[other: N/A],ENUM,DO
+DC Distribution Unit,60069,Branch4 Usage Configure,20016,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[other: N/A],ENUM,DO
+DC Distribution Unit,60069,Branch5 Usage Configure,20017,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[other: N/A],ENUM,DO
+DC Distribution Unit,60069,Branch6 Usage Configure,20018,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[other: N/A],ENUM,DO
+DC Distribution Unit,60069,Branch7 Usage Configure,20019,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[other: N/A],ENUM,DO
+DC Distribution Unit,60069,Branch8 Usage Configure,20020,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[other: N/A],ENUM,DO
+DC Distribution Unit,60069,Branch9 Usage Configure,20021,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[other: N/A],ENUM,DO
+DC Distribution Unit,60069,Branch10 Usage Configure,20022,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[other: N/A],ENUM,DO
+DC Distribution Unit,60069,Branch11 Usage Configure,20023,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[other: N/A],ENUM,DO
+DC Distribution Unit,60069,Branch12 Usage Configure,20024,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[other: N/A],ENUM,DO
+DC Distribution Unit,60069,Branch13 Usage Configure,20025,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[other: N/A],ENUM,DO
+DC Distribution Unit,60069,Branch14 Usage Configure,20026,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[other: N/A],ENUM,DO
+DC Distribution Unit,60069,Branch15 Usage Configure,20027,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[other: N/A],ENUM,DO
+DC Distribution Unit,60069,Branch16 Usage Configure,20028,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[other: N/A],ENUM,DO
+DC Distribution Unit,60069,Branch17 Usage Configure,20029,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[other: N/A],ENUM,DO
+DC Distribution Unit,60069,Branch18 Usage Configure,20030,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[other: N/A],ENUM,DO
+DC Distribution Unit,60069,Branch19 Usage Configure,20031,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[other: N/A],ENUM,DO
+DC Distribution Unit,60069,Branch20 Usage Configure,20032,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[other: N/A],ENUM,DO
+DC Distribution Unit,60069,Branch21 Usage Configure,20033,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[other: N/A],ENUM,DO
+DC Distribution Unit,60069,Branch22 Usage Configure,20034,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[other: N/A],ENUM,DO
+DC Distribution Unit,60069,Branch23 Usage Configure,20035,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[other: N/A],ENUM,DO
+DC Distribution Unit,60069,Branch24 Usage Configure,20036,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[other: N/A],ENUM,DO
+DC Distribution Unit,60069,Branch25 Usage Configure,20037,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[other: N/A],ENUM,DO
+DC Distribution Unit,60069,Branch26 Usage Configure,20038,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[other: N/A],ENUM,DO
+DC Distribution Unit,60069,Branch27 Usage Configure,20039,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[other: N/A],ENUM,DO
+DC Distribution Unit,60069,Branch28 Usage Configure,20040,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[other: N/A],ENUM,DO
+DC Distribution Unit,60069,Branch29 Usage Configure,20041,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[other: N/A],ENUM,DO
+DC Distribution Unit,60069,Branch30 Usage Configure,20042,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[other: N/A],ENUM,DO
+DC Distribution Unit,60069,Branch31 Usage Configure,20043,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[other: N/A],ENUM,DO
+DC Distribution Unit,60069,Branch32 Usage Configure,20044,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[other: N/A],ENUM,DO
+DC Distribution Unit,60069,Branch33 Usage Configure,20045,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[other: N/A],ENUM,DO
+DC Distribution Unit,60069,Branch34 Usage Configure,20046,Config,,[0: BLVD Load]/[1: Customized Load]/[2: Lead-acid Battery]/[3: Lithium Battery]/[4: Solar Energy]/[5: DC D.G.]/[6: Power Cascading Port]/[7: Other]/[8: LLVD1 Load]/[9: LLVD2 Load]/[10: LLVD3 Load]/[11: LLVD4 Load]/[12: Temperature Control]/[other: N/A],ENUM,DO
+DC Distribution Unit,60069,Total DC Load Power,30001,Statistic,kW,,FLOAT,OTHER
+DC Distribution Unit,60069,Total DC Load Energy Consumption,30002,Statistic,kWh,,FLOAT,OTHER
+DC Distribution Unit,60069,Total DC Load Current,30003,Statistic,A,,FLOAT,OTHER
+Branch Group,60076,Total Current,10001,Sampling,A,,FLOAT,AI
+Branch Group,60076,Branch Group Customized Label Name,20001,Config,,,STRING,AO
+Branch Group,60076,Branch Group Customized Label ID,20002,Config,,,UINT,AO
+Branch Group,60076,No.,20003,Config,,,UINT,AI
+Branch Group,60076,On/Off Control,20004,Config,,[1: On]/[0: Off]/[other: N/A],ENUM,DO
+Branch Group,60076,Load Disconnect Voltage,20006,Config,V,,FLOAT,AO
+Branch Group,60076,Load Disconnect Mode,20007,Config,,[0: Voltage Mode]/[1: Time Mode]/[2: Capacity Mode]/[3: Energy Consump Mode]/[other: N/A],ENUM,DO
+Branch Group,60076,Load Disconnect Time,20008,Config,min,,FLOAT,AO
+Branch Group,60076,Load Disconnect Capacity,20009,Config,%,,FLOAT,AO
+Branch Group,60076,Enable Load Disconnect,20010,Config,,[1: Enable]/[0: Disable]/[other: N/A],ENUM,DO
+Branch Group,60076,Enable Plan Disconnect,20011,Config,,[1: Enable]/[0: Disable]/[other: N/A],ENUM,DO
+Branch Group,60076,Load Reconnect Voltage,20014,Config,V,,FLOAT,AO
+Branch Group,60076,Plan 1 Disconnect Start Time,20017,Config,,,TIME,AO
+Branch Group,60076,Plan 1 Disconnect Duration,20018,Config,min,,UINT,AO
+Branch Group,60076,Plan 2 Disconnect Start Time,20019,Config,,,TIME,AO
+Branch Group,60076,Plan 2 Disconnect Duration,20020,Config,min,,UINT,AO
+Branch Group,60076,Plan 3 Disconnect Start Time,20021,Config,,,TIME,AO
+Branch Group,60076,Plan 3 Disconnect Duration,20022,Config,min,,UINT,AO
+Branch Group,60076,Plan 4 Disconnect Start Time,20023,Config,,,TIME,AO
+Branch Group,60076,Plan 4 Disconnect Duration,20024,Config,min,,UINT,AO
+Branch Group,60076,Plan 5 Disconnect Start Time,20025,Config,,,TIME,AO
+Branch Group,60076,Plan 5 Disconnect Duration,20026,Config,min,,UINT,AO
+Branch Group,60076,Exempt Period 1 Start Time,20027,Config,,,TIME,AO
+Branch Group,60076,Exempt Period 1 Duration,20028,Config,min,,UINT,AO
+Branch Group,60076,Exempt Period 2 Start Time,20029,Config,,,TIME,AO
+Branch Group,60076,Exempt Period 2 Duration,20030,Config,min,,UINT,AO
+Branch Group,60076,Exempt Period 3 Start Time,20031,Config,,,TIME,AO
+Branch Group,60076,Exempt Period 3 Duration,20032,Config,min,,UINT,AO
+Branch Group,60076,Exempt Period 4 Start Time,20033,Config,,,TIME,AO
+Branch Group,60076,Exempt Period 4 Duration,20034,Config,min,,UINT,AO
+Branch Group,60076,Exempt Period 5 Start Time,20035,Config,,,TIME,AO
+Branch Group,60076,Exempt Period 5 Duration,20036,Config,min,,UINT,AO
+Branch Group,60076,No Backup on Exempt Period,20037,Config,,[1: Enable]/[0: Disable]/[other: N/A],ENUM,DO
+Branch Group,60076,Load Disconnect Energy Consumption,20038,Config,kWh,,FLOAT,AO
+Branch Group,60076,Enable On/Off Control,20039,Config,,[1: Enable]/[0: Disable]/[other: N/A],ENUM,DO
+Branch Group,60076,Power Backup Duration,20040,Config,min,,UINT,AO
+Branch Group,60076,Power Backup Priority,20041,Config,,,UINT,AO
+Branch Group,60076,Branch Cluster Custom Label,20042,Config,,,STRING,AO
+Branch Group,60076,Branch Cluster Configuration,20043,Config,,[0: None]/[1: Branch Cluster 1]/[2: Branch Cluster 2]/[3: Branch Cluster 3]/[4: Branch Cluster 4]/[5: Branch Cluster 5]/[6: Branch Cluster 6]/[7: Branch Cluster 7]/[8: Branch Cluster 8]/[9: Branch Cluster 9]/[10: Branch Cluster 10]/[other: N/A],ENUM,DO
+Branch Group,60076,Customized Label Name,20044,Config,,[0: Branch Group]/[other: N/A],ENUM,DO
+Branch Group,60076,Plan 1 Disconnect End Time,20045,Config,,,TIME,AO
+Branch Group,60076,Plan 2 Disconnect End Time,20046,Config,,,TIME,AO
+Branch Group,60076,Plan 3 Disconnect End Time,20047,Config,,,TIME,AO
+Branch Group,60076,Plan 4 Disconnect End Time,20048,Config,,,TIME,AO
+Branch Group,60076,Plan 5 Disconnect End Time,20049,Config,,,TIME,AO
+Branch Group,60076,Exempt Period 1 End Time,20050,Config,,,TIME,AO
+Branch Group,60076,Exempt Period 2 End Time,20051,Config,,,TIME,AO
+Branch Group,60076,Exempt Period 3 End Time,20052,Config,,,TIME,AO
+Branch Group,60076,Exempt Period 4 End Time,20053,Config,,,TIME,AO
+Branch Group,60076,Exempt Period 5 End Time,20054,Config,,,TIME,AO
+Branch Group,60076,No Backup on Exempt Period 2,20055,Config,,[1: Enable]/[0: Disable]/[other: N/A],ENUM,DO
+Branch Group,60076,No Backup on Exempt Period 3,20056,Config,,[1: Enable]/[0: Disable]/[other: N/A],ENUM,DO
+Branch Group,60076,No Backup on Exempt Period 4,20057,Config,,[1: Enable]/[0: Disable]/[other: N/A],ENUM,DO
+Branch Group,60076,No Backup on Exempt Period 5,20058,Config,,[1: Enable]/[0: Disable]/[other: N/A],ENUM,DO
+Branch Group,60076,Enable Plan 2 Disconnect,20059,Config,,[1: Enable]/[0: Disable]/[other: N/A],ENUM,DO
+Branch Group,60076,Enable Plan 3 Disconnect,20060,Config,,[1: Enable]/[0: Disable]/[other: N/A],ENUM,DO
+Branch Group,60076,Enable Plan 4 Disconnect,20061,Config,,[1: Enable]/[0: Disable]/[other: N/A],ENUM,DO
+Branch Group,60076,Enable Plan 5 Disconnect,20062,Config,,[1: Enable]/[0: Disable]/[other: N/A],ENUM,DO
+Branch Group,60076,Total DC Load Energy Consumption,30001,Statistic,kWh,,FLOAT,OTHER
+Branch Group,60076,Total DC Load Power,30002,Statistic,kW,,FLOAT,OTHER
+Power System,69999,Total Temperature Control Energy Consumption,10009,Sampling,kWh,,FLOAT,AI
+Power System,69999,System Load Ratio,10012,Sampling,%,,FLOAT,AI
+Power System,69999,Current Power Supply Type,10013,Sampling,,[11: Other Energy]/[12: Mains and Other Energy]/[13: Battery and Other Energy]/[14: Solar and Other Energy]/[15: D.G. and Other Energy]/[16: Mains and Solar and Battery]/[0: Unknown]/[1: Mains]/[2: D.G.]/[3: Battery]/[4: Mains and Battery]/[5: D.G. and Battery]/[6: Solar]/[7: Solar and Mains]/[8: Solar and D.G.]/[9: Solar and Battery]/[10: HVDC]/[other: N/A],ENUM,AI
+Power System,69999,48V Port Current,10014,Sampling,A,,FLOAT,AI
+Power System,69999,48V DC Load Current,10015,Sampling,A,,FLOAT,AI
+Power System,69999,DC Output Voltage,10016,Sampling,V,,FLOAT,AI
+Power System,69999,Total DC Load Current,10017,Sampling,A,,FLOAT,AI
+Power System,69999,Total DC Load Power,10018,Sampling,kW,,FLOAT,AI
+Power System,69999,Total DC Load Energy Consumption,10019,Sampling,kWh,,FLOAT,AI
+Power System,69999,Total AC Input Energy Consumption,10020,Sampling,kWh,,FLOAT,AI
+Power System,69999,Cabinet ID,10021,Sampling,,,STRING,AI
+Power System,69999,Battery Swapping Cabinet Status,10022,Sampling,,[0: Initializing]/[1: Idle]/[2: Battery Swapping]/[3: Return Battery]/[4: Obtain Battery]/[5: Abnormal]/[other: N/A],ENUM,AI
+Power System,69999,Total Leasable Battery Quantity,10023,Sampling,,,UINT,AI
+Power System,69999,Total Returnable Battery Quantity,10024,Sampling,,,UINT,AI
+Power System,69999,Total Battery Compartment Quantity,10025,Sampling,,,UINT,AI
+Power System,69999,Brand,20001,Config,,,STRING,AO
+Power System,69999,Model,20002,Config,,,STRING,AO
+Power System,69999,Control Mode,20006,Config,,[1: Manual]/[0: Automatic]/[2: Maintenance]/[other: N/A],ENUM,DO
+Power System,69999,AC Input Supply,20007,Config,,[0: No]/[1: Yes]/[other: N/A],ENUM,DO
+Power System,69999,Other 48V DC Input Supply,20008,Config,,[0: No]/[1: Yes]/[other: N/A],ENUM,DO
+Power System,69999,Load Precise Power Supply Switch,20009,Config,,[0: No]/[1: Yes]/[other: N/A],ENUM,DO
+Power System,69999,Whether there is a battery contactor in the system,20010,Config,,[0: No]/[1: Yes]/[other: N/A],ENUM,AO
+Power System,69999,Remote Inverter Shutdown,20011,Config,,[0: Start]/[1: Shut Down]/[other: N/A],ENUM,AO
+Power System,69999,Magic Box Frame Identification,20012,Config,,[0: No]/[1: 1U Magic Box]/[2: 3U Magic Box]/[3: 6U Magic Box]/[4: 2U Magic Box]/[other: N/A],ENUM,DO
+Power System,69999,Total Runtime,30002,Statistic,h,,FLOAT,OTHER
+Power System,69999,Total Temperature Control Energy Consumption,30004,Statistic,kWh,,FLOAT,OTHER
+Power System,69999,Temperature Control Energy Consumption per Day,30005,Statistic,kWh,,FLOAT,OTHER
+Power System,69999,Temperature Control Energy Consumption per Hour,30006,Statistic,kWh,,FLOAT,OTHER
+Power System,69999,System Load Ratio,30010,Statistic,%,,FLOAT,OTHER
+Power System,69999,Unknown Energy Supply Duration per Day,30011,Statistic,h,,FLOAT,OTHER
+Power System,69999,Battery Supply Duration per Day,30012,Statistic,h,,FLOAT,OTHER
+Power System,69999,DC Output Voltage,30013,Statistic,V,,FLOAT,OTHER
+Power System,69999,Total DC Load Current,30014,Statistic,A,,FLOAT,OTHER
+Power System,69999,Total DC Load Power,30015,Statistic,kW,,FLOAT,OTHER
+Power System,69999,Total DC Load Energy Consumption,30016,Statistic,kWh,,FLOAT,OTHER
+Power System,69999,DC Load Energy Consumption per Day,30017,Statistic,kWh,,FLOAT,OTHER
+Power System,69999,DC Load Energy Consumption per Hour,30018,Statistic,kWh,,FLOAT,OTHER
+Power System,69999,DC Load Energy Consumption per 5Min,30019,Statistic,kWh,,FLOAT,OTHER
+Power System,69999,Total AC Input Energy Consumption,30020,Statistic,kWh,,FLOAT,OTHER
+Power System,69999,AC Input Energy Consumption per Day,30021,Statistic,kWh,,FLOAT,OTHER
+Power System,69999,AC Input Energy Consumption per Hour,30022,Statistic,kWh,,FLOAT,OTHER
+Power System,69999,Total DC Load Power,30023,Statistic,kW,,FLOAT,OTHER
+Power System,69999,Staggering Energy Consumption per Day,30024,Statistic,kWh,,FLOAT,OTHER
