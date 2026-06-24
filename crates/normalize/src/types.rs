@@ -23,6 +23,7 @@ pub enum Source {
     ModbusEaton,// Direct Modbus poll of SC200/300 (future stage) — stateful
     HtmlOos,    // /alarmi/ out-of-service table  — stateful service outage
     SmartloggerHuawei, // Huawei SmartLogger 3000 PV inverter poll — stateful
+    ModbusDatakom, // DATAKOM D-500 MK3 genset controller Modbus poll — stateful
 }
 
 impl Source {
@@ -33,6 +34,7 @@ impl Source {
             Source::U2020 | Source::RpsSc200 | Source::RpsSc300
                 | Source::Dse74xx | Source::Benning | Source::Baran
                 | Source::ModbusEaton | Source::HtmlOos | Source::SmartloggerHuawei
+                | Source::ModbusDatakom
         )
     }
 }

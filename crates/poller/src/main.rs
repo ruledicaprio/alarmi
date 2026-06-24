@@ -9,6 +9,7 @@
 //! Usage: bht-poller [--config FILE] [--devices FILE] [--alarms FILE] [--dry-run] [--once]
 
 mod breaker;
+mod datakom;
 mod decode;
 mod poll;
 mod profile;
@@ -29,7 +30,7 @@ use std::time::{Duration, Instant};
 use tokio::sync::Semaphore;
 use tokio::task::JoinSet;
 use tokio::time::sleep;
-use types::{AlarmFile, DeviceCfg, DevicesFile, PollerConfig, SlAlarmFile};
+use types::{AlarmFile, DeviceCfg, DevicesFile, DkAlarmFile, PollerConfig, SlAlarmFile};
 // DevicesFile is retained for --dry-run TOML fallback only; DB mode loads from dim_device.
 use bht_normalize::Source;
 
@@ -39,6 +40,7 @@ async fn main() -> Result<()> {
     let mut dev_path = "config/devices.toml".to_string();
     let mut alarm_path = "config/eaton_alarms.toml".to_string();
     let mut sl_alarm_path = "config/smartlogger_alarms.toml".to_string();
+    let mut dk_alarm_path = "config/datakom_alarms.toml".to_string();
     let (mut dry_run, mut once) = (false, false);
     let mut args = std::env::args().skip(1);
     while let Some(a) = args.next() {
@@ -47,6 +49,7 @@ async fn main() -> Result<()> {
             "--devices" => dev_path = args.next().unwrap_or(dev_path),
             "--alarms"  => alarm_path = args.next().unwrap_or(alarm_path),
             "--smartlogger-alarms" => sl_alarm_path = args.next().unwrap_or(sl_alarm_path),
+            "--datakom-alarms"     => dk_alarm_path = args.next().unwrap_or(dk_alarm_path),
             "--dry-run" => dry_run = true,
             "--once"    => once = true,
             other => eprintln!("[poller] ignoring arg: {other}"),
@@ -68,6 +71,12 @@ async fn main() -> Result<()> {
     let profile = Arc::new(Profile::from_file(alarms));
     let sl_profile = Arc::new(SmartloggerProfile::from_file(sl_alarms));
 
+    let dk_alarms: DkAlarmFile = std::fs::read_to_string(&dk_alarm_path)
+        .ok()
+        .and_then(|s| toml::from_str(&s).ok())
+        .unwrap_or(DkAlarmFile { alarm: vec![] });
+    let dk_profile = Arc::new(datakom::DatakomProfile::from_file(dk_alarms));
+
     let sink = if dry_run || cfg.database.dsn.is_empty() {
         eprintln!("[poller] sink = DRY-RUN");
         Sink::DryRun
@@ -83,7 +92,7 @@ async fn main() -> Result<()> {
         let devices: DevicesFile = toml::from_str(
             &std::fs::read_to_string(&dev_path).with_context(|| format!("read {dev_path}"))?)?;
         devices.device.into_iter().filter(|d| d.enabled).filter(|d| {
-            matches!(d.dev_type.as_str(), "eaton" | "smartlogger")
+            matches!(d.dev_type.as_str(), "eaton" | "smartlogger" | "datakom")
         }).collect()
     };
     log_device_summary(&active_devs, cfg.poll_interval_secs, cfg.max_concurrent);
@@ -140,6 +149,20 @@ async fn main() -> Result<()> {
                                 active: pr.active, measurements: pr.measurements,
                             });
                         (ip, unit_id, res, Source::SmartloggerHuawei)
+                    });
+                }
+                "datakom" => {
+                    let prof2 = dk_profile.clone();
+                    set.spawn(async move {
+                        sleep(delay).await;
+                        let _permit = sem2.acquire_owned().await.unwrap();
+                        let res = datakom::poll_datakom(dev2, cfg2, prof2).await
+                            .map(|pr| poll::PollResult {
+                                ip: pr.ip, site_key: pr.site_key,
+                                status: Default::default(),
+                                active: pr.active, measurements: pr.measurements,
+                            });
+                        (ip, unit_id, res, Source::ModbusDatakom)
                     });
                 }
                 _ => continue,
@@ -222,7 +245,7 @@ fn log_device_summary(devs: &[DeviceCfg], interval_secs: u64, max_concurrent: us
     let mut skipped = 0;
     for d in devs {
         match d.dev_type.as_str() {
-            "eaton" | "smartlogger" => *by_type.entry(d.dev_type.clone()).or_insert(0) += 1,
+            "eaton" | "smartlogger" | "datakom" => *by_type.entry(d.dev_type.clone()).or_insert(0) += 1,
             _ => skipped += 1,
         }
     }

@@ -1,0 +1,725 @@
+# DATAKOM D-500 MK3 — alarm bit definitions
+# Source: "500 Modbus Application Manual" rev 03 (firmware 5.6)
+#
+# Bit numbering is shared across all three 256-bit register ranges:
+#   10504–10519  Shutdown alarms  → severity = critical
+#   10520–10535  Loaddump alarms  → severity = major
+#   10536–10551  Warning alarms   → severity = warning
+#
+# Bits 0–7:   on-board digital input alarms (user-configurable names)
+# Bits 8–47:  expansion input alarms (user-configurable names)
+# Bits 48+:   internal/system alarms (fixed names from firmware)
+# Bits 142–255: reserved
+
+# --- Digital input alarms (default names, customise per deployment) ---
+[[alarm]]
+bit = 0
+name = "Digital Input 1"
+class = "UNCLASSIFIED"
+
+[[alarm]]
+bit = 1
+name = "Digital Input 2"
+class = "UNCLASSIFIED"
+
+[[alarm]]
+bit = 2
+name = "Digital Input 3"
+class = "UNCLASSIFIED"
+
+[[alarm]]
+bit = 3
+name = "Digital Input 4"
+class = "UNCLASSIFIED"
+
+[[alarm]]
+bit = 4
+name = "Digital Input 5"
+class = "UNCLASSIFIED"
+
+[[alarm]]
+bit = 5
+name = "Digital Input 6"
+class = "UNCLASSIFIED"
+
+[[alarm]]
+bit = 6
+name = "Digital Input 7"
+class = "UNCLASSIFIED"
+
+[[alarm]]
+bit = 7
+name = "Digital Input 8"
+class = "UNCLASSIFIED"
+
+# --- Expansion input alarms (bits 8–47, default generic names) ---
+[[alarm]]
+bit = 8
+name = "Expansion Input 1"
+class = "UNCLASSIFIED"
+
+[[alarm]]
+bit = 9
+name = "Expansion Input 2"
+class = "UNCLASSIFIED"
+
+[[alarm]]
+bit = 10
+name = "Expansion Input 3"
+class = "UNCLASSIFIED"
+
+[[alarm]]
+bit = 11
+name = "Expansion Input 4"
+class = "UNCLASSIFIED"
+
+[[alarm]]
+bit = 12
+name = "Expansion Input 5"
+class = "UNCLASSIFIED"
+
+[[alarm]]
+bit = 13
+name = "Expansion Input 6"
+class = "UNCLASSIFIED"
+
+[[alarm]]
+bit = 14
+name = "Expansion Input 7"
+class = "UNCLASSIFIED"
+
+[[alarm]]
+bit = 15
+name = "Expansion Input 8"
+class = "UNCLASSIFIED"
+
+[[alarm]]
+bit = 16
+name = "Expansion Input 9"
+class = "UNCLASSIFIED"
+
+[[alarm]]
+bit = 17
+name = "Expansion Input 10"
+class = "UNCLASSIFIED"
+
+[[alarm]]
+bit = 18
+name = "Expansion Input 11"
+class = "UNCLASSIFIED"
+
+[[alarm]]
+bit = 19
+name = "Expansion Input 12"
+class = "UNCLASSIFIED"
+
+[[alarm]]
+bit = 20
+name = "Expansion Input 13"
+class = "UNCLASSIFIED"
+
+[[alarm]]
+bit = 21
+name = "Expansion Input 14"
+class = "UNCLASSIFIED"
+
+[[alarm]]
+bit = 22
+name = "Expansion Input 15"
+class = "UNCLASSIFIED"
+
+[[alarm]]
+bit = 23
+name = "Expansion Input 16"
+class = "UNCLASSIFIED"
+
+[[alarm]]
+bit = 24
+name = "Expansion Input 17"
+class = "UNCLASSIFIED"
+
+[[alarm]]
+bit = 25
+name = "Expansion Input 18"
+class = "UNCLASSIFIED"
+
+[[alarm]]
+bit = 26
+name = "Expansion Input 19"
+class = "UNCLASSIFIED"
+
+[[alarm]]
+bit = 27
+name = "Expansion Input 20"
+class = "UNCLASSIFIED"
+
+[[alarm]]
+bit = 28
+name = "Expansion Input 21"
+class = "UNCLASSIFIED"
+
+[[alarm]]
+bit = 29
+name = "Expansion Input 22"
+class = "UNCLASSIFIED"
+
+[[alarm]]
+bit = 30
+name = "Expansion Input 23"
+class = "UNCLASSIFIED"
+
+[[alarm]]
+bit = 31
+name = "Expansion Input 24"
+class = "UNCLASSIFIED"
+
+[[alarm]]
+bit = 32
+name = "Expansion Input 25"
+class = "UNCLASSIFIED"
+
+[[alarm]]
+bit = 33
+name = "Expansion Input 26"
+class = "UNCLASSIFIED"
+
+[[alarm]]
+bit = 34
+name = "Expansion Input 27"
+class = "UNCLASSIFIED"
+
+[[alarm]]
+bit = 35
+name = "Expansion Input 28"
+class = "UNCLASSIFIED"
+
+[[alarm]]
+bit = 36
+name = "Expansion Input 29"
+class = "UNCLASSIFIED"
+
+[[alarm]]
+bit = 37
+name = "Expansion Input 30"
+class = "UNCLASSIFIED"
+
+[[alarm]]
+bit = 38
+name = "Expansion Input 31"
+class = "UNCLASSIFIED"
+
+[[alarm]]
+bit = 39
+name = "Expansion Input 32"
+class = "UNCLASSIFIED"
+
+[[alarm]]
+bit = 40
+name = "Expansion Input 33"
+class = "UNCLASSIFIED"
+
+[[alarm]]
+bit = 41
+name = "Expansion Input 34"
+class = "UNCLASSIFIED"
+
+[[alarm]]
+bit = 42
+name = "Expansion Input 35"
+class = "UNCLASSIFIED"
+
+[[alarm]]
+bit = 43
+name = "Expansion Input 36"
+class = "UNCLASSIFIED"
+
+[[alarm]]
+bit = 44
+name = "Expansion Input 37"
+class = "UNCLASSIFIED"
+
+[[alarm]]
+bit = 45
+name = "Expansion Input 38"
+class = "UNCLASSIFIED"
+
+[[alarm]]
+bit = 46
+name = "Expansion Input 39"
+class = "UNCLASSIFIED"
+
+[[alarm]]
+bit = 47
+name = "Expansion Input 40"
+class = "UNCLASSIFIED"
+
+# --- Internal / system alarms (firmware-defined, bits 48–141) ---
+[[alarm]]
+bit = 48
+name = "Genset Low Frequency"
+class = "GENSET_EVENT"
+
+[[alarm]]
+bit = 49
+name = "Genset High Frequency"
+class = "GENSET_EVENT"
+
+[[alarm]]
+bit = 50
+name = "Genset Low RPM"
+class = "GENSET_EVENT"
+
+[[alarm]]
+bit = 51
+name = "Genset High RPM"
+class = "GENSET_EVENT"
+
+[[alarm]]
+bit = 52
+name = "Genset Low Voltage"
+class = "GENSET_EVENT"
+
+[[alarm]]
+bit = 53
+name = "Genset High Voltage"
+class = "HIGH_VOLTAGE"
+
+[[alarm]]
+bit = 54
+name = "Low Oil Pressure"
+class = "GENSET_EVENT"
+
+[[alarm]]
+bit = 55
+name = "High Oil Pressure"
+class = "GENSET_EVENT"
+
+[[alarm]]
+bit = 56
+name = "Low Engine Temp"
+class = "COOLING_FAULT"
+
+[[alarm]]
+bit = 57
+name = "High Engine Temp"
+class = "COOLING_FAULT"
+
+[[alarm]]
+bit = 58
+name = "Low Fuel Level"
+class = "GENSET_EVENT"
+
+[[alarm]]
+bit = 59
+name = "High Fuel Level"
+class = "GENSET_EVENT"
+
+[[alarm]]
+bit = 60
+name = "Low Oil Temp"
+class = "GENSET_EVENT"
+
+[[alarm]]
+bit = 61
+name = "High Oil Temp"
+class = "GENSET_EVENT"
+
+[[alarm]]
+bit = 62
+name = "Low Canopy Temp"
+class = "COOLING_FAULT"
+
+[[alarm]]
+bit = 63
+name = "High Canopy Temp"
+class = "COOLING_FAULT"
+
+[[alarm]]
+bit = 64
+name = "Low Ambient Temp"
+class = "COOLING_FAULT"
+
+[[alarm]]
+bit = 65
+name = "High Ambient Temp"
+class = "COOLING_FAULT"
+
+[[alarm]]
+bit = 66
+name = "Sender 1 Low Level"
+class = "GENERIC_ERROR"
+
+[[alarm]]
+bit = 67
+name = "Sender 2 Low Level"
+class = "GENERIC_ERROR"
+
+[[alarm]]
+bit = 68
+name = "Sender 3 Low Level"
+class = "GENERIC_ERROR"
+
+[[alarm]]
+bit = 69
+name = "Sender 4 Low Level"
+class = "GENERIC_ERROR"
+
+[[alarm]]
+bit = 70
+name = "Sender 5 Low Level"
+class = "GENERIC_ERROR"
+
+[[alarm]]
+bit = 71
+name = "Sender 6 Low Level"
+class = "GENERIC_ERROR"
+
+[[alarm]]
+bit = 72
+name = "Sender 7 Low Level"
+class = "GENERIC_ERROR"
+
+[[alarm]]
+bit = 73
+name = "Sender 8 Low Level"
+class = "GENERIC_ERROR"
+
+[[alarm]]
+bit = 74
+name = "Sender 1 High Level"
+class = "GENERIC_ERROR"
+
+[[alarm]]
+bit = 75
+name = "Sender 2 High Level"
+class = "GENERIC_ERROR"
+
+[[alarm]]
+bit = 76
+name = "Sender 3 High Level"
+class = "GENERIC_ERROR"
+
+[[alarm]]
+bit = 77
+name = "Sender 4 High Level"
+class = "GENERIC_ERROR"
+
+[[alarm]]
+bit = 78
+name = "Sender 5 High Level"
+class = "GENERIC_ERROR"
+
+[[alarm]]
+bit = 79
+name = "Sender 6 High Level"
+class = "GENERIC_ERROR"
+
+[[alarm]]
+bit = 80
+name = "Sender 7 High Level"
+class = "GENERIC_ERROR"
+
+[[alarm]]
+bit = 81
+name = "Sender 8 High Level"
+class = "GENERIC_ERROR"
+
+[[alarm]]
+bit = 82
+name = "Oil Pressure Sender Open"
+class = "GENERIC_ERROR"
+
+[[alarm]]
+bit = 83
+name = "Engine Temp Sender Open"
+class = "GENERIC_ERROR"
+
+[[alarm]]
+bit = 84
+name = "Fuel Level Sender Open"
+class = "GENERIC_ERROR"
+
+[[alarm]]
+bit = 85
+name = "Oil Temp Sender Open"
+class = "GENERIC_ERROR"
+
+[[alarm]]
+bit = 86
+name = "Canopy Temp Sender Open"
+class = "GENERIC_ERROR"
+
+[[alarm]]
+bit = 87
+name = "Ambient Temp Sender Open"
+class = "GENERIC_ERROR"
+
+[[alarm]]
+bit = 88
+name = "Sender 1 Open Circuit"
+class = "GENERIC_ERROR"
+
+[[alarm]]
+bit = 89
+name = "Sender 2 Open Circuit"
+class = "GENERIC_ERROR"
+
+[[alarm]]
+bit = 90
+name = "Sender 3 Open Circuit"
+class = "GENERIC_ERROR"
+
+[[alarm]]
+bit = 91
+name = "Sender 4 Open Circuit"
+class = "GENERIC_ERROR"
+
+[[alarm]]
+bit = 92
+name = "Sender 5 Open Circuit"
+class = "GENERIC_ERROR"
+
+[[alarm]]
+bit = 93
+name = "Sender 6 Open Circuit"
+class = "GENERIC_ERROR"
+
+[[alarm]]
+bit = 94
+name = "Sender 7 Open Circuit"
+class = "GENERIC_ERROR"
+
+[[alarm]]
+bit = 95
+name = "Sender 8 Open Circuit"
+class = "GENERIC_ERROR"
+
+[[alarm]]
+bit = 96
+name = "Low Battery Voltage"
+class = "BATTERY_LOW"
+
+[[alarm]]
+bit = 97
+name = "High Battery Voltage"
+class = "BATTERY_FAULT"
+
+[[alarm]]
+bit = 98
+name = "Fail To Start"
+class = "GENSET_EVENT"
+
+[[alarm]]
+bit = 99
+name = "Fail To Stop"
+class = "GENSET_EVENT"
+
+[[alarm]]
+bit = 100
+name = "Low Charge Voltage"
+class = "BATTERY_LOW"
+
+[[alarm]]
+bit = 101
+name = "J1939 ECU Error"
+class = "COMMS_LOST"
+
+[[alarm]]
+bit = 102
+name = "High Air Inlet Temp"
+class = "COOLING_FAULT"
+
+[[alarm]]
+bit = 103
+name = "Low Coolant Level"
+class = "COOLING_FAULT"
+
+[[alarm]]
+bit = 104
+name = "Voltage Unbalance"
+class = "GENSET_EVENT"
+
+[[alarm]]
+bit = 105
+name = "Current Unbalance"
+class = "GENSET_EVENT"
+
+[[alarm]]
+bit = 106
+name = "Over Current"
+class = "GENSET_EVENT"
+
+[[alarm]]
+bit = 107
+name = "Over Load"
+class = "GENSET_EVENT"
+
+[[alarm]]
+bit = 108
+name = "Reverse Power"
+class = "GENSET_EVENT"
+
+[[alarm]]
+bit = 109
+name = "Gen Phase Order Fail"
+class = "GENSET_EVENT"
+
+[[alarm]]
+bit = 110
+name = "Mains Phase Order Fail"
+class = "MAINS_FAILURE"
+
+[[alarm]]
+bit = 111
+name = "Gen CB Fail To Close"
+class = "GENSET_EVENT"
+
+[[alarm]]
+bit = 112
+name = "Gen CB Fail To Open"
+class = "GENSET_EVENT"
+
+[[alarm]]
+bit = 113
+name = "Mains CB Fail To Close"
+class = "MAINS_FAILURE"
+
+[[alarm]]
+bit = 114
+name = "Mains CB Fail To Open"
+class = "MAINS_FAILURE"
+
+[[alarm]]
+bit = 115
+name = "Device Address Fail"
+class = "COMMS_LOST"
+
+[[alarm]]
+bit = 116
+name = "Comm Bus Error"
+class = "COMMS_LOST"
+
+[[alarm]]
+bit = 117
+name = "Excitation Lost"
+class = "GENSET_EVENT"
+
+[[alarm]]
+bit = 118
+name = "Service 1 Request"
+class = "GENERIC_ERROR"
+
+[[alarm]]
+bit = 119
+name = "Service 2 Request"
+class = "GENERIC_ERROR"
+
+[[alarm]]
+bit = 120
+name = "Service 3 Request"
+class = "GENERIC_ERROR"
+
+[[alarm]]
+bit = 121
+name = "G59 No Mains Freq"
+class = "MAINS_FAILURE"
+
+[[alarm]]
+bit = 122
+name = "G59 Mains Freq Fail"
+class = "MAINS_FAILURE"
+
+[[alarm]]
+bit = 123
+name = "G59 Mains Reverse Power"
+class = "MAINS_FAILURE"
+
+[[alarm]]
+bit = 124
+name = "G59 ROCOF df/dt"
+class = "MAINS_FAILURE"
+
+[[alarm]]
+bit = 125
+name = "G59 Vector Shift"
+class = "MAINS_FAILURE"
+
+[[alarm]]
+bit = 126
+name = "NVM Function Failure"
+class = "GENERIC_ERROR"
+
+[[alarm]]
+bit = 127
+name = "Communication Lost"
+class = "COMMS_LOST"
+
+[[alarm]]
+bit = 128
+name = "Synchronization Fail"
+class = "GENSET_EVENT"
+
+[[alarm]]
+bit = 129
+name = "Loss Of Pick-Up Signal"
+class = "GENSET_EVENT"
+
+[[alarm]]
+bit = 130
+name = "Unit Not Tested"
+class = "GENERIC_ERROR"
+
+[[alarm]]
+bit = 131
+name = "Wrong Expansion Order"
+class = "GENERIC_ERROR"
+
+[[alarm]]
+bit = 132
+name = "Busbar Voltage Fail"
+class = "GENSET_EVENT"
+
+[[alarm]]
+bit = 133
+name = "Busbar Freq Fail"
+class = "GENSET_EVENT"
+
+[[alarm]]
+bit = 134
+name = "Min Genset Not Reached"
+class = "GENSET_EVENT"
+
+[[alarm]]
+bit = 135
+name = "DeadBus Volt Exceeded"
+class = "GENSET_EVENT"
+
+[[alarm]]
+bit = 136
+name = "Insufficient StartUp Power"
+class = "BATTERY_LOW"
+
+[[alarm]]
+bit = 137
+name = "Fuel Pump Failure"
+class = "GENSET_EVENT"
+
+[[alarm]]
+bit = 138
+name = "Unit Locked"
+class = "GENERIC_ERROR"
+
+[[alarm]]
+bit = 139
+name = "EEprom Write Fault"
+class = "GENERIC_ERROR"
+
+[[alarm]]
+bit = 140
+name = "Low Battery-2 Voltage"
+class = "BATTERY_LOW"
+
+[[alarm]]
+bit = 141
+name = "High Battery-2 Voltage"
+class = "BATTERY_FAULT"

@@ -87,3 +87,18 @@ pub struct SlAlarmDef {
 pub struct SlAlarmFile {
     #[serde(default)] pub alarm: Vec<SlAlarmDef>,
 }
+
+// DATAKOM D-500 MK3 alarm bit entry (bit index within the 256-bit bitmap).
+// The same bit numbering is used across all three register ranges (shutdown /
+// loaddump / warning); severity is determined by which range the bit is in.
+#[derive(Debug, Clone, Deserialize)]
+pub struct DkAlarmDef {
+    pub bit:  u16,
+    pub name: String,
+    pub class: AlarmClass,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+pub struct DkAlarmFile {
+    #[serde(default)] pub alarm: Vec<DkAlarmDef>,
+}

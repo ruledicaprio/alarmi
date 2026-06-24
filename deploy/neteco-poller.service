@@ -1,0 +1,16 @@
+[Unit]
+Description=NetEco NBI Poller
+After=postgresql-16.service network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=bht
+WorkingDirectory=/opt/bht
+EnvironmentFile=/opt/bht/config/.neteco.env
+ExecStart=/opt/bht/neteco-poller --config /opt/bht/config/neteco.toml
+Restart=on-failure
+RestartSec=30
+
+[Install]
+WantedBy=multi-user.target
