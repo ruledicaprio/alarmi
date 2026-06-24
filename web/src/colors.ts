@@ -17,14 +17,16 @@ export const TRANSITION_COLOR: Record<Transition, string> = {
 
 // Source colors — calm, monochrome-ish so they don't fight severity in tables.
 export const SOURCE_COLOR: Record<Source, string> = {
-  ignition:     'geekblue',
-  net_eco:      'cyan',
-  u2020:        'purple',
-  rps_sc200:    'magenta',
-  rps_sc300:    'magenta',
-  dse74xx:      'orange',
-  benning:      'lime',
-  baran:        'volcano',
-  modbus_eaton: 'gold',
-  html_oos:     'default',
+  ignition:          'geekblue',
+  net_eco:           'cyan',
+  u2020:             'purple',
+  rps_sc200:         'magenta',
+  rps_sc300:         'magenta',
+  dse74xx:           'orange',
+  benning:           'lime',
+  baran:             'volcano',
+  modbus_eaton:      'gold',
+  html_oos:          'default',
+  smartlogger_huawei:'green',
+  datakom:           'processing',
 }

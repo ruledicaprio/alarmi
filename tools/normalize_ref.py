@@ -56,7 +56,7 @@ def norm_sev(s):
     if s.isdigit(): return {"1":"warning","2":"minor","3":"major"}.get(s,"minor")
     return "major"
 
-STATEFUL_SOURCES = {"ignition","neteco","u2020","rps_sc200","rps_sc300","benning","baran","dse74xx","modbus_eaton","html_oos"}
+STATEFUL_SOURCES = {"ignition","neteco","u2020","rps_sc200","rps_sc300","benning","baran","dse74xx","modbus_eaton","html_oos","datakom"}
 def norm_transition(source, status):
     s = (status or "").strip().lower()
     if s in ("cleared","clear","normal","alarmnormal","removed","entryremoved"): return CLEAR

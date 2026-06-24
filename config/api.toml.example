@@ -1,0 +1,7 @@
+# bht-api config. Copy to api.toml and set a strong password.
+# DSN can also come from $DATABASE_URL (env wins only if dsn empty).
+bind = "0.0.0.0:8080"
+static_dir = "web/dist"   # built dashboard; empty/missing dir = API only
+
+[database]
+dsn = "host=localhost port=5432 user=bht password=CHANGE_ME dbname=alarms"

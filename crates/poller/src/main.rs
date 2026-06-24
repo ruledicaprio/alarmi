@@ -162,7 +162,7 @@ async fn main() -> Result<()> {
                                 status: Default::default(),
                                 active: pr.active, measurements: pr.measurements,
                             });
-                        (ip, unit_id, res, Source::ModbusDatakom)
+                        (ip, unit_id, res, Source::Datakom)
                     });
                 }
                 _ => continue,

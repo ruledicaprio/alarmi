@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "/home/rusmir/alarmi-repo"]
+    },
+    "docker": {
+      "command": "npx",
+      "args": ["-y", "@anthropic/mcp-docker"]
+    }
+  }
+}

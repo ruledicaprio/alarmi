@@ -40,10 +40,12 @@ function toCsv(rows: RecentEvent[]): string {
   return head + '\n' + body
 }
 function downloadFile(name: string, content: string, mime = 'text/csv') {
+  const url = URL.createObjectURL(new Blob([content], { type: mime }))
   const a = document.createElement('a')
-  a.href = URL.createObjectURL(new Blob([content], { type: mime }))
-  a.download = name; a.click()
-  setTimeout(() => URL.revokeObjectURL(a.href), 1000)
+  a.href = url
+  a.download = name
+  a.click()
+  setTimeout(() => URL.revokeObjectURL(url), 10_000)
 }
 
 export default function Alarms() {
@@ -114,7 +116,7 @@ export default function Alarms() {
       <ProTable<RecentEvent>
         actionRef={ref}
         columns={columns}
-        rowKey={(r) => r.event_time + r.site_key + r.alarm_class + r.transition}
+        rowKey={(r) => `${r.event_time}|${r.site_key}|${r.alarm_class}|${r.transition}`}
         form={{ initialValues: initial }}
         rowSelection={{
           selectedRowKeys: selectedKeys,
@@ -129,8 +131,8 @@ export default function Alarms() {
         tableAlertOptionRender={() => (
           <Space>
             <Button size="small" onClick={() => {
-              const picked = pageData.filter((r, _i, _arr) =>
-                selectedKeys.includes(r.event_time + r.site_key + r.alarm_class + r.transition))
+              const picked = pageData.filter((r) =>
+                selectedKeys.includes(`${r.event_time}|${r.site_key}|${r.alarm_class}|${r.transition}`))
               downloadFile(`alarms-selected-${dayjs().format('YYYYMMDD-HHmmss')}.csv`, toCsv(picked))
             }}>Export selected CSV</Button>
           </Space>

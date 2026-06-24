@@ -1,26 +1,23 @@
-# Rust build output
-/target
-**/target
+# Rust build artifacts
+/target/
+*.tar.gz
 
-# generated / scratch artifacts
-events.tsv
-*.tsv
-/tmp_*
-
-# secrets & local env
-.env
-**/.env
-!.env.example
-
-# python venvs (legacy dirs)
-**/venv/
-**/.venv/
-
-# editor
-*.swp
-*.swo
-
-# frontend
-**/node_modules/
+# Frontend build output
 web/dist/
-*:Zone.Identifier
+web/node_modules/
+
+# Credential-bearing config files — keep *.example variants instead
+config/api.toml
+config/poller.toml
+config/neteco.toml
+config/staging/api.toml
+config/staging/poller.toml
+config/staging/neteco.toml
+
+# Environment files with secrets
+.env
+
+# Editor / OS
+.DS_Store
+*.swp
+.idea/

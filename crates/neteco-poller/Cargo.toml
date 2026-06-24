@@ -1,6 +1,6 @@
 [package]
-name = "neteco-poller"
-version = "0.1.0"
+name = "bht-neteco-poller"
+version.workspace = true
 edition.workspace = true
 rust-version.workspace = true
 license.workspace = true

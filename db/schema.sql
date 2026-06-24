@@ -1,5 +1,7 @@
 -- =====================================================================
--- BHT Alarm Pipeline — TimescaleDB schema (Stage 1)
+-- BHT Alarm Dashboard v0.9.0 — Base TimescaleDB schema
+-- Apply order: schema.sql → schema_stage2.sql → migrate_v6 → v7 → v8
+--              → migrate_neteco_v1 → migrate_v9
 -- Target: TimescaleDB (PostgreSQL 16) on Rocky 9 LXC 102 (192.168.108.88)
 -- Enum LABELS match the Rust serde output of bht-normalize EXACTLY, so the
 -- bht-loader TSV streams straight into COPY without translation.

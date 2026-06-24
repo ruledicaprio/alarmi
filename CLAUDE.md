@@ -53,9 +53,13 @@ tar czf ~/bht-upgrade.tar.gz \
 If only frontend changed, pack just `dist`. If only backend, pack just binaries.
 
 ### 4. Transfer to Rocky 9
+No `scp` — network policy blocks it. Serve via Python HTTP and curl from Rocky:
 ```bash
-scp ~/bht-upgrade.tar.gz root@192.168.108.88:~
-# or use USB stick for truly air-gapped transfers
+# On work PC (WSL terminal):
+cd ~ && python3 -m http.server 8000
+
+# On Rocky 9:
+curl -O http://192.168.82.205:8000/bht-upgrade.tar.gz
 ```
 
 ### 5. Deploy on Rocky 9
@@ -236,3 +240,68 @@ For multi-step tasks, state a brief plan:
 2. [Step] → verify: [check]
 3. [Step] → verify: [check]
 ```
+
+## Claude Code Automation Rules
+
+### Project Binaries
+| Binary        | Crate                  | Deployed as service                          |
+|---------------|------------------------|----------------------------------------------|
+| bht-api       | crates/api             | bht-api.service + bht-api-staging.service    |
+| bht-poller    | crates/poller          | bht-poller.service                           |
+| neteco-poller | crates/neteco-poller   | neteco-poller.service                        |
+| bht-loader    | crates/loader          | utility only (no service)                    |
+
+### When asked to build
+1. Determine scope: frontend only, backend only (which binaries), or both.
+2. Full build (frontend + backend) — **always use Docker**:
+   ```bash
+   bash deploy/build_in_docker.sh
+   ```
+   `build_in_docker.sh` builds Rust MUSL binaries (rust:slim) AND frontend via `npm ci && npm run build` (node:lts-slim) in separate containers. No local Rust or Node needed.
+   (Backend-only fallback if Docker unavailable: `cargo build --release --target x86_64-unknown-linux-musl -p bht-api -p bht-poller -p bht-neteco-poller`)
+4. Verify every binary is statically linked:
+   ```bash
+   for bin in bht-api bht-poller neteco-poller; do
+     file target/x86_64-unknown-linux-musl/release/$bin | grep -q "statically linked" \
+       && echo "$bin OK" || { echo "$bin FAIL"; exit 1; }
+   done
+   ```
+5. Pack:
+   ```bash
+   tar czf ~/bht-upgrade.tar.gz \
+     -C target/x86_64-unknown-linux-musl/release bht-api bht-poller neteco-poller \
+     -C "$PWD/web" dist
+   ```
+6. Print: tarball location, `du -sh` size, `sha256sum`, and scp command.
+
+### When asked to deploy
+1. Verify tarball exists: `ls -lh ~/bht-upgrade.tar.gz`
+2. Transfer — **no scp**, serve via Python 3.6.8 Anaconda HTTP server from **work PC Windows 10 client** with IP address: **[192.168.82.205]**, curl from Rocky:
+   ```bash
+   # Work PC (Windows 10):    cd ~ && python3 -m http.server 8000
+   # Rocky Linux (LXC 102):   curl -O http://[IP_ADDRESS]/bht-upgrade.tar.gz
+   ```
+3. Print: `ssh root@192.168.108.88` then on Rocky: `bash ~/rocky_deploy.sh bht-upgrade.tar.gz`
+   - rocky_deploy.sh handles bht-api + dist only; use manual steps for bht-poller / neteco-poller.
+4. Remind: config files live at `/opt/bht/config/` on Rocky and are NOT in the tarball.
+5. Print post-deploy health checks (see `.claude/skills/deploy-to-rocky.md`).
+
+### When SQL is involved
+1. Lint locally: `sqlfluff lint db/`
+2. Print exact `scp` + `psql -v ON_ERROR_STOP=1` commands for Rocky.
+3. After schema changes: run `SELECT rebuild_episodes();` on Rocky.
+4. Never connect to production/staging DB from WSL.
+
+### Target invariants
+- Rocky 9 LXC 102, IP `192.168.108.88`
+- User `bht`, install dir `/opt/bht` (staging: `/opt/bht-staging`)
+- DB: `alarms` (prod), `alarms_staging` (staging), DB user: `bht`
+- Rocky has **no `tar`** — use `python3 tarfile` or `rocky_deploy.sh`
+- Config files: `/opt/bht/config/{api,poller,devices,eaton_alarms,datakom_alarms,smartlogger_alarms,neteco}.toml` + `.neteco.env`
+- SELinux disabled on Rocky
+
+### What NOT to do
+- Don't modify systemd unit files or DB schema without explicit instruction
+- Don't alter `Cargo.lock` manually
+- Don't suggest dynamic linking, container-based targets, or runtime Docker on Rocky
+- Don't touch `_build_pack_*.sh` unless explicitly asked

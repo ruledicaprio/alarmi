@@ -1,6 +1,6 @@
 [package]
 name = "bht-api"
-version = "0.1.0"
+version.workspace = true
 edition.workspace = true
 rust-version.workspace = true
 license.workspace = true
@@ -18,6 +18,8 @@ serde_json.workspace = true
 toml.workspace = true
 anyhow.workspace = true
 chrono.workspace = true
+axum-server = { version = "0.7", default-features = false, features = ["tls-rustls"] }
+rustls = { version = "0.23", default-features = false, features = ["ring", "std", "tls12"] }
 
 [[bin]]
 name = "bht-api"

@@ -1,0 +1,18 @@
+# /etc/systemd/system/bht-api-staging.service  (Rocky 9 LXC 102, 192.168.108.88)
+[Unit]
+Description=BHT alarm API — STAGING (port 8081, alarms_staging DB)
+After=network-online.target postgresql-16.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=bht
+WorkingDirectory=/opt/bht-staging
+ExecStart=/opt/bht-staging/bht-api --config /opt/bht-staging/config/api.toml
+Restart=always
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

@@ -52,23 +52,25 @@ pub async fn upsert_devices(c: &Client, devices: &[Device]) -> Result<u64> {
     let names:  Vec<Option<&str>>= devices.iter().map(|d| d.dev_name.as_deref()).collect();
     let esns:   Vec<Option<&str>>= devices.iter().map(|d| d.esn_code.as_deref()).collect();
     let types:  Vec<i32>         = devices.iter().map(|d| d.dev_type_id).collect();
+    let type_names: Vec<Option<&str>> = devices.iter().map(|d| d.std_type_name.as_deref()).collect();
     let lons:   Vec<Option<f64>> = devices.iter().map(|d| d.longitude).collect();
     let lats:   Vec<Option<f64>> = devices.iter().map(|d| d.latitude).collect();
     let n = c.execute(
         "INSERT INTO neteco.devices (device_id, station_code, dev_name, esn_code, dev_type_id,
-                                     longitude, latitude, updated_at)
-         SELECT did, sc, dn, esn, dt, lon, lat, now()
+                                     std_type_name, longitude, latitude, updated_at)
+         SELECT did, sc, dn, esn, dt, tn, lon, lat, now()
          FROM UNNEST($1::bigint[], $2::text[], $3::text[], $4::text[], $5::int[],
-                     $6::float8[], $7::float8[])
-           AS u(did, sc, dn, esn, dt, lon, lat)
+                     $6::text[], $7::float8[], $8::float8[])
+           AS u(did, sc, dn, esn, dt, tn, lon, lat)
          ON CONFLICT (device_id) DO UPDATE
-           SET dev_name = EXCLUDED.dev_name,
-               esn_code = EXCLUDED.esn_code,
-               dev_type_id = EXCLUDED.dev_type_id,
-               longitude = EXCLUDED.longitude,
-               latitude = EXCLUDED.latitude,
-               updated_at = now()",
-        &[&ids, &codes, &names, &esns, &types, &lons, &lats],
+           SET dev_name      = EXCLUDED.dev_name,
+               esn_code      = EXCLUDED.esn_code,
+               dev_type_id   = EXCLUDED.dev_type_id,
+               std_type_name = EXCLUDED.std_type_name,
+               longitude     = EXCLUDED.longitude,
+               latitude      = EXCLUDED.latitude,
+               updated_at    = now()",
+        &[&ids, &codes, &names, &esns, &types, &type_names, &lons, &lats],
     ).await.context("upsert devices")?;
     Ok(n)
 }

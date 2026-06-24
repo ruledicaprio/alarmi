@@ -3,7 +3,7 @@ import { Row, Select, Spin, message, Tag } from 'antd'
 import { StatisticCard, ProCard, ProTable } from '@ant-design/pro-components'
 import { AreaChart, Area, BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, Legend } from 'recharts'
 import { Link } from 'react-router-dom'
-import { api, qs } from '../api'
+import { api, qs, ALL_SOURCES } from '../api'
 import { SEV_COLOR } from '../colors'
 import { SeverityTag, ClassTag, SourceTag } from '../components/Tags'
 import { formatTs, formatTsShort } from '../utils'
@@ -80,7 +80,7 @@ export default function Dashboard() {
         <StatisticCard.Divider />
         <StatisticCard statistic={{ title: `Events (last ${hours}h)`, value: totalEvents }} />
         <StatisticCard.Divider />
-        <StatisticCard statistic={{ title: 'Sources active (24h)', value: sources.length, suffix: '/ 10' }} />
+        <StatisticCard statistic={{ title: 'Sources active (24h)', value: sources.length, suffix: `/ ${ALL_SOURCES.length}` }} />
         <StatisticCard.Divider />
         <StatisticCard statistic={{ title: 'Sites tracked', value: sitesTotal }} />
       </StatisticCard.Group>

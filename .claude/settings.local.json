@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls -la \"\\\\\\\\wsl.localhost\\\\Ubuntu\\\\home\\\\rusmir\\\\alarmi-repo\")",
+      "Bash(cd \"\\\\\\\\wsl.localhost\\\\Ubuntu\\\\home\\\\rusmir\\\\alarmi-repo\")",
+      "Read(///wsl.localhost/Ubuntu/home/rusmir/alarmi-repo/**)",
+      "Read(///wsl.localhost/Ubuntu/home/rusmir/alarmi-repo/web/**)",
+      "Read(///wsl.localhost/Ubuntu/home/rusmir/alarmi-repo/web/src/**)",
+      "Read(///wsl.localhost/Ubuntu/home/rusmir/alarmi-repo/crates/neteco-poller/**)",
+      "Bash(npx tsc *)",
+      "Bash(wsl *)",
+      "PowerShell(wsl --exec bash -c \"cd ~/alarmi-repo/web && npx tsc --noEmit 2>&1; echo EXIT:$?\")",
+      "PowerShell(wsl bash -c \"cd ~/alarmi-repo/web && npx tsc --noEmit 2>&1; echo EXIT:\\\\$?\")",
+      "PowerShell(wsl -d Ubuntu -- bash -c \"cd /home/rusmir/alarmi-repo/web && npx tsc --noEmit 2>&1; echo EXIT:\\\\$?\")",
+      "Bash(node_modules/.bin/tsc --noEmit)"
+    ]
+  },
+  "enabledMcpjsonServers": [
+    "filesystem",
+    "docker"
+  ]
+}

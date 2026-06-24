@@ -1,0 +1,16 @@
+# bht-poller runtime config. Copy to poller.toml and set a strong password.
+poll_interval_secs = 120     # match the SC300 sampling cadence
+max_concurrent     = 8       # simultaneous Modbus connections
+connect_timeout_ms = 3500
+read_timeout_ms    = 3500
+retries            = 2
+retry_backoff_ms   = 200
+discrete_block_size = 8      # discrete-input read chunk
+
+[circuit_breaker]
+failure_threshold = 3        # consecutive fails -> open
+open_cooldown_secs = 300     # stay open this long, then probe (half-open)
+
+[database]
+# Empty dsn => dry-run (prints, no DB). On the Rocky LXC next to TimescaleDB:
+dsn = "host=localhost port=5432 user=bht password=CHANGE_ME dbname=alarms"

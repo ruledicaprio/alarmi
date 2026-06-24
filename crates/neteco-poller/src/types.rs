@@ -15,7 +15,10 @@ pub struct Config {
 
 #[derive(Debug, Deserialize)]
 pub struct NetEcoConfig {
-    /// e.g. "https://10.10.0.3:31943"
+    /// NBI base URL. Port depends on NetEco version and deployment:
+    ///   V600R021C10+: typically https://<ip>:26335  (APIMLBService, northbound API gateway)
+    ///   Some deployments: https://<ip>:31943         (web HTTPS frontend, also routes NBI)
+    /// The /thirdData/ path prefix is appended by the client for all NBI calls.
     pub url: String,
     /// NBI third-party user
     pub user: String,
@@ -99,6 +102,8 @@ pub struct Device {
     pub dev_name: Option<String>,
     #[serde(rename = "devTypeId")]
     pub dev_type_id: i32,
+    #[serde(default, rename = "devTypeName")]
+    pub std_type_name: Option<String>,
     #[serde(rename = "esnCode")]
     pub esn_code: Option<String>,
     #[serde(rename = "stationCode")]

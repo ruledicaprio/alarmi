@@ -5,6 +5,8 @@
 use crate::db::{insert_events, insert_measurements, MeasIn};
 use crate::{ApiError, AppState};
 use axum::extract::{Path, State};
+use axum::http::{HeaderMap, StatusCode};
+use axum::response::{IntoResponse, Response};
 use axum::Json;
 use bht_normalize::{normalize_line, parse_smetnje_html, CanonicalEvent};
 use serde::Deserialize;
@@ -392,4 +394,126 @@ pub async fn admin_user_delete(
     let c = st.pool.get().await?;
     let n = c.execute("DELETE FROM dim_user WHERE id = $1", &[&id]).await?;
     Ok(Json(json!({ "deleted": n, "id": id })))
+}
+
+// ============================================================ NETECO PUSH RECEIVER
+
+fn ms_to_iso(ms: Option<i64>) -> Option<String> {
+    ms.and_then(|m| chrono::DateTime::from_timestamp_millis(m))
+      .map(|dt: chrono::DateTime<chrono::Utc>| dt.to_rfc3339())
+}
+
+#[derive(Debug, Deserialize)]
+pub(crate) struct NetEcoPushBody {
+    #[serde(default, rename = "failCode")]
+    fail_code: i64,
+    #[serde(default)]
+    data: serde_json::Value,
+}
+
+#[derive(Debug, Deserialize)]
+struct NetEcoPushAlarm {
+    #[serde(rename = "alarmId")]            alarm_id:    Option<String>,
+    #[serde(rename = "stationCode")]        station_code: Option<String>,
+    #[serde(rename = "stationName")]        station_name: Option<String>,
+    #[serde(rename = "devId")]              dev_id:       Option<i64>,
+    #[serde(rename = "devName")]            dev_name:     Option<String>,
+    #[serde(rename = "devTypeId")]          dev_type_id:  Option<i32>,
+    #[serde(rename = "alarmName")]          alarm_name:   Option<String>,
+    #[serde(rename = "alarmCause")]         alarm_cause:  Option<String>,
+    #[serde(default, rename = "alarmType")] alarm_type:   Option<i16>,
+    #[serde(default)]                       lev:          Option<i16>,
+    #[serde(default)]                       status:       Option<i16>,
+    #[serde(rename = "raiseTime")]          raise_time:   Option<i64>,
+    #[serde(rename = "repairTime")]         repair_time:  Option<i64>,
+}
+
+// ---- NetEco OAuth2 token endpoint ----------------------------------------
+
+#[derive(Debug, Deserialize)]
+pub struct NetEcoTokenReq {
+    #[serde(default)] client_secret: String,
+}
+
+/// POST /api/neteco/token — minimal OAuth2 client_credentials endpoint.
+/// NetEco OpenAPI Management calls this to get a Bearer token before pushing alarms.
+/// Credentials configured in api.toml [neteco_auth] client_secret.
+pub async fn neteco_oauth_token(
+    State(st): State<AppState>,
+    Json(req): Json<NetEcoTokenReq>,
+) -> Response {
+    if st.neteco_push_secret.is_empty() || req.client_secret != st.neteco_push_secret {
+        return (StatusCode::UNAUTHORIZED, Json(json!({"error": "invalid_client"}))).into_response();
+    }
+    Json(json!({
+        "access_token": &st.neteco_push_secret,
+        "token_type": "Bearer",
+        "expires_in": 86400
+    })).into_response()
+}
+
+// ---- NetEco alarm push receiver ------------------------------------------
+
+/// POST /ingest/neteco/push — NetEco OpenAPI push callback.
+/// If [neteco_auth] client_secret is configured, requires Authorization: Bearer <secret>.
+pub async fn ingest_neteco_push(
+    State(st): State<AppState>,
+    headers: HeaderMap,
+    Json(body): Json<NetEcoPushBody>,
+) -> Response {
+    if !st.neteco_push_secret.is_empty() {
+        let ok = headers.get("authorization")
+            .and_then(|v| v.to_str().ok())
+            .and_then(|s| s.strip_prefix("Bearer "))
+            .map(|t| t == st.neteco_push_secret)
+            .unwrap_or(false);
+        if !ok {
+            return (StatusCode::UNAUTHORIZED, Json(json!({"error": "unauthorized"}))).into_response();
+        }
+    }
+    ingest_neteco_push_inner(st, body).await.into_response()
+}
+
+async fn ingest_neteco_push_inner(
+    st: AppState,
+    body: NetEcoPushBody,
+) -> Result<Json<Value>, ApiError> {
+    if body.fail_code != 0 {
+        return Ok(Json(json!({ "accepted": 0, "note": format!("failCode={}", body.fail_code) })));
+    }
+    let alarms: Vec<NetEcoPushAlarm> = serde_json::from_value(body.data).unwrap_or_default();
+    let received = alarms.len();
+    if received == 0 {
+        return Ok(Json(json!({ "accepted": 0 })));
+    }
+    let c = st.pool.get().await?;
+    let mut upserted = 0u64;
+    for a in &alarms {
+        let Some(ref alarm_id) = a.alarm_id else { continue };
+        let raise_iso  = ms_to_iso(a.raise_time);
+        let repair_iso = ms_to_iso(a.repair_time);
+        c.execute(
+            "INSERT INTO neteco.alarms \
+               (alarm_id, station_code, station_name, device_id, dev_name, dev_type_id, \
+                alarm_name, alarm_cause, alarm_type, severity, status, \
+                raise_time, repair_time, source, first_seen, last_seen) \
+             VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11, \
+                     $12::timestamptz,$13::timestamptz,'nbi_push',now(),now()) \
+             ON CONFLICT (alarm_id) DO UPDATE \
+               SET status      = EXCLUDED.status, \
+                   repair_time = COALESCE(EXCLUDED.repair_time, neteco.alarms.repair_time), \
+                   last_seen   = now()",
+            &[
+                alarm_id,
+                &a.station_code, &a.station_name,
+                &a.dev_id, &a.dev_name, &a.dev_type_id,
+                &a.alarm_name, &a.alarm_cause,
+                &a.alarm_type, &a.lev, &a.status,
+                &raise_iso, &repair_iso,
+            ]
+        ).await?;
+        upserted += 1;
+    }
+    eprintln!("[neteco-push] accepted={received} upserted={upserted}");
+    Ok(Json(json!({ "accepted": received, "upserted": upserted })))
 }

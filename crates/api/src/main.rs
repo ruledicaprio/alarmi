@@ -5,6 +5,7 @@ mod db;
 mod ingest;
 mod query;
 
+use anyhow::Context as _;
 use axum::extract::DefaultBodyLimit;
 use axum::http::StatusCode;
 use axum::response::{IntoResponse, Response};
@@ -20,6 +21,8 @@ use tower_http::services::{ServeDir, ServeFile};
 #[derive(Clone)]
 pub struct AppState {
     pub pool: Pool,
+    /// Static secret for NetEco push OAuth2 Bearer auth. Empty = auth disabled.
+    pub neteco_push_secret: String,
 }
 
 /// Handler error -> 500 + JSON. Lets handlers use `?`.
@@ -42,11 +45,34 @@ struct ApiCfg {
     static_dir: String,
     #[serde(default)]
     database: DbCfg,
+    #[serde(default)]
+    neteco_auth: NetecoAuthCfg,
+    #[serde(default)]
+    tls: TlsCfg,
 }
 #[derive(Debug, Default, Deserialize)]
 struct DbCfg {
     #[serde(default)]
     dsn: String,
+}
+#[derive(Debug, Default, Deserialize)]
+struct TlsCfg {
+    /// e.g. "0.0.0.0:8443" — leave empty to disable TLS
+    #[serde(default)]
+    bind: String,
+    #[serde(default)]
+    cert: String,
+    #[serde(default)]
+    key: String,
+}
+
+#[derive(Debug, Default, Deserialize)]
+struct NetecoAuthCfg {
+    /// Secret NetEco sends as client_secret to /api/neteco/token.
+    /// Also the Bearer token it must include on push calls.
+    /// Leave empty to disable auth (open push endpoint).
+    #[serde(default)]
+    client_secret: String,
 }
 fn default_bind() -> String { "0.0.0.0:8080".into() }
 fn default_static() -> String { "web/dist".into() }
@@ -60,7 +86,7 @@ fn load_cfg() -> ApiCfg {
     let mut cfg: ApiCfg = std::fs::read_to_string(&path)
         .ok()
         .and_then(|s| toml::from_str(&s).ok())
-        .unwrap_or_else(|| ApiCfg { bind: default_bind(), static_dir: default_static(), database: DbCfg::default() });
+        .unwrap_or_else(|| ApiCfg { bind: default_bind(), static_dir: default_static(), database: DbCfg::default(), neteco_auth: NetecoAuthCfg::default(), tls: TlsCfg::default() });
     // env wins (containers inject DATABASE_URL=host=timescaledb ...)
     if let Ok(url) = std::env::var("DATABASE_URL") { cfg.database.dsn = url; }
     if cfg.database.dsn.is_empty() {
@@ -71,11 +97,13 @@ fn load_cfg() -> ApiCfg {
 
 #[tokio::main]
 async fn main() -> anyhow::Result<()> {
+    // rustls 0.23 requires an explicit crypto provider before any TLS operation.
+    rustls::crypto::ring::default_provider().install_default().ok();
     let cfg = load_cfg();
     let pool = db::make_pool(&cfg.database.dsn)?;
     // fail fast if the DB is unreachable
     let _ = pool.get().await.map_err(|e| anyhow::anyhow!("DB connect failed: {e}"))?;
-    let state = AppState { pool };
+    let state = AppState { pool, neteco_push_secret: cfg.neteco_auth.client_secret.clone() };
 
     // Background: keep fact_alarm_episode current. On startup do a full rebuild
     // (catches up any events that landed before this version of the API), then
@@ -157,6 +185,11 @@ async fn main() -> anyhow::Result<()> {
         // v7 solar (per-source stacked + family-tagged sites)
         .route("/api/solar/summary",        get(query::solar_summary_v7))
         .route("/api/solar/sites",          get(query::solar_sites_v7))
+        // neteco NBI
+        .route("/api/neteco/alarms",         get(query::neteco_alarms))
+        .route("/api/neteco/alarms/summary", get(query::neteco_alarm_summary))
+        .route("/api/neteco/token",          post(ingest::neteco_oauth_token))
+        .route("/ingest/neteco/push",        post(ingest::ingest_neteco_push))
         .route("/ingest/raw/ispadnap", post(ingest::ingest_raw_ispadnap))
         .route("/ingest/raw/smetnje", post(ingest::ingest_raw_smetnje))
         .route("/ingest/events", post(ingest::ingest_events))
@@ -174,6 +207,24 @@ async fn main() -> anyhow::Result<()> {
         app
     };
     let app = app.layer(cors);
+
+    // Optional TLS listener (shares same router, spawned as background task)
+    if !cfg.tls.bind.is_empty() && !cfg.tls.cert.is_empty() && !cfg.tls.key.is_empty() {
+        let tls_cfg = axum_server::tls_rustls::RustlsConfig::from_pem_file(&cfg.tls.cert, &cfg.tls.key)
+            .await
+            .with_context(|| format!("load TLS cert={} key={}", cfg.tls.cert, cfg.tls.key))?;
+        let tls_addr: SocketAddr = cfg.tls.bind.parse()?;
+        eprintln!("[api] TLS listening on https://{tls_addr}");
+        let app_tls = app.clone();
+        tokio::spawn(async move {
+            if let Err(e) = axum_server::bind_rustls(tls_addr, tls_cfg)
+                .serve(app_tls.into_make_service())
+                .await
+            {
+                eprintln!("[api] TLS server error: {e}");
+            }
+        });
+    }
 
     let addr: SocketAddr = cfg.bind.parse()?;
     let listener = tokio::net::TcpListener::bind(addr).await?;

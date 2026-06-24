@@ -49,6 +49,10 @@ async fn main() -> Result<()> {
         cfg.database.dsn = "host=localhost port=5432 user=bht password=bht_dev_pw dbname=alarms".into();
     }
 
+    if cfg.neteco.danger_accept_invalid_certs {
+        eprintln!("[neteco] WARNING: TLS certificate verification is DISABLED (danger_accept_invalid_certs=true) — dev-only flag, never in production");
+    }
+
     let nbi = NetEcoClient::new(&cfg.neteco).context("init NetEco client")?;
 
     // Connect to Postgres
@@ -67,7 +71,7 @@ async fn main() -> Result<()> {
     // Initial topology sync
     eprintln!("[neteco] initial topology sync…");
     if let Err(e) = refresh_topology(&nbi, &pg).await {
-        eprintln!("[neteco] topology sync failed (will retry): {e}");
+        eprintln!("[neteco] topology sync failed (will retry): {e:#}");
     }
 
     let topo_interval = Duration::from_secs(cfg.intervals.topology_secs);
@@ -92,7 +96,7 @@ async fn main() -> Result<()> {
         // Topology refresh
         if now_inst.duration_since(last_topo) >= topo_interval {
             if let Err(e) = refresh_topology(&nbi, &pg).await {
-                eprintln!("[neteco] topology: {e}");
+                eprintln!("[neteco] topology: {e:#}");
             }
             last_topo = Instant::now();
         }
@@ -100,7 +104,7 @@ async fn main() -> Result<()> {
         // Metric poll
         if now_inst.duration_since(last_metric) >= metric_interval {
             if let Err(e) = poll_all_metrics(&nbi, &pg, &empty_keys).await {
-                eprintln!("[neteco] metrics: {e}");
+                eprintln!("[neteco] metrics: {e:#}");
             }
             last_metric = Instant::now();
         }
@@ -108,7 +112,7 @@ async fn main() -> Result<()> {
         // Alarm poll
         if now_inst.duration_since(last_alarm) >= alarm_interval {
             if let Err(e) = poll_alarms(&nbi, &pg).await {
-                eprintln!("[neteco] alarms: {e}");
+                eprintln!("[neteco] alarms: {e:#}");
             }
             last_alarm = Instant::now();
         }

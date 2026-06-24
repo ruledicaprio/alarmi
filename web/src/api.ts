@@ -23,6 +23,7 @@ export type Transition = 'raise' | 'clear' | 'instant'
 export type Source =
   | 'ignition' | 'net_eco' | 'u2020' | 'rps_sc200' | 'rps_sc300'
   | 'dse74xx'  | 'benning' | 'baran' | 'modbus_eaton' | 'html_oos'
+  | 'smartlogger_huawei' | 'datakom'
 
 export interface RecentEvent {
   event_time: string
@@ -73,7 +74,35 @@ export interface Episode {
 export const ALL_SOURCES: Source[] = [
   'ignition','net_eco','u2020','rps_sc200','rps_sc300',
   'dse74xx','benning','baran','modbus_eaton','html_oos',
+  'smartlogger_huawei','datakom',
 ]
+
+// -------------------- NetEco NBI types
+
+export interface NetEcoAlarm {
+  alarm_id:      string
+  station_code:  string
+  station_name:  string
+  dev_name:      string
+  std_type_name: string
+  alarm_name:    string
+  alarm_cause:   string
+  alarm_type:    number | null  // 1=signal 2=exception 3=protection
+  severity:      number | null  // 1=critical 2=major 3=minor 4=warning
+  status:        number | null  // 1=active 2=acked 4=handled 5=user-clear 6=auto-clear
+  raise_time:    string | null
+  repair_time:   string | null
+  source:        string         // 'nbi_rest' | 'nbi_push' | 'snmp'
+  last_seen:     string | null
+}
+
+export interface NetEcoAlarmSummary {
+  active:            number
+  critical:          number
+  major:             number
+  minor_warn:        number
+  affected_stations: number
+}
 
 export const ALL_CLASSES = [
   'MAINS_FAILURE','RECTIFIER_FAILURE','RECTIFIER_COMMS','BATTERY_LOW','BATTERY_FAULT',

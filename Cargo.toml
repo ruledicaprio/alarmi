@@ -1,9 +1,10 @@
-# BHT Alarm Pipeline — Cargo workspace (Stage 1: canonical model + normalization)
+# BHT Alarm Dashboard v7 — Cargo workspace
 [workspace]
 resolver = "2"
 members = ["crates/normalize", "crates/loader", "crates/poller", "crates/api", "crates/neteco-poller"]
 
 [workspace.package]
+version = "0.9.0"
 edition = "2021"
 rust-version = "1.75"
 license = "proprietary"

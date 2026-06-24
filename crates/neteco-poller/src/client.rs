@@ -82,14 +82,18 @@ impl NetEcoClient {
             .await
             .context("login request")?;
 
-        // Token comes from the XSRF-TOKEN response header
+        // Token comes from the XSRF-TOKEN response header — extract before consuming resp
         let token = resp.headers()
             .get("xsrf-token")
             .or_else(|| resp.headers().get("XSRF-TOKEN"))
             .map(|v| v.to_str().unwrap_or("").to_string())
             .filter(|t| !t.is_empty());
 
-        let body: NbiResponse = resp.json().await.context("login response body")?;
+        let status = resp.status();
+        let raw = resp.text().await.context("login response read")?;
+        eprintln!("[neteco] login HTTP {status}, body preview: {}", &raw[..raw.len().min(400)]);
+
+        let body: NbiResponse = serde_json::from_str(&raw).context("login response parse")?;
         if body.fail_code != 0 {
             bail!("login failCode={}: {:?}", body.fail_code, body.message);
         }

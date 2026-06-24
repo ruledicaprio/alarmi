@@ -677,6 +677,7 @@ pub async fn system_status(State(st): State<AppState>) -> ApiResult {
         "services": {
             "bht-api":        unit_status("bht-api"),
             "bht-poller":     unit_status("bht-poller"),
+            "neteco-poller":  unit_status("neteco-poller"),
             "postgresql-16":  unit_status("postgresql-16"),
         },
         "disk_opt": disk,
@@ -689,9 +690,9 @@ pub async fn system_journal(Query(q): Query<HashMap<String, String>>) -> ApiResu
     use std::process::Command;
     let svc = str_of(&q, "service");
     // strict whitelist — never pass arbitrary strings to a subprocess
-    if !matches!(svc.as_str(), "bht-api" | "bht-poller" | "postgresql-16" | "crond") {
+    if !matches!(svc.as_str(), "bht-api" | "bht-poller" | "neteco-poller" | "postgresql-16" | "crond") {
         return Ok(Json(json!({ "error": "unknown service",
-            "allowed": ["bht-api","bht-poller","postgresql-16","crond"] })));
+            "allowed": ["bht-api","bht-poller","neteco-poller","postgresql-16","crond"] })));
     }
     let n: i64 = i64_of(&q, "lines", 100).clamp(10, 1000);
     let out = Command::new("journalctl")
@@ -1023,4 +1024,84 @@ pub async fn site_related(State(st): State<AppState>, Path(site_key): Path<Strin
         "region":     r.get::<_, String>("region"),
     })).collect();
     Ok(Json(json!({ "site_key": site_key, "items": items })))
+}
+
+// ============================================================ NETECO
+
+// ---- /api/neteco/alarms — NetEco NBI alarm list with server-side pagination + filters
+pub async fn neteco_alarms(
+    State(st): State<AppState>,
+    Query(q): Query<HashMap<String, String>>,
+) -> ApiResult {
+    let station:  String      = str_of(&q, "station");
+    let severity: Option<i16> = str_of(&q, "severity").parse().ok();
+    let status:   Option<i16> = str_of(&q, "status").parse().ok();
+    let limit:  i64 = i64_of(&q, "limit",  200).clamp(1, 1000);
+    let offset: i64 = i64_of(&q, "offset",   0).max(0);
+    let c = st.pool.get().await?;
+
+    let total: i64 = c.query_one(
+        "SELECT count(*)::int8 n FROM neteco.alarms \
+         WHERE ($1 = '' OR station_code = $1) \
+           AND ($2::smallint IS NULL OR severity = $2) \
+           AND ($3::smallint IS NULL OR status   = $3)",
+        &[&station, &severity, &status]).await?.get("n");
+
+    let rows = c.query(
+        "SELECT alarm_id, \
+                COALESCE(station_code,'')  station_code, \
+                COALESCE(station_name,'')  station_name, \
+                COALESCE(dev_name,'')      dev_name, \
+                COALESCE(std_type_name,'') std_type_name, \
+                COALESCE(alarm_name,'')    alarm_name, \
+                COALESCE(alarm_cause,'')   alarm_cause, \
+                alarm_type, severity, status, \
+                raise_time::text  raise_time, \
+                repair_time::text repair_time, \
+                source, last_seen::text last_seen \
+         FROM neteco.alarms \
+         WHERE ($1 = '' OR station_code = $1) \
+           AND ($2::smallint IS NULL OR severity = $2) \
+           AND ($3::smallint IS NULL OR status   = $3) \
+         ORDER BY raise_time DESC NULLS LAST \
+         LIMIT $4 OFFSET $5",
+        &[&station, &severity, &status, &limit, &offset]).await?;
+
+    let items: Vec<Value> = rows.iter().map(|r| json!({
+        "alarm_id":      r.get::<_, String>("alarm_id"),
+        "station_code":  r.get::<_, String>("station_code"),
+        "station_name":  r.get::<_, String>("station_name"),
+        "dev_name":      r.get::<_, String>("dev_name"),
+        "std_type_name": r.get::<_, String>("std_type_name"),
+        "alarm_name":    r.get::<_, String>("alarm_name"),
+        "alarm_cause":   r.get::<_, String>("alarm_cause"),
+        "alarm_type":    r.get::<_, Option<i16>>("alarm_type"),
+        "severity":      r.get::<_, Option<i16>>("severity"),
+        "status":        r.get::<_, Option<i16>>("status"),
+        "raise_time":    r.get::<_, Option<String>>("raise_time"),
+        "repair_time":   r.get::<_, Option<String>>("repair_time"),
+        "source":        r.get::<_, String>("source"),
+        "last_seen":     r.get::<_, Option<String>>("last_seen"),
+    })).collect();
+    Ok(Json(json!({ "total": total, "count": items.len(), "items": items })))
+}
+
+// ---- /api/neteco/alarms/summary — active counts by severity for the dashboard badge
+pub async fn neteco_alarm_summary(State(st): State<AppState>) -> ApiResult {
+    let c = st.pool.get().await?;
+    let row = c.query_one(
+        "SELECT \
+           count(*) FILTER (WHERE status = 1)                          AS active, \
+           count(*) FILTER (WHERE status = 1 AND severity = 1)         AS critical, \
+           count(*) FILTER (WHERE status = 1 AND severity = 2)         AS major, \
+           count(*) FILTER (WHERE status = 1 AND severity IN (3,4))    AS minor_warn, \
+           count(DISTINCT station_code) FILTER (WHERE status = 1)      AS affected_stations \
+         FROM neteco.alarms", &[]).await?;
+    Ok(Json(json!({
+        "active":            row.get::<_, i64>("active"),
+        "critical":          row.get::<_, i64>("critical"),
+        "major":             row.get::<_, i64>("major"),
+        "minor_warn":        row.get::<_, i64>("minor_warn"),
+        "affected_stations": row.get::<_, i64>("affected_stations"),
+    })))
 }
