@@ -43,6 +43,7 @@ export interface Site {
   region: string
   municipality: string
   open_alarms: number
+  worst_severity: Severity | null
   last_event: string
 }
 

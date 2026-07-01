@@ -6,6 +6,13 @@ import { Link } from 'react-router-dom'
 import { api, qs, ALL_SOURCES } from '../api'
 import { SEV_COLOR } from '../colors'
 import { SeverityTag, ClassTag, SourceTag } from '../components/Tags'
+
+function fmtMinutes(m: number): string {
+  if (m < 60) return `${Math.round(m)}m`
+  const h = Math.floor(m / 60)
+  const rem = Math.round(m % 60)
+  return rem > 0 ? `${h}h ${rem}m` : `${h}h`
+}
 import { formatTs, formatTsShort } from '../utils'
 
 interface BucketRow { bucket: string; n: number; critical: number; major: number; other: number }
@@ -130,7 +137,13 @@ export default function Dashboard() {
             { title: 'Source', dataIndex: 'source', render: v => <SourceTag v={v as any} /> },
             { title: 'Events (24h)', dataIndex: 'events_24h', align: 'right' },
             { title: 'Last event',  dataIndex: 'last_event',  render: v => formatTs(v as string) },
-            { title: 'Last ingest', dataIndex: 'last_ingest', render: v => formatTs(v as string) },
+            { title: 'Last ingest', dataIndex: 'last_ingest', render: v => {
+              const ts = v as string
+              if (!ts) return '—'
+              const ageMin = (Date.now() - new Date(ts.replace(' ', 'T')).getTime()) / 60_000
+              const color = ageMin < 5 ? '#52c41a' : ageMin < 30 ? '#fa8c16' : '#cf1322'
+              return <span style={{ color, fontWeight: ageMin >= 5 ? 600 : undefined }}>{formatTs(ts)}</span>
+            }},
           ]}
         />
       </ProCard>
@@ -141,10 +154,11 @@ export default function Dashboard() {
           pagination={{ pageSize: 8, simple: true }}
           dataSource={active} rowKey={r => r.site_key + r.alarm_class + r.raised_at}
           columns={[
-            { title: 'Site',     dataIndex: 'site_key',    render: v => <Link to={`/sites/${encodeURIComponent(v as string)}`}>{v as string}</Link> },
-            { title: 'Class',    dataIndex: 'alarm_class', render: v => <ClassTag v={v as string} /> },
-            { title: 'Sev',      dataIndex: 'severity',    render: v => <SeverityTag v={v as any} /> },
-            { title: 'Open min', dataIndex: 'open_minutes', align: 'right', render: v => (v as number).toFixed(0) },
+            { title: 'Site',    dataIndex: 'site_key',    render: v => <Link to={`/sites/${encodeURIComponent(v as string)}`}>{v as string}</Link> },
+            { title: 'Class',   dataIndex: 'alarm_class', render: v => <ClassTag v={v as string} /> },
+            { title: 'Sev',     dataIndex: 'severity',    render: v => <SeverityTag v={v as any} /> },
+            { title: 'Source',  dataIndex: 'source',      render: v => <SourceTag v={v as any} /> },
+            { title: 'Open',    dataIndex: 'open_minutes', align: 'right', render: v => fmtMinutes(v as number) },
           ]}
         />
       </ProCard>

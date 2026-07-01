@@ -19,8 +19,7 @@ interface RelatedRow { site_key: string; ip_overlap: number; region: string }
 interface VerSummary { last_verified_at: string; last_verified_by: string; events_since: number }
 interface VerRow     { id: number; verified_at: string; verified_by: string; notes: string; events_through: string; ip_inventory: string[]; region_confirmed: string }
 
-const SOURCE_Y: Record<string, number> = Object.fromEntries(ALL_SOURCES.map((s, i) => [s, i + 1]))
-const SOURCE_TICKS = ALL_SOURCES.map((s, i) => ({ y: i + 1, label: s }))
+// Built dynamically from timeline data — see scatterPoints below
 
 export default function SiteDetail() {
   const { siteKey = '' } = useParams()
@@ -36,6 +35,7 @@ export default function SiteDetail() {
   const [verifyOpen, setVerifyOpen] = useState(false)
   const [loading, setLoading] = useState(true)
   const [timelineHours, setTimelineHours] = useState(168)
+  const [eventsHours, setEventsHours] = useState(672)
 
   const loadAll = () => {
     setLoading(true)
@@ -71,9 +71,14 @@ export default function SiteDetail() {
 
   if (loading) return <Spin style={{ display:'block', margin:'80px auto' }} />
 
+  // Derive only the sources that actually appear in this site's timeline
+  const activeSources = ALL_SOURCES.filter(s => timeline.some(e => e.source === s))
+  const sourceY: Record<string, number> = Object.fromEntries(activeSources.map((s, i) => [s, i + 1]))
+  const sourceTicks = activeSources.map((s, i) => ({ y: i + 1, label: s }))
+
   const scatterPoints = timeline.map(e => ({
     x: new Date(e.event_time).getTime(),
-    y: SOURCE_Y[e.source] || 0,
+    y: sourceY[e.source] || 0,
     severity: e.severity, raw: e.raw_alarm, class: e.alarm_class, source: e.source, when: e.event_time,
   }))
 
@@ -160,15 +165,15 @@ export default function SiteDetail() {
                 }
               >
                 {timeline.length === 0 ? <Empty /> : (
-                  <ResponsiveContainer width="100%" height={Math.max(280, ALL_SOURCES.length * 34)}>
+                  <ResponsiveContainer width="100%" height={Math.max(200, activeSources.length * 44 + 60)}>
                     <ScatterChart margin={{ left: 100, right: 16, top: 8, bottom: 24 }}>
                       <CartesianGrid strokeDasharray="3 3" />
                       <XAxis dataKey="x" type="number" domain={['auto','auto']}
                         tickFormatter={(t) => new Date(t).toISOString().slice(5, 16).replace('T',' ')}
                         tick={{ fontSize: 11 }} />
-                      <YAxis dataKey="y" type="number" domain={[0, ALL_SOURCES.length + 1]}
-                        ticks={SOURCE_TICKS.map(s => s.y)}
-                        tickFormatter={(y) => SOURCE_TICKS.find(s => s.y === y)?.label || ''}
+                      <YAxis dataKey="y" type="number" domain={[0, activeSources.length + 1]}
+                        ticks={sourceTicks.map(s => s.y)}
+                        tickFormatter={(y) => sourceTicks.find(s => s.y === y)?.label || ''}
                         tick={{ fontSize: 11 }} width={120} />
                       <ZAxis range={[40,40]} />
                       <Tooltip content={({ active, payload }) => {
@@ -200,12 +205,17 @@ export default function SiteDetail() {
               <ProTable<RecentEvent>
                 rowKey={r => r.event_time + r.alarm_class + r.transition}
                 search={false} options={false}
+                params={{ eventsHours }}
                 request={async (params) => {
                   const offset = ((params.current ?? 1) - 1) * (params.pageSize ?? 50)
                   const d = await api<{items: RecentEvent[]; total: number}>(
-                    `/api/alarms/recent${qs({ hours: 168 * 4, limit: params.pageSize ?? 50, offset, site: siteKey })}`)
+                    `/api/alarms/recent${qs({ hours: eventsHours, limit: params.pageSize ?? 50, offset, site: siteKey })}`)
                   return { data: d.items, success: true, total: d.total }
                 }}
+                toolbar={{ actions: [
+                  <Select key="h" value={eventsHours} onChange={setEventsHours} style={{ width: 100 }}
+                    options={[{value:168,label:'7d'},{value:672,label:'4w'},{value:2160,label:'90d'}]} />,
+                ]}}
                 pagination={{ defaultPageSize: 50 }}
                 columns={[
                   { title: 'Time',  dataIndex: 'event_time', width: 175, render: v => formatTs(v as string) },

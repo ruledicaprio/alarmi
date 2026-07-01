@@ -4,6 +4,7 @@ import { Tag } from 'antd'
 import { Link } from 'react-router-dom'
 import { api, qs, type Site } from '../api'
 import { formatTs, tsSorter } from '../utils'
+import { SeverityTag } from '../components/Tags'
 
 export default function Sites() {
   const ref = useRef<ActionType>()
@@ -27,11 +28,15 @@ export default function Sites() {
     },
     { title: 'Municipality', dataIndex: 'municipality', hideInSearch: true, ellipsis: true, width: 160 },
     {
-      title: 'Open alarms', dataIndex: 'open_alarms', width: 130, sorter: true, align: 'right',
+      title: 'Open alarms', dataIndex: 'open_alarms', width: 160, sorter: true, align: 'right',
       hideInSearch: true,
-      render: v => {
+      render: (v, r) => {
         const n = v as number
-        return n > 0 ? <Tag color="red">{n}</Tag> : <Tag color="green">0</Tag>
+        if (n === 0) return <Tag color="green">0</Tag>
+        return <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}>
+          <Tag color="red" style={{ margin: 0 }}>{n}</Tag>
+          {r.worst_severity && <SeverityTag v={r.worst_severity as any} />}
+        </span>
       },
     },
     {

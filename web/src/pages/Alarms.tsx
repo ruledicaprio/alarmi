@@ -14,7 +14,7 @@ const TRANSITIONS: Transition[] = ['raise','clear','instant']
 const POLL_MS = 30_000
 
 function rowStyle(r: RecentEvent): React.CSSProperties {
-  // Cleared events are dimmed; active raises get a severity tint.
+  // Cleared events are dimmed; raises and instants get a severity tint.
   if (r.transition === 'clear') return { opacity: 0.55 }
   switch (r.severity) {
     case 'critical': return { background: '#fff1f0' }
@@ -183,7 +183,7 @@ export default function Alarms() {
               <option value={1}>1h</option><option value={6}>6h</option>
               <option value={24}>24h</option><option value={72}>3d</option>
               <option value={168}>7d</option><option value={720}>30d</option>
-              <option value={100000}>All</option>
+              <option value={2160}>90d</option>
             </select>
           </Space>,
           <Button key="e" icon={<DownloadOutlined />}

@@ -16,6 +16,7 @@ interface SysStatus {
   disk_opt: { size: string; used: string; avail: string; use_pct: string } | null
   api_version: string
 }
+interface SourceRow { source: string; last_ingest: string }
 
 const SERVICES = ['bht-api','bht-poller','postgresql-16','crond'] as const
 type Service = typeof SERVICES[number]
@@ -31,8 +32,22 @@ function ActiveTag({ s }: { s: string }) {
   return <Tag color={color}>{s}</Tag>
 }
 
+function snmpPollerHealth(sources: SourceRow[]): { label: string; color: string; ageMin: number | null } {
+  const snmpSources = ['u2020', 'rps_sc300', 'rps_sc200', 'baran']
+  const latest = sources
+    .filter(s => snmpSources.includes(s.source) && s.last_ingest)
+    .map(s => new Date(s.last_ingest.replace(' ', 'T')).getTime())
+    .sort((a, b) => b - a)[0]
+  if (!latest) return { label: 'no data', color: '#aaa', ageMin: null }
+  const ageMin = (Date.now() - latest) / 60_000
+  if (ageMin < 5)  return { label: 'active',   color: '#52c41a', ageMin }
+  if (ageMin < 30) return { label: 'degraded',  color: '#fa8c16', ageMin }
+  return { label: 'silent', color: '#cf1322', ageMin }
+}
+
 export default function System() {
   const [status, setStatus] = useState<SysStatus | null>(null)
+  const [snmpSources, setSnmpSources] = useState<SourceRow[]>([])
   const [svc, setSvc] = useState<Service>('bht-api')
   const [lines, setLines] = useState(100)
   const [log, setLog] = useState('')
@@ -40,6 +55,7 @@ export default function System() {
 
   const loadStatus = () => {
     api<SysStatus>('/api/system/status').then(setStatus).catch(e => message.error(String(e)))
+    api<{items: SourceRow[]}>('/api/stats/sources').then(d => setSnmpSources(d.items || [])).catch(() => {})
   }
   const loadJournal = () => {
     setLoading(true)
@@ -64,6 +80,19 @@ export default function System() {
         <StatisticCard.Divider />
         <StatisticCard statistic={{ title: 'postgresql-16', value: status.services['postgresql-16'].active,
           description: <ActiveTag s={status.services['postgresql-16'].sub} /> }} />
+        <StatisticCard.Divider />
+        {(() => {
+          const h = snmpPollerHealth(snmpSources)
+          const desc = h.ageMin != null ? `last ingest ${Math.round(h.ageMin)}m ago` : 'no SNMP events seen'
+          return (
+            <StatisticCard statistic={{
+              title: 'snmp-poller (ext)',
+              value: h.label,
+              valueStyle: { color: h.color },
+              description: <span style={{ fontSize: 11, color: '#888' }}>{desc}</span>,
+            }} />
+          )
+        })()}
         <StatisticCard.Divider />
         <StatisticCard statistic={{ title: 'API version', value: status.api_version }} />
       </StatisticCard.Group>

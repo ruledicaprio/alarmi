@@ -48,9 +48,22 @@ pub async fn sites(State(st): State<AppState>, Query(q): Query<HashMap<String, S
         "SELECT s.site_key, COALESCE(s.display_name,'') name, COALESCE(s.region,'') region, \
                 COALESCE(s.municipality,'') municipality, \
                 COALESCE(a.open,0)::int8 open_alarms, \
+                CASE \
+                    WHEN COALESCE(a.open,0) = 0       THEN NULL \
+                    WHEN COALESCE(a.sev_critical,false) THEN 'critical' \
+                    WHEN COALESCE(a.sev_major,false)    THEN 'major' \
+                    WHEN COALESCE(a.sev_minor,false)    THEN 'minor' \
+                    WHEN COALESCE(a.sev_warning,false)  THEN 'warning' \
+                    ELSE 'info' \
+                END worst_severity, \
                 COALESCE(le.t::text, '') last_event \
          FROM dim_site s \
-         LEFT JOIN (SELECT site_key, count(*) open FROM fact_alarm_episode WHERE is_open GROUP BY 1) a \
+         LEFT JOIN (SELECT site_key, count(*) open, \
+                           bool_or(severity::text = 'critical') AS sev_critical, \
+                           bool_or(severity::text = 'major')    AS sev_major, \
+                           bool_or(severity::text = 'minor')    AS sev_minor, \
+                           bool_or(severity::text = 'warning')  AS sev_warning \
+                    FROM fact_alarm_episode WHERE is_open GROUP BY 1) a \
            USING (site_key) \
          LEFT JOIN (SELECT site_key, MAX(event_time) t FROM fact_event GROUP BY 1) le \
            USING (site_key) \
@@ -62,12 +75,13 @@ pub async fn sites(State(st): State<AppState>, Query(q): Query<HashMap<String, S
         &[&query, &region, &min_open, &limit, &offset]).await?;
 
     let items: Vec<Value> = rows.iter().map(|r| json!({
-        "site_key":     r.get::<_, String>("site_key"),
-        "name":         r.get::<_, String>("name"),
-        "region":       r.get::<_, String>("region"),
-        "municipality": r.get::<_, String>("municipality"),
-        "open_alarms":  r.get::<_, i64>("open_alarms"),
-        "last_event":   r.get::<_, String>("last_event"),
+        "site_key":        r.get::<_, String>("site_key"),
+        "name":            r.get::<_, String>("name"),
+        "region":          r.get::<_, String>("region"),
+        "municipality":    r.get::<_, String>("municipality"),
+        "open_alarms":     r.get::<_, i64>("open_alarms"),
+        "worst_severity":  r.get::<_, Option<String>>("worst_severity"),
+        "last_event":      r.get::<_, String>("last_event"),
     })).collect();
     Ok(Json(json!({ "count": items.len(), "total": total, "items": items })))
 }

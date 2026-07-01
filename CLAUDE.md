@@ -304,6 +304,9 @@ For multi-step tasks, state a brief plan:
 - Rocky has **no `tar`** — use `python3 tarfile` or `rocky_deploy.sh`
 - Config files: `/opt/bht/config/{api,poller,devices,eaton_alarms,datakom_alarms,smartlogger_alarms,neteco}.toml` + `.neteco.env`
 - SELinux disabled on Rocky
+- **192.168.132.117** (SNMP log server): Python 2.4.3, user `rusmir`, no write access
+  outside `/tmp`, no sudo/su without TTY. Transfer via Python HTTP → curl (same as Rocky).
+  Poller script and state file live in `/tmp` — must be re-deployed after server reboot.
 
 ### What NOT to do
 - Don't modify systemd unit files or DB schema without explicit instruction
