@@ -190,20 +190,32 @@ def _site_key(raw):
     return s.strip("_")
 
 
-def _parse_ts(s):
+def _parse_ts(s, offset_hours=None):
+    if offset_hours is None:
+        offset_hours = UTC_OFFSET_HOURS
     s = re.sub(r"\s+", " ", s.strip().replace("_", " "))
     try:
         # datetime.strptime not available until Python 2.5; use time.strptime
         t = time.strptime(s, "%Y-%m-%d %H:%M:%S")
         dt = datetime.datetime(t[0], t[1], t[2], t[3], t[4], t[5])
-        dt_utc = dt - datetime.timedelta(hours=UTC_OFFSET_HOURS)
+        dt_utc = dt - datetime.timedelta(hours=offset_hours)
         return dt_utc.strftime("%Y-%m-%dT%H:%M:%SZ")
     except ValueError:
         return None
 
 
-def _ev(source, raw_site, raw_alarm, sev_token, ts_raw, ip=None, region=""):
-    ts = _parse_ts(ts_raw)
+def _ts_is_future(ts_iso, tolerance_min=5):
+    """Return True if ts_iso (UTC ISO string) is more than tolerance_min minutes in the future."""
+    try:
+        t = time.strptime(ts_iso, "%Y-%m-%dT%H:%M:%SZ")
+        dt = datetime.datetime(t[0], t[1], t[2], t[3], t[4], t[5])
+        return dt > datetime.datetime.utcnow() + datetime.timedelta(minutes=tolerance_min)
+    except ValueError:
+        return False
+
+
+def _ev(source, raw_site, raw_alarm, sev_token, ts_raw, ip=None, region="", ts_offset=None):
+    ts = _parse_ts(ts_raw, ts_offset)
     if not ts:
         return None
     return {
@@ -298,13 +310,25 @@ def _parse_record(hdr, oid_lines):
         restore = o.get("M2000-V1::iMAPNorthboundAlarmRestore.0", "")
         if restore.lower() == "cleared":
             sev = "cleared"
-            ts  = (o.get("M2000-V1::iMAPNorthboundAlarmRestoreTime.0") or
-                   o.get("M2000-V1::iMAPNorthboundAlarmOccurTime.0")  or ts_h)
+            ts_oid = (o.get("M2000-V1::iMAPNorthboundAlarmRestoreTime.0") or
+                      o.get("M2000-V1::iMAPNorthboundAlarmOccurTime.0"))
         else:
-            ts  = o.get("M2000-V1::iMAPNorthboundAlarmOccurTime.0", ts_h)
+            ts_oid = o.get("M2000-V1::iMAPNorthboundAlarmOccurTime.0")
+        # NetEco OID timestamps (OccurTime/RestoreTime) are in UTC → offset 0.
+        # Header ts_h is the SNMP manager's local time (CEST) → UTC_OFFSET_HOURS.
+        # If the OID value is > 5 min in the future (NetEco sends scheduled repair
+        # times, not actual times), fall back to the header clock which is accurate.
+        if ts_oid:
+            candidate = _parse_ts(ts_oid, 0)
+            if candidate and not _ts_is_future(candidate):
+                ts, ts_off = ts_oid, 0    # OID UTC is plausible
+            else:
+                ts, ts_off = ts_h, None   # OID is future → use CEST header
+        else:
+            ts, ts_off = ts_h, None
         if not site or not alarm:
             return None
-        return _ev("net_eco", site, alarm, sev, ts, ip)
+        return _ev("net_eco", site, alarm, sev, ts, ip, ts_offset=ts_off)
 
     m = _BARAN_RX.match(hdr)
     if m:
