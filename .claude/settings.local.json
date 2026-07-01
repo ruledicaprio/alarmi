@@ -12,7 +12,8 @@
       "PowerShell(wsl --exec bash -c \"cd ~/alarmi-repo/web && npx tsc --noEmit 2>&1; echo EXIT:$?\")",
       "PowerShell(wsl bash -c \"cd ~/alarmi-repo/web && npx tsc --noEmit 2>&1; echo EXIT:\\\\$?\")",
       "PowerShell(wsl -d Ubuntu -- bash -c \"cd /home/rusmir/alarmi-repo/web && npx tsc --noEmit 2>&1; echo EXIT:\\\\$?\")",
-      "Bash(node_modules/.bin/tsc --noEmit)"
+      "Bash(node_modules/.bin/tsc --noEmit)",
+      "Bash(git add *)"
     ]
   },
   "enabledMcpjsonServers": [

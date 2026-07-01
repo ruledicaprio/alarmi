@@ -1,5 +1,10 @@
 # alarmi-repo — Project Context
 
+## Agent Protocol
+Read `AGENT_PROTOCOL.md` at the start of every session — it defines the dual-loop
+operating model (product loop + context-maintenance loop) and resource-governance
+rules layered on top of this file.
+
 ## Stack
 - **Backend**: Rust (`crates/`) — `bht-api` (Axum REST), `bht-poller` (device polling)
 - **Frontend**: Vite + TypeScript (`web/`) — static SPA
