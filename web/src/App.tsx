@@ -1,8 +1,10 @@
 import { ProLayout } from '@ant-design/pro-components'
 import { Routes, Route, Navigate, useNavigate, useLocation, Link } from 'react-router-dom'
 import { Button, Space, Tooltip } from 'antd'
-import { SunOutlined, MoonOutlined, DashboardOutlined, AlertOutlined, ClusterOutlined, AuditOutlined, ThunderboltOutlined, DesktopOutlined, TeamOutlined, GlobalOutlined, CloudServerOutlined } from '@ant-design/icons'
+import { SunOutlined, MoonOutlined, DashboardOutlined, AlertOutlined, ClusterOutlined, AuditOutlined, DesktopOutlined, TeamOutlined, GlobalOutlined } from '@ant-design/icons'
 import BhLogo from './components/BhLogo'
+import HuaweiIcon from './components/HuaweiIcon'
+import SolarIcon from './components/SolarIcon'
 import Dashboard from './pages/Dashboard'
 import Alarms from './pages/Alarms'
 import Sites from './pages/Sites'
@@ -21,8 +23,8 @@ const ROUTES = {
     { path: '/alarms',    name: 'Alarms',    icon: <AlertOutlined /> },
     { path: '/sites',     name: 'Sites',     icon: <ClusterOutlined /> },
     { path: '/map',       name: 'Map',       icon: <GlobalOutlined /> },
-    { path: '/neteco',    name: 'NetEco',    icon: <CloudServerOutlined /> },
-    { path: '/solar',     name: 'Solar PV',  icon: <ThunderboltOutlined /> },
+    { path: '/neteco',    name: 'NetEco',    icon: <HuaweiIcon /> },
+    { path: '/solar',     name: 'Solar PV',  icon: <SolarIcon /> },
     { path: '/inventory', name: 'Inventory', icon: <AuditOutlined /> },
     { path: '/system',    name: 'System',    icon: <DesktopOutlined /> },
     { path: '/admin',     name: 'Admin',     icon: <TeamOutlined /> },
@@ -45,11 +47,21 @@ export default function App({ dark, setDark }: { dark: boolean; setDark: (b: boo
       location={{ pathname: loc.pathname }}
       menuItemRender={(item, dom) =>
         <a onClick={(e) => { e.preventDefault(); nav(item.path || '/') }}>{dom}</a>}
-      menuHeaderRender={(logoDom, titleDom) => (
-        <Link to="/dashboard" style={{ display: 'flex', alignItems: 'center', gap: 10, paddingLeft: 4 }}>
-          {logoDom}{titleDom}
-        </Link>
-      )}
+      menuHeaderRender={(logoDom, _titleDom, props) => {
+        const current = ROUTES.routes.find(
+          r => loc.pathname === r.path || loc.pathname.startsWith(r.path + '/')
+        )
+        return (
+          <Link to="/dashboard" style={{ display: 'flex', alignItems: 'center', gap: 10, paddingLeft: 4 }}>
+            {logoDom}
+            {props?.collapsed !== true && (
+              <h1 style={{ margin: 0, fontWeight: 600, fontSize: 18, lineHeight: '32px', overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis' }}>
+                {current?.name ?? 'Dashboard'}
+              </h1>
+            )}
+          </Link>
+        )
+      }}
       rightContentRender={() => (
         <Space size="middle" style={{ paddingRight: 16 }}>
           <Tooltip title={dark ? 'Switch to light mode' : 'Switch to dark mode'}>
