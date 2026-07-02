@@ -1,0 +1,25 @@
+{
+  "name": "bht-alarm-agent",
+  "version": "0.1.0",
+  "description": "Mastra RAG agent for BHT alarm dashboard — Qwen3-8B + Qdrant, fully air-gapped",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "mastra dev",
+    "build": "mastra build",
+    "start": "mastra start"
+  },
+  "dependencies": {
+    "@ai-sdk/openai": "latest",
+    "@mastra/core": "latest",
+    "@mastra/libsql": "latest",
+    "@mastra/memory": "latest",
+    "@qdrant/js-client-rest": "latest",
+    "mastra": "latest",
+    "zod": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.0.0"
+  }
+}

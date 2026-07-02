@@ -21,7 +21,8 @@
       "PowerShell(Get-Content \"E:\\\\alarm-dashboard\\\\snmp\\\\ljutoc.log\" | Select-String \"^ALARM\" | Select-Object -First 30 | ForEach-Object { $_.Line })",
       "PowerShell(Get-Content \"E:\\\\alarm-dashboard\\\\snmp\\\\ljutoc.log\" | Select-String \"^ALARM\" | Select-Object -Last 30 | ForEach-Object { $_.Line })",
       "Bash(claude agents *)",
-      "Bash(claude resume *)"
+      "Bash(claude resume *)",
+      "WebSearch"
     ]
   },
   "enabledMcpjsonServers": [

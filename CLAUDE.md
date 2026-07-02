@@ -146,6 +146,7 @@ Stop and ask if any of the following would be violated:
 - Rocky has **no `tar`** → use `python3 tarfile` or `rocky_deploy.sh`
 - Config files: `/opt/bht/config/*.toml` + `.neteco.env`
 - SELinux disabled on Rocky
+- **docker-host (Ubuntu 24.04, user `rusmir`)**: same air-gap pattern as Rocky — `docker build` on workstation → `docker save | gzip` → python http.server + curl transfer → `docker load` on docker-host. Never `docker pull` or `npm install` on docker-host directly. Use `--network host` so containers reach llama-server on `localhost:8080-8082`.
 
 > **Manual deployment steps** have been moved to `docs/MANUAL_DEPLOY.md`.
 > The Automation Rules above supersede them for all agent-driven tasks.

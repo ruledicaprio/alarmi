@@ -17,6 +17,16 @@ config/staging/neteco.toml
 # Environment files with secrets
 .env
 
+# Agent runtime
+agent/node_modules/
+agent/.mastra/
+agent/alarm-agent.db
+
+# SNMP log files — large, analysis-only, not source
+snmp/*.log
+snmp/*.txt
+snmp/**/*.download
+
 # Editor / OS
 .DS_Store
 *.swp

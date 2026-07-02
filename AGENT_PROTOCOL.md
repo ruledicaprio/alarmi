@@ -55,7 +55,7 @@ Before any code change:
 - **Summarise large output** – keep raw logs in the shell/file.
 - **Use the task list** for multi-step chains; don't rely on scrollback memory.
 - **Sliding attention**: finish one layer (Rust, SQL, TS) before moving to the next.
-- If a task will clearly exceed a reasonable single-session budget, say so upfront and propose splitting.
+- If a task will clearly require **more than 10 file reads**, say so upfront and propose a split point before writing any code.
 
 ## 4. Double-Commit Output Rule
 After completing a milestone:
