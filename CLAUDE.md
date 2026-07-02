@@ -42,6 +42,13 @@ deploy/
   bht-poller.service
 snmp/
   *.log                      ← SNMP trap log files (large; stream with grep/awk only — never cat whole)
+agent/                       ← Mastra RAG agent (targets docker-host, NOT Rocky)
+  Dockerfile                 ← build on workstation → docker save → transfer → docker load
+  src/mastra/
+    index.ts                 ← entry point; starts RAG indexer
+    agents/alarm-agent.ts    ← BHT Alarm Assistant (Qwen3-8B, 8 tools)
+    tools/                   ← alarm-tools.ts, site-tools.ts, rag-tool.ts
+    rag/                     ← embedder.ts, qdrant.ts, indexer.ts
 Cargo.toml            ← workspace root (members: normalize, loader, poller, api)
 ```
 
@@ -59,6 +66,8 @@ Cargo.toml            ← workspace root (members: normalize, loader, poller, ap
 | **Add device metric** | `crates/bht-poller/src/metrics.rs`, `devices.toml` example | — | — |
 | **DB schema change** | — | `db/migrations/NNN_description.sql` → apply via psql → run `SELECT rebuild_episodes();` | — |
 | **New dashboard page** | — | — | `web/src/pages/`, `components/`, route in `App.tsx` |
+| **New agent tool** | — | — | `agent/src/mastra/tools/`, register in `alarm-agent.ts` |
+| **Agent rebuild** | — | — | `bash deploy/build_agent_docker.sh` → transfer → `docker load` on docker-host |
 
 ## Safety Rails (hard stops)
 Stop and ask if any of the following would be violated:

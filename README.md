@@ -189,6 +189,38 @@ alarmi-repo/
 └── README.md
 ```
 
+## AI Agent
+
+A Mastra-based RAG agent lives in `agent/`. It runs on **docker-host** (not Rocky) and provides natural-language access to alarm data.
+
+**Stack:**
+- LLM: Qwen3-8B via llama-server (`:8080`, OpenAI-compatible)
+- Embeddings: Qwen3-Embedding-0.6B (`:8081`)
+- Reranker: Qwen3-Reranker-0.6B (`:8082`)
+- Vector store: Qdrant (`:6333`)
+- 8 tools: live bht-api queries + semantic RAG search over indexed alarm history
+
+**Build and deploy** (air-gapped — same curl-transfer pattern as Rocky):
+```bash
+# On workstation:
+bash deploy/build_agent_docker.sh
+# → ~/bht-alarm-agent-TIMESTAMP.tar.gz + ~/qdrant-latest.tar.gz
+# Serve via python3 -m http.server 8000, then curl + docker load on docker-host
+```
+
+**Run on docker-host:**
+```bash
+docker run -d --name bht-alarm-agent --restart always \
+  --network host \
+  -v /opt/bht-agent:/data \
+  --env-file /opt/bht-agent/.env \
+  -e LIBSQL_URL=file:///data/alarm-agent.db \
+  bht-alarm-agent:latest
+# Agent UI + API at http://docker-host-ip:4111
+```
+
+See `agent/.env.example` for all configuration variables.
+
 ## Contributing
 This repository follows a **surgical-change** policy:
 
