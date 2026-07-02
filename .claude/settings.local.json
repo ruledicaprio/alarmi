@@ -13,7 +13,15 @@
       "PowerShell(wsl bash -c \"cd ~/alarmi-repo/web && npx tsc --noEmit 2>&1; echo EXIT:\\\\$?\")",
       "PowerShell(wsl -d Ubuntu -- bash -c \"cd /home/rusmir/alarmi-repo/web && npx tsc --noEmit 2>&1; echo EXIT:\\\\$?\")",
       "Bash(node_modules/.bin/tsc --noEmit)",
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git push *)",
+      "Bash(git config *)",
+      "PowerShell(Get-Item \"E:\\\\alarm-dashboard\\\\snmp\\\\sve_napajanjeran.log\", \"E:\\\\alarm-dashboard\\\\snmp\\\\ljutoc.log\" | Select-Object Name, @{n='MB';e={[math]::Round\\($_.Length/1MB,1\\)}})",
+      "PowerShell(Get-Content \"E:\\\\alarm-dashboard\\\\snmp\\\\ljutoc.log\" | Select-String \"^ALARM\" | Select-Object -First 30 | ForEach-Object { $_.Line })",
+      "PowerShell(Get-Content \"E:\\\\alarm-dashboard\\\\snmp\\\\ljutoc.log\" | Select-String \"^ALARM\" | Select-Object -Last 30 | ForEach-Object { $_.Line })",
+      "Bash(claude agents *)",
+      "Bash(claude resume *)"
     ]
   },
   "enabledMcpjsonServers": [

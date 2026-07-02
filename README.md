@@ -1,111 +1,205 @@
-# BHT Alarm Dashboard v0.9.0
+# Alarm Dashboard
 
-Multi-source alarm monitoring and telemetry platform for BHT Power & Cooling infrastructure.
+A full-stack monitoring dashboard for industrial alarm data, built for **air-gapped
+deployment** on Rocky Linux. It ingests alarms from Modbus and SNMP devices, stores
+them in a time-series database, and serves a reactive SPA for real-time supervision.
+
+## Table of Contents
+- [Overview](#overview)
+- [Tech Stack](#tech-stack)
+- [Architecture](#architecture)
+- [Prerequisites](#prerequisites)
+- [Development Setup](#development-setup)
+- [Building](#building)
+- [Deployment](#deployment)
+- [Configuration](#configuration)
+- [Database](#database)
+- [Project Structure](#project-structure)
+- [Contributing](#contributing)
+
+## Overview
+- **Backend** – Rust micro-services that poll devices over Modbus/SNMP, normalise
+  alarm payloads, and expose a REST API.
+- **Frontend** – Single-page application with dashboards, charts, and alarm tables.
+- **Database** – PostgreSQL + TimescaleDB for partitioned time-series storage and
+  efficient retention management.
+
+The system is designed for **offline operation**: all dependencies are vendored,
+binaries are statically linked, and no runtime internet access is required.
+
+## Tech Stack
+| Layer | Technology |
+| :---- | :--------- |
+| API server | Rust, Axum, Tokio |
+| Device pollers | Rust, Tokio-Modbus, custom SNMP |
+| Frontend | TypeScript, React 18, Vite, Ant Design 5, Recharts |
+| Database | PostgreSQL 16, TimescaleDB (hypertables) |
+| Target OS | Rocky Linux 9 (air-gapped) |
+| Build | Docker (MUSL cross-compilation) or native Rust toolchain |
 
 ## Architecture
-
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                    Sources (10 types)                       │
-│  Eaton SC200/300 · Smartlogger · Datakom · NetEco · SCADA  │
-└────────────┬──────────────────────────┬─────────────────────┘
-             │ Modbus/SNMP              │ REST (NBI)
-    ┌────────▼────────┐        ┌────────▼────────┐
-    │   bht-poller    │        │ bht-neteco-poller│
-    │  (async Modbus) │        │  (NetEco iSite) │
-    └────────┬────────┘        └────────┬────────┘
-             │                          │
-             └──────────┬───────────────┘
-                        │ canonical events → TimescaleDB
-               ┌────────▼────────┐
-               │   bht-normalize │  (shared library)
-               └────────┬────────┘
-                        │
-               ┌────────▼────────────────────────┐
-               │  PostgreSQL 16 + TimescaleDB     │
-               │  hypertable: fact_event (90d)    │
-               │  episodes:   fact_alarm_episode  │
-               │  aggregates: cagg_event_daily    │
-               └────────┬────────────────────────┘
-                        │
-               ┌────────▼────────┐
-               │    bht-api      │  Axum REST + SPA host
-               └────────┬────────┘
-                        │
-               ┌────────▼────────┐
-               │  React SPA      │  Vite · TypeScript · Ant Design 5
-               │  (bht-dashboard)│  9 pages · Recharts
-               └─────────────────┘
+[Devices] ──(Modbus/SNMP)──> [bht-poller / neteco-poller]
+                                         │
+                                (normalise & insert)
+                                         │
+                              [PostgreSQL + TimescaleDB]
+                                         │
+                    [bht-api] ── REST ──> [SPA (Vite + React)]
 ```
 
-## Crates
+- **`bht-poller`** – continuously polls configured Modbus devices, ingests alarm
+  events, and writes them to the database.
+- **`neteco-poller`** – SNMP-based poller for NetEco devices.
+- **`bht-api`** – Axum HTTP server that queries the database and serves both the
+  JSON API and the static frontend assets.
+- **Database** – hypertables partition alarm data by time; custom SQL functions
+  (`rebuild_episodes()`) maintain materialised state for dashboards.
 
-| Crate | Binary | Role |
-|---|---|---|
-| `bht-normalize` | — | Cross-source canonicalization library |
-| `bht-poller` | `bht-poller` | Async Modbus device polling (Eaton SC200/300, Smartlogger, Datakom) |
-| `bht-neteco-poller` | `neteco-poller` | NetEco iSitePower NBI REST poller |
-| `bht-api` | `bht-api` | Axum REST API + SPA static file server |
-| `bht-loader` | `bht-loader` | Bulk ispadnap log normalization (offline import) |
+The frontend is a Vite-built SPA that communicates exclusively with `bht-api`
+through `/api/v1` endpoints.
 
-## Quick Start (dev)
+## Prerequisites
+
+### Development (on a workstation with internet)
+- Rust toolchain (stable) with `x86_64-unknown-linux-musl` target
+- Node.js 18+ and npm
+- PostgreSQL 16 + TimescaleDB (for local testing)
+- Docker (optional, used for reproducible production builds)
+
+### Target Environment
+- Rocky Linux 9 machine (bare-metal or LXC)
+- PostgreSQL 16 with TimescaleDB extension
+- Static IP address, no internet access
+- Systemd for service management
+
+## Development Setup
 
 ```bash
-# 1. Start local DB
-docker compose -f deploy/docker-compose.yml up -d
-
-# 2. Apply schema
-bash deploy/rocky_apply_schema.sh
-
-# 3. Build frontend
-cd web && npm install && npm run build && cd ..
-
-# 4. Run API
-cargo run -p bht-api
-
-# 5. Open http://localhost:8080
+# Clone the repository
+git clone <repo-url>
+cd alarmi-repo
 ```
 
-## Build for Production (Rocky 9, MUSL)
-
+**Backend:**
 ```bash
-# Backend
-cargo build --release --target x86_64-unknown-linux-musl -p bht-api -p bht-poller
-
-# Frontend
-cd web && npm run build
-
-# Pack
-tar czf bht-upgrade.tar.gz \
-  -C target/x86_64-unknown-linux-musl/release bht-api bht-poller \
-  -C web dist
-
-# Deploy
-scp bht-upgrade.tar.gz root@192.168.108.88:~
-ssh root@192.168.108.88 bash rocky_deploy.sh bht-upgrade.tar.gz
+cargo build
+# Optionally run locally with a local Postgres
+DATABASE_URL=postgres://bht:password@localhost/alarms cargo run -p bht-api
 ```
+
+**Frontend:**
+```bash
+cd web
+npm install
+npm run dev       # Vite dev server at http://localhost:5173
+```
+
+The dev server proxies API calls to the backend; configure the proxy in
+`web/vite.config.ts` if needed.
+
+## Building
+
+### Production (MUSL, static binaries + frontend)
+```bash
+bash deploy/build_in_docker.sh
+```
+
+This uses Docker to produce three statically-linked binaries
+(`bht-api`, `bht-poller`, `neteco-poller`) and the frontend `dist/`.
+Everything is placed under `target/x86_64-unknown-linux-musl/release/` and
+`web/dist/`.
+
+**Verification:**
+```bash
+file target/x86_64-unknown-linux-musl/release/bht-api
+# must print: ... statically linked, stripped
+```
+
+A tarball for deployment is created manually after the build (see [Deployment](#deployment)).
+
+## Deployment
+Deployment targets an air-gapped Rocky Linux machine. The typical workflow:
+
+1. Build the tarball:
+   ```bash
+   tar czf bht-upgrade.tar.gz \
+     -C target/x86_64-unknown-linux-musl/release bht-api bht-poller neteco-poller \
+     -C "$PWD/web" dist
+   ```
+2. Transfer the tarball to the target (e.g., via HTTP server + `curl`, as `scp` is
+   usually blocked in air-gapped environments).
+3. On the target, extract and install (a helper script `rocky_deploy.sh` automates
+   the API + frontend part).
+
+**Important**: Configuration files (`/opt/bht/config/*.toml`) are **not** part of
+the tarball and must be maintained separately on the target.
+
+For full manual steps, see [`docs/MANUAL_DEPLOY.md`](docs/MANUAL_DEPLOY.md).
 
 ## Configuration
+All runtime configuration lives in TOML files on the target machine under
+`/opt/bht/config/`:
 
-| File | Purpose |
-|---|---|
-| `config/api.toml` | API bind address, DB DSN, static dir |
-| `config/poller.toml` | Poll interval, timeouts, circuit breaker |
-| `config/devices.toml` | Master device inventory |
-| `config/eaton_alarms.toml` | Eaton SC200/300 alarm class mapping |
-| `config/smartlogger_alarms.toml` | Smartlogger alarm mapping |
-| `config/datakom_alarms.toml` | Datakom alarm mapping |
-| `config/neteco.toml` | NetEco NBI credentials + polling config |
-| `config/staging/` | Staging environment overrides |
+- `api.toml` – listen address, database connection, CORS
+- `poller.toml` – Modbus timeouts, poll intervals
+- `devices.toml` – device list and register maps
+- `eaton_alarms.toml`, `datakom_alarms.toml`, … – alarm definition files
+- `.neteco.env` – environment file for the SNMP poller
 
-## Target Environment
+These files are never checked into the repository (except templates). Adjust them
+directly on the target.
 
-- **Host**: Rocky Linux 9 LXC (Proxmox), `192.168.108.88`
-- **Runtime user**: `bht`, install dir `/opt/bht`
-- **DB**: PostgreSQL 16 + TimescaleDB, database `alarms`
-- **Network**: Air-gapped, static IPs only
-- **Binary**: Static MUSL — zero dynamic dependencies
+## Database
+Migrations are plain SQL files stored in `db/migrations/`. Apply them in order:
+```bash
+psql -U bht -d alarms -f db/migrations/NNN_description.sql
+```
 
-## Data Model
+After schema changes, run the maintenance function:
+```sql
+SELECT rebuild_episodes();
+```
 
-See [`docs/DATA_MODEL.md`](docs/DATA_MODEL.md) for the canonical event schema, alarm taxonomy, and retention tiers.
+Hypertables and retention policies are configured once during setup (see
+`deploy/rocky_setup_timescaledb.sh`). All queries must respect the partitioning
+key (`time`) to avoid performance degradation.
+
+## Project Structure
+```
+alarmi-repo/
+├── crates/
+│   ├── bht-api/          # REST server
+│   ├── bht-poller/       # Modbus poller
+│   ├── neteco-poller/    # SNMP poller
+│   ├── normalize/        # Alarm normalization
+│   └── loader/           # Data loading utilities
+├── web/                  # React SPA (Vite)
+│   ├── src/
+│   │   ├── pages/        # Route components
+│   │   ├── components/   # Reusable UI
+│   │   ├── services/     # API client
+│   │   └── types/        # TypeScript interfaces
+│   └── vite.config.ts
+├── db/
+│   └── migrations/       # SQL migration files
+├── deploy/               # Build, deploy, and systemd scripts
+├── snmp/                 # SNMP trap log files (stream only — never cat whole)
+├── Cargo.toml            # Workspace definition
+└── README.md
+```
+
+## Contributing
+This repository follows a **surgical-change** policy:
+
+- Match existing code style and patterns.
+- Do not refactor unrelated code or add unrequested dependencies.
+- All new dependencies must compile for `x86_64-unknown-linux-musl`.
+- Database changes must be supplied as plain SQL scripts.
+- Frontend changes must respect the Ant Design component library.
+- After changing the database schema, always call `rebuild_episodes()`.
+
+For detailed development and automation rules, see [`CLAUDE.md`](CLAUDE.md) and
+[`AGENT_PROTOCOL.md`](AGENT_PROTOCOL.md).
+
+**License:** BH Telecom proprietary – internal use only.
