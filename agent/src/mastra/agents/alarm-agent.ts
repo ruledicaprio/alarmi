@@ -18,6 +18,7 @@ const llama = createOpenAI({
 });
 
 const storage = new LibSQLStore({
+  id: "bht-alarm-agent-storage",
   url: process.env.LIBSQL_URL ?? "file:./alarm-agent.db",
 });
 

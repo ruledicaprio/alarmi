@@ -13,7 +13,7 @@ FULL_TAG="${IMAGE_NAME}:${IMAGE_TAG}"
 OUTPUT="${HOME}/${IMAGE_NAME}-${IMAGE_TAG}.tar.gz"
 
 echo "[build-agent] Building Docker image: $FULL_TAG"
-docker build -t "$FULL_TAG" -t "${IMAGE_NAME}:latest" "$REPO_ROOT/agent"
+docker build --no-cache -t "$FULL_TAG" -t "${IMAGE_NAME}:latest" "$REPO_ROOT/agent"
 
 echo "[build-agent] Saving image → $OUTPUT"
 docker save "$FULL_TAG" | gzip > "$OUTPUT"
